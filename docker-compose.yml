@@ -1,0 +1,57 @@
+
+networks:
+  mynetworkapi:
+    name: mynetworkapi
+
+volumes:
+  sql_data:
+services:
+  sqlserverdocker:
+    container_name: sql-server-docker
+    image: mcr.microsoft.com/mssql/server:2022-latest
+    ports:
+      - 8006:1433
+    environment:
+      - ACCEPT_EULA=Y
+      - MSSQL_SA_PASSWORD=UEUA2025mj!*
+    networks:
+      - mynetworkapi
+    volumes:
+      - sql_data:/var/opt/mssql
+    healthcheck:
+      test: ["CMD", "/opt/mssql-tools/bin/sqlcmd", "-S", "tcp:localhost,1433", "-U", "sa", "-P", "UEUA2025mj!*", "-Q", "SELECT 1"]
+      interval: 10s
+      retries: 10
+      start_period: 30s
+      timeout: 5s
+    
+  
+  api.unidademprendimiento:
+    container_name: api-unidademprendimiento
+    image: ${DOCKER_REGISTRY-}apiunidademprendimiento
+    build:
+      context: ./API/API_UNIDADEMPRENDIMIENTO/src # Apunta a la raíz del proyecto backend
+      dockerfile: API/Api.UnidadEmprendimiento/Dockerfile
+    networks:
+      - mynetworkapi
+    depends_on:
+      - sqlserverdocker
+    ports:
+      - 5001:8081
+    environment:
+      - ASPNETCORE_ENVIRONMENT=Development
+      - ASPNETCORE_URLS=http://+:8081
+      - ConnectionDB=Server=sqlserverdocker,1433;Database=UNIDADEMPRENDIMIENTO;User Id=sa;Password=UEUA2025mj!*;MultipleActiveResultSets=True;TrustServerCertificate=True
+      
+  frontend:
+    container_name: frontend-unidademprendimiento
+    build:
+      context: ./FRONTEND/UNIDADEMPRENDIMIENTO
+      dockerfile: Dockerfile
+    networks:
+      - mynetworkapi
+    depends_on:
+      - api.unidademprendimiento
+    ports:
+      - "4200:80"
+

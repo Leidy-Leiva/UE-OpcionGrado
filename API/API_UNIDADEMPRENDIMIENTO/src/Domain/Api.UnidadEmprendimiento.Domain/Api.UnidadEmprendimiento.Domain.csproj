@@ -1,0 +1,18 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net8.0</TargetFramework>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Compile Remove="Entities\GES_EVALUACION\**" />
+    <Compile Remove="Entities\GES_FORMULARIO\**" />
+    <EmbeddedResource Remove="Entities\GES_EVALUACION\**" />
+    <EmbeddedResource Remove="Entities\GES_FORMULARIO\**" />
+    <None Remove="Entities\GES_EVALUACION\**" />
+    <None Remove="Entities\GES_FORMULARIO\**" />
+  </ItemGroup>
+
+</Project>
