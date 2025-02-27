@@ -1,0 +1,11 @@
+<!-- Ícono de Google Material Icons -->
+<span *ngIf="typeIcon === 'material'" class="material-icons" [class]="classList">
+    {{ name }}
+  </span>
+  
+  <!-- Ícono de Font Awesome -->
+  <i *ngIf="typeIcon === 'fontawesome'" [class]="'fa fa-' + name + ' ' + classList"></i>
+  
+  <!-- Ícono de Bootstrap Icons -->
+  <i *ngIf="typeIcon === 'bootstrap'" [class]="'bi bi-' + name + ' ' + classList"></i>
+  

@@ -1,0 +1,112 @@
+# Ver más sobre archivos ignorados en: http://help.github.com/ignore-files/
+
+# =========================
+# 🔹 Archivos de salida compilados (C#)
+# =========================
+**/bin/
+**/obj/
+**/Debug/
+**/Release/
+**/dist/
+**/tmp/
+**/out-tsc/
+**/bazel-out/
+
+# =========================
+# 🔹 Node.js y Angular
+# =========================
+node_modules/
+npm-debug.log
+yarn-error.log
+.yarn/
+.yarn-cache/
+.pnpm-store/
+.angular/cache
+/.eslintcache
+
+# Archivos generados por Angular
+FRONTEND/UNIDADEMPRENDIMIENTO/dist/
+FRONTEND/UNIDADEMPRENDIMIENTO/node_modules/
+FRONTEND/UNIDADEMPRENDIMIENTO/.angular/
+FRONTEND/UNIDADEMPRENDIMIENTO/.firebase/
+FRONTEND/UNIDADEMPRENDIMIENTO/.sass-cache/
+
+# Archivos de pruebas en Angular
+FRONTEND/UNIDADEMPRENDIMIENTO/**/*.spec.ts
+
+# Archivos temporales o de caché en el frontend
+FRONTEND/UNIDADEMPRENDIMIENTO/.cache/
+FRONTEND/UNIDADEMPRENDIMIENTO/.turbo/
+FRONTEND/UNIDADEMPRENDIMIENTO/.idea/
+FRONTEND/UNIDADEMPRENDIMIENTO/.vscode/
+
+# =========================
+# 🔹 Archivos de configuración de IDEs y editores
+# =========================
+.idea/
+.project
+.classpath
+.c9/
+*.launch
+.settings/
+*.sublime-workspace
+.vscode/*
+!.vscode/settings.json
+!.vscode/tasks.json
+!.vscode/launch.json
+!.vscode/extensions.json
+.history/
+
+# =========================
+# 🔹 Visual Studio / .NET
+# =========================
+.vs/
+*.suo
+*.user
+*.vs
+*.csproj.user
+
+# =========================
+# 🔹 Archivos de logs y temporales
+# =========================
+*.log
+*.tmp
+*.swp
+*.bak
+*.lock
+*.seed
+*.pid
+*.gz
+*.zip
+*.rar
+
+# =========================
+# 🔹 Archivos del sistema
+# =========================
+.DS_Store
+Thumbs.db
+ehthumbs.db
+Icon?
+desktop.ini
+
+# =========================
+# 🔹 Archivos específicos del backend
+# =========================
+API/API_UNIDADEMPRENDIMIENTO/Data/
+API/API_UNIDADEMPRENDIMIENTO/src/.vs/
+API/API_UNIDADEMPRENDIMIENTO/src/API/API/
+API/API_UNIDADEMPRENDIMIENTO/src/API/Api.UnidadEmprendimiento/Data/
+API/API_UNIDADEMPRENDIMIENTO/src/API/Api.UnidadEmprendimiento/bin/
+API/API_UNIDADEMPRENDIMIENTO/src/API/Api.UnidadEmprendimiento/obj/
+API/API_UNIDADEMPRENDIMIENTO/src/Application/Api.UnidadEmprendimiento.Application/bin/
+API/API_UNIDADEMPRENDIMIENTO/src/Application/Api.UnidadEmprendimiento.Application/obj/
+API/API_UNIDADEMPRENDIMIENTO/src/Data/Api.UnidadEmprendimiento.Data/bin/
+API/API_UNIDADEMPRENDIMIENTO/src/Data/Api.UnidadEmprendimiento.Data/obj/
+API/API_UNIDADEMPRENDIMIENTO/src/Domain/Api.UnidadEmprendimiento.Domain/bin/
+API/API_UNIDADEMPRENDIMIENTO/src/Domain/Api.UnidadEmprendimiento.Domain/obj/
+
+# =========================
+# 🔹 Asegurar que FRONTEND/ se detecte en Git
+# =========================
+!FRONTEND/
+!FRONTEND/*
