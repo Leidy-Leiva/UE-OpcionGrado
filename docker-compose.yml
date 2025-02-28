@@ -38,13 +38,19 @@ services:
       - sqlserverdocker
     ports:
       - 5001:8081
+    volumes:
+      - ./API/API_UNIDADEMPRENDIMIENTO/src:/app/source
+      - ~/.nuget/packages:/root/.nuget/packages # Cache de paquetes NuGet para evitar descargas innecesarias 
     environment:
       - ASPNETCORE_ENVIRONMENT=Development
       - ASPNETCORE_URLS=http://+:8081
       - ConnectionDB=Server=sqlserverdocker,1433;Database=UNIDADEMPRENDIMIENTO;User Id=sa;Password=UEUA2025mj!*;MultipleActiveResultSets=True;TrustServerCertificate=True
-      
+    command: ["dotnet","run", "--no-launch-profile", "--urls", "http://0.0.0.0:8081"]
+
   frontend:
     container_name: frontend-unidademprendimiento
+    image: node:lts-bullseye
+    working_dir: /app
     build:
       context: ./FRONTEND/UNIDADEMPRENDIMIENTO
       dockerfile: Dockerfile
@@ -52,6 +58,10 @@ services:
       - mynetworkapi
     depends_on:
       - api.unidademprendimiento
+    volumes:
+      - ./FRONTEND/UNIDADEMPRENDIMIENTO:/app
+      
     ports:
-      - "4200:80"
+      - "4200:4200"
+    command: ["npx", "ng", "serve", "--host", "0.0.0.0"]
 
