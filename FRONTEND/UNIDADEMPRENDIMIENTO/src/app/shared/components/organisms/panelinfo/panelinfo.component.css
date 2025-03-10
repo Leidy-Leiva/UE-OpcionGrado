@@ -1,0 +1,50 @@
+/* Define estilos para el contenedor del panel de información */
+:host {
+    display: block;
+    /* Variables de personalización propias para este panel */
+    background-color:var(--panel-bg-color,aqua) ;
+    padding:var(--panel-padding, 16px);
+    border-radius: var( --panel-border-radius 8px);
+
+  }
+
+
+  .card-pi{
+    background-color: var(--panel-bg-color, #e84f4f);
+    padding: var(--panel-padding, 16px);
+    border-radius: var(--panel-border-radius, 8px);
+    /* Puedes agregar más propiedades como box-shadow, etc. */
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    /* Hereda las variables para sus elementos internos */
+
+
+  }
+  
+  /* Aplica estilos al app-card que contiene el panel */
+
+  
+  /* Personaliza el contenido del card */
+  app-card div[card-content] {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+  }
+  
+  /* Opcional: estilos para el avatar si necesitas ajustar su posición */
+  app-card div[mat-card-avatar] {
+    margin-bottom: 16px;
+  }
+  
+  /* Estilos para que los labels dentro del panel usen la variable --label-color */
+  app-label {
+    --label-color: var(--label-color);
+  }
+  
+  /* Media query para hacerlo responsive */
+  @media (max-width: 600px) {
+    app-card {
+      max-width: 95%;
+      padding: 8px;
+    }
+  }
+  

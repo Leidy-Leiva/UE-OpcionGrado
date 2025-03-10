@@ -1,1 +1,58 @@
-<p>layout works!</p>
+<div class="layout">
+    <!-- Header global -->
+    <header class="layout__header">
+        <app-header
+          class="main-header"
+          title="Gestionar Emprendimientos"
+          icon="web_asset"
+          [buttons]="[
+            { icon: 'remove', classList: 'btn-success main-header__button', typeButton: 'button', disabled: false, iconColor:'#264390' },
+            { icon: 'crop_square', classList: 'btn-success main-header__button', typeButton: 'button', disabled: false, iconColor:'#264390' },
+            { icon: 'close', classList: 'btn-success main-header__button', typeButton: 'button', disabled: false, iconColor:'#264390' }
+          ]">
+        </app-header>
+        <app-header
+          class="secondary-header"
+          [buttons]="[
+            { icon: 'sync', title:'Recargar página', classList: 'reload-btn', typeButton: 'button', disabled: false, iconColor:'#91CA8A' },
+            { icon: 'help', title:'Ayuda', classList: 'help-btn', typeButton: 'button', disabled: false, iconColor: '#6995C3' }
+          ]">
+        </app-header>
+      </header>
+      
+    <!-- Cuerpo del layout -->
+    <div class="layout__body">
+      <aside class="layout__panel">
+        <app-header
+          class="layout-pi"
+          title="Panel de Información"
+          typeIcon="fontawesome"
+          icon="fa-solid fa-user"
+          [buttons]="[
+            { icon: 'chevron_right', classList: 'btn-success', typeButton: 'button', disabled: false }
+          ]">
+        </app-header>
+         <!-- <app-panelinfo
+         class="panel-info-layout">
+         </app-panelinfo>  -->
+        <!-- Otros contenidos del panel -->
+      </aside>
+  
+      <aside class="layout__menu">
+        <app-header
+          class="layout-menu"
+          title="Menú Opciones"
+          typeIcon="fontawesome"
+          icon="fa-solid fa-user"
+          [buttons]="[
+            { icon: 'chevron_right', classList: 'btn-success', typeButton: 'button', disabled: false, iconColor:'' }
+          ]">
+        </app-header>
+      </aside>
+      <main class="layout__content">
+        <ng-content></ng-content>
+
+      </main>
+    </div>
+  </div>
+  

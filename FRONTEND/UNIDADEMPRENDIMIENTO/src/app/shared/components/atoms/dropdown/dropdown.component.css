@@ -1,0 +1,43 @@
+::ng-deep .custom-dropdown {
+    width: 100%;
+  
+    mat-form-field {
+      display: block;
+      width: 100%;
+      border-radius: var(--dropdown-radius, 8px);
+  
+      .mat-mdc-text-field-wrapper {
+        background-color: var(--dropdown-bg, #f4f4f4);
+        padding: var(--dropdown-padding, 10px);
+        border-radius: var(--dropdown-radius, 8px);
+      }
+  
+      .mat-mdc-form-field-flex {
+        color: var(--dropdown-color-form, #f1efef);
+      }
+  
+      .mat-mdc-form-field-infix {
+        min-height: 40px;
+      }
+    }
+  
+    mat-select {
+      font-size: var(--dropdown-font-size, 16px);
+      color: var(--dropdown-color, #ffffff);
+    }
+  
+    mat-option {
+      font-size: var(--dropdown-font-size, 16px);
+      color: var(--dropdown-color, #b56060);
+      padding: var(--dropdown-option-padding, 8px 12px);
+  
+      &:hover {
+        background-color: var(--dropdown-option-bg, #ddd);
+      }
+    }
+  
+    .mat-mdc-select-arrow {
+      color: var(--dropdown-arrow-color, #333);
+    }
+  }
+  

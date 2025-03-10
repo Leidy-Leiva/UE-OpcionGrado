@@ -1,0 +1,19 @@
+<!-- Sección de título: ícono y label -->
+  <div class="title" *ngIf="title || icon">
+    <app-icon *ngIf="icon" [name]="icon" [typeIcon]="typeIcon" class="icon-title" ></app-icon>
+    <app-label *ngIf="title" [content]="title" class="title-header"></app-label>
+  </div>
+  <!-- Sección de controles: lista de botones (molécula buttonwithicon) -->
+  <div class="controls" *ngIf="buttons && buttons.length">
+    <ng-container *ngFor="let btn of buttons">
+      <app-buttonwithicon
+        class="btn-withicon"
+        [title]="btn.title"
+        [icon]="btn.icon"
+        [classList]="btn.classList"
+        [disabled]="btn.disabled"
+        [iconColor]="btn.iconColor">
+      </app-buttonwithicon>
+    </ng-container>
+  </div>
+

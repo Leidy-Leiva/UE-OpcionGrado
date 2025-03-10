@@ -1,0 +1,128 @@
+.layout {
+  height: 100vh;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.layout__header {
+  height: 56px;
+}
+
+/* Estilos específicos para cada variante de header */
+.main-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #CCD8E7;
+  padding: 0 10px;
+  height: 28px;
+  /* Sobrescribe las variables del header */
+  --header-color: #080748;
+  --icon-font-size: 0.7rem;
+  --color-icon-title:rgb(255, 255, 255);
+  --btn-withicon-gap:0px;
+  --btn-withicon-border-radius:3px;
+  --btn-withicon-bg:#E1F3FF;
+  --btn-icon-color:#15428B;
+  --btn-withicon-padding:0px;
+  --icon-title-transform:scale(2);
+  --btn-withicon-transition:all 0.3s ease-in-out;
+  --btn-border:0.1px solid #71A0DD;
+
+}
+
+.secondary-header {
+  display: flex;
+  align-items: center;
+  background-color: #D2E0F1;
+  padding: 0% 1%;
+  --btn-withicon-bg:#C3D9F3;
+  height: 28px;
+  --icon-font-size: 1rem;
+  --btn-withicon-padding:0px;
+  --header-color:rgb(8, 8, 8);
+  --btn-withicon-border-radius:0.5px;
+
+}
+  /* Cuerpo del template (se coloca debajo de los headers fijos) */
+.layout__body {
+    margin-top: 0px; /* Espacio para no tapar los headers */
+    display: grid;
+    /* Dos columnas: 300px para la columna izquierda y el resto para el contenido */
+    grid-template-columns: 350px 1fr;
+    /* Dos filas en la columna izquierda: panel y menú */
+    grid-template-rows: auto auto;
+    grid-template-areas:
+      "panel content"
+      "menu  content";
+    height: calc(100vh - 46px);
+  }
+
+  /* Panel de Información */
+  .layout__panel {
+    grid-area: panel;
+    background-color: #15428B;
+    overflow-x: auto;
+    /* Fijo en la columna izquierda: no tiene scroll */
+  }
+
+  .layout__panel app-header{
+    background-color: blueviolet;
+    width: 318px;
+    height: 35px;
+    margin-top:0px;
+    margin-left:0px;
+    margin-right: 0px;
+    --header-color: #fdfdfd;
+    --icon-font-size: 1.7rem;
+    --header-button-scale:0.5;
+    
+  }
+
+  .panel-info-layout{
+    --label-color:rgb(1, 1, 1);
+    --card-bg-color:rgb(90, 203, 22);
+  }
+  
+  /* Menú de Opciones */
+  .layout__menu {
+    grid-area: menu;
+    background-color: #999;
+    overflow-x: auto;
+    /* Tampoco tiene scroll */
+  }
+
+  .layout__menu app-header{
+    background-color: rgb(31, 148, 174);
+    width: 318px;
+    height: 35px;
+    margin-top:0px;
+    margin-left:0px;
+    margin-right: 0px;
+    --header-color: #fdfdfd;
+    --icon-font-size: 1.7rem;
+    --header-button-scale:0.5;
+    
+  }
+  
+  /* Área de Contenido: Único con scroll */
+  .layout__content {
+    grid-area: content;
+    padding: 1rem;
+    overflow-x: auto;
+    background-color: aquamarine;
+  }
+
+  
+/* Responsividad: en pantallas pequeñas se apilan los elementos */
+@media (max-width: 768px) {
+    .layout__body {
+      grid-template-columns: 1fr;
+      grid-template-rows: auto auto 1fr;
+      grid-template-areas:
+        "panel"
+        "menu"
+        "content";
+    }
+  }

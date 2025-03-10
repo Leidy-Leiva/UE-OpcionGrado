@@ -1,0 +1,38 @@
+.universal-card {
+    max-width: var(--max-width-card, 400px);
+    margin: var(--card-margin, 1rem auto);
+  
+    /* Ejemplo: Cambiar color de fondo y texto */
+    background-color: var(--card-bg-color, #c98b8b);
+    color: var(--card-text-color, #333);
+    border-radius: 8px;
+    --label-color:rgb(1, 1, 1);
+    /* ... otros estilos ... */
+  }
+  
+  /* Ejemplo: Personalizar header */
+  .universal-card .mat-card-header {
+    background-color: var(--card-header-bg, #582222);
+    padding: 16px;
+  }
+  
+  /* Ejemplo: Personalizar título y subtítulo */
+  .universal-card .mat-card-title,
+  .universal-card .mat-card-subtitle {
+    color: var(--card-header-text-color, #444);
+    margin: 0;
+  }
+  
+  /* Ejemplo: Contenido */
+  .universal-card .mat-card-content {
+    padding: 16px;
+  }
+  
+  /* Ejemplo: Acciones */
+  .universal-card .mat-card-actions {
+    padding: 8px 16px;
+    display: flex;
+    justify-content: flex-end;
+    gap: 8px;
+  }
+  

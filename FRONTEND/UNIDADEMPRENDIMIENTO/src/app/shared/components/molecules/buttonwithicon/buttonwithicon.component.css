@@ -1,16 +1,31 @@
-button {
-    display: flex;
-    align-items: center;
-    gap: 8px;
-    padding:0; 
-    border-radius: 3px;
-    border: none;
-    cursor: pointer;
-    font-size: 10px;
-    transition: background 0.3s ease;
-  }
-  
-  button:hover {
-    background: #f0f0f0;
-  }
-  
+/* Aseguramos que el botón muestre sus elementos de forma flexible */
+:host app-button{
+  display: flex;
+  align-items: center;
+  gap: var(--btn-withicon-gap,1rem);
+  /* Si no se define --btn-withicon-padding, se usa el padding global del botón: --btn-padding (o 10px 15px) */
+  padding: var(--btn-withicon-padding, var(--btn-padding, 5px 10px));
+  border-radius: var(--btn-withicon-border-radius);
+  background-color: var(--btn-withicon-bg);
+  transform: var(--btn-transform);
+  transition: var(--btn-hover-transition,background 0.2s ease-in-out, filter 0.2s ease-in-out);
+  border: var(--btn-border);
+  width: var(--btn-width);
+  height: var(--btn-height);
+}
+
+/* Efecto cuando el cursor pasa sobre el botón */
+:host app-button:hover {
+  filter: brightness(1.1); /* Hace el color más intenso */
+}
+/* Estilos opcionales para el texto interno */
+.title-btn {
+  font-size: var(--font-size-btn,16px);
+  color: var(--btn-withicon-text-color,inherit);
+}
+
+/*Estilos para el icono interno*/
+.btn-icon {
+  font-size: var(--btn-withicon-font-size, var(--icon-font-size, 1.5rem));
+  color: var(--btn-icon-color, inherit);
+}
