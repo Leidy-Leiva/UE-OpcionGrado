@@ -1,8 +1,5 @@
-.material-icons {
-    font-size: 14px;
-  }
-  
-  .fa, .bi {
-    font-size: 4px;
-  }
-  
+.icon-base {
+  font-size: var(--icon-font-size, 1.5rem);
+  color: var(--icon-color, inherit);
+  transition: color 0.2s ease-in-out; /* Suaviza el cambio de color */
+}

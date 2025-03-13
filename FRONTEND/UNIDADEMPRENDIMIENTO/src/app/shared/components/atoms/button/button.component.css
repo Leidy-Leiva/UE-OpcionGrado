@@ -1,5 +1,6 @@
 /* Estilos base del botón */
 :host button {
+<<<<<<< HEAD
   padding: var(--btn-padding, 12px 20px);
   border: var(--btn-border, none);
   cursor: var(--btn-cursor, pointer);
@@ -55,3 +56,15 @@
 .btn-secondary:hover {
   background-color: #5a6268;
 }
+=======
+  padding: var(--btn-padding);
+  border: var(--btn-border,none);
+  cursor: var(--btn-cursor,pointer);
+  font-size: var(--btn-font-size);
+  border-radius: var(--btn-border-radius);
+  transition: var(--btn-transition);
+  background-color: var(--btn-bg-color);
+  color: var(--btn-color)
+}
+
+>>>>>>> a483e393794e99a925fe7b707ccdcaa9e03383cb

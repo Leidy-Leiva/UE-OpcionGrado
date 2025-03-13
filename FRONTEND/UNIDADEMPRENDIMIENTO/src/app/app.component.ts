@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { RouterOutlet } from '@angular/router';
+<<<<<<< HEAD
 import { ButtonwithiconComponent } from './shared/components/molecules/buttonwithicon/buttonwithicon.component';
 import { ButtonComponent } from './shared/components/atoms/button/button.component';
 import { LabelComponent } from './shared/components/atoms/label/label.component';
@@ -12,11 +13,18 @@ import { ComboBoxComponent } from './shared/components/atoms/combo-box/combo-box
 import { BquestionEditComponent } from './Features/Bquestions/bquestion-edit/bquestion-edit.component';
 import { SeekerComponent } from './shared/components/molecules/seeker/seeker.component';
 import { TableComponent } from './shared/components/molecules/table/table.component';
+=======
+import { LayoutComponent } from './templates/layout/layout.component';
+>>>>>>> a483e393794e99a925fe7b707ccdcaa9e03383cb
 
 @Component({
   selector: 'app-root',
   standalone: true,
+<<<<<<< HEAD
   imports: [CommonModule,HeaderComponent,RadioButtonComponent,CheckBoxComponent,ComboBoxComponent,BquestionEditComponent,RouterOutlet,SeekerComponent,TableComponent],
+=======
+  imports: [CommonModule,RouterOutlet,LayoutComponent],
+>>>>>>> a483e393794e99a925fe7b707ccdcaa9e03383cb
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css']
 })

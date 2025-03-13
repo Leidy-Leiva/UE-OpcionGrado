@@ -1,1 +1,7 @@
-<p>avatar works!</p>
+<div class="avatar"
+     [ngStyle]="{'width.px': size, 'height.px': size, 'border-radius': rounded ? '50%' : '5px'}">
+  <img *ngIf="imageUrl; else defaultAvatar" [src]="imageUrl" [alt]="alt" />
+  <ng-template #defaultAvatar>
+    <mat-icon class="avatar-icon">person</mat-icon>
+  </ng-template>
+</div>

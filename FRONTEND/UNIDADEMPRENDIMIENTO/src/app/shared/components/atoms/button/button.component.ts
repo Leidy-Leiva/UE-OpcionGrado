@@ -9,9 +9,11 @@ import { CommonModule } from '@angular/common';
   styleUrls: ['./button.component.css']
 })
 export class ButtonComponent {
-@Input() name: string='';
+@Input() text?:string;  
 @Input() typeButton: 'button'|'submit'|'reset'='button';
 @Input() classList:string='';
 @Input() disabled: boolean = false;
+
+
 }
 
