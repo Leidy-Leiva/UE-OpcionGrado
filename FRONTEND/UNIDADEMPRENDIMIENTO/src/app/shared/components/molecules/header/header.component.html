@@ -1,15 +1,20 @@
-<div class="window-header">
-    <!-- Icono de la aplicación y título -->
-    <div class="title">
-      <app-icon name="insert_drive_file"></app-icon>
-      <app-label content="Gestionar Emprendimientos"></app-label>
-    </div> 
-   
-    <!-- Botones de control -->
-    <div class="controls">
-     <app-buttonwithicon label="" icon="remove" classList="btn-success"></app-buttonwithicon>
-     <app-buttonwithicon label="" icon="crop_square" classList="btn-success"></app-buttonwithicon>
-     <app-buttonwithicon label="" icon="close" classList="btn-success"></app-buttonwithicon>
-    </div>
+<!-- Sección de título: ícono y label -->
+  <div class="title" *ngIf="title || icon">
+    <app-icon *ngIf="icon" [name]="icon" [typeIcon]="typeIcon" class="icon-title" ></app-icon>
+    <app-label *ngIf="title" [content]="title" class="title-header"></app-label>
   </div>
-  
+  <!-- Sección de controles: lista de botones (molécula buttonwithicon) -->
+  <div class="controls" *ngIf="buttons && buttons.length">
+    <ng-container *ngFor="let btn of buttons;let i=index">
+      <app-buttonwithicon
+        class="btn-withicon"
+        [title]="btn.title"
+        [icon]="btn.icon"
+        [classList]="btn.classList"
+        [disabled]="btn.disabled"
+        [iconColor]="btn.iconColor"
+        (click)="btnClick.emit()">
+      </app-buttonwithicon>
+    </ng-container>
+  </div>
+

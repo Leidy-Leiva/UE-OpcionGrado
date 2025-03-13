@@ -1,57 +1,44 @@
-.window-header {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    background-color: #CCD8E7; /* Azul claro */
-    padding: 0px;
-    border-bottom: 1px solid #b0c4de;
-    height: 28px; /* Un poco más pequeño */
-    width: 100%;
-    position: absolute; /* Lo mueve a la parte superior */
-    top: 0;
-    left: 0;
-    right: 0;
-    margin: 0;
+:host {
+  display: flex;  /* Para alinear elementos dentro */
+  justify-content: space-between; /* Asegura que el contenido se distribuya */
+  align-items: center;
+  width: 100%; /* Ocupar todo el ancho disponible */
+  background-color: var(--header-bg, #32428B);
+  padding: var(--header-padding, 0.3rem 1rem);
+  color: var(--header-color, #fff);          /* Color base del texto */
 }
 
-/* Estilo para la sección de título */
+/* Sección de título: icono y label */
 .title {
-    display: flex;
-    align-items: center;
-    gap: 6px;
-    font-weight: bold;
-    color: #003366;
-    margin-left: 10px; /* Ajuste para que no esté tan pegado */
+  display: flex;
+  align-items: center;
+  gap: var(--header-title-gap, 0.5rem);
+
+}
+.icon-title{
+  font-size: var(--fs-icon-title);
+  color:var(--color-icon-title);
+  transform: var(--icon-title-transform) ; /* Aumenta el tamaño del icono */
 }
 
-/* Estilo para los botones de control */
+/* Sección de controles: contiene botones u otros componentes */
 .controls {
-    display: flex;
-    gap: 15px; /* Separa más los botones */
-    align-items: center;
-    margin-right: 6px; /* Para separarlo del borde derecho */
+  display: flex;
+  align-items: center;
+  gap: var(--header-controls-gap, 0.5rem);
+  margin-top: var(--header-controls-margin-top, 0);
 }
 
-/* Estilo para los botones */
-.controls app-buttonwithicon {
-    width: 3px; /* Más pequeño */
-    height: 3px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    border-radius: 8px;
-    background: none;
-    border: none;
-    cursor: pointer;
-    padding: 0px; /* Ajustado para que no se vean tan grandes */
-}
 
-/* Efecto hover */
-.controls app-buttonwithicon:hover {
-    background-color: #E1F3FF;
-}
-.controls app-icon{
-    width: 14px;  /* Ajusta el tamaño del ícono */
-    height: 14px;
-    fill:#15428B; /* Cambia el color del ícono */
+/* Opcional: Estilos responsivos */
+@media (max-width: 768px) {
+  :host {
+    padding: var(--header-padding-mobile, 0.5rem);
+  }
+  .title {
+    font-size: var(--header-title-font-size-mobile, 1.2rem);
+  }
+  .controls {
+    flex-wrap: wrap;
+  }
 }
