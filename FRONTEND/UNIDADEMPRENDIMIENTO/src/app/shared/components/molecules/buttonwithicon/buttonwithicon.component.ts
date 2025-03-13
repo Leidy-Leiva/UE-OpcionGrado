@@ -1,4 +1,4 @@
-import { Component,Input } from '@angular/core';
+import { Component,Input,Output,EventEmitter} from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { IconComponent } from '../../atoms/icon/icon.component';
 import { ButtonComponent } from "../../atoms/button/button.component";
@@ -17,7 +17,6 @@ export class ButtonwithiconComponent {
 @Input() typeButton: 'button'|'submit'|'reset'='button';
 @Input() disabled=false;
 @Input() iconColor?: string='';  // Nuevo input para el color del icono
-
-
+ 
 }
  

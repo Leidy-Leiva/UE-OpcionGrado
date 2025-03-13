@@ -5,14 +5,15 @@
   </div>
   <!-- Sección de controles: lista de botones (molécula buttonwithicon) -->
   <div class="controls" *ngIf="buttons && buttons.length">
-    <ng-container *ngFor="let btn of buttons">
+    <ng-container *ngFor="let btn of buttons;let i=index">
       <app-buttonwithicon
         class="btn-withicon"
         [title]="btn.title"
         [icon]="btn.icon"
         [classList]="btn.classList"
         [disabled]="btn.disabled"
-        [iconColor]="btn.iconColor">
+        [iconColor]="btn.iconColor"
+        (click)="btnClick.emit()">
       </app-buttonwithicon>
     </ng-container>
   </div>

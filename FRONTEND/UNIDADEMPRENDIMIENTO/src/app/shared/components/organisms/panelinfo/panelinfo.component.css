@@ -1,45 +1,42 @@
 /* Define estilos para el contenedor del panel de información */
 :host {
     display: block;
-    /* Variables de personalización propias para este panel */
-    background-color:var(--panel-bg-color,aqua) ;
-    padding:var(--panel-padding, 16px);
-    border-radius: var( --panel-border-radius 8px);
-
+    padding:var(--panel-padding);
+    border-radius: var( --panel-border-radius);
+    --card-bg-color:rgb(88, 22, 203);
+    --card-border-radius:0px;
   }
-
-
-  .card-pi{
-    background-color: var(--panel-bg-color, #e84f4f);
-    padding: var(--panel-padding, 16px);
-    border-radius: var(--panel-border-radius, 8px);
-    /* Puedes agregar más propiedades como box-shadow, etc. */
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-    /* Hereda las variables para sus elementos internos */
-
-
-  }
-  
-  /* Aplica estilos al app-card que contiene el panel */
-
   
   /* Personaliza el contenido del card */
   app-card div[card-content] {
     display: flex;
     flex-direction: column;
-    gap: 12px;
+    align-items: stretch; /* Se expande en todo el ancho */
+    width: 100%; /* Ocupar toda la tarjeta */
+    background-color: rgb(90, 203, 22);
+    border: 2px dashed #ff0000;
+    padding: 0px; /* Reducir el espacio interno */
+    margin-top: -5px; /* Subir el contenido */
+
+
   }
-  
+
   /* Opcional: estilos para el avatar si necesitas ajustar su posición */
   app-card div[mat-card-avatar] {
+    display: flex;
+    align-items: center;
     margin-bottom: 16px;
+    border:2px dashed rgb(64, 255, 0); 
+    background-color: rgb(88, 22, 203);
+    padding: 8px; /* Reducir el espacio interno */
+    margin-top: -40px; /* Subir el contenido */
   }
   
   /* Estilos para que los labels dentro del panel usen la variable --label-color */
   app-label {
     --label-color: var(--label-color);
   }
-  
+
   /* Media query para hacerlo responsive */
   @media (max-width: 600px) {
     app-card {

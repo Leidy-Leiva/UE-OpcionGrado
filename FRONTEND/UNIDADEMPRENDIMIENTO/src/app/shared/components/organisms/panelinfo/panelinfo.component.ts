@@ -14,16 +14,23 @@ import { FormsModule } from '@angular/forms';
   styleUrls: ['./panelinfo.component.css']
 })
 export class PanelinfoComponent {
-  @Input() name!: string;
+  image = ''; // Imagen de prueba
   programOptions = [
-    { value: 'Ingeniería de Sistemas', label: 'Ingeniería de Sistemas' },
-    { value: 'Ingeniería Industrial', label: 'Ingeniería Industrial' }
+    { value: 'prog1', label: 'Programa 1' },
+    { value: 'prog2', label: 'Programa 2' },
+    { value: 'prog3', label: 'Programa 3' }
+  ];
+  selectedProgram = 'prog1'; // Valor seleccionado por defecto
+
+  infoFields = [
+    { label: 'Nombre', value: 'Juan Pérez' },
+    { label: 'Edad', value: '30 años' },
+    { label: 'Primedio:', value:'' }
   ];
 
-  selectedProgram = 'Ingeniería de Sistemas';
-  @Input() semester!: number;
-  @Input() credits!: number;
-  @Input() gpa!: number;
-  @Input() image: string = '';
+  // @Input() image: string = '';
+  // @Input() programOptions: { value: string, label: string }[] = [];
+  // @Input() selectedProgram: string = '';
+  // @Input() infoFields: { label: string, value: string | number }[] = [];
 
 }

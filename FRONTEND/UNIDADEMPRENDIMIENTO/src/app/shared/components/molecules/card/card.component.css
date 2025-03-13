@@ -1,38 +1,78 @@
 .universal-card {
     max-width: var(--max-width-card, 400px);
-    margin: var(--card-margin, 1rem auto);
-  
-    /* Ejemplo: Cambiar color de fondo y texto */
-    background-color: var(--card-bg-color, #c98b8b);
+    min-width:var(--min-width-card, 200px);
+    min-height: var(--min-height-card, auto);
+    max-height: var(--max-height-card, none);
+    height: var(--card-height, auto);
+    margin: var(--card-margin, 16px);
+    background-color: var(--card-bg-color, #d62727);
     color: var(--card-text-color, #333);
-    border-radius: 8px;
-    --label-color:rgb(1, 1, 1);
-    /* ... otros estilos ... */
-  }
-  
-  /* Ejemplo: Personalizar header */
-  .universal-card .mat-card-header {
-    background-color: var(--card-header-bg, #582222);
-    padding: 16px;
-  }
-  
-  /* Ejemplo: Personalizar título y subtítulo */
-  .universal-card .mat-card-title,
-  .universal-card .mat-card-subtitle {
-    color: var(--card-header-text-color, #444);
-    margin: 0;
-  }
-  
-  /* Ejemplo: Contenido */
-  .universal-card .mat-card-content {
-    padding: 16px;
-  }
-  
-  /* Ejemplo: Acciones */
-  .universal-card .mat-card-actions {
-    padding: 8px 16px;
+    border-radius: var(--card-border-radius, 12px);
     display: flex;
-    justify-content: flex-end;
-    gap: 8px;
-  }
-  
+    flex-direction: column;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+    overflow: hidden; /* Evita que el contenido se salga */
+}
+
+/* HEADER DEL CARD */
+.universal-card .mat-card-header {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    min-height: var(--card-header-height, 50px);
+    background-color: var(--card-header-bg, #f5f5f5);
+    padding: var(--card-header-padding, 16px);
+    border-top-left-radius: var(--card-border-radius, 12px);
+    border-top-right-radius: var(--card-border-radius, 12px);
+}
+
+/* Ajusta la posición del avatar dentro del header */
+.universal-card .mat-card-header div[mat-card-avatar] {
+    margin-right: 8px;
+    display: flex;
+    align-items: center;
+}
+
+/* TÍTULO Y SUBTÍTULO */
+.universal-card .mat-card-title {
+    font-size: var(--card-title-size, 1.2rem);
+    color: var(--card-title-color, #444);
+    text-align: center;
+    margin: 0;
+    font-weight: bold;
+}
+
+.universal-card .mat-card-subtitle {
+    font-size: var(--card-subtitle-size, 1rem);
+    color: var(--card-subtitle-color, #666);
+    text-align: center;
+    margin: 4px 0 0;
+}
+
+/* CONTENIDO PRINCIPAL DEL CARD */
+.universal-card .mat-card-content {
+    flex-grow: 1;
+    padding: var(--card-content-padding, 16px);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: stretch;
+    background-color: var(--card-content-bg, #fff);
+    min-height: var(--min-height-cardC, 200px);
+}
+
+/* ACCIONES DEL CARD */
+.universal-card .mat-card-actions {
+    display: flex;
+    justify-content: var(--card-actions-align, flex-end);
+    padding: var(--card-actions-padding, 8px 16px);
+    background-color: var(--card-actions-bg, transparent);
+    border-bottom-left-radius: var(--card-border-radius, 12px);
+    border-bottom-right-radius: var(--card-border-radius, 12px);
+}
+
+/* Asegura que las acciones se mantengan abajo incluso si el contenido es corto */
+.universal-card .mat-card-actions {
+    margin-top: auto;
+}

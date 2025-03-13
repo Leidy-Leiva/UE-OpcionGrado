@@ -1,18 +1,23 @@
-<app-card class="card-pi">
-    <div mat-card-avatar>
-        <app-avatar [imageUrl]="image" [size]="80" [rounded]="true"></app-avatar>
+<app-card>
+    <div mat-card-header>
+        <div mat-card-avatar>
+            <app-avatar [imageUrl]="image" [size]="100" [rounded]="true"></app-avatar>
+        </div>    
     </div>
+
     <div card-content>
-        <!-- Átomo de Label para mostrar un texto -->
-        <app-label text="Nombre: Leidy Johana Leiva Álvarez"></app-label>
+        
         <!-- Átomo de Dropdown para seleccionar un programa -->
         <app-dropdown 
+        *ngIf="programOptions.length > 0"
         [options]="programOptions" 
         [(ngModel)]="selectedProgram">
         </app-dropdown>
 
-        <app-label text="Ubicación Semestral:10"></app-label>
-        <app-label text="93,59% Creditos Aprobados"></app-label>
-        <app-label text="Promedio General:3.45"></app-label>
-      </div> 
+        <app-label 
+        *ngFor="let field of infoFields"
+        [content]="field.label + ': ' + field.value">
+        </app-label> 
+       
+    </div> 
 </app-card>
