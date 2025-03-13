@@ -1,0 +1,6 @@
+.label-input-container {
+    display: flex;
+    flex-direction: column; /* Mantiene el label encima del input */
+    gap: 5px;
+    width: 100%;
+}

@@ -1,0 +1,27 @@
+/* 🔹 Estilos específicos solo para este componente */
+.custom-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-family: Arial, sans-serif; /* Fuente limpia */
+}
+
+/* 🔹 Estilos para filas y celdas */
+.custom-table th, 
+.custom-table td {
+  padding: 8px;
+  text-align: left;
+  color: black; /* Letra negra */
+  border-bottom: 1px solid #ddd; /* Solo línea horizontal entre filas */
+}
+
+/* 🔹 Remueve líneas de columnas */
+.custom-table th:not(:last-child), 
+.custom-table td:not(:last-child) {
+  border-right: none;
+}
+
+/* 🔹 Elimina el fondo azul de los encabezados */
+.custom-table th {
+  background-color: transparent;
+  font-weight: bold; /* Opcional: hace los títulos más visibles */
+}

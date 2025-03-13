@@ -1,3 +1,19 @@
+<<<<<<< HEAD
+<div class="window-header">
+  <!-- Icono de la aplicación y título -->
+  <div class="title">
+    <app-icon name="insert_drive_file"></app-icon>
+    <app-label [content]="title"></app-label> <!-- Ahora usa la propiedad title -->
+  </div> 
+ 
+  <!-- Botones de control -->
+  <div class="controls">
+   <app-buttonwithicon label="" icon="remove" classList="btn-success"></app-buttonwithicon>
+   <app-buttonwithicon label="" icon="crop_square" classList="btn-success"></app-buttonwithicon>
+   <app-buttonwithicon label="" icon="close" classList="btn-success"></app-buttonwithicon>
+  </div>
+</div>
+=======
 <!-- Sección de título: ícono y label -->
   <div class="title" *ngIf="title || icon">
     <app-icon *ngIf="icon" [name]="icon" [typeIcon]="typeIcon" class="icon-title" ></app-icon>
@@ -18,3 +34,4 @@
     </ng-container>
   </div>
 
+>>>>>>> a483e393794e99a925fe7b707ccdcaa9e03383cb

@@ -1,0 +1,10 @@
+.label-combobox-container {
+  display: flex;
+  flex-direction: column !important; /* Fuerza la disposición en columna */
+  gap: 5px;
+  width: 100%;
+}
+
+.label-combobox-container label {
+  display: block; /* Asegura que el label ocupe toda la línea */
+}

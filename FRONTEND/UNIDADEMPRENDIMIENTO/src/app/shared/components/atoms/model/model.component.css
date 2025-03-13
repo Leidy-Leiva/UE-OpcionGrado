@@ -1,0 +1,69 @@
+.modal-container {
+  background: white;
+  padding: 30px;
+  border-radius: 10px;
+  width: auto; /* ⚡ Se ajusta automáticamente al contenido */
+  min-width: 400px; /* Evita que sea demasiado pequeño */
+  max-width: 80vw; /* No excede el 80% del ancho de la pantalla */
+  height: auto; /* ⚡ Se adapta a su contenido */
+  max-height: 90vh; /* Si el contenido es muy grande, permite scroll */
+  overflow-y: auto; /* Permite desplazamiento si hay mucho contenido */
+  box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.3);
+
+  /* 🔥 Centrando el modal */
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+/* Fondo oscuro de la ventana emergente */
+.modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.5);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+}
+
+/* Mejor estructura para el contenido */
+.modal-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 20px;
+}
+
+/* Diseño del header del modal */
+.modal-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  font-size: 18px;
+  font-weight: bold;
+  padding-bottom: 10px;
+  border-bottom: 1px solid #ddd;
+}
+
+/* Botón de cierre del modal */
+.close-btn {
+  background: none;
+  border: none;
+  font-size: 22px;
+  cursor: pointer;
+  color: #333;
+}
+
+/* 📱 Mejor Responsividad */
+@media (max-width: 768px) {
+  .modal-container {
+      min-width: 300px;
+      max-width: 90vw;
+  }
+}

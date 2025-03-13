@@ -1,0 +1,15 @@
+<!-- Botón para abrir el ComboBox -->
+<div class="combo-box-container" (clickOutside)="closeComboBox()">
+  <button class="combo-box-button" (click)="toggleComboBox($event)">
+    {{ selectedOption || 'Seleccione una opción' }} ⌵
+  </button>
+
+  <!-- Lista desplegable -->
+  <div class="combo-box" [class.active]="isComboBoxVisible">
+      <ul>
+        <li *ngFor="let option of options" (click)="selectOption(option)">
+          {{ option }}
+        </li>
+      </ul>
+  </div>
+</div>

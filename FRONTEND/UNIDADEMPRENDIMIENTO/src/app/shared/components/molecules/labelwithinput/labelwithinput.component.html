@@ -1,0 +1,13 @@
+<div class="label-input-container">
+    <app-label [content]="label" [for]="inputId"></app-label>
+    <app-input 
+      [id]="inputId"
+      [typeInput]="typeInput"
+      [placeholder]="placeholder"
+      [value]="value"
+      [disabled]="disabled"
+      (valueChange)="onInputChange($event)">
+    </app-input>
+  </div>
+  
+  
