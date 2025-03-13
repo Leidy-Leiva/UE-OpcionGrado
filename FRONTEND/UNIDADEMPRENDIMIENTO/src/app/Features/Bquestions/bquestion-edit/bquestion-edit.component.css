@@ -1,0 +1,86 @@
+:host {
+    display: block;
+    width: 100%;
+  }
+  
+  :host .bquestion-container {
+    display: flex;
+    flex-direction: column;
+    padding: 15px;
+    background-color: white;
+    border-radius: 10px;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+  }
+  
+  /* Evitar que Bootstrap modifique los botones */
+  :host .custom-button {
+    background-color: var(--btn-color, rgb(70, 132, 216));
+    color: white;
+    padding: 8px 12px;
+    border-radius: 5px;
+    border: none;
+    cursor: pointer;
+  }
+  
+  :host .custom-button:hover {
+    background-color: rgb(50, 110, 190);
+  }  
+  .edit-container {
+    width: 100%;
+    height: 100%;
+    max-width: none;
+    max-height: none;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between; /* Distribuye el contenido */
+  }
+  app-model {
+    width: 100vw;  /* Toma todo el ancho de la pantalla */
+    height: 100vh; /* Toma todo el alto de la pantalla */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  
+
+/* Nueva clase para agrupar los elementos en una línea */
+.inline-group {
+    display: flex;
+    justify-content: space-between; /* Distribuye los elementos en la fila */
+    gap: 20px; /* Espacio entre ellos */
+    width: 100%;
+}
+
+/* Ajusta el tamaño de los elementos internos */
+.inline-group app-labelwithcombobox,
+.inline-group app-labelwithinput {
+    flex: 1; /* Ocupa el mismo espacio en la fila */
+    min-width: 45%; /* Asegura que no se sobrecarguen */
+}
+
+.btn {
+ --btn-color:rgb(70,132,216);
+ 
+}
+app-header {
+    display: block;
+    width: 100%;
+    margin-bottom: 10px; /* Espaciado entre el header y el contenido */
+}
+
+/* para crear una linea que separe */
+
+hr {
+    display: block;  /* Asegura que no se colapse */
+    width: 100%;     /* Ocupa todo el ancho disponible */
+}
+
+.btn-primary {
+    background-color: #007bff;
+    color: white;
+    padding: 5px 10px;
+}
+
+

@@ -1,15 +1,14 @@
 <div class="window-header">
-    <!-- Icono de la aplicación y título -->
-    <div class="title">
-      <app-icon name="insert_drive_file"></app-icon>
-      <app-label content="Gestionar Emprendimientos"></app-label>
-    </div> 
-   
-    <!-- Botones de control -->
-    <div class="controls">
-     <app-buttonwithicon label="" icon="remove" classList="btn-success"></app-buttonwithicon>
-     <app-buttonwithicon label="" icon="crop_square" classList="btn-success"></app-buttonwithicon>
-     <app-buttonwithicon label="" icon="close" classList="btn-success"></app-buttonwithicon>
-    </div>
+  <!-- Icono de la aplicación y título -->
+  <div class="title">
+    <app-icon name="insert_drive_file"></app-icon>
+    <app-label [content]="title"></app-label> <!-- Ahora usa la propiedad title -->
+  </div> 
+ 
+  <!-- Botones de control -->
+  <div class="controls">
+   <app-buttonwithicon label="" icon="remove" classList="btn-success"></app-buttonwithicon>
+   <app-buttonwithicon label="" icon="crop_square" classList="btn-success"></app-buttonwithicon>
+   <app-buttonwithicon label="" icon="close" classList="btn-success"></app-buttonwithicon>
   </div>
-  
+</div>

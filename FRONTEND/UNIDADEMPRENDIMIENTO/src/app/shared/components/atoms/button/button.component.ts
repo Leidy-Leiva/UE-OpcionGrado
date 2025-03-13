@@ -14,3 +14,4 @@ export class ButtonComponent {
 @Input() classList:string='';
 @Input() disabled: boolean = false;
 }
+

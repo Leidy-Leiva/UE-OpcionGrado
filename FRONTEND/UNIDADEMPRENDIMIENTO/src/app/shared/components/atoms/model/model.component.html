@@ -1,0 +1,15 @@
+<div class="modal-overlay" *ngIf="isVisible">
+  <div class="modal-container">
+    
+    <!-- ✅ Mostrar el header solo si title no es 'hidden' -->
+    <div class="modal-header" *ngIf="title !== 'hidden'">
+      <h3 *ngIf="title">{{ title }}</h3>
+      <button *ngIf="showCloseButton" class="close-btn" (click)="closeModal()">✖</button>
+    </div>
+
+    <div class="modal-content">
+      <ng-content></ng-content> <!-- Para contenido dinámico -->
+    </div>
+
+  </div>
+</div>

@@ -1,23 +1,57 @@
-.btn {
-    padding: 10px 15px;
-    border: none;
-    cursor: pointer;
-    font-size: 16px;
-    border-radius: 5px;
-  }
-  
-  .btn-success {
-    background-color: green;
-    color: white;
-  }
-  
-  .btn-danger {
-    background-color: red;
-    color: white;
-  }
-  
-  .btn-secondary {
-    background-color: gray;
-    color: white;
-  }
-  
+/* Estilos base del botón */
+:host button {
+  padding: var(--btn-padding, 12px 20px);
+  border: var(--btn-border, none);
+  cursor: var(--btn-cursor, pointer);
+  font-size: var(--btn-font-size, 16px);
+  border-radius: var(--btn-border-radius, 8px);
+  transition: all 0.3s ease-in-out;
+  background-color: var(--btn-color, #fdd835);
+  color: var(--btn-text-color, #000000);
+  font-weight: 600;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+/* Efecto hover para todos los botones */
+:host button:hover {
+  opacity: 0.9;
+  transform: translateY(-2px);
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
+}
+
+/* Efecto cuando se presiona */
+:host button:active {
+  transform: translateY(0);
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
+}
+
+/* Variantes de botones */
+.btn-success {
+  background-color: var(--btn-success-bg, #28a745);
+  color: var(--btn-success-color, white);
+}
+
+.btn-danger {
+  background-color: var(--btn-danger-bg, #dc3545);
+  color: var(--btn-danger-color, white);
+}
+
+.btn-secondary {
+  background-color: var(--btn-secondary-bg, #6c757d);
+  color: var(--btn-secondary-color, white);
+}
+
+/* Sombras sutiles en hover */
+.btn-success:hover {
+  background-color: #218838;
+}
+
+.btn-danger:hover {
+  background-color: #c82333;
+}
+
+.btn-secondary:hover {
+  background-color: #5a6268;
+}

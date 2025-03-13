@@ -1,4 +1,4 @@
-import { Component,Input } from '@angular/core';
+import { Component,Input,Output,EventEmitter } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { IconComponent } from '../../atoms/icon/icon.component';
 
@@ -13,4 +13,6 @@ export class ButtonwithiconComponent {
 @Input() label:string='';
 @Input() icon:string='';
 @Input() classList:string='';
+
+@Output() buttonClick = new EventEmitter<Event>();
 }

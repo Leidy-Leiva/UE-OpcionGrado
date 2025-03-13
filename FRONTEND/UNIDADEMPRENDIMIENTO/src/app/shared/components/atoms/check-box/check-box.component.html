@@ -1,0 +1,10 @@
+
+
+  <label class="checkbox" [class]="classList">
+    <input 
+      type="checkbox" 
+      [checked]="checked" 
+      [disabled]="disabled"
+      (change)="toggleChecked($event)">
+    {{ label }}
+  </label>

@@ -1,1 +1,55 @@
 <app-header></app-header>
+
+
+<div class="Ensayo">
+  <app-radio-button 
+    [name]="'Maye'" 
+    [value]="'1opcion'" 
+    [label]="'Opción 1'" 
+    [checked]="true"
+    [disabled]="false"
+    [classList]="'custom-radio'"
+    (selectionChange)="onRadioChange($event)">
+  </app-radio-button>
+</div>
+
+<div class="Ensayo">
+  <app-check-box 
+    [label]="'Aceptar términos y condiciones'"
+    [checked]="isChecked"
+    [disabled]="isDisabled"
+    [classList]="'custom-checkbox'"
+    (toggleChange)="onCheckboxChange($event)">
+  </app-check-box>
+</div>
+
+<!-- Botón para abrir el modal -->
+<!-- <div class="Ensayo">
+  <button (click)="showModal()">Abrir Modal</button>
+</div> -->
+
+<!-- Modal -->
+<!-- <app-model
+  [isVisible]="isModalVisible" 
+  title="Mi ventana emergente"
+  (close)="closeModal()">
+  <p>Este es el contenido del modal.</p>
+</app-model> -->
+
+<app-combo-box [options]="['Opción A', 'Opción B', 'Opción C']"></app-combo-box>
+
+<div class="Ensayo">
+  <button (click)="showModal()">Abrir Modal</button>
+</div>
+
+
+<!-- Se muestra el componente de la pregunta solo cuando isModalVisible es true -->
+<app-bquestion-edit *ngIf="isModalVisible" (onUpdate)="handleUpdate($event)" (close)="closeModal()"></app-bquestion-edit>
+
+
+<div class="Ensayo">
+  <app-seeker></app-seeker>
+</div>
+
+<app-table [headers]="tableHeaders" [data]="tableData"></app-table>
+

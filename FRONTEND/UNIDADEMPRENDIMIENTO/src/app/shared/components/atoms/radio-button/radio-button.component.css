@@ -1,0 +1,39 @@
+.radio-btn {
+  display: flex;
+  align-items: center;  /* Asegura que el texto y el botón se alineen en el centro verticalmente */
+  gap: 1px;  /* Espacio entre el texto y el botón */
+  justify-content: flex-start; /* Asegura que todo quede alineado a la izquierda */
+  margin-top: 20px; /* Ajusta la distancia desde el header si es necesario */
+}
+
+.radio-btn input {
+  width: 18px;
+  height: 18px;
+  margin: 20px; /* Ajusta según sea necesario */
+
+}
+
+
+.radio-btn label {
+  font-size: 16px; /* Ajusta el tamaño de la fuente */
+  line-height: 18px; /* Mantiene alineado con el botón */
+  display: flex;
+  align-items: center; /* Asegura alineación vertical */
+}
+
+.radio-btn-success input {
+  accent-color: green; /* Estilo para radios exitosos */
+}
+
+.radio-btn-danger input {
+  accent-color: red; /* Estilo para radios de peligro */
+}
+
+.radio-btn-secondary input {
+  accent-color: gray; /* Estilo para radios secundarios */
+}
+
+.radio-btn-disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}

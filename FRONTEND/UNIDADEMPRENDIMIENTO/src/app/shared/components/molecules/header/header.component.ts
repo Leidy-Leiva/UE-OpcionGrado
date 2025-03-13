@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component , Input} from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { IconComponent } from '../../atoms/icon/icon.component';
 import { LabelComponent } from '../../atoms/label/label.component';
@@ -12,5 +12,5 @@ import { ButtonwithiconComponent } from '../buttonwithicon/buttonwithicon.compon
   styleUrls: ['./header.component.css']
 })
 export class HeaderComponent {
-
+  @Input() title: string = 'Gestionar Emprendimientos'; // Título por defecto
 }

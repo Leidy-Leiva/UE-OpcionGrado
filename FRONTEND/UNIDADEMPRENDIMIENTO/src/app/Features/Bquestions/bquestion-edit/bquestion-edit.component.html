@@ -1,0 +1,50 @@
+<app-model [isVisible]="isVisible" [title]="'hidden'" [showCloseButton]="false" (close)="closeModal()">
+  <div class="edit-container">
+    <!-- ✅ Agregar el Header aquí -->
+     <app-header [title]="'Banco de pregunta'"></app-header>
+
+   
+    <hr>
+       <!-- ✅ Agrupar en una línea -->
+    <div class="inline-group">
+      <app-labelwithcombobox
+        [label]="'Elija el tipo de pregunta'" 
+        [options]="questionOptions" 
+        (selectionChange)="onSelectionChange($event)">
+      </app-labelwithcombobox>
+
+      <app-labelwithinput
+      class="Pregunta"
+      [label]="'Ingrese el titulo '"
+      [placeholder]="'Escriba aquí su pregunta...'"
+      [value]="questionText"
+      (valueChange)="onQuestionChange($event)">
+      class="Pregunta"
+    </app-labelwithinput>
+    </div>
+ 
+    <hr>
+    <div  *ngIf="showOptionsField"  class="inline-group">
+      <app-labelwithinput
+       
+        class="Opciones"
+        [label]="'Digite las opciones'"
+        [placeholder]="'Escriba aquí la descripción.'"
+        [value]="updatedQuestion.description"
+        (valueChange)="onOptionsChange($event)"  
+        style="width: 10px;">
+      </app-labelwithinput>
+      <app-buttonwithicon icon="add" classList="btn-success"></app-buttonwithicon>
+    </div>
+
+    <hr>
+    
+   <!-- ✅ Botón Guardar -->
+    <app-button class="btn" 
+      name="Guardar" 
+      classList="btn custom-bquestion-button"
+      (click)="saveChanges()">
+    </app-button>
+
+  </div>
+</app-model>

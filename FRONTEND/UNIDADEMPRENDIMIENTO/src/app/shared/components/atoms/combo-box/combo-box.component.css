@@ -1,0 +1,58 @@
+/* 📌 Contenedor principal */
+.combo-box-container {
+  position: relative;
+  display: inline-block;
+}
+
+/* 📌 Estilo del botón */
+.combo-box-button {
+  background: #ffffff;
+  color: rgb(5, 0, 0);
+  padding: 10px 15px;
+  border: 2px solid #ccc;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 12px;
+  font-family: Arial;
+  transition: all 0.3s ease-in-out;
+  width: 100%;
+  text-align: left;
+}
+
+/* 📌 Lista desplegable */
+.combo-box {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  width: 100%;
+  background: white;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+  z-index: 10;
+  display: none;
+}
+
+/* 📌 Mostrar cuando el combo está activo */
+.combo-box.active {
+  display: block;
+}
+
+/* 📌 Opciones */
+.combo-box ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  max-height: 200px;
+  overflow-y: auto;
+}
+
+.combo-box li {
+  padding: 10px;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+
+.combo-box li:hover {
+  background: #f0f0f0;
+}

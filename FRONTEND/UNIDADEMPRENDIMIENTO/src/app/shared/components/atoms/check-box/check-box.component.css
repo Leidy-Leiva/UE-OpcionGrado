@@ -1,0 +1,46 @@
+.checkbox {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  cursor: pointer;
+  font-size: 16px;
+  font-family: Arial; 
+}
+
+.checkbox input {
+  width: 18px;
+  height: 18px;
+  appearance: none; /* Elimina el estilo predeterminado del checkbox */
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  border: 2px solid #333; /* Color del borde */
+  border-radius: 50%; /* Hace que el checkbox sea circular */
+  outline: none;
+  cursor: pointer;
+  position: relative;
+}
+
+/* Efecto cuando está marcado */
+.checkbox input:checked {
+  background-color: #007bff; /* Color de fondo cuando está marcado */
+  border: 2px solid #007bff;
+}
+
+/* Pseudo-elemento para el "punto" dentro del checkbox cuando está marcado */
+.checkbox input:checked::before {
+  content: "";
+  width: 10px;
+  height: 10px;
+  background-color: white;
+  border-radius: 50%;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+/* Estilos para el estado deshabilitado */
+.checkbox-disabled {
+  cursor: not-allowed;
+  opacity: 0.6;
+}
