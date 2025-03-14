@@ -1,9 +1,3 @@
-<<<<<<< HEAD
-.label-arial {
-    font-family: Arial;
-  }
-  
-=======
 .label {
   /* Tamaño de fuente con variable para poder personalizarlo */
   font-size: var(--label-font-size, 1rem);
@@ -18,4 +12,3 @@
   /* Margen inferior para separar del siguiente elemento */
   margin-bottom: 0.5rem;
 }
->>>>>>> a483e393794e99a925fe7b707ccdcaa9e03383cb
