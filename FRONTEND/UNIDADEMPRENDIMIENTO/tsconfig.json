@@ -30,12 +30,5 @@
     "strictInjectionParameters": true,
     "strictInputAccessModifiers": true,
     "strictTemplates": true
-<<<<<<< HEAD
-  },
-
-
-=======
   }
->>>>>>> a483e393794e99a925fe7b707ccdcaa9e03383cb
-  
 }
