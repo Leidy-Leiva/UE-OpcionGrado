@@ -30,7 +30,7 @@ namespace Api.UnidadEmprendimiento.Data
                 
         public static void AddRepositoryServices(this IServiceCollection services)
         {
-            services.AddTransient<ITipoPreguntaRepository, TipoPreguntaRepository>();
+            services.AddTransient<ITipoElementoRepository, TipoElementoRepository>();
             services.AddTransient<ITipoFormularioRepository, TipoFormularioRepository>();
 
         }

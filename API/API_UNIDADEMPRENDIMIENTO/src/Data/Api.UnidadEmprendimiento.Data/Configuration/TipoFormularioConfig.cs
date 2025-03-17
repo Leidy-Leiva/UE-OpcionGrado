@@ -26,9 +26,18 @@ namespace Api.UnidadEmprendimiento.Data.Configuration
             .HasDefaultValue(true)
             .ValueGeneratedOnAdd();
 
-            builder.HasMany(tf=> tf.FORMULARIOS)
+            builder.HasMany(tf=> tf.FORMULARIOSP)
             .WithOne(f=> f.TIPOFORMULARIO)
             .HasForeignKey(f=>f.TIPF_CODIGO);
+
+            builder.HasMany(tf=> tf.FORMULARIOSB)
+            .WithOne(f=> f.TIPOFORMULARIO)
+            .HasForeignKey(f=>f.TIPF_CODIGO);
+
+            builder.HasMany(tf=> tf.BANCOFORMULARIOS)
+            .WithOne(f=> f.TIPOFORMULARIO)
+            .HasForeignKey(f=>f.TIPF_CODIGO);
+
 
         }
     }

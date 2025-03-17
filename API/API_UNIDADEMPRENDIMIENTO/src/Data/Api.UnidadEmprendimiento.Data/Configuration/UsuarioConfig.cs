@@ -44,8 +44,31 @@ namespace Api.UnidadEmprendimiento.Data.Configuration
             .HasDefaultValue(true)
             .ValueGeneratedOnAdd();
 
-            builder.Property(u=> u.PERS_PEGEID)
+            builder.Property(u=> u.PERS_CODIGO)
             .IsRequired();
+
+            builder.HasMany(p=>p.USUARIOSPROPUESTAS)
+            .WithOne(up=>up.USUARIO)
+            .HasForeignKey(up=>up.USUP_CODIGO)
+            .OnDelete(DeleteBehavior.Restrict);
+
+            // Relación con ConvocatoriaPublicada (Uno a Muchos)
+        builder.HasMany(u => u.CONVOCATORIASPUBLICADAS)
+               .WithOne(cp => cp.USUARIO)
+               .HasForeignKey(cp => cp.PERS_CODIGO)
+               .OnDelete(DeleteBehavior.Restrict);
+
+        // Relación con ConvocatoriaBorrador (Uno a Muchos)
+        builder.HasMany(u => u.CONVOCATORIASBORRADOR)
+               .WithOne(cb => cb.USUARIO)
+               .HasForeignKey(cb => cb.PERS_CODIGO)
+               .OnDelete(DeleteBehavior.Restrict);
+
+        // Relación con VersionP (Uno a Muchos)
+        builder.HasMany(u => u.VERSIONES)
+               .WithOne(vp => vp.USUARIO)
+               .HasForeignKey(vp => vp.PERS_CODIGO)
+               .OnDelete(DeleteBehavior.Restrict);
 
 
         }

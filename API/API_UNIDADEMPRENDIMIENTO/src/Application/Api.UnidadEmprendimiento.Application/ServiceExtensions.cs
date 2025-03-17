@@ -17,7 +17,7 @@ namespace Api.UnidadEmprendimiento.Application
             services.AddValidatorsFromAssembly(Assembly.GetExecutingAssembly());
             services.AddMediatR(Assembly.GetExecutingAssembly());
             services.AddTransient<IDateTime, DateTimeService>();
-            services.AddTransient<ITipoPreguntaService, TipoPreguntaService>();
+            services.AddTransient<ITipoElementoService, TipoElementoService>();
             services.AddTransient<ITipoFormularioService, TipoFormularioService>();
 
         }

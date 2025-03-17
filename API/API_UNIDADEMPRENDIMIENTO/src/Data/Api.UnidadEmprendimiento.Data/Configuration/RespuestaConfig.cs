@@ -1,4 +1,5 @@
 using Api.UnidadEmprendimiento.Domain.Entities.SQL_SERVER.GEST_FORMULARIO;
+using Api.UnidadEmprendimiento.Domain.Entities.SQL_SERVER.GEST_PROPUESTA;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
 using System;
@@ -28,14 +29,6 @@ namespace Api.UnidadEmprendimiento.Data.Configuration
             .IsRequired()
             .HasDefaultValue(true)
             .ValueGeneratedOnAdd();
-
-            builder.HasOne(r=> r.PREGUNTA)
-            .WithMany(p=> p.RESPUESTAS)
-            .HasForeignKey(p=>p.PREG_CODIGO);
-
-             builder.HasOne(r=> r.PROPUESTA)
-            .WithMany(p=> p.RESPUESTAS)
-            .HasForeignKey(p=>p.PROP_CODIGO);
 
         }
     }
