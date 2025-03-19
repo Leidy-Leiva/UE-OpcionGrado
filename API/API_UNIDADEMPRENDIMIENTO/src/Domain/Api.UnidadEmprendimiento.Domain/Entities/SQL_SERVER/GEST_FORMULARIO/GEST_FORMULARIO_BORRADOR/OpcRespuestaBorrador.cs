@@ -7,7 +7,6 @@ namespace Api.UnidadEmprendimiento.Domain.Entities.SQL_SERVER.GEST_FORMULARIO
     {
         public int OPRB_CODIGO {get; set; }
         public string? OPRB_VALOR { get; set; }
-        public DateTime OPRB_FECHARESPUESTA {get; set;}
         public bool? OPRB_ESTADO {get; set;}
         public int? OPRB_ORDEN {get; set;}
 

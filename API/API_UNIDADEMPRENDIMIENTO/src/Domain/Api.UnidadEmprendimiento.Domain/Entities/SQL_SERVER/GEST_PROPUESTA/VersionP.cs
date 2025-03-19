@@ -14,6 +14,7 @@ namespace Api.UnidadEmprendimiento.Domain.Entities.SQL_SERVER.GEST_PROPUESTA
         public bool? VERS_ESTADO {get; set;}
         public int PERS_CODIGO {get; set;}
         public Usuario USUARIO {get; set;}=null!;
+        public int PROP_CODIGO {get; set;}
         public Propuesta PROPUESTA {get; set;}=null!;
         public ICollection<VersionFormularioPublicado> VERSIONESFP {get; set;} =new List<VersionFormularioPublicado>();
 

@@ -15,8 +15,6 @@ namespace Api.UnidadEmprendimiento.Data.Configuration
             builder.Property(bore => bore.BORE_VALOR)
                 .HasMaxLength(500);
 
-            builder.Property(bore => bore.BORE_FECHARESPUESTA)
-                .IsRequired();
 
             builder.Property(bore => bore.BORE_ESTADO)
                 .IsRequired(false)

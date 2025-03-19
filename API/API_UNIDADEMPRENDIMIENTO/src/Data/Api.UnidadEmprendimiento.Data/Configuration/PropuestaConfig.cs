@@ -45,12 +45,12 @@ namespace Api.UnidadEmprendimiento.Data.Configuration
 
             builder.HasMany(p=>p.VERSIONES)
             .WithOne(v=>v.PROPUESTA)
-            .HasForeignKey(v=>v.VERS_CODIGO)
+            .HasForeignKey(v=>v.PROP_CODIGO)
             .OnDelete(DeleteBehavior.Restrict);
 
             builder.HasMany(p=>p.USUARIOSPROPUESTAS)
             .WithOne(up=>up.PROPUESTA)
-            .HasForeignKey(up=>up.PERS_CODIGO)
+            .HasForeignKey(up=>up.PROP_CODIGO)
             .OnDelete(DeleteBehavior.Restrict);
 
             

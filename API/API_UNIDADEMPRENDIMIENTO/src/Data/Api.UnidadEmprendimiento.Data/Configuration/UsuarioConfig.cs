@@ -49,7 +49,7 @@ namespace Api.UnidadEmprendimiento.Data.Configuration
 
             builder.HasMany(p=>p.USUARIOSPROPUESTAS)
             .WithOne(up=>up.USUARIO)
-            .HasForeignKey(up=>up.USUP_CODIGO)
+            .HasForeignKey(up=>up.PERS_CODIGO)
             .OnDelete(DeleteBehavior.Restrict);
 
             // Relación con ConvocatoriaPublicada (Uno a Muchos)
