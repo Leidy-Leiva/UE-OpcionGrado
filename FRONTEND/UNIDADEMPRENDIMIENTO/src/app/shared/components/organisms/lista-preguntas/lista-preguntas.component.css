@@ -1,0 +1,53 @@
+.content-header{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    --header-bg: #428BCA;
+    padding: 10px 10px;
+    height: auto;
+    width: 100%;
+    /* Variables del header */
+    --header-color: #080748;
+    --icon-font-size: 0.7rem;
+    --color-icon-title: rgb(255, 255, 255);
+    --btn-withicon-gap: 0px;
+    --btn-withicon-border-radius: 3px;
+    --btn-withicon-bg: #E1F3FF;
+    --btn-icon-color: #15428B;
+    --btn-withicon-padding: 0px;
+    --icon-title-transform: scale(2);
+    --btn-withicon-transition: all 0.3s ease-in-out;
+    --btn-border: 0.1px solid #71A0DD;
+}
+/* Asegurar que el header del modal use el mismo estilo */
+.header-modal {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: var(--header-bg, #428BCA); /* Usa el mismo color de fondo */
+    padding: 10px;
+    width: 100%;
+    height: auto;
+    color: var(--header-color, white); /* Color del texto */
+}
+
+.modal-header-fix app-header {
+    background-color: var(--header-bg, #428BCA) !important;
+    width: 100% !important;
+    display: flex !important;
+    justify-content: space-between !important;
+    align-items: center !important;
+}
+
+
+/* Asegura que el buscador esté a la izquierda */
+.content-header app-seeker {
+    order: -1; /* Mueve el buscador al inicio */
+}
+
+/* Asegura que los botones estén a la derecha */
+.content-header .main-header__button {
+    margin-left: auto;
+}
+
+

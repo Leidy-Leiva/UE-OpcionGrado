@@ -1,0 +1,25 @@
+<ul class="list-group list-group-flush">
+    <li class="list-group-item d-flex justify-content-between align-items-center" *ngFor="let item of items; let i = index">
+      <ng-container *ngIf="editIndex !== i; else editTemplate">
+        <span>{{ item }}</span>
+        <button class="btn-icon btn-edit" (click)="editItem(i)">
+          <span class="icon">✏️</span>
+        </button>
+      </ng-container>
+      <ng-template #editTemplate>
+        <input 
+          type="text" 
+          class="form-control form-control-sm" 
+          [(ngModel)]="editingText" 
+          (keyup.enter)="updateItem(i)" 
+        />
+        <button class="btn-icon btn-save" (click)="updateItem(i)">
+          <span class="icon">💾</span>
+        </button>
+        <button class="btn-icon btn-cancel" (click)="cancelEditing()">
+          <span class="icon">✖️</span>
+        </button>
+      </ng-template>
+    </li>
+  </ul>
+  

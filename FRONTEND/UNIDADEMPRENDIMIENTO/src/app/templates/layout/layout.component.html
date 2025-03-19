@@ -1,3 +1,5 @@
+
+
 <div class="layout">
     <!-- Header global -->
     <header class="layout__header">
@@ -39,6 +41,7 @@
 
         <app-header
         [hidden]="isCollapsed"
+         class="header-info"
          title="Menú Opciones"
          typeIcon="fontawesome"
          icon="fa-solid fa-user"
@@ -51,7 +54,8 @@
       </aside>
       <main class="layout__content">
         <ng-content></ng-content>
-
+        <app-lista-preguntas></app-lista-preguntas>
+        <!-- <router-outlet></router-outlet>  -->
       </main>
     </div>
   </div>

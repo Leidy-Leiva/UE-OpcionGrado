@@ -7,7 +7,9 @@
               [icon]="btn.icon"
               [classList]="btn.classList"
               [disabled]="btn.disabled"
-              [iconColor]="btn.iconColor">
+              [iconColor]="btn.iconColor"
+              (click)="btnClick.emit()">
+              
             </app-buttonwithicon>
           </ng-container>
     </div>

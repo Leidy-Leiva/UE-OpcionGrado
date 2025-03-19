@@ -51,8 +51,8 @@
 /* Ajusta el tamaño de los elementos internos */
 .inline-group app-labelwithcombobox,
 .inline-group app-labelwithinput {
-    flex: 1; /* Ocupa el mismo espacio en la fila */
-    min-width: 45%; /* Asegura que no se sobrecarguen */
+    flex: 2; /* Ocupa el mismo espacio en la fila */
+    min-width: 70%; /* Asegura que no se sobrecarguen */
 }
 
 
@@ -119,6 +119,46 @@ hr {
   --btn-bg-color: #1e46b6; /* Azul aún más oscuro */
   --btn-border: 1px solid #ccc;
 }
+
+/* Botones de ícono pequeños */
+.btn-icon {
+  border: none;
+  background: transparent;
+  padding: 4px;
+  margin-left: 5px;
+  width: 32px;
+  height: 32px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 16px;
+  cursor: pointer;
+}
+
+.btn-icon:hover {
+  background-color: #e9ecef;
+  border-radius: 4px;
+}
+
+/* Específicos para cada acción */
+.btn-edit {
+  color: #007bff; /* Azul para editar */
+}
+
+.btn-save {
+  color: #28a745; /* Verde para guardar */
+}
+
+.btn-cancel {
+  color: #dc3545; /* Rojo para cancelar */
+}
+
+/* Opcional: ajuste de la agrupación en el contenedor */
+.question-edit-container {
+  display: flex;
+  align-items: center;
+}
+
 
 
 

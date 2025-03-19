@@ -1,6 +1,15 @@
+/* Mejor estructura para el contenido */
+.modal-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 20px;
+}
+
+
 .modal-container {
   background: white;
-  padding: 30px;
+  padding: 0px;
   border-radius: 10px;
   width: auto; /* ⚡ Se ajusta automáticamente al contenido */
   min-width: 400px; /* Evita que sea demasiado pequeño */
@@ -9,7 +18,7 @@
   max-height: 90vh; /* Si el contenido es muy grande, permite scroll */
   overflow-y: auto; /* Permite desplazamiento si hay mucho contenido */
   box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.3);
-
+  background-color: rgb(255, 255, 255);
   /* 🔥 Centrando el modal */
   position: absolute;
   top: 50%;
@@ -30,35 +39,22 @@
   justify-content: center;
   z-index: 1000;
 }
-
-/* Mejor estructura para el contenido */
-.modal-content {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  padding: 20px;
-}
-
-/* Diseño del header del modal */
-.modal-header {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
+.modal-header{
   width: 100%;
-  font-size: 18px;
-  font-weight: bold;
-  padding-bottom: 10px;
-  border-bottom: 1px solid #ddd;
+  height: auto;
+  background-color: var(--bg-modal,#2858d8);
 }
 
-/* Botón de cierre del modal */
-.close-btn {
-  background: none;
-  border: none;
-  font-size: 22px;
-  cursor: pointer;
-  color: #333;
+.modal-action {
+  margin-top: -20px;
+  padding: 10px 10px;
+  height: auto;
+  width: auto;
+  display: flex; /* Usa flexbox */
+  justify-content: flex-end; /* Alinea los botones a la derecha */
+  gap: 10px; /* Espaciado entre botones */
 }
+
 
 /* 📱 Mejor Responsividad */
 @media (max-width: 768px) {

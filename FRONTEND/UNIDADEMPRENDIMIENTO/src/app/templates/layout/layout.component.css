@@ -23,7 +23,7 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  background-color: #CCD8E7;
+  --header-bg: #CCD8E7;
   padding: 0 10px;
   height: 28px;
   width: auto;
@@ -104,7 +104,8 @@
 .layout__panel.collapsed app-header.panel-header {
   height: 100%;             /* Ocupa ambas filas del grid (panel + menú) */
   width: 50px;              /* Coincide con el ancho colapsado */
-  background-color: #2E7384;/* Ajusta el color a tu preferencia (verde/azul) */
+  --header-bg: #428bca;/* Ajusta el color a tu preferencia (verde/azul) */
+ 
 
   display: flex;
   flex-direction: column;   /* Ícono arriba, texto en medio, botón abajo */
@@ -114,6 +115,12 @@
   
   cursor: pointer;
   transition: all 0.3s ease-in-out;
+}
+.panel-header{
+  --header-bg:#428BCA;
+}
+.header-info{
+  --header-bg:#428BCA;
 }
 
 /* TEXTO EN VERTICAL
@@ -149,7 +156,6 @@
   grid-area: content;
   padding: 1rem;
   overflow-x: auto;
-  background-color: #12B1FA; /* Ajusta a tu preferencia */
   transition: all 0.3s ease-in-out;
 }
 

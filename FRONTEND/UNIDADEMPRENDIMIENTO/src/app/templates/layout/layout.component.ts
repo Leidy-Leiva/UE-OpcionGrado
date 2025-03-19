@@ -3,11 +3,13 @@ import { CommonModule } from '@angular/common';
 import { HeaderComponent } from '../../shared/components/molecules/header/header.component';
 import { PanelinfoComponent } from '../../shared/components/organisms/panelinfo/panelinfo.component';
 import { MenuoptionsComponent } from "../../shared/components/organisms/menuoptions/menuoptions.component";
+import { ListaPreguntasComponent } from "../../shared/components/organisms/lista-preguntas/lista-preguntas.component";
+import { RouterModule } from '@angular/router';
 
 @Component({
   selector: 'app-layout',
   standalone: true,
-  imports: [CommonModule, HeaderComponent, PanelinfoComponent, MenuoptionsComponent],
+  imports: [CommonModule, HeaderComponent, PanelinfoComponent, MenuoptionsComponent,ListaPreguntasComponent, RouterModule],
   templateUrl: './layout.component.html',
   styleUrls: ['./layout.component.css']
 })

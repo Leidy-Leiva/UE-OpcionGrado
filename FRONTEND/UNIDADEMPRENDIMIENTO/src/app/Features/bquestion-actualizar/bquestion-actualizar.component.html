@@ -15,35 +15,46 @@
     </div>
     
     <hr>
-    <div class="inline-group">
-      <app-labelwithcombobox
-        [label]="'Elija el tipo de pregunta'" 
-        [options]="questionOptions" 
-        (selectionChange)="onSelectionChange($event)">
-      </app-labelwithcombobox>
-
+    <div class="inline-group question-edit-container">
       <app-labelwithinput
         class="Pregunta"
         [label]="'Ingrese el titulo '"
         [placeholder]="'Escriba aquí su pregunta...'"
         [value]="questionText"
+        [disabled]="!editingQuestion"  
         (valueChange)="onQuestionChange($event)">
       </app-labelwithinput>
+
+      <ng-container *ngIf="!editingQuestion">
+        <button class="btn-icon btn-edit" (click)="startEditing()">
+          <span class="icon">✏️</span>
+        </button>
+      </ng-container>
+      <!-- Si se está editando, muestra los botones de guardar y cancelar -->
+      <ng-container *ngIf="editingQuestion">
+        <button class="btn-icon btn-save" (click)="finishEditing()">
+          <span class="icon">💾</span>
+        </button>
+        <button class="btn-icon btn-cancel" (click)="cancelEditing()">
+          <span class="icon">✖️</span>
+        </button>
+      </ng-container>
     </div>
 
     <hr>
+
+      <!-- Aquí llamamos al componente Labelwithlistgroup -->
+      <div class="inline-group">
+        <app-labelwithlistgroup 
+          [label]="'Opciones'" 
+          [items]="listGroupItems">
+        </app-labelwithlistgroup>
+      </div>
+
     <div *ngIf="showOptionsField" class="inline-group">
-      <app-labelwithinput
-      class="Opciones"
-      [label]="'Digite las opciones'"
-      [placeholder]="'Escriba aquí la descripción.'"
-      [value]="updatedQuestion.description"
-      (valueChange)="onOptionsChange($event)">
-    </app-labelwithinput>
-    <!-- Se llama al método addOption() al hacer clic -->
-    <app-buttonwithicon icon="➕" style="color: rgb(56, 105, 212);" classList="btn-success" (click)="addOption()"></app-buttonwithicon>
-  </div>
- 
+     
+      <app-buttonwithicon icon="add" classList="btn-success"></app-buttonwithicon>
+    </div>
 
     <hr>
 
