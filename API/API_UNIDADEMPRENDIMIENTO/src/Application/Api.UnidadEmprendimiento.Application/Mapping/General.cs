@@ -16,10 +16,10 @@ namespace Api.UnidadEmprendimiento.Application.Mapping
         {
 
             #region commands
-            CreateMap<PostTipoPreguntaDTO, TipoPregunta>().ReverseMap();
+            CreateMap<PostTipoElementoDTO, TipoElementoFormulario>().ReverseMap();
             #endregion
             #region commands
-            CreateMap<GetTipoPreguntaDTO, TipoPregunta>().ReverseMap();
+            CreateMap<GetTipoElementoDTO, TipoElementoFormulario>().ReverseMap();
             #endregion
 
             #region commands

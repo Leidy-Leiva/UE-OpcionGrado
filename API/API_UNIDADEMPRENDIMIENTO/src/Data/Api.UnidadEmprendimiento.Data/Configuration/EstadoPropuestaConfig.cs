@@ -28,7 +28,8 @@ namespace Api.UnidadEmprendimiento.Data.Configuration
 
             builder.HasMany(ep=> ep.PROPUESTAS)
             .WithOne(p=> p.ESTADOPROPUESTA)
-            .HasForeignKey(p=>p.ESTP_CODIGO);
+            .HasForeignKey(p=>p.ESTP_CODIGO)
+            .OnDelete(DeleteBehavior.Restrict);
 
         }
     }
