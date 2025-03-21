@@ -17,6 +17,7 @@ export class ButtonwithiconComponent {
 @Input() typeButton: 'button'|'submit'|'reset'='button';
 @Input() disabled=false;
 @Input() iconColor?: string='';  // Nuevo input para el color del icono
+
  
 }
  

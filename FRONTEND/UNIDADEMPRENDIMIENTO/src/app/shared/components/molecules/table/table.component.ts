@@ -1,14 +1,25 @@
-import { Component, Input } from '@angular/core';
+import { Component, Input, Output,EventEmitter } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { ButtonwithiconComponent } from '../buttonwithicon/buttonwithicon.component';
 
 @Component({
   selector: 'app-table',
   standalone: true,
-  imports: [CommonModule],
+  imports: [CommonModule,ButtonwithiconComponent],
   templateUrl: './table.component.html',
   styleUrls: ['./table.component.css']
 })
+  
 export class TableComponent {
-  @Input() headers: string[] = []; // 🔹 Recibe los títulos de las columnas
-  @Input() data: any[] = []; // 🔹 Recibe las filas de datos
+  @Input() headers: string[] = []; // Encabezados de las columnas
+  @Input() data: any[] = []; // Datos de las filas
+  @Input() buttons?: ButtonwithiconComponent[];  // Define los botones y sus propiedades
+  @Output() btnClick = new EventEmitter<void>();  // 🔹 Agregamos el Output para el evento de clic
+
+
+
+  
+
 }
+
+  

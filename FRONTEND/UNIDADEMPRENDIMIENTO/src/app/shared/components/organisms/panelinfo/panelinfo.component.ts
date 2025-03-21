@@ -15,6 +15,7 @@ import { FormsModule } from '@angular/forms';
 })
 export class PanelinfoComponent {
   image = ''; // Imagen de prueba
+  
   programOptions = [
     { value: 'prog1', label: 'Programa 1' },
     { value: 'prog2', label: 'Programa 2' },

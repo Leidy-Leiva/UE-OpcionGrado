@@ -1,3 +1,5 @@
+
+
 <div class="layout">
     <!-- Header global -->
     <header class="layout__header">
@@ -39,20 +41,30 @@
 
         <app-header
         [hidden]="isCollapsed"
+         class="header-info"
          title="Menú Opciones"
          typeIcon="fontawesome"
          icon="fa-solid fa-user"
          [buttons]="[
            { icon: 'chevron_right', classList: 'btn-success', typeButton: 'button', disabled: false, iconColor:''}
-         ]" >
+         ]"[hidden]="isCollapsed" >
          </app-header>
-         <app-menuoptions [hidden]="isCollapsed" >
+         <app-menuoptions 
+          [buttons]="[ { title: 'Convocatorias', icon: '', classList: 'btn-primary', typeButton: 'button', disabled: false, iconColor: ''  },
+            { title: 'Banco de Preguntas', icon: '', classList: 'btn-secondary', typeButton: 'button', disabled: false, iconColor: '', action: 'convocatorias' },
+            { title: 'Formularios', icon: '', classList: 'btn-info', typeButton: 'button', disabled: false, iconColor: '' }
+          ]" (btnClick)="handleMenuAction($event)">
         </app-menuoptions> 
       </aside>
       <main class="layout__content">
         <ng-content></ng-content>
-
+        <!-- Modal de edición que solo se muestra cuando showEditModal es true -->
+        <app-lista-preguntas 
+        *ngIf="showEditModal" >
+        </app-lista-preguntas>
+        <app-lista-formulario></app-lista-formulario>
       </main>
     </div>
   </div>
   
+ 

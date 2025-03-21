@@ -2,7 +2,7 @@
   display: flex;  /* Para alinear elementos dentro */
   justify-content: space-between; /* Asegura que el contenido se distribuya */
   align-items: center;
-  width: 100%; /* Ocupar todo el ancho disponible */
+  width:100%; /* Ocupar todo el ancho disponible */
   background-color: var(--header-bg, #32428B);
   padding: var(--header-padding, 0.3rem 1rem);
   color: var(--header-color, #fff);          /* Color base del texto */

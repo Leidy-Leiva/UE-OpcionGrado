@@ -3,6 +3,7 @@ import { CommonModule } from '@angular/common';
 import { IconComponent } from '../../atoms/icon/icon.component';
 import { LabelComponent } from '../../atoms/label/label.component';
 import { ButtonwithiconComponent } from '../buttonwithicon/buttonwithicon.component';
+import { SeekerComponent } from '../seeker/seeker.component';
 
 @Component({
   selector: 'app-header',
@@ -22,7 +23,5 @@ export class HeaderComponent {
 
 @Output() btnClick = new EventEmitter<void>();  // 🔹 Agregamos el Output para el evento de clic
 
-handleButtonClick() {
-  this.btnClick.emit();  // 🔹 Enviar solo el índice
-}
+
 }

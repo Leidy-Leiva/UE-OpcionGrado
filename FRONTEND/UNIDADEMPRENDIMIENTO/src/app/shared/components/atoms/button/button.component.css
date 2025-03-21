@@ -7,5 +7,7 @@
   border-radius: var(--btn-border-radius);
   transition: var(--btn-transition);
   background-color: var(--btn-bg-color);
-  color: var(--btn-color)
+  color: var(--btn-color);
+  height: var(--btn-heigth);
+  width: var(--btn-width);
 }

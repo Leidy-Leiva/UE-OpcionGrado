@@ -1,0 +1,37 @@
+<!-- Incluye Font Awesome desde su CDN -->
+<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
+
+
+<app-header 
+  class="content-header"
+  [typeIcon]="'material'"
+  [buttons]="[
+    { icon: 'add', classList: 'btn-success main-header__button', typeButton: 'button', disabled: false, iconColor: '#264390' }
+  ]"
+  (btnClick)="openEditView()">  
+  <app-seeker></app-seeker> 
+</app-header>
+
+<!-- Tabla con los datos y botones para editar y eliminar -->
+<app-table [headers]="headers" [data]="data"
+
+[buttons]="[
+    { icon: 'fa-edit', classList: 'btn-success main-header__button', typeButton: 'button', disabled: false, iconColor: '#264390' },   
+    { icon: 'delete', classList: 'btn-danger main-header__button', typeButton: 'button', disabled: false, iconColor: '#ff0000'}
+  ]"
+  (btnClick)="openUpdateView()">
+</app-table>
+
+<!-- Modal de edición que solo se muestra cuando showEditModal es true -->
+<app-bquestion-edit 
+  *ngIf="showEditModal" 
+  [question]="selectedQuestion"
+  (close)="closeModal()">
+</app-bquestion-edit>
+
+<!-- Modal de actualización que solo se muestra cuando showUpdateModal es true -->
+<app-bquestion-actualizar 
+  *ngIf="showUpdateModal" 
+  [question]="selectedQuestion"
+  (close)="closeModal()">
+</app-bquestion-actualizar>

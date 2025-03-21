@@ -1,11 +1,15 @@
 import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { LayoutComponent } from './templates/layout/layout.component';
+import { RouterModule } from '@angular/router';
+import { BquestionEditComponent } from './Features/Bquestions/bquestion-edit/bquestion-edit.component';
+import { BquestionActualizarComponent } from './Features/bquestion-actualizar/bquestion-actualizar.component';
+import { BoardComponent } from "./shared/components/atoms/board/board.component";
 
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [CommonModule,LayoutComponent],
+  imports: [CommonModule, LayoutComponent, RouterModule, BquestionEditComponent, BquestionActualizarComponent, BoardComponent],
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css']
 })

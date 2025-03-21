@@ -1,22 +1,64 @@
-/* 📌 Contenedor principal */
+/* 📌 Estilos generales */
+:host input,
+.combo-box-button {
+  width: 180px; /* Mismo ancho para ambos */
+  height: 40px; /* Altura fija */
+  padding: var(--input-padding, 10px 15px); /* Reduce el padding para que sea más compacto */
+  font-size: 14px; /* Tamaño de fuente igual */
+  border: 2px solid #ccc;
+  border-radius: 8px;
+  transition: all 0.3s ease-in-out;
+  outline: none;
+  background-color: white;
+  color: #333;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  display: flex;
+  align-items: center; /* Centrar texto verticalmente */
+  overflow: hidden;
+  text-overflow: ellipsis; /* Cortar texto si es muy largo */
+  white-space: nowrap; /* Evitar saltos de línea */
+}
+
+/* 📌 Placeholder del input */
+:host input::placeholder {
+  color: #999696;
+  font-size: 12px;
+  font-weight: 100;
+  opacity: 1;
+}
+
+/* 📌 Input deshabilitado */
+:host input:disabled {
+  background-color: #f0f0f0;
+  cursor: not-allowed;
+  opacity: 0.6;
+}
+
+/* 📌 Hover y focus */
+:host input:hover,
+.combo-box-button:hover {
+  border-color: #888;
+}
+
+:host input:focus,
+.combo-box-button:focus {
+  border-color: #428ba4;
+  box-shadow: 0 4px 8px rgba(253, 216, 53, 0.3);
+}
+
+/* 📌 Contenedor del combo box */
 .combo-box-container {
   position: relative;
   display: inline-block;
 }
 
-/* 📌 Estilo del botón */
+/* 📌 Estilo del botón del combo box */
 .combo-box-button {
-  background: #ffffff;
-  color: rgb(5, 0, 0);
-  padding: 10px 15px;
-  border: 2px solid #ccc;
-  border-radius: 5px;
-  cursor: pointer;
-  font-size: 12px;
-  font-family: Arial;
-  transition: all 0.3s ease-in-out;
-  width: 100%;
   text-align: left;
+  cursor: pointer;
+  font-family: Arial, sans-serif;
+  background: white;
+  line-height: 34px; /* Mantiene el mismo alto de la caja */
 }
 
 /* 📌 Lista desplegable */
@@ -24,21 +66,21 @@
   position: absolute;
   top: 100%;
   left: 0;
-  width: 100%;
+  width: 150px; /* Mismo ancho */
   background: white;
   border: 1px solid #ccc;
-  border-radius: 5px;
+  border-radius: 8px;
   box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
   z-index: 10;
   display: none;
 }
 
-/* 📌 Mostrar cuando el combo está activo */
+/* 📌 Mostrar lista activa */
 .combo-box.active {
   display: block;
 }
 
-/* 📌 Opciones */
+/* 📌 Opciones del combo box */
 .combo-box ul {
   list-style: none;
   padding: 0;
@@ -48,9 +90,13 @@
 }
 
 .combo-box li {
-  padding: 10px;
+  padding: 8px 15px; /* Espaciado uniforme */
   cursor: pointer;
   transition: background 0.2s;
+  font-size: 14px; /* Tamaño igual al input */
+  height: 34px; /* Mantener altura fija para cada opción */
+  display: flex;
+  align-items: center; /* Centrar texto */
 }
 
 .combo-box li:hover {
