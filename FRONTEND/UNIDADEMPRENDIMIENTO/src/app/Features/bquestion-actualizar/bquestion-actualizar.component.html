@@ -2,7 +2,7 @@
            [title]="title" 
            [showCloseButton]="showCloseButton" 
            (close)="closeModal()">
-    <div modal-header>
+    <div modal-header class="header-bqa">
         <app-header class="header-modal"
                     [title]="title"
                     icon="web_asset"
@@ -12,6 +12,7 @@
                       { icon: 'close', classList: 'btn-success main-header__button', typeButton: 'button', disabled: false, iconColor:'#264390' }
                     ]">
         </app-header>
+        
     </div>
     
     <hr>

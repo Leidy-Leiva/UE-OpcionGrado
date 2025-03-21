@@ -18,6 +18,11 @@
   box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
 }
   
+  .header-bqa{
+    width: 100%;
+    height: auto;
+    background-color: var(--bg-modal,#992017);
+  }
   /* Evitar que Bootstrap modifique los botones */
   :host .custom-button {
     background-color: var(--btn-color, rgb(70, 132, 216));

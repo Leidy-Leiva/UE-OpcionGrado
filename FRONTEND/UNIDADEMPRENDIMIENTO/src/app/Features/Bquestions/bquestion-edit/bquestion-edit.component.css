@@ -63,11 +63,11 @@ hr {
     width: 100%;     /* Ocupa todo el ancho disponible */
 }
 
- modal-header  {
-  width:100%;
+.header-bq{
+  width: 100%;
   height: auto;
-  background-color: aqua;
-} 
+  background-color: var(--bg-modal,#992017);
+}
 
 .header-modal{
   display: flex;
@@ -77,7 +77,7 @@ hr {
   padding: 0 10px;
   height: 28px;
   width: auto;
-  --header-color: #8381eb;
+  --header-color: #0d0c36;
   --icon-font-size: 0.7rem;
   --color-icon-title: rgb(255, 255, 255);
   --btn-withicon-gap: 0px;

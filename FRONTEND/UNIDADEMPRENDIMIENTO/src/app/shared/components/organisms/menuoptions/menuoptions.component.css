@@ -35,3 +35,37 @@ app-card [card-actions] {
       padding: 8px;
   }
 }
+
+.menuoptions-container {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  padding: 0.5rem;
+}
+
+.btn {
+  display: block;
+  width: 80%;
+  max-width: 250px; /* Ajusta el valor según necesites */
+  background-color: #3D80C2;
+  color: #fff;
+  border-radius: 5px;
+  text-align: center;
+  padding: 0.75rem 1rem;
+  font-weight: 500;
+  font-size: 0.95rem;
+  cursor: pointer;
+  border: none;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.btn:hover {
+  background-color: #2F69A8;
+  transform: scale(1.02);
+}
+
+.btn:active {
+  background-color: #3D80C2; /* Mismo que el fondo normal */
+  transform: none;          /* Sin transformación */
+}
+
