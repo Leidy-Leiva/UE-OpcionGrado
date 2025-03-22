@@ -8,8 +8,8 @@ namespace Api.UnidadEmprendimiento.Application.DTO_s.GEST_FORM.TipoPregunta
 {
     public class GetTipoElementoDTO
     {
-        public int TIPR_CODIGO { get; set; }
-        public string TIPR_NOMBRE { get; set; }
+        public int TPEF_CODIGO { get; set; }
+        public string TPEF_NOMBRE { get; set; }
       
     }
 }

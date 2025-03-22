@@ -8,19 +8,22 @@ namespace Api.UnidadEmprendimiento.Application.Services
 {
     public class TipoElementoService : ITipoElementoService
     {
-        private readonly ITipoElementoRepository _tiprrepository;
+        private readonly ITipoElementoRepository _teforepository;
         private readonly IMapper _mapper;
 
-        public TipoElementoService(ITipoElementoRepository tiprrepository, IMapper mapper)
+        public TipoElementoService(ITipoElementoRepository teforepository, IMapper mapper)
         {
-            _tiprrepository = tiprrepository;
+            _teforepository = teforepository;
             _mapper = mapper;
         }
 
         public async Task<PostTipoElementoDTO> Registrar(PostTipoElementoDTO modelDTO)
         {
-            var tipopregunta = _mapper.Map<TipoElementoFormulario>(modelDTO);
-            await _tiprrepository.PostTipoElemento(tipopregunta);
+              Console.WriteLine($"Antes de mapear: {modelDTO.TPEF_NOMBRE}"); // Debug
+            var tipoelemento = _mapper.Map<TipoElementoFormulario>(modelDTO);
+                Console.WriteLine($"Después de mapear: {tipoelemento.TPEF_NOMBRE}"); // Debug
+
+            await _teforepository.PostTipoElemento(tipoelemento);
             return modelDTO;
         }
         public Task<bool> Actualizar(PutTipoElementoDTO modelDTO)
@@ -30,8 +33,8 @@ namespace Api.UnidadEmprendimiento.Application.Services
 
         public async Task<List<GetTipoElementoDTO>> MostrarTiposPreguntas()
         {
-            var tipreguntas = await _tiprrepository.GetAllTipoElemento();
-            return _mapper.Map<List<GetTipoElementoDTO>>(tipreguntas);
+            var tipoelemento = await _teforepository.GetAllTipoElemento();
+            return _mapper.Map<List<GetTipoElementoDTO>>(tipoelemento);
         }
     }
 }
