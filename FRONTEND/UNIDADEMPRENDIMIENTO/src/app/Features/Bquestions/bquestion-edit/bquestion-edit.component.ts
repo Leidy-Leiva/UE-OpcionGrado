@@ -1,5 +1,4 @@
-import { Component, EventEmitter, Output, OnInit, ViewEncapsulation, Input } from '@angular/core';
-import { Router } from '@angular/router';
+import { Component, EventEmitter, Output, OnInit, ViewEncapsulation, Input, inject } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { RouterModule } from '@angular/router'; // <-- Importa RouterModule
 import { ModelComponent } from 'src/app/shared/components/atoms/model/model.component';
@@ -9,7 +8,7 @@ import { LabelwithcomboboxComponent } from 'src/app/shared/components/molecules/
 import { LabelwithinputComponent } from 'src/app/shared/components/molecules/labelwithinput/labelwithinput.component';
 import { HeaderComponent } from 'src/app/shared/components/molecules/header/header.component';
 import { ButtonwithiconComponent } from 'src/app/shared/components/molecules/buttonwithicon/buttonwithicon.component';
-import { BquestionEditService } from 'src/app/shared/components/Services/bquestion-edit.service';
+import { TipoelementoService } from 'src/app/shared/components/Services/tipoelemento.service';
 
 
 @Component({
@@ -32,9 +31,10 @@ import { BquestionEditService } from 'src/app/shared/components/Services/bquesti
 })
 export class BquestionEditComponent implements OnInit {
   
+  private questionService= inject (TipoelementoService);
   @Input() isVisible: boolean = true;
   @Input() title: string = 'Gestionar Pregunta';
-  @Input() questionOptions: string[] = ['Abierta', 'Opcional'];
+  @Input() questionOptions: string[] = [];
   @Input() showCloseButton: boolean = false;
   @Input() question: any;
   @Output() close = new EventEmitter<void>();
@@ -54,7 +54,18 @@ export class BquestionEditComponent implements OnInit {
   // Propiedad para controlar si se deben mostrar los campos de opciones
   showOptionsField: boolean = false;
 
-  ngOnInit() {}
+  ngOnInit() {
+    this.loadQuestionOptions();  //Llamar al metodo para obtener los datos de la API
+  }
+
+  private loadQuestionOptions(){
+    this.questionService.getTipoElementos().subscribe({
+      next:(data)=>{
+        this.questionOptions=data;
+      },
+      error:(err)=>console.error("Error cargando las opcines de elemento formulario:",err)
+    })
+  }
 
   closeModal() {
     this.isVisibleLocal = false;

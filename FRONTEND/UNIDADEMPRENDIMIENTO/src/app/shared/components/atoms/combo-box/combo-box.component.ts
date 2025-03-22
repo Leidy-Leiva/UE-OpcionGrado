@@ -10,9 +10,11 @@ import { CommonModule } from '@angular/common';
 })
 export class ComboBoxComponent {
   isComboBoxVisible = false;
-  selectedOption: string | null = null;
-  @Input() options: string[] = [];
-  @Output() selectionChange = new EventEmitter<string>();
+  selectedOption:{ [key: string]: any } | null = null;
+  @Input() options: Array<{ [key: string]: any }> = [];
+  @Input() displayField: string = '';
+
+  @Output() selectionChange = new EventEmitter<any>();
 
   constructor(private eRef: ElementRef) {}
 
@@ -21,11 +23,12 @@ export class ComboBoxComponent {
     this.isComboBoxVisible = !this.isComboBoxVisible;
   }
 
-  selectOption(option: string) {
-    this.selectedOption = option;
-    this.selectionChange.emit(option);
+  selectOption(option: any) {
+    this.selectedOption = option; 
+    this.selectionChange.emit(option[this.displayField]); // Emitimos solo el valor necesario
     this.isComboBoxVisible = false;
   }
+
 
   @HostListener('document:click', ['$event'])
   clickOutside(event: Event) {

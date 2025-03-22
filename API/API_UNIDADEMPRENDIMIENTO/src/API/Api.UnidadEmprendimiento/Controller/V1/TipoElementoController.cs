@@ -12,19 +12,19 @@ namespace Api.UnidadEmprendimiento.Controller.V1
     public class TipoElementoController : ControllerBase
     {
 
-        private readonly ITipoElementoService _tiprservice;
+        private readonly ITipoElementoService _tipelemservice;
 
-        public TipoElementoController(ITipoElementoService  tiprservice)
+        public TipoElementoController(ITipoElementoService  tipeservice)
         {
-            _tiprservice = tiprservice;
+            _tipelemservice= tipeservice;
         }
 
         // GET: api/<TipoPreguntaController>
-        [HttpGet("GetAllTipoPregunta")]
+        [HttpGet("GetAllTipoElementoFormulario")]
         public async Task<IActionResult> GetAll()
         {
-            var tipreguntas= await _tiprservice.MostrarTiposPreguntas();
-            return Ok(tipreguntas);
+            var tipelemento= await _tipelemservice.MostrarTiposPreguntas();
+            return Ok(tipelemento);
         }
 
         // GET api/<TipoPreguntaController>/5
@@ -35,12 +35,13 @@ namespace Api.UnidadEmprendimiento.Controller.V1
         }
 
         // POST api/<TipoPreguntaController>
-        [HttpPost("PostTipoPregunta")]
+        [HttpPost("PostTipoElementoFormulario")]
         public async Task<IActionResult> Post([FromBody] PostTipoElementoDTO model)
         {
             try
             {
-                await _tiprservice.Registrar(model);
+                Console.WriteLine($"Valor recibido: {model.TPEF_NOMBRE}"); // Debug
+                await _tipelemservice.Registrar(model);
                 return Ok(model);
             }catch (Exception e)
             {

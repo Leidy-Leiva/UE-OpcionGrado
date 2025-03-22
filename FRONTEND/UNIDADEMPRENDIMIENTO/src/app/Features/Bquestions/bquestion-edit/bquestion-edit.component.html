@@ -17,9 +17,10 @@
     <hr>
     <div class="inline-group">
       <app-labelwithcombobox
-        [label]="'Elija el tipo de pregunta'" 
-        [options]="questionOptions" 
-        (selectionChange)="onSelectionChange($event)">
+      [label]="'Elija el tipo de pregunta'"
+      [options]="questionOptions"
+      [displayField]="'tpeF_NOMBRE'"
+      (selectionChange)="onSelectionChange($event)">>
       </app-labelwithcombobox>
 
       <app-labelwithinput

@@ -27,7 +27,7 @@ namespace Api.UnidadEmprendimiento.Data.Contexts
 
         /*FORMULARIOS*/
         public DbSet<TipoFormulario> TiposFormularios {get; set;}
-        public DbSet<TipoElementoFormulario> TipoeElementosFormularios {get; set;}
+        public DbSet<TipoElementoFormulario> TipoElementosFormularios {get; set;}
         public DbSet<EstadoFormulario> EstadoFormularios {get; set;}
         
         /*FORMULARIO BORRADOR*/
