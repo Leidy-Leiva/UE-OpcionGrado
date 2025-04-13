@@ -1,0 +1,29 @@
+<table class="custom-table">
+  <thead>
+    <tr>
+      <th *ngFor="let header of headers">{{ header }}</th>
+      
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let row of data">
+      <td *ngFor="let key of headers">{{ row[key] }}</td>
+      <td class="columnaacciones">
+        <!-- Envolvemos los botones en un contenedor con clase "action-buttons" -->
+        <div class="action-buttons">
+          <ng-container *ngFor="let action of buttons">
+            <app-buttonwithicon 
+              [icon]="action.icon" 
+              [classList]="action.classList" 
+              [typeButton]="action.typeButton" 
+              [disabled]="action.disabled" 
+              [iconColor]="action.iconColor" 
+              [title]="action.title" 
+              (click)="btnClick.emit()">
+            </app-buttonwithicon>
+          </ng-container>
+        </div>
+      </td>
+    </tr>
+  </tbody>
+</table>

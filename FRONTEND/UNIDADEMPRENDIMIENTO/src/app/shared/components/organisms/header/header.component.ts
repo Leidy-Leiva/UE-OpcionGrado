@@ -2,8 +2,8 @@ import { Component, Input,Output,EventEmitter} from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { IconComponent } from '../../atoms/icon/icon.component';
 import { LabelComponent } from '../../atoms/label/label.component';
-import { ButtonwithiconComponent } from '../buttonwithicon/buttonwithicon.component';
-import { SeekerComponent } from '../seeker/seeker.component';
+import { ButtonwithiconComponent } from '../../molecules/buttonwithicon/buttonwithicon.component';
+import { SeekerComponent } from '../../molecules/seeker/seeker.component';
 
 @Component({
   selector: 'app-header',

@@ -1,6 +1,6 @@
 import { Component,Input } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { HeaderComponent } from '../../shared/components/molecules/header/header.component';
+import { HeaderComponent } from '../../shared/components/organisms/header/header.component';
 import { PanelinfoComponent } from '../../shared/components/organisms/panelinfo/panelinfo.component';
 import { MenuoptionsComponent } from "../../shared/components/organisms/menuoptions/menuoptions.component";
 import { ListaPreguntasComponent } from "../../shared/components/organisms/lista-preguntas/lista-preguntas.component";

@@ -1,8 +1,7 @@
 import { Component,Input , Output,EventEmitter} from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { CardComponent } from "../../molecules/card/card.component";
-import { ButtonwithiconComponent } from '../../molecules/buttonwithicon/buttonwithicon.component';
-import { HeaderComponent } from '../header/header.component';
+import { CardComponent } from "../../shared/components/molecules/card/card.component";
+import { ButtonwithiconComponent } from '../../shared/components/molecules/buttonwithicon/buttonwithicon.component';
 import { FormsModule } from '@angular/forms';
 
 @Component({

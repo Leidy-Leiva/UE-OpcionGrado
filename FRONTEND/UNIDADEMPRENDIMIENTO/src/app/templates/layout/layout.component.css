@@ -103,37 +103,60 @@
 ============================ */
 .layout__panel.collapsed app-header.panel-header {
   height: 100%;             /* Ocupa ambas filas del grid (panel + menú) */
-  width: 50px;              /* Coincide con el ancho colapsado */
+  width: 20px;              /* Coincide con el ancho colapsado */
   --header-bg: #428bca;/* Ajusta el color a tu preferencia (verde/azul) */
- 
-
   display: flex;
-  flex-direction: column;   /* Ícono arriba, texto en medio, botón abajo */
+  flex-direction: column-reverse;   /* Ícono arriba, texto en medio, botón abajo */
   align-items: center;
-  justify-content: center;  /* Centra verticalmente (si quieres separarlos, ver nota abajo) */
+  justify-content: flex-end;  /* Centra verticalmente (si quieres separarlos, ver nota abajo) */
   gap: 12px;                /* Espacio entre ícono, texto y botón */
   
   cursor: pointer;
   transition: all 0.3s ease-in-out;
+
+  .title{
+   
+   
+    display: flex;
+    flex-direction: column-reverse;
+    margin-top: 8rem;
+
+
+    .label-arial{
+      writing-mode: vertical-lr;
+      transform: rotate(-180deg);
+    }
+
+    i{
+      transform: rotate(-90deg);
+      
+    }
+  }
+
+
+  .controls{
+    span{
+      transform: rotate(0deg);
+    }
+  } 
+
+
 }
 .panel-header{
   --header-bg:#428BCA;
+
+    .controls{
+      span{
+        transform: rotate(180deg);
+      }
+    } 
 }
+
+
 .header-info{
   --header-bg:#428BCA;
 }
 
-/* TEXTO EN VERTICAL
-   writing-mode: vertical-rl -> rota el texto 90°,
-   transform: rotate(180deg) -> lo voltea para leer de arriba a abajo
-*/
-.layout__panel.collapsed app-header.panel-header .title-header {
-  writing-mode: vertical-rl;
-  text-orientation: mixed;
-  transform: rotate(180deg);
-  text-align: center;
-  margin: 0;
-}
 
 /* MUESTRA LOS BOTONES EN COLUMNA (UNO DEBAJO DEL OTRO) */
 .layout__panel.collapsed app-header.panel-header .controls {

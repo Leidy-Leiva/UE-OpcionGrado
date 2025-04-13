@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { HeaderComponent } from '../../molecules/header/header.component';
+import { HeaderComponent } from '../header/header.component';
 import { SeekerComponent } from '../../molecules/seeker/seeker.component';
 import { TableComponent } from '../../molecules/table/table.component';
 

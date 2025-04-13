@@ -7,7 +7,7 @@ import { FormsModule } from '@angular/forms';
 import { ButtonComponent } from 'src/app/shared/components/atoms/button/button.component';
 import { LabelwithcomboboxComponent } from 'src/app/shared/components/molecules/labelwithcombobox/labelwithcombobox.component';
 import { LabelwithinputComponent } from 'src/app/shared/components/molecules/labelwithinput/labelwithinput.component';
-import { HeaderComponent } from 'src/app/shared/components/molecules/header/header.component';
+import { HeaderComponent } from 'src/app/shared/components/organisms/header/header.component';
 import { ButtonwithiconComponent } from 'src/app/shared/components/molecules/buttonwithicon/buttonwithicon.component';
 import { BquestionEditService } from 'src/app/shared/components/Services/bquestion-edit.service';
 

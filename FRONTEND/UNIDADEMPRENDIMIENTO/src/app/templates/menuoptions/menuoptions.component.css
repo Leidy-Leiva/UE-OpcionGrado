@@ -1,0 +1,71 @@
+/* Define estilos para el contenedor del panel de información */
+:host {
+  display: block;
+  padding: var(--panel-padding);
+  border-radius: var(--panel-border-radius);
+  width: 100%; /* Ocupar toda la tarjeta */
+
+}
+
+/* Contenedor principal para alinear header y contenido */
+app-card {
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  width: 100%;
+  --card-bg-color:rgb(228, 249, 16);
+  --card-border-radius:0px;
+}
+
+/* Personaliza el contenido del card */
+app-card [card-actions] {
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  flex-grow: 1; /* Permite ajuste dinámico */
+  border: 2px dashed #ff0000;
+  padding: 10px;
+}
+
+
+/* Media query para hacerlo responsive */
+@media (max-width: 600px) {
+  app-card {
+      max-width: 95%;
+      padding: 8px;
+  }
+}
+
+.menuoptions-container {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  padding: 0.5rem;
+}
+
+.btn {
+  display: block;
+  width: 80%;
+  max-width: 250px; /* Ajusta el valor según necesites */
+  background-color: #3D80C2;
+  color: #fff;
+  border-radius: 5px;
+  text-align: center;
+  padding: 0.75rem 1rem;
+  font-weight: 500;
+  font-size: 0.95rem;
+  cursor: pointer;
+  border: none;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.btn:hover {
+  background-color: #2F69A8;
+  transform: scale(1.02);
+}
+
+.btn:active {
+  background-color: #3D80C2; /* Mismo que el fondo normal */
+  transform: none;          /* Sin transformación */
+}
+

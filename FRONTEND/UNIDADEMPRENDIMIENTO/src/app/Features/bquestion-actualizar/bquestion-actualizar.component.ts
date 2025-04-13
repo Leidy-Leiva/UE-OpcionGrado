@@ -8,7 +8,7 @@ import { ButtonComponent } from 'src/app/shared/components/atoms/button/button.c
 import { LabelComponent } from 'src/app/shared/components/atoms/label/label.component';
 import { LabelwithcomboboxComponent } from 'src/app/shared/components/molecules/labelwithcombobox/labelwithcombobox.component';
 import { LabelwithinputComponent } from 'src/app/shared/components/molecules/labelwithinput/labelwithinput.component';
-import { HeaderComponent } from 'src/app/shared/components/molecules/header/header.component';
+import { HeaderComponent } from 'src/app/shared/components/organisms/header/header.component';
 import { ButtonwithiconComponent } from 'src/app/shared/components/molecules/buttonwithicon/buttonwithicon.component';
 import { LabelwithlistgroupComponent } from 'src/app/shared/components/molecules/labelwithlistgroup/labelwithlistgroup.component';
 
