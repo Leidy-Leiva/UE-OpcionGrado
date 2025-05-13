@@ -1,58 +1,111 @@
-/* 🔹 Estilo general para la tabla */
+:host {
+  display: block;
+  overflow-x: auto;
+
+  /* ——— VARIABLES POR DEFECTO ——— */
+  --table-bg: #ffffff;
+  --table-header-bg: #f9f9f9;
+  --table-row-alt-bg: #f5f5f5;
+  --table-row-hover-bg: #e0f7fa;
+  --table-border-color: #e0e0e0;
+  --table-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+  --table-text-color: #333333;
+  --table-font-size: 14px;
+  --table-header-font-weight: 600;
+  --table-padding: 12px;
+  --paginator-bg: #ffffff;
+  --paginator-color: #000000;
+}
+
+/* Contenedor responsivo */
+.table-container {
+  width: 100%;
+  overflow-x: auto;
+  padding: 8px;
+  box-sizing: border-box;
+}
+
+/* Tabla base */
 .custom-table {
   width: 100%;
   border-collapse: collapse;
-  font-family: Arial, sans-serif;
-  border-radius: 10px;
-  overflow: hidden; /* Para que los bordes redondeados apliquen bien */
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-  table-layout: auto; /* Ajustar automáticamente al contenido */
+  font-family: inherit;
+  border-radius: 0px;
+  overflow: hidden;
+  box-shadow: var(--table-shadow);
+  background-color: var(--table-bg);
+  color: var(--table-text-color);
+  font-size: var(--table-font-size);
+  min-width: 400px;
+  table-layout: auto;
+
+  /* 👇 Elimina bordes por defecto de mat-table */
+  ::ng-deep .mat-header-row,
+  ::ng-deep .mat-row {
+    display: table-row;
+  }
+  ::ng-deep .mat-cell,
+  ::ng-deep .mat-header-cell {
+    display: table-cell;
+    padding: 0; /* lo manejamos abajo */
+  }
 }
 
-/* 🔹 Encabezados de las columnas (sin color de fondo) */
+/* Encabezados */
 .custom-table th {
-  padding: 14px;
-  text-align: left;
-  font-weight: bold;
-  min-width: 120px; /* Asegura un ancho adecuado */
-  border-bottom: 2px solid #ddd; /* Línea sutil para separar el encabezado */
+  background-color: var(--table-header-bg);
+  font-weight: var(--table-header-font-weight);
+  padding: var(--table-padding);
+  text-align: center ;
+  border-bottom: 2px solid var(--table-border-color);
 }
 
-/* 🔹 Estilo para las filas alternas */
+/* Filas alternas */
 .custom-table tr:nth-child(even) {
-  background-color: #f8f9fa;
+  background-color: var(--table-row-alt-bg);
 }
 
-/* 🔹 Estilo para las celdas */
+/* Hover en fila */
+.custom-table tr:hover {
+  background-color: var(--table-row-hover-bg);
+}
+
+/* Celdas */
 .custom-table td {
-  padding: 12px;
-  text-align: left;
-  border-bottom: 1px solid #ddd;
+  padding: var(--table-padding);
+  border-bottom: 1px solid var(--table-border-color);
+  vertical-align: middle;
 }
 
-/* 🔹 Estilo para la celda de acciones */
+/* Celda de acciones */
 .custom-table td:last-child {
   text-align: right;
-  padding-right: 16px;
 }
 
-/* 🔹 Contenedor de botones */
-.custom-table .action-buttons {
+/* Grupo de botones */
+.action-buttons {
   display: flex;
-  gap: 10px; /* Espacio entre botones */
+  gap: 8px;
   justify-content: flex-end;
+  --stroke-width: 0.3px;
+  --stroke-icon : #000;
 }
 
-/* 🔹 Botones dentro de la celda de acciones */
-.custom-table .action-buttons app-buttonwithicon {
-  transition: transform 0.2s ease;
+/* Paginador */
+.paginator {
+  background-color: var(--paginator-bg);
+  color: var(--paginator-color);
 }
 
-.custom-table .action-buttons app-buttonwithicon:hover {
-  transform: scale(1.1);
-}
-
-/* 🔹 Efecto hover en filas */
-.custom-table tr:hover {
-  background-color: #e9ecef;
+/* Responsive */
+@media (max-width: 768px) {
+  .custom-table th,
+  .custom-table td {
+    padding: 8px;
+    font-size: 13px;
+  }
+  .action-buttons {
+    flex-direction: column;
+    align-items: flex-end;
+  }
 }

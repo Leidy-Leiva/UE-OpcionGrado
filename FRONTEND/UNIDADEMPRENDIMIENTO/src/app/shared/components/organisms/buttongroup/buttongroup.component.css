@@ -1,0 +1,10 @@
+.button-group
+{
+    display: flex;
+    width:var(--width-bg,100%);  
+    height: var(--height-bg,100%);
+    gap:var(--gap-buttons, 8px); /* Espaciado entre botones */
+    flex-wrap: wrap;
+    align-items: var(--alingI-btn,center);
+
+}

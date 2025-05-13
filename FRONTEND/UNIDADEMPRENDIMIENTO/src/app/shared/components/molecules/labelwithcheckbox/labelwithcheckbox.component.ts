@@ -11,8 +11,8 @@ import { CheckBoxComponent } from '../../atoms/check-box/check-box.component';
   styleUrls: ['./labelwithcheckbox.component.css']
 })
 export class LabelwithcheckboxComponent {
-  @Input() label: string = 'Selecciona una opción'; // Define correctamente esta propiedad
-  @Input() checked: boolean = false;  // Define correctamente esta propiedad
+  @Input() label: string = 'Selecciona una opción'; 
+  @Input() checked: boolean = false; 
   @Input() disabled: boolean = false;
   @Output() checkedChange = new EventEmitter<boolean>();
 

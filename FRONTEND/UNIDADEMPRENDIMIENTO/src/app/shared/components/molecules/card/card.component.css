@@ -71,8 +71,8 @@
     border-bottom-left-radius: var(--card-border-radius, 12px);
     border-bottom-right-radius: var(--card-border-radius, 12px);
 }
+.mat-card-actions [card-actions]
+{
+    justify-content:start;
 
-/* Asegura que las acciones se mantengan abajo incluso si el contenido es corto */
-.universal-card .mat-card-actions {
-    margin-top: auto;
 }

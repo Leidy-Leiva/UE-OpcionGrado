@@ -1,6 +1,3 @@
-/* ============================
-   CONTENEDOR GENERAL
-============================ */
 .layout {
   height: 100vh;
   margin: 0;
@@ -9,17 +6,8 @@
   width: auto;
 }
 
-/* HEADER GLOBAL */
-.layout__header {
-  height: 56px;
-  width: 100%;
-}
-
-/* ============================
-   ESTILOS PARA TUS HEADERS SUPERIORES
-   (main-header, secondary-header)
-   =========================== */
-.main-header {
+.main-header 
+{
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -27,10 +15,7 @@
   padding: 0 10px;
   height: 28px;
   width: auto;
-  /* Variables del header */
-  --header-color: #080748;
   --icon-font-size: 0.7rem;
-  --color-icon-title: rgb(255, 255, 255);
   --btn-withicon-gap: 0px;
   --btn-withicon-border-radius: 3px;
   --btn-withicon-bg: #E1F3FF;
@@ -39,19 +24,47 @@
   --icon-title-transform: scale(2);
   --btn-withicon-transition: all 0.3s ease-in-out;
   --btn-border: 0.1px solid #71A0DD;
+  --btn-bg-hover:#CCD8E720;
+  --stroke-width: 0px;
+
 }
 
-.secondary-header {
+.icon-header-main
+{
+  --icon-font-size:1rem;
+  --icon-color: rgb(251, 251, 251);
+    --stroke-width: 0.5px;
+      --stroke-icon : #000;
+}
+.label-header-main
+{
+  --label-color:#15428B;
+  --label-font-size:1rem;
+}
+
+.secondary-header{
   display: flex;
   align-items: center;
-  background-color: #D2E0F1;
+  --header-bg: #CCD8E7;
   padding: 0% 1%;
   --btn-withicon-bg: #C3D9F3;
   height: 28px;
+
+
+}
+
+.button-header-secondary
+{
   --icon-font-size: 1rem;
   --btn-withicon-padding: 0px;
-  --header-color: rgb(8, 8, 8);
   --btn-withicon-border-radius: 0.5px;
+  --btn-bg-hover:#CCD8E780;
+   --stroke-width: 0.2px;
+  --stroke-icon : #000;
+}
+
+.ml-auto {
+  margin-left: auto;
 }
 
 /* ============================
@@ -59,9 +72,7 @@
 ============================ */
 .layout__body {
   display: grid;
-  /* Panel a la izquierda (350px) y contenido a la derecha (resto) */
   grid-template-columns: 350px 1fr; 
-  /* Dos filas: "panel content" y "menu content" si necesitas */
   grid-template-areas: 
     "panel content"
     "menu  content";
@@ -84,9 +95,8 @@
 .layout__panel {
   grid-area: panel;
   width: 350px;          /* Ancho expandido */
-  background-color: #FFFFFF;
   overflow-x: hidden;
-  transition: width 0.3s ease-in-out;
+  transition: width 0.08s ease-in-out;
   display: flex;         /* Organiza en columna: header principal, luego contenido */
   flex-direction: column;
 }
@@ -96,51 +106,98 @@
   overflow: hidden;
 }
 
-/* ============================
-   HEADER PRINCIPAL DEL PANEL (panel-header)
-   - Siempre visible
-   - Al colapsar, ocupa todo el alto y muestra contenido en vertical
-============================ */
-.layout__panel.collapsed app-header.panel-header {
-  height: 100%;             /* Ocupa ambas filas del grid (panel + menú) */
-  width: 50px;              /* Coincide con el ancho colapsado */
+.layout__panel.collapsed app-header.panel-header{
+  height: 100%;          /* Ocupa ambas filas del grid (panel + menú) */             
+  width: 5%;
   --header-bg: #428bca;/* Ajusta el color a tu preferencia (verde/azul) */
- 
-
   display: flex;
+  justify-content: center;
   flex-direction: column;   /* Ícono arriba, texto en medio, botón abajo */
   align-items: center;
-  justify-content: center;  /* Centra verticalmente (si quieres separarlos, ver nota abajo) */
-  gap: 12px;                /* Espacio entre ícono, texto y botón */
-  
   cursor: pointer;
-  transition: all 0.3s ease-in-out;
-}
-.panel-header{
-  --header-bg:#428BCA;
-}
-.header-info{
-  --header-bg:#428BCA;
+  transition: all 0.08s ease-in-out;
+
 }
 
-/* TEXTO EN VERTICAL
-   writing-mode: vertical-rl -> rota el texto 90°,
-   transform: rotate(180deg) -> lo voltea para leer de arriba a abajo
-*/
-.layout__panel.collapsed app-header.panel-header .title-header {
-  writing-mode: vertical-rl;
-  text-orientation: mixed;
-  transform: rotate(180deg);
-  text-align: center;
-  margin: 0;
-}
-
-/* MUESTRA LOS BOTONES EN COLUMNA (UNO DEBAJO DEL OTRO) */
 .layout__panel.collapsed app-header.panel-header .controls {
-  display: flex !important;
-  flex-direction: column;
-  gap: 8px;
+  order: 0;
+  margin-top: -5rem; 
+  align-items: start;
+  margin-left: -0.6rem;
+  transform: rotate(0deg);
+  --icon-font-size:1rem;
+  --stroke-width: 0.5px;
+  --stroke-icon : #000;
+
 }
+
+/* 2) Título (icon+label, aqua) en el centro */
+.layout__panel.collapsed app-header.panel-header .title {
+  order: 1;  
+  /* empuja el bloque al centro del contenedor */
+  margin-top: 0;
+  margin-bottom: auto;
+  /* opcional: para mostrar icono encima de label */
+  display: flex;
+  flex-direction: column-reverse;
+  gap: 15px;
+
+  .label-header-panelinfo{
+    writing-mode: vertical-lr;
+    transform: rotate(-180deg);
+
+  }
+  .icon-header-panelinfo{
+    transform: rotate(-90deg);
+    --icon-color:#ffffff; 
+  
+  }
+}
+
+app-header.panel-header { 
+  height:5%;   /* Ocupa ambas filas del grid (panel + menú) */
+  --header-bg:#428bca;
+     .controls{
+        transform: rotate(-180deg);
+        --icon-color:#ffffff;   
+        --icon-font-size:1rem;
+        margin-left: 60px;
+    }  
+}
+
+.icon-header-panelinfo
+  {
+     --icon-color:#ffffff;   
+  }
+
+.label-header-panelinfo 
+  {
+     --label-color:#ffffff;
+  }
+
+
+.header-info
+{
+  height: 5%;
+  --header-bg:#428BCA;
+}
+.header-menu-title
+{
+  display: flex;
+  align-items: center;
+  gap: 15px; /* o el valor que necesites */ 
+}
+
+.label-header-menu
+{
+  --label-color:#ffffff;
+}
+
+.icon-header-menu
+{
+  --icon-color:#ffffff;   
+}
+
 
 /* Oculta los demás elementos (otros headers, panelinfo, menuoptions) en estado colapsado */
 .layout__panel.collapsed app-header:not(.panel-header),

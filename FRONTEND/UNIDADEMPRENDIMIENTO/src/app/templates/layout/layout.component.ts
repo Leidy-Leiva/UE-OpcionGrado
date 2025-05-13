@@ -1,65 +1,99 @@
-import { Component,Input } from '@angular/core';
+import { Component,Input, Output } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { HeaderComponent } from '../../shared/components/molecules/header/header.component';
+import { HeaderComponent } from '../../shared/components/organisms/header/header.component';
 import { PanelinfoComponent } from '../../shared/components/organisms/panelinfo/panelinfo.component';
-import { MenuoptionsComponent } from "../../shared/components/organisms/menuoptions/menuoptions.component";
-import { ListaPreguntasComponent } from "../../shared/components/organisms/lista-preguntas/lista-preguntas.component";
-import { RouterModule } from '@angular/router';
-import { BquestionEditComponent } from "../../Features/Bquestions/bquestion-edit/bquestion-edit.component";
-import { ListaFormularioComponent } from 'src/app/shared/components/organisms/lista-formulario/lista-formulario.component';
-
+import { Router, RouterModule } from '@angular/router';
+import { LabelComponent } from 'src/app/shared/components/atoms/label/label.component';
+import { IconComponent } from 'src/app/shared/components/atoms/icon/icon.component';
+import { ButtonwithiconComponent } from 'src/app/shared/components/molecules/buttonwithicon/buttonwithicon.component';
+import { ButtonwithicongroupComponent } from 'src/app/shared/components/organisms/buttonwithicongroup/buttonwithicongroup.component';
+import { ButtonWithIconConfig } from 'src/app/shared/models/buttonwithicon-config';
+import { MenuoptionsComponent } from '../../shared/components/organisms/menuoptions/menuoptions.component';
 @Component({
   selector: 'app-layout',
   standalone: true,
-  imports: [CommonModule, HeaderComponent, PanelinfoComponent, MenuoptionsComponent, ListaPreguntasComponent, RouterModule, BquestionEditComponent,ListaFormularioComponent],
+  imports: [CommonModule, HeaderComponent, PanelinfoComponent, MenuoptionsComponent, RouterModule, LabelComponent, IconComponent, ButtonwithicongroupComponent, ButtonwithiconComponent],
   templateUrl: './layout.component.html',
   styleUrls: ['./layout.component.css']
 })
 export class LayoutComponent {
 @Input() pageTitle?:string;
-showEditModal = false;  // Modal para edición
-showUpdateModal = false; // Modal para actualización
-
 isCollapsed:boolean=false;
+constructor(private router: Router) {}
 
-toggleSidebar(){
-  this.isCollapsed=!this.isCollapsed;
-  console.log("Estado del panel:", this.isCollapsed ? "Colapsado" : "Expandido");
+mainHeaderButtons:ButtonWithIconConfig[]= [
+  { icon: 'remove', classList: 'btn-success main-header__button', typeButton: 'button', disabled: false, iconColor:'#264390', action: 'minimize' },
+  { icon: 'crop_square', classList: 'btn-success main-header__button', typeButton: 'button', disabled: false, iconColor:'#264390', action: 'maximize'},
+  { icon: 'close', classList: 'btn-success main-header__button', typeButton: 'button', disabled: false, iconColor:'#264390', action: 'close' }
+];
+
+secondaryHeaderButtons:ButtonWithIconConfig[]= [
+  { icon: 'sync', title:'Recargar página', classList: 'reload-btn', typeButton: 'button', disabled: false, iconColor:'#91CA8A'},
+  { icon: 'help', title:'Ayuda', classList: 'help-btn', typeButton: 'button', disabled: false, iconColor: '#6995C3' }
+];
+
+buttonPanelInfoHeader:ButtonWithIconConfig={
+  icon: 'arrow-right', classList: 'btn-success', typeButton: 'button', disabled: false, iconColor:'#ffffff', action:'toggle-sidebar',typeIcon:"fontawesome"
 }
 
-onRemoveClick() {
-  console.log('Remove button clicked');
-}
 
-onCropClick() {
-  console.log('Crop button clicked');
-}
+onMenuButtonClick(action: string) {
 
-onCloseClick() {
-  console.log('Close button clicked');
-}
+  console.log('Accion del menú',action);
 
-// openEditView() {
-//   this.showEditModal = true;
-//   this.showUpdateModal = false;
-// }
-
-  // Función para manejar la acción del menú
-  handleMenuAction(action: string) {
-    console.log('Acción del menú:', action);
-    // Por ejemplo, si la acción es 'convocatorias' podrías abrir otra vista
-    if (action === 'convocatorias') {
-      // Realiza la acción correspondiente, por ejemplo:
-      this.showEditModal = true;
-      this.showUpdateModal = false;
-    } else if (action === 'banco') {
-      // Otra acción, por ejemplo, abrir el modal de banco de preguntas
-      this.showUpdateModal = true;
-      this.showEditModal = false;
-    } else if (action === 'formularios') {
-      // Otra acción
-      // ...
-    }
+  switch(action)
+  {
+    case 'Elementos' :
+      console.log('Acabe de darle clic');
+      this.router.navigate(['/generate-elements-form/listar']);
+    break;
   }
-
+  // Por ejemplo, si recibes "elementos", navegas a /elementos
+  
 }
+
+
+handleAction(action: string) {
+  console.log('Acción del menú:', action);
+
+  switch(action) {
+    case 'toggle-sidebar':
+      console.log("Acabo de dar click");
+      this.isCollapsed = !this.isCollapsed;
+      break;
+
+    case 'BancoElementos':
+      break;
+
+    case 'convocatoria':
+      break;
+
+    case 'banco':
+      break;
+
+    case 'recargar':
+      break;
+
+    case 'ayuda':
+      break;
+      
+    default:
+      console.warn('Acción no reconocida:', action);
+  }
+}
+  
+
+  closeWindow() {
+    console.log('Cerrar ventana');
+    // Aquí puedes agregar lógica real si estás en Electron, por ejemplo
+  }
+  
+  minimizeWindow() {
+    console.log('Minimizar ventana');
+  }
+  
+  maximizeWindow() {
+    console.log('Maximizar ventana');
+  }
+}
+

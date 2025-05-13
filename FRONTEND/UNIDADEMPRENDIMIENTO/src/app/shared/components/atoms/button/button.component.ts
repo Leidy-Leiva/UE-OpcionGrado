@@ -1,5 +1,6 @@
-import { Component, Input } from '@angular/core';
+import { Component, EventEmitter, Input, Output } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { buttonconfig } from 'src/app/shared/models/button-config';
 
 @Component({
   selector: 'app-button',
@@ -9,11 +10,12 @@ import { CommonModule } from '@angular/common';
   styleUrls: ['./button.component.css']
 })
 export class ButtonComponent {
-@Input() text?:string;  
-@Input() typeButton: 'button'|'submit'|'reset'='button';
-@Input() classList:string='';
-@Input() disabled: boolean = false;
+  @Input() buttonConfig!: buttonconfig;  // Recibe la configuración completa del botón
+  @Output() btnClick = new EventEmitter<string>();  // Emite la acción del botón
 
-
+  onClick(): void {
+    if (!this.buttonConfig.disabled && this.buttonConfig.action) {
+      this.btnClick.emit(this.buttonConfig.action);
+    }
+  }
 }
-

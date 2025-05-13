@@ -1,6 +1,17 @@
-<div class="input-group small-search">
-  <input type="search" id="form1" class="form-control" placeholder="Buscar..." />
-  <button type="button" class="btn btn-primary">
-    <i class="fas fa-search"></i>
-  </button>
-</div>
+<div class="seeker-container">
+   <app-input 
+   class="form-control"
+   [value]="query"
+   (valueChange)="onQueryChange($event)"
+   [placeholder]="placeholder"
+   typeInput="search">
+   </app-input>
+ 
+   <app-buttonwithicon
+   *ngIf="showButton"
+   class="search-btn"
+   [buttonConfig]="searchButtonConfig"
+   (btnclick)="onSearchClick()">
+ </app-buttonwithicon>
+ </div>
+ 

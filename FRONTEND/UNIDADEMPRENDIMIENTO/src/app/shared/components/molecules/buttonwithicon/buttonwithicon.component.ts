@@ -2,6 +2,7 @@ import { Component,Input,Output,EventEmitter } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { IconComponent } from '../../atoms/icon/icon.component';
 import { ButtonComponent } from "../../atoms/button/button.component";
+import { ButtonWithIconConfig } from 'src/app/shared/models/buttonwithicon-config';
 
 @Component({
   selector: 'app-buttonwithicon',
@@ -11,13 +12,13 @@ import { ButtonComponent } from "../../atoms/button/button.component";
   styleUrls: ['./buttonwithicon.component.css']
 })
 export class ButtonwithiconComponent {
-@Input() title?:string;
-@Input() icon:string='';
-@Input() classList:string='';
-@Input() typeButton: 'button'|'submit'|'reset'='button';
-@Input() disabled=false;
-@Input() iconColor?: string='';  // Nuevo input para el color del icono
+  @Input() buttonConfig!: ButtonWithIconConfig;
+  @Output() btnClick = new EventEmitter<string>();
 
- 
+
+  get iconType(): 'material' | 'fontawesome' | 'bootstrap' {
+    return this.buttonConfig.typeIcon ?? 'material';
+  }
+
 }
  
