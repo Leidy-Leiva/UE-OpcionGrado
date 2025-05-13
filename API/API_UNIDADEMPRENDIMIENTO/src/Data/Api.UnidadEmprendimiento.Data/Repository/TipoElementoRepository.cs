@@ -24,8 +24,8 @@ namespace Api.UnidadEmprendimiento.Data.Repository
         {
             try 
             {
-                var tipreguntas= await _context.TipoeElementosFormularios.ToListAsync();
-                return tipreguntas;
+                var tipelemento= await _context.TipoElementosFormularios.ToListAsync();
+                return tipelemento;
             }
             catch (Exception e) 
             {
@@ -41,7 +41,7 @@ namespace Api.UnidadEmprendimiento.Data.Repository
 
         public async Task<bool> PostTipoElemento(TipoElementoFormulario model)
         {
-            await _context.TipoeElementosFormularios.AddAsync(model);
+            await _context.TipoElementosFormularios.AddAsync(model);
             return await _context.SaveChangesAsync() > 0;
         }
 
