@@ -1,7 +1,7 @@
 <button
-    [type]='typeButton'
-    [class]='classList'
-    [disabled]='disabled'>
-    {{text}}
+    [type]="buttonConfig.typeButton??'button'"
+    [class]='buttonConfig.classList'
+    [disabled]='buttonConfig.disabled'
+    (click)="onClick()">
     <ng-content></ng-content>
 </button>

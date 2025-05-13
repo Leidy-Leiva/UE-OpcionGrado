@@ -1,0 +1,8 @@
+/* button-group.component.css */
+.buttonIcon-group {
+    display: flex;
+    gap: 8px; /* Espaciado entre botones */
+    flex-wrap: wrap;
+    
+  }
+  

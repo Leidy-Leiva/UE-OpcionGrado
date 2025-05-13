@@ -8,7 +8,7 @@ import { CommonModule } from '@angular/common';
   templateUrl: './modal.component.html',
   styleUrls: ['./modal.component.css']
 })
-export class ModelComponent {
+export class ModalComponent {
   @Input() isVisible: boolean = false;
   @Input() showModal: boolean = true;  // Para controlar si la "X" aparece
 

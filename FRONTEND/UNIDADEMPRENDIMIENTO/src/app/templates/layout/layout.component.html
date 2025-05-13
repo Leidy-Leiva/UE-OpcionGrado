@@ -1,69 +1,64 @@
-
-
 <div class="layout">
-    <!-- Header global -->
-    <header class="layout__header">
-        <app-header
-          class="main-header"
-          title="Gestionar Emprendimientos"
-          icon="web_asset"
-          [buttons]="[
-            { icon: 'remove', classList: 'btn-success main-header__button', typeButton: 'button', disabled: false, iconColor:'#264390' },
-            { icon: 'crop_square', classList: 'btn-success main-header__button', typeButton: 'button', disabled: false, iconColor:'#264390' },
-            { icon: 'close', classList: 'btn-success main-header__button', typeButton: 'button', disabled: false, iconColor:'#264390' }
-          ]">
+      <app-header class="main-header"> 
+      <div header-title  class="titleI" >
+        <app-icon name="web_asset" class="icon-header-main"></app-icon>
+        <app-label content="Gestión de Emprendimientos" class="label-header-main"></app-label>
+      </div>
+      <div header-buttons class="ml-auto">
+        <app-buttonwithicongroup
+        [buttons]="mainHeaderButtons"
+        (btnClick)="handleAction($event)">
+         </app-buttonwithicongroup>
+       </div>
+
+      </app-header>
+      <app-header class="secondary-header">
+        <div header-buttons>
+          <app-buttonwithicongroup class="button-header-secondary"
+            [buttons]="secondaryHeaderButtons"
+            (btnClick)="handleAction($event)">
+          </app-buttonwithicongroup>
+        </div>
         </app-header>
-        <app-header
-          class="secondary-header"
-          [buttons]="[
-            { icon: 'sync', title:'Recargar página', classList: 'reload-btn', typeButton: 'button', disabled: false, iconColor:'#91CA8A'},
-            { icon: 'help', title:'Ayuda', classList: 'help-btn', typeButton: 'button', disabled: false, iconColor: '#6995C3' }
-          ]">
-        </app-header>
-      </header>
-      
+  
     <!-- Cuerpo del layout -->
     <div class="layout__body" [class.collapsed]="isCollapsed">
       <aside class="layout__panel" [class.collapsed]="isCollapsed">
-        <app-header
-          class="panel-header"
-          title="Panel de Información"
-          typeIcon="fontawesome"
-          icon="fa-solid fa-user"
-          [buttons]="[
-            { icon: 'chevron_right', classList: 'btn-success', typeButton: 'button', disabled: false, iconColor:'' }
-          ]"
-          (btnClick)="toggleSidebar()">
+        <app-header class="panel-header">
+          <div header-title  class="title" >
+            <app-icon name="fa-solid fa-user" class="icon-header-panelinfo" typeIcon="fontawesome"></app-icon>
+            <app-label content="Panel De Información" class="label-header-panelinfo"></app-label>
+          </div>
+          <div header-buttons class="controls">
+            <app-buttonwithicon class="btnheaderpanelinfo"
+            [buttonConfig]="buttonPanelInfoHeader"
+            (btnClick)="handleAction($event)">
+    
+            </app-buttonwithicon>
+          </div>
         </app-header>
+        
         <app-panelinfo
         class="panel-info" >
         </app-panelinfo>  
 
-        <app-header
-        [hidden]="isCollapsed"
-         class="header-info"
-         title="Menú Opciones"
-         typeIcon="fontawesome"
-         icon="fa-solid fa-user"
-         [buttons]="[
-         ]"[hidden]="isCollapsed" >
+        <app-header [hidden]="isCollapsed" class="header-info">
+            <div header-title  class="header-menu-title" >
+              <app-icon name="fa-regular fa-bars" class="icon-header-menu" typeIcon="fontawesome" ></app-icon>
+              <app-label content="Menú Opciones" class="label-header-menu"></app-label>
+            </div>
          </app-header>
          <app-menuoptions 
-          [buttons]="[ { title: 'Convocatorias', icon: '', classList: 'btn-primary', typeButton: 'button', disabled: false, iconColor: ''  },
-            { title: 'Banco de Preguntas', icon: '', classList: 'btn-secondary', typeButton: 'button', disabled: false, iconColor: '', action: 'convocatorias' },
-            { title: 'Formularios', icon: '', classList: 'btn-info', typeButton: 'button', disabled: false, iconColor: '' }
-          ]" (btnClick)="handleMenuAction($event)">
-        </app-menuoptions> 
+         [userRoles]="['coordinador']"
+         (btnClick)="onMenuButtonClick($event)">
+
+       </app-menuoptions>
       </aside>
       <main class="layout__content">
-        <ng-content></ng-content>
-        <!-- Modal de edición que solo se muestra cuando showEditModal es true -->
-        <app-lista-preguntas 
-        *ngIf="showEditModal" >
-        </app-lista-preguntas>
-        <app-lista-formulario></app-lista-formulario>
+        <router-outlet></router-outlet> 
+      
+    
       </main>
     </div>
   </div>
   
- 

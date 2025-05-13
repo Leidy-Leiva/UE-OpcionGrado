@@ -1,6 +1,7 @@
 /* Variables generales para personalización */
 :host input {
-  width: 150px; /* Ajusta el ancho del input a un tamaño más pequeño */
+  width:var(--inputwidth,100%); /* Ajusta el ancho del input a un tamaño más pequeño */
+  height: var(--inputheight,100%);
   padding: var(--input-padding, 10px 15px); /* Reduce el padding para que sea más compacto */
   font-size: var(--input-font-size, 14px); /* Reduce el tamaño de la fuente */
   border: var(--input-border, 2px solid #ccc);

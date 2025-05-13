@@ -1,0 +1,19 @@
+ <div class="inline-group">
+      <app-labelwithdropdown
+        [label]="'Seleccione un tipo de elemento'"
+        [id]="'tipoElemento'"
+        [options]="questionOptions"
+        [selectedValue]="questionText" 
+        (valueChange)="onSelectionChange($event)">
+      </app-labelwithdropdown>
+
+      <app-labelwithinput
+        class="Pregunta"
+        [label]="'Ingrese el titulo '"
+        [placeholder]="'Escriba aquí su pregunta...'"
+        [value]="questionText"
+        (valueChange)="onQuestionChange($event)">
+      </app-labelwithinput>
+
+      
+ </div>

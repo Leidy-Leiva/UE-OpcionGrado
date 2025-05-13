@@ -1,27 +1,30 @@
 import { Component, Input,Output,EventEmitter} from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { IconComponent } from '../../atoms/icon/icon.component';
-import { LabelComponent } from '../../atoms/label/label.component';
-import { ButtonwithiconComponent } from '../../molecules/buttonwithicon/buttonwithicon.component';
-import { SeekerComponent } from '../../molecules/seeker/seeker.component';
+import { ButtonWithIconConfig } from 'src/app/shared/models/buttonwithicon-config';
 
 @Component({
   selector: 'app-header',
   standalone: true,
-  imports: [CommonModule,LabelComponent,ButtonwithiconComponent,IconComponent],
+  imports: [CommonModule],
   templateUrl: './header.component.html',
   styleUrls: ['./header.component.css']
 })
 export class HeaderComponent {
-@Input() title?:string="";
-@Input() icon?:string;
-@Input() classList:string='';
-@Input() typeIcon:'material' | 'fontawesome' | 'bootstrap' = 'material'; 
-@Input() buttons?: ButtonwithiconComponent[];
+@Input() buttons?: ButtonWithIconConfig[];
+@Input() showSearch = false;
 
 
+@Output() btnClick = new EventEmitter<string>(); 
+@Output() searchChange = new EventEmitter<string>();
 
-@Output() btnClick = new EventEmitter<void>();  // 🔹 Agregamos el Output para el evento de clic
+  OnButtonCkick(button: ButtonWithIconConfig) {
+    if (button.action) {
+      this.btnClick.emit(button.action); 
+    }
+  }
 
+  onSearchChange(value: string) {
+    this.searchChange.emit(value);
+  }
 
 }

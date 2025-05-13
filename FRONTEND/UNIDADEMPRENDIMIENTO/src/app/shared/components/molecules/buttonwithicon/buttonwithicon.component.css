@@ -3,7 +3,6 @@
   display: flex;
   align-items: center;
   gap: var(--btn-withicon-gap,1rem);
-  /* Si no se define --btn-withicon-padding, se usa el padding global del botón: --btn-padding (o 10px 15px) */
   padding: var(--btn-withicon-padding, var(--btn-padding, 5px 10px));
   border-radius: var(--btn-withicon-border-radius);
   background-color: var(--btn-withicon-bg);
@@ -21,11 +20,10 @@
 /* Estilos opcionales para el texto interno */
 .title-btn {
   font-size: var(--font-size-btn,16px);
-  color: var(--btn-withicon-text-color,inherit);
+  color: var(--btn-withicon-text-color);
 }
 
 /*Estilos para el icono interno*/
 .btn-icon {
-  font-size: var(--btn-withicon-font-size, var(--icon-font-size, 1.5rem));
-  color: var(--btn-icon-color, inherit);
+  font-size: var(--icon-font-size, 1.5rem);
 }

@@ -13,6 +13,7 @@ import { ComboBoxComponent } from '../../atoms/combo-box/combo-box.component';
 export class LabelwithcomboboxComponent {
   @Input() label: string = 'Seleccione una opción';
   @Input() options: string[] = [];
+  @Input() displayField: string = '';
   @Output() selectionChange = new EventEmitter<string>();
 
   onSelectionChange(selectedValue: string) {

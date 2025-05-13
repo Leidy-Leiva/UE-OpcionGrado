@@ -10,7 +10,7 @@ import { CommonModule } from '@angular/common';
 })
 export class InputComponent {
   @Input() typeInput: string = 'text';
-  @Input() placeholder: string = 'Escribe aquí...';
+  @Input() placeholder: string='';
   @Input() value: string = '';
   @Input() disabled: boolean = false;
   @Output() valueChange = new EventEmitter<string>();

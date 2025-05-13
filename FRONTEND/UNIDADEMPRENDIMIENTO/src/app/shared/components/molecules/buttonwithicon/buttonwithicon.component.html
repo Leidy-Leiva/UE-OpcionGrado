@@ -1,7 +1,12 @@
-<app-button [class]='classList'
-            [typeButton]='typeButton'
-            [disabled]='disabled' >
-    <app-icon [name]='icon' class="btn-icon" [iconColor]="iconColor ?? ''">
-    </app-icon> 
-    <span class="title-btn">{{ title }}</span>
+<app-button
+  [buttonConfig]="buttonConfig"
+  (btnClick)="btnClick.emit($event)">
+  <app-icon
+    icon
+    [name]="buttonConfig.icon"
+    [iconColor]="buttonConfig.iconColor"
+    [typeIcon]="iconType"
+    [classList]="'icon-base'">
+  </app-icon>
+  {{ buttonConfig.title }}
 </app-button>

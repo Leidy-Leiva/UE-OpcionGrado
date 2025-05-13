@@ -1,15 +1,9 @@
-.label {
+.label-arial {
   /* Tamaño de fuente con variable para poder personalizarlo */
   font-size: var(--label-font-size, 1rem);
-  /* Color del texto; por defecto heredará el color del contenedor */
-  color: var(--label-color, inherit);
-  /* Fuente predeterminada */
+  color: var(--label-color, black);
   font-family: var(--label-font-family, sans-serif);
-  /* Altura de línea para mejorar la legibilidad */
   line-height: 1.5;
-  /* Permite que el label se comporte como bloque en línea, facilitando el uso de márgenes */
   display: inline-block;
-  /* Margen inferior para separar del siguiente elemento */
   margin-bottom: 0.5rem;
-  
 }

@@ -1,23 +1,8 @@
-<!-- Sección de título: ícono y label -->
-  <div class="title" *ngIf="title || icon">
-    <app-icon *ngIf="icon" [name]="icon" [typeIcon]="typeIcon" class="icon-title" ></app-icon>
-    <app-label *ngIf="title" [content]="title" class="title-header"></app-label>
+<header class="layout_header">
+  <div class="layout_header-content">
+    <ng-content select="[header-title]"></ng-content>
+    <ng-content select="[header-search]"></ng-content>
+    <ng-content select="[header-buttons]"></ng-content>
   </div>
-  <!-- Sección de controles: lista de botones (molécula buttonwithicon) -->
-  <div class="controls" *ngIf="buttons && buttons.length">
-    <ng-container *ngFor="let btn of buttons;let i=index">
-      <app-buttonwithicon
-        class="btn-withicon"
-        [title]="btn.title"
-        [icon]="btn.icon"
-        [classList]="btn.classList"
-        [disabled]="btn.disabled"
-        [iconColor]="btn.iconColor"
-        (click)="btnClick.emit()">
-      </app-buttonwithicon>
-    </ng-container>
-  </div>
+</header>
 
-
-<!-- Aquí se renderizarán los elementos hijos -->
-<ng-content></ng-content>

@@ -1,15 +1,7 @@
-<app-card>
-    <div card-actions>
-        <ng-container *ngFor="let btn of buttons">
-            <app-buttonwithicon
-              class="btn"
-              [title]="btn.title"
-              [icon]="btn.icon"
-              [classList]="btn.classList"
-              [disabled]="btn.disabled"
-              [iconColor]="btn.iconColor"
-              (click)="onButtonClick(btn.action)">  
-            </app-buttonwithicon>
-          </ng-container>
-    </div>
-</app-card>
+   <div class="actions">
+    <app-buttongroup class="btn"
+      [buttons]="menuOptionsButtons"
+      (btnClick)="Action($event)">
+    </app-buttongroup>
+           
+   </div>
