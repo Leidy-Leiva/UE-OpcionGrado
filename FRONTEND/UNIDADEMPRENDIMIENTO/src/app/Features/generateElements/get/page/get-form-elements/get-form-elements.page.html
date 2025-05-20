@@ -7,7 +7,7 @@
     <div header-buttons class="btn">
         <app-buttonwithicon class="btn-getElements"
             [buttonConfig]="buttonHeaderGet"
-            (btnClick)="handleAction($event)">
+            (btnClick)="onCreateClick()">
         </app-buttonwithicon>
     </div>
 </app-header>
@@ -21,8 +21,17 @@
     [pageSize]="pageSize"
     (sortChange)="onSort($event)"
     (pageChange)="onPage($event)"
-    (edit)="onEdit($event)"
-    (delete)="onDelete($event)">
+    (edit)="onEditClick($event)"
+    (delete)="onDeleteClick($event)">
     </app-table>
 </div>
 </div>
+
+<ng-template #modalContainer></ng-template>
+
+
+<!-- <app-create-form-elements
+  *ngIf="isModalOpen"
+  [isModalOpen]="isModalOpen"
+  (closeModal)="onCloseModal()">
+</app-create-form-elements> -->

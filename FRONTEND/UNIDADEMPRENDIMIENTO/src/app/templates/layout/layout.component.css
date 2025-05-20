@@ -181,6 +181,7 @@ app-header.panel-header {
   height: 5%;
   --header-bg:#428BCA;
 }
+
 .header-menu-title
 {
   display: flex;

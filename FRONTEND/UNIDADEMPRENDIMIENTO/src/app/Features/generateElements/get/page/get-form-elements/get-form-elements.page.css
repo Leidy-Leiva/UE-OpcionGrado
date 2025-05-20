@@ -5,10 +5,10 @@ margin-top: -15px;
 }
 .header-getElements{
 display: flex;
-align-items: center;           /* Centra verticalmente seeker y botones */
+align-items: center;          
 gap: 1rem;          
-height: 48px;            /* Altura más delgada */
---header-padding: 0 16px;         /* Espaciado horizontal */
+height: 48px;           
+--header-padding: 0 16px;         
 --header-bg:#428BCA;
 }
 

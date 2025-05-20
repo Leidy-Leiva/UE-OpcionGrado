@@ -15,11 +15,10 @@ export class RadioButtonComponent {
   @Input() label: string = '';
   @Input() checked: boolean = false;
   @Input() disabled: boolean = false;
-  @Input() classList: string = '';
 
   @Output() selectionChange = new EventEmitter<string>();
 
-  onSelectionChange() {
+  onChecked() {
     this.selectionChange.emit(this.value);
   }
 

@@ -14,7 +14,7 @@
   -webkit-appearance: none;
   -moz-appearance: none;
   border: 2px solid #333; /* Color del borde */
-  border-radius: 50%; /* Hace que el checkbox sea circular */
+  border-radius: 20%; /* Hace que el checkbox sea circular */
   outline: none;
   cursor: pointer;
   position: relative;
@@ -22,8 +22,8 @@
 
 /* Efecto cuando está marcado */
 .checkbox input:checked {
-  background-color: #007bff; /* Color de fondo cuando está marcado */
-  border: 2px solid #007bff;
+  background-color:var(--bgcheckbox, #15428B) ; /* Color de fondo cuando está marcado */
+  border: 2px solid  #15428B;
 }
 
 /* Pseudo-elemento para el "punto" dentro del checkbox cuando está marcado */

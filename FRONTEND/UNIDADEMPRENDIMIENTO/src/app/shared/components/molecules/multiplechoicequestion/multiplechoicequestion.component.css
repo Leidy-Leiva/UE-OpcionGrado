@@ -1,0 +1,45 @@
+.Contenedor {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.AddOption {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  .btnadd
+  {
+    margin-left: auto;
+    --btn-width:20px;
+    --btn-height:20px;
+    --btn-withicon-border-radius: 3px;
+    --btn-withicon-bg: #E1F3FF;
+  }
+}
+
+.opciones-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 1rem;
+}
+
+.opcion-checkbox {
+  display: flex;
+  align-items: center;
+  flex-direction: row;
+  gap: 0.5rem;
+  padding: 0.5rem;
+  border-radius: 8px;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+
+  .btn-delete
+{
+    --btn-width:10px;
+    --btn-height:10px;
+    --btn-withicon-border-radius: 3px;
+    --btn-withicon-bg: #E1F3FF;
+    --btn-icon-color: #15428B;
+}
+}

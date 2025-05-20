@@ -1,13 +1,11 @@
-
-
-<label class="radio-btn" [class]="classList">
-    <input 
-      type="radio" 
-      [name]="name" 
-      [value]="value" 
-      [checked]="checked" 
-      [disabled]="disabled"
-      (change)="onSelectionChange()">
+<label >
+  <input 
+    type="radio" 
+    [name]="name" 
+    [value]="value" 
+    [checked]="checked" 
+    [disabled]="disabled"
+    (change)="onChecked()">
     {{ label }}
-  </label>
+</label>
   

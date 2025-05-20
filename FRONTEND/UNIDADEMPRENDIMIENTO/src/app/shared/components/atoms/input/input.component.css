@@ -1,45 +1,15 @@
-/* Variables generales para personalización */
 :host input {
-  width:var(--inputwidth,100%); /* Ajusta el ancho del input a un tamaño más pequeño */
-  height: var(--inputheight,100%);
-  padding: var(--input-padding, 10px 15px); /* Reduce el padding para que sea más compacto */
-  font-size: var(--input-font-size, 14px); /* Reduce el tamaño de la fuente */
+  width: var(--inputwidth, 100%);
+  max-width: var(--input-max-width, 100%);
+  height: var(--inputheight, auto); /* auto permite que crezca según contenido */
+  padding: var(--input-padding, 10px 15px);
+  font-size: var(--input-font-size, 14px);
   border: var(--input-border, 2px solid #ccc);
   border-radius: var(--input-border-radius, 8px);
   transition: all 0.3s ease-in-out;
   outline: none;
   background-color: var(--input-bg, white);
   color: var(--input-text-color, #333);
-  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-}
-
-/* Asegurar que el placeholder tenga buen contraste y sea legible */
-:host input::placeholder {
-  color: var(--input-placeholder-color, #999696); /* Color más oscuro para mayor contraste */
-  font-size: var(--input-placeholder-font-size, 12px); /* Aumenta el tamaño de la fuente */
-  font-weight: 100; /* Un poco más grueso para mejor visibilidad */
-  opacity: 1; /* Asegura que no sea muy translúcido */
-}
-
-/* Cuando el input está deshabilitado, hacer el placeholder más claro */
-:host input:disabled::placeholder {
-  color: #aaa;
-}
-
-/* Efecto hover */
-:host input:hover {
-  border-color: #888;
-}
-
-/* Efecto cuando el input está enfocado */
-:host input:focus {
-  border-color: var(--input-focus-border, #428ba4);
-  box-shadow: 0 4px 8px rgba(253, 216, 53, 0.3);
-}
-
-/* Input deshabilitado */
-:host input:disabled {
-  background-color: #f0f0f0;
-  cursor: not-allowed;
-  opacity: 0.6;
+  box-shadow: var(--input-shadow, 0 2px 5px rgba(0, 0, 0, 0.1));
+  box-sizing: border-box;
 }

@@ -1,0 +1,32 @@
+<div class="Contenedor">
+  <div class="AddOption">
+    <app-label content="Opciones Respuesta multiple:"></app-label>
+    <app-buttonwithicon
+      class="btnadd"
+      [buttonConfig]="btnadd"
+      (btnClick)="addOption()">
+    </app-buttonwithicon>
+  </div>
+
+  <div class="opciones-container">
+    <div *ngFor="let option of options; let i = index" class="opcion-checkbox">
+      <app-check-box
+        [label]="''"
+        [checked]="selectedIndices.includes(i)"
+        (toggleChange)="toggleSelection(i, $event)">
+      </app-check-box>
+
+      <app-input
+        [value]="option"
+        [placeholder]="'Digite la respuesta...'"
+        (valueChange)="updateOption(i, $event)">
+      </app-input>
+
+      <app-buttonwithicon 
+        class="btn-delete"
+        [buttonConfig]="btndelete"
+        (btnClick)="removeOption(i)">
+      </app-buttonwithicon>
+    </div>
+  </div>
+</div>

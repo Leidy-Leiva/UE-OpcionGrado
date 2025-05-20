@@ -1,10 +1,10 @@
-.button-group
-{
-    display: flex;
-    width:var(--width-bg,100%);  
-    height: var(--height-bg,100%);
-    gap:var(--gap-buttons, 8px); /* Espaciado entre botones */
-    flex-wrap: wrap;
-    align-items: var(--alingI-btn,center);
-
+.button-group {
+  display: var(--btn-group-display, flex);
+  flex-direction: var(--btn-group-direction, row);
+  justify-content: var(--btn-group-justify, center); 
+  align-items: var(--btn-group-align, center);
+  flex-wrap: var(--btn-group-wrap, wrap);
+  gap: var(--btn-group-gap, 0.75rem);
+  width: var(--btn-group-width, 100%);
 }
+
