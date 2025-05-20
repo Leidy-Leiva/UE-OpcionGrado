@@ -1,65 +1,79 @@
-/* Mejor estructura para el contenido */
-.modal-content {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  padding: 20px;
-}
+/* modal.component.css */
 
-
-.modal-container {
-  background: white;
-  padding: 0px;
-  border-radius: 10px;
-  width: auto; /* ⚡ Se ajusta automáticamente al contenido */
-  min-width: 400px; /* Evita que sea demasiado pequeño */
-  max-width: 80vw; /* No excede el 80% del ancho de la pantalla */
-  height: auto; /* ⚡ Se adapta a su contenido */
-  max-height: 90vh; /* Si el contenido es muy grande, permite scroll */
-  overflow-y: auto; /* Permite desplazamiento si hay mucho contenido */
-  box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.3);
-  background-color: rgb(255, 255, 255);
-  /* 🔥 Centrando el modal */
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-}
-
-/* Fondo oscuro de la ventana emergente */
+/* 1. Overlay: ocupa toda la pantalla y centra el modal */
 .modal-overlay {
   position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background: rgba(0, 0, 0, 0.5);
+  inset: 0;                                 /* top/right/bottom/left = 0 */
+  background: var(--modal-overlay-bg, rgba(0, 0, 0, 0.5));
   display: flex;
   align-items: center;
   justify-content: center;
-  z-index: 1000;
+  padding: var(--modal-overlay-padding, 1rem);
+  box-sizing: border-box;
+  z-index: var(--modal-z, 1000);
+
 }
-.modal-header{
+
+/* 2. Contenedor general: ancho fluido, sin altura fija */
+.modal-container {
+  background-color: var(--modal-bg, #fff);
+  border-radius: var(--modal-radius, 8px);
+  box-shadow: var(--modal-shadow, 0 4px 12px rgba(0, 0, 0, 0.2));
+  width: 100%;
+  max-width: var(--modal-max-width, 600px);
+  max-height: var(--modal-max-height, 90vh);
+  display: flex;
+  flex-direction: column;
+  overflow-y: auto;                        /* si excede el 90vh, hace scroll */
+  box-sizing: border-box;
+}
+
+/* 3. Header: auto‑size al contenido, con padding y fondo */
+.modal-header {
   width: 100%;
   height: auto;
-  background-color: var(--bg-modal,#359917);
+  display: flex;
+  align-items: center;
+  justify-content: start;
+  background-color: var(--modal-header-bg, #359917);
+  padding: var(--modal-header-padding);
+  border-top-left-radius: var(--modal-radius);
+  border-top-right-radius: var(--modal-radius);
 }
 
+/* 4. Content: fluido, se ajusta al contenido real */
+.modal-content {
+  padding: var(--modal-content-padding, 1.5rem);
+  box-sizing: border-box;
+  /* No flex:1 aquí para que la altura sea la del contenido */
+  background-color: var(--modal-content-bg, transparent);
+  /* Que no rompa palabras largas */
+  overflow-wrap: break-word;
+}
+
+/* 5. Pie de modal (acciones): auto‑size, gap entre botones */
 .modal-action {
-  margin-top: -20px;
-  padding: 10px 10px;
-  height: auto;
-  width: auto;
-  display: flex; /* Usa flexbox */
-  justify-content: flex-end; /* Alinea los botones a la derecha */
-  gap: 10px; /* Espaciado entre botones */
+  display: var(--display-action,flex);
+  justify-content: var(--modal-action-justify, flex-end);
+  gap: var(--modal-action-gap, 0.75rem);
+  padding: var(--modal-action-padding, 1rem 1.5rem);
+  border-top: var(--modal-action-border, 1px solid #eaeaea);
+  background-color: var(--modal-action-bg, transparent);
+  border-bottom-left-radius: var(--modal-radius, 8px);
+  border-bottom-right-radius: var(--modal-radius, 8px);
 }
 
-
-/* 📱 Mejor Responsividad */
-@media (max-width: 768px) {
+/* 6. Responsive para móviles */
+@media (max-width: 480px) {
   .modal-container {
-      min-width: 300px;
-      max-width: 90vw;
+    max-width: var(--modal-mobile-max-width, 95vw);
+  }
+  .modal-header,
+  .modal-content,
+  .modal-action {
+    padding: var(--modal-mobile-padding, 1rem);
+  }
+  .modal-header {
+    font-size: var(--modal-mobile-header-size, 1rem);
   }
 }

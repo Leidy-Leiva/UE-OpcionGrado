@@ -28,7 +28,7 @@ mainHeaderButtons:ButtonWithIconConfig[]= [
 ];
 
 secondaryHeaderButtons:ButtonWithIconConfig[]= [
-  { icon: 'sync', title:'Recargar página', classList: 'reload-btn', typeButton: 'button', disabled: false, iconColor:'#91CA8A'},
+  { icon: 'sync', title:'Recargar página', classList: 'reload-btn', typeButton: 'button', disabled: false, iconColor:'#91CA8A',action:'recargar'},
   { icon: 'help', title:'Ayuda', classList: 'help-btn', typeButton: 'button', disabled: false, iconColor: '#6995C3' }
 ];
 
@@ -47,8 +47,18 @@ onMenuButtonClick(action: string) {
       console.log('Acabe de darle clic');
       this.router.navigate(['/generate-elements-form/listar']);
     break;
+
+    case 'Convocatoria' :
+      console.log('Acabe de darle clic');
+      this.router.navigate(['/generate-call/listar']);
+    break;
+
+    case 'Formulario' :
+      console.log('Acabe de darle clic');
+      this.router.navigate(['/generate-form/listar']);
+    break;
   }
-  // Por ejemplo, si recibes "elementos", navegas a /elementos
+
   
 }
 
@@ -58,23 +68,24 @@ handleAction(action: string) {
 
   switch(action) {
     case 'toggle-sidebar':
-      console.log("Acabo de dar click");
+
       this.isCollapsed = !this.isCollapsed;
       break;
 
-    case 'BancoElementos':
-      break;
-
-    case 'convocatoria':
-      break;
-
-    case 'banco':
-      break;
-
     case 'recargar':
+       window.location.reload();
       break;
 
     case 'ayuda':
+      break;
+
+    case 'closeWindow':
+      break;
+
+    case 'minimizeWindow':
+      break;
+
+    case 'maximizeWindow':
       break;
       
     default:
@@ -82,18 +93,5 @@ handleAction(action: string) {
   }
 }
   
-
-  closeWindow() {
-    console.log('Cerrar ventana');
-    // Aquí puedes agregar lógica real si estás en Electron, por ejemplo
-  }
-  
-  minimizeWindow() {
-    console.log('Minimizar ventana');
-  }
-  
-  maximizeWindow() {
-    console.log('Maximizar ventana');
-  }
 }
 

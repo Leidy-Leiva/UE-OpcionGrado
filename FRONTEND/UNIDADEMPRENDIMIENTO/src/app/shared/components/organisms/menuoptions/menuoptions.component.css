@@ -4,17 +4,18 @@
   padding: var(--panel-padding);
   border-radius: var(--panel-border-radius);
   width: 100%; /* Ocupar toda la tarjeta */
-
 }
 
 /* Contenedor principal para alinear header y contenido */
  .actions{
-  display: flex;
-  flex-direction: column;
-  align-items: stretch;
   width: 100%;
   --card-border-radius:0px;
-  gap: 4rem;
+  --btn-group-justify:center;
+  --btn-group-display: flex;
+  --btn-group-direction: column; 
+  --btn-group-justify: center;
+  --btn-group-align: center;
+  --btn-group-gap: 1rem;
 }
 
 .btn {

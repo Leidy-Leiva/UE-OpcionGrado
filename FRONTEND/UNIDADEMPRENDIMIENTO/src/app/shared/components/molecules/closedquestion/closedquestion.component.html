@@ -1,0 +1,48 @@
+<div class="pregunta-cerrada">
+  <div class="addoption">
+      <app-label content="Opciones Respuesta Unica:"></app-label>
+      <app-buttonwithicon 
+      class="btnadd"
+      [buttonConfig]="btnadd"
+      (btnClick)="addOption()">
+    </app-buttonwithicon>
+  </div>
+
+  <div class="opciones-container">
+    <div *ngFor="let opcion of options; let i = index" class="opcion-radiobutton">
+        <app-radio-button
+          [name]="'closed-question'"
+          [value]="opcion"
+          [checked]="selected === opcion"
+          (selectionChange)="selectOption($event)">
+        </app-radio-button>
+
+        <app-input
+          [value]="opcion"
+          [placeholder]="'Digite la respuesta...'"
+          (valueChange)="updateOption(i, $event)">
+        </app-input>
+
+        <app-buttonwithicon 
+          class="btn-delete"
+          [buttonConfig]="buttondelete"
+          (btnClick)="removeOption(i)">
+        </app-buttonwithicon>
+
+      </div>
+      <div *ngIf="permitirOtro" class="opcion-otra">
+        <app-radio-button
+          [name]="'closed-question'"
+          [value]="'Otra'"
+          [checked]="selected === 'Otra'"
+          (selectionChange)="selectOption('Otra')">
+        </app-radio-button>
+
+        <app-input
+          [placeholder]="'Especifique...'"
+          [disabled]="selected !== 'Otra'">
+        </app-input>
+      </div>
+  </div>
+</div>
+  

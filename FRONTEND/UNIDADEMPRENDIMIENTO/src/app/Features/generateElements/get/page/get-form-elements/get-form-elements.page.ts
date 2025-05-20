@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, ComponentRef, OnInit, ViewChild, ViewContainerRef,Input } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { HeaderComponent } from 'src/app/shared/components/organisms/header/header.component';
 import { SeekerComponent } from 'src/app/shared/components/molecules/seeker/seeker.component';
@@ -6,10 +6,10 @@ import { ButtonwithiconComponent } from "../../../../../shared/components/molecu
 import { ButtonWithIconConfig } from 'src/app/shared/models/buttonwithicon-config';
 import { TableComponent } from 'src/app/shared/components/molecules/table/table.component';
 import { ColumnDef } from 'src/app/shared/models/ColumnDef-config';
-import { Sort } from '@angular/material/sort';
 import { PageEvent } from '@angular/material/paginator';
 import { FormElement } from 'src/app/shared/models/FormElement-config';
-
+import { ModalComponentMapper } from 'src/app/shared/mappers/generate-elements.mapper'; 
+import { Sort } from '@angular/material/sort';
 
 @Component({
   selector: 'app-get-form-elements',
@@ -18,7 +18,13 @@ import { FormElement } from 'src/app/shared/models/FormElement-config';
   templateUrl: './get-form-elements.page.html',
   styleUrls: ['./get-form-elements.page.css']
 })
-export class GetFormElements  {
+export class GetFormElements implements OnInit  {
+selectedElement?: FormElement;
+
+@ViewChild('modalContainer',{read:ViewContainerRef,static:true})
+   private modalHost!: ViewContainerRef;
+
+  private activeModalRef?: ComponentRef<any>;
   // Configuración de columnas para este componente
   columns: ColumnDef<FormElement>[] = [
     { key: 'tipo',     label: 'Tipo de pregunta' },
@@ -38,48 +44,117 @@ export class GetFormElements  {
 
 
 buttonHeaderGet:ButtonWithIconConfig={
-    icon: 'plus', classList: 'solid', typeButton: 'button', disabled: false, iconColor:'#ffffff', action:'Crear',typeIcon:"fontawesome"
+    icon: 'plus', classList: 'solid', typeButton: 'button', disabled: false, iconColor:'#ffffff', action:'crear',typeIcon:"fontawesome"
 }
 
 
-handleAction(action: string) {
-  console.log('Acción del menú:', action);
+ constructor(
+    // private readonly elementService: /* tu servicio aquí */ any
+  ) {}
 
-  switch(action) {
-    case 'Crear':
-      break;
-    default:
-      console.warn('Acción no reconocida:', action);
+  async handleAction(action: string, payload?: any): Promise<void> {
+    this.modalHost.clear();
+    this.activeModalRef = undefined;
+
+    try {
+      const loadFn = ModalComponentMapper[action];
+      if (!loadFn) {
+        console.warn(`Acción desconocida: ${action}`);
+        return;
+      }
+      const compType = await loadFn();
+      this.activeModalRef = this.modalHost.createComponent(compType);
+
+      // 6.4) Pass data & subscribe to close event
+      const instance = this.activeModalRef.instance as { 
+        isModalOpen?: boolean;
+        element?: FormElement;
+        closeModal?: any;
+      };
+      // Abro el modal
+      instance.isModalOpen = true;
+
+      // Si viene payload (editar)
+      if (action === 'editar' && payload) {
+        instance.element = payload as FormElement;
+      }
+
+      // Escucho evento cerrar para limpiar
+      instance.closeModal?.subscribe(() => this.modalHost.clear());
+    } catch (err) {
+      console.error('Error al abrir modal:', err);
+    }
   }
+
+  onCreateClick(): void {
+    this.handleAction('crear');
+  }
+
+  onEditClick(element: FormElement): void {
+    this.handleAction('editar', element);
+  }
+  onDeleteClick(element: FormElement): void {
+    this.handleAction('editar', element);
+  }
+
+    // ----------------------------------------
+  // 4) Ciclo de vida: carga inicial de datos
+  // ----------------------------------------
+  ngOnInit(): void {
+    this.loadData();
+  }
+
+  // ----------------------------------------
+  // 5) Carga de datos paginada y ordenada
+  // ----------------------------------------
+  loadData(sort?: Sort, page?: PageEvent): void {
+  //   const params = {
+  //     page: page?.pageIndex ?? 0,
+  //     size: page?.pageSize ?? this.pageSize,
+  //     sort: sort?.active ?? '',
+  //     dir: sort?.direction ?? ''
+  //   };
+  //   this.elementService.getAll(params)
+  //     .subscribe(res => {
+  //       this.preguntas = res.items;
+  //       this.total = res.total;
+  //     });
+  }
+
+  onSort(sort: Sort): void {
+    this.loadData(sort, undefined);
+  }
+
+  onPage(page: PageEvent): void {
+    this.loadData(undefined, page);
+  }
+
+
 }
 
-ngOnInit() {
-  this.loadData(); // inicializa datos al cargar el componente
-}
 
-// Recupera datos desde backend según sort y paginado
-loadData(sort?: Sort, pageEvent?: PageEvent) {
-  // Lógica de llamada a servicio...
-  // Ejemplo: this.service.getAll({ page: pageEvent?.pageIndex, size: pageEvent?.pageSize, sort: sort?.active, dir: sort?.direction })
-  // .subscribe(response => { this.elements = response.items; this.total = response.total; });
-}
 
-// Maneja evento de ordenamiento
-onSort(sort: Sort) {
-  this.loadData(sort, undefined);
-}
 
-// Maneja evento de cambio de página
-onPage(pageEvent: PageEvent) {
-  this.loadData(undefined, pageEvent);
-}
 
-onEdit(element: FormElement) {
-  console.log('Editar:', element);
-}
 
-onDelete(element: FormElement) {
-  console.log('Eliminar:', element);
-}
 
-}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

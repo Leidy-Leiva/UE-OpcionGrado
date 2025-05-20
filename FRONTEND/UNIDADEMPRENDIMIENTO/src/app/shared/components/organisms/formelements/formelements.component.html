@@ -1,9 +1,10 @@
- <div class="inline-group">
-      <app-labelwithdropdown
+ <div class="contenedor">
+  <div class="general">
+        <app-labelwithdropdown class="dropdown"
         [label]="'Seleccione un tipo de elemento'"
         [id]="'tipoElemento'"
         [options]="questionOptions"
-        [selectedValue]="questionText" 
+        [selectedValue]="selectedType"
         (valueChange)="onSelectionChange($event)">
       </app-labelwithdropdown>
 
@@ -14,6 +15,16 @@
         [value]="questionText"
         (valueChange)="onQuestionChange($event)">
       </app-labelwithinput>
+  </div> 
+  
+  <div class="opciones">
+    <ng-container #dynamicComponentContainer></ng-container>
+  </div>
 
-      
  </div>
+
+
+
+
+
+

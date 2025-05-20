@@ -1,24 +1,22 @@
-import { Component,Input,Output,EventEmitter  } from '@angular/core';
-import { CommonModule} from '@angular/common';
+import { Component,Input,Output,EventEmitter } from '@angular/core';
+import { CommonModule } from '@angular/common';
+import { LabelComponent } from 'src/app/shared/components/atoms/label/label.component';
+import { ButtonwithiconComponent } from 'src/app/shared/components/molecules/buttonwithicon/buttonwithicon.component';
 import { HeaderComponent } from 'src/app/shared/components/organisms/header/header.component';
 import { ModalComponent } from 'src/app/shared/components/organisms/modal/modal.component';
-import { FormElementsComponent } from "../../../../../shared/components/organisms/formelements/formelements.component";
-import { LabelComponent } from 'src/app/shared/components/atoms/label/label.component';
-import { ButtonwithiconComponent } from "../../../../../shared/components/molecules/buttonwithicon/buttonwithicon.component";
+import { ButtongroupComponent } from 'src/app/shared/components/organisms/buttongroup/buttongroup.component';
 import { ButtonWithIconConfig } from 'src/app/shared/models/buttonwithicon-config';
-import { ButtongroupComponent } from "../../../../../shared/components/organisms/buttongroup/buttongroup.component";
 import { buttonconfig } from 'src/app/shared/models/button-config';
-
+import { FormElementsComponent } from 'src/app/shared/components/organisms/formelements/formelements.component';
 
 @Component({
-  selector: 'app-create-form-elements',
+  selector: 'app-update-form-elements',
   standalone: true,
-  imports: [CommonModule, HeaderComponent, ModalComponent, FormElementsComponent, LabelComponent, ButtonwithiconComponent, ButtongroupComponent],
-  templateUrl: './create-form-elements.page.html',
-  styleUrls: ['./create-form-elements.page.css']
+  imports: [CommonModule,LabelComponent,ButtonwithiconComponent,HeaderComponent,ModalComponent,ButtongroupComponent,FormElementsComponent],
+  templateUrl: './update-form-elements.page.html',
+  styleUrls: ['./update-form-elements.page.css']
 })
-export class CreateFormElements {
-
+export class UpdateFormElements {
   @Input() isModalOpen = false;
   @Output() closeModal = new EventEmitter<void>();
 
@@ -40,7 +38,10 @@ export class CreateFormElements {
     }
   ];
 
-  handleAction(action: string) {
+
+
+  
+ handleAction(action: string) {
 
   switch(action) {
 
@@ -57,12 +58,6 @@ export class CreateFormElements {
       console.warn('Acción no reconocida:', action);
   }
 }
-
-  handleCancelar() {
-    // Lógica para cancelar
-    console.log('Cancelar');
-  }
-
   handleGuardar() {
     // Lógica para guardar
     console.log('Guardar');

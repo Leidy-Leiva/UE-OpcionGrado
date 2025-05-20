@@ -1,5 +1,6 @@
 ::ng-deep .custom-dropdown {
     width: 100%;
+
   
     mat-form-field {
       display: block;
@@ -7,13 +8,13 @@
       border-radius: var(--dropdown-radius, 8px);
   
       .mat-mdc-text-field-wrapper {
-        background-color: var(--dropdown-bg, #f4f4f4);
+        background-color: var(--dropdown-bg, #20bd23);
         padding: var(--dropdown-padding, 10px);
         border-radius: var(--dropdown-radius, 8px);
       }
   
       .mat-mdc-form-field-flex {
-        color: var(--dropdown-color-form, #f1efef);
+        color: var(--dropdown-color-form, #d72525);
       }
   
       .mat-mdc-form-field-infix {
@@ -28,11 +29,11 @@
   
     mat-option {
       font-size: var(--dropdown-font-size, 16px);
-      color: var(--dropdown-color, #b56060);
+      color: var(--dropdown-color, #ffffff);
       padding: var(--dropdown-option-padding, 8px 12px);
   
       &:hover {
-        background-color: var(--dropdown-option-bg, #ddd);
+        background-color: var(--dropdown-option-bg, #0f0f0f);
       }
     }
   
