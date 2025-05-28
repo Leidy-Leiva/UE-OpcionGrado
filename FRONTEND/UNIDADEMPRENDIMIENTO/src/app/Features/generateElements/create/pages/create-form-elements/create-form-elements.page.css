@@ -17,26 +17,52 @@ height: 28px;
   margin-left: auto;
   }
 }
-.header-create
-{
+.header-create{
   display: flex;
   justify-content: space-between;
   align-items: center;
-  --header-bg:#428bca;
-  padding: 0 10px;
+  --header-bg:#CCD8E7;
+  padding: 0px 10px;
   height: 28px;
   width: auto;
-  --icon-font-size: 0.7rem;
-  --btn-withicon-gap: 0px;
+  gap:2rem;
+ 
+}
+.header-create .btnc
+{
+
+  --icon-font-size: 1rem;
+  --btn-withicon-gap: 5px;
   --btn-withicon-border-radius: 3px;
   --btn-withicon-bg: #E1F3FF;
   --btn-icon-color: #15428B;
   --btn-withicon-padding: 0px;
-  --icon-title-transform: scale(2);
   --btn-withicon-transition: all 0.3s ease-in-out;
   --btn-border: 0.1px solid #71A0DD;
   --btn-bg-hover:#CCD8E720;
   --stroke-width: 0px;
+}
+.titleI
+{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap:3px;
+  height: 28px;
+  width: auto;
+}
+.label-header
+{
+  --label-color:#15428B;
+  --label-font-size:1rem;
+  --fontType:bold;
+}
+.icon-header
+{
+  --icon-font-size: 1.3rem;
+  --icon-color:#f8f8f8;
+  --stroke-width: 0.5px;
+  --stroke-icon:#15428B;
 
 }
 

@@ -15,8 +15,8 @@ export class InputComponent {
   @Input() disabled: boolean = false;
   @Output() valueChange = new EventEmitter<string>();
 
-  onInputChange(event: Event) {
-    const inputValue = (event.target as HTMLInputElement).value;
-    this.valueChange.emit(inputValue);
+  onInput(val: string) {
+    this.value = val;
+    this.valueChange.emit(val);
   }
 }

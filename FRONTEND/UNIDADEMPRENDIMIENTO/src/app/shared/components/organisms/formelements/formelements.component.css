@@ -4,7 +4,6 @@
   flex-direction: column;
   gap: var(--contenedor-gap, 0.5rem); /* Espacio entre .general y .opciones */
   width: 100%;
-  background-color: aqua;
   box-sizing: border-box;
 }
 
@@ -22,13 +21,17 @@
 .Pregunta {
   flex: 1; /* Ocupan el mismo espacio */
   min-width: var(--general-min-width, 250px); /* Para responsividad */
+  
+}
+.dropdown
+{
+  --dropdown-color:#0a0a0a;
 }
 
 .opciones {
   display: flex;
   flex-direction: column; /* Contenido en columna */
-  gap: var(--opciones-gap, 1rem); /* Espacio entre opciones internas */
-  background-color: blue;
+  gap: var(--opciones-gap, 0.3rem); /* Espacio entre opciones internas */
   width: 100%;
-  box-sizing: border-box;
+  box-sizing:var(--box-sizing, border-box);
 }

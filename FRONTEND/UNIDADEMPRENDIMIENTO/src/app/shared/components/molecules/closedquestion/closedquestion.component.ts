@@ -16,7 +16,8 @@ import { LabelComponent } from '../../atoms/label/label.component';
 export class ClosedquestionComponent {
   @Input() options: string[] = [];
   @Input() permitirOtro: boolean = false;
-  selected: string = '';
+ selected: string | null = null;
+  @Input() nameGroup = `closed-question-${Math.random().toString(36).substr(2, 5)}`;
 
   @Output() optionsChange = new EventEmitter<string[]>();
   @Output() selectedChange = new EventEmitter<string>();
@@ -29,11 +30,11 @@ export class ClosedquestionComponent {
      icon: 'plus', classList: 'btn-success', typeButton: 'button', disabled: false, iconColor:'#ffffff', action:'removeOption',typeIcon:"fontawesome"}
   
 
-       ngOnInit() {
-  if (this.options.length === 0) {
-    this.addOption();
+  ngOnInit() {
+    if (this.options.length === 0) {
+      this.addOption();
+    }
   }
-}
 
   addOption() {
     this.options.push('');
@@ -50,8 +51,22 @@ export class ClosedquestionComponent {
     this.optionsChange.emit(this.options);
   }
 
-  selectOption(value: string) {
-    this.selected = value;
-    this.selectedChange.emit(value);
+selectOption(value: string) {
+  this.selected = value;
+  this.selectedChange.emit(value);
+}
+
+trackByIndex(index: number, _item: any) {
+  return index;
+}
+
+  get groupedOption():string[][]{
+    const groupSize=5;
+    const groups:string[][]=[];
+    for (let i = 0; i <this.options.length; i+=groupSize) {
+      groups.push(this.options.slice(i,i+groupSize));
+      
+    }
+    return groups;
   }
 }

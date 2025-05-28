@@ -56,8 +56,6 @@ export class FormElementsComponent implements OnInit {
     this.questionText = newValue;
   }
 
-
-
   async loadQuestionComponent(type: string) {
     this.dynamicComponentContainer.clear(); // 🧹 Limpia el contenedor actual (si hay algo)
 

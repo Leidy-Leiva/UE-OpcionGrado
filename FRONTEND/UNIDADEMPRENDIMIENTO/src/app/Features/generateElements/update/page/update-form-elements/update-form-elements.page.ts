@@ -8,11 +8,12 @@ import { ButtongroupComponent } from 'src/app/shared/components/organisms/button
 import { ButtonWithIconConfig } from 'src/app/shared/models/buttonwithicon-config';
 import { buttonconfig } from 'src/app/shared/models/button-config';
 import { FormElementsComponent } from 'src/app/shared/components/organisms/formelements/formelements.component';
+import { IconComponent } from 'src/app/shared/components/atoms/icon/icon.component';
 
 @Component({
   selector: 'app-update-form-elements',
   standalone: true,
-  imports: [CommonModule,LabelComponent,ButtonwithiconComponent,HeaderComponent,ModalComponent,ButtongroupComponent,FormElementsComponent],
+  imports: [CommonModule,LabelComponent,ButtonwithiconComponent,HeaderComponent,ModalComponent,ButtongroupComponent,FormElementsComponent,IconComponent],
   templateUrl: './update-form-elements.page.html',
   styleUrls: ['./update-form-elements.page.css']
 })

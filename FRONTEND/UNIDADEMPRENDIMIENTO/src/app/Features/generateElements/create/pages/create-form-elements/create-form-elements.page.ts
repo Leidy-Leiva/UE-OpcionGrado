@@ -8,12 +8,13 @@ import { ButtonwithiconComponent } from "../../../../../shared/components/molecu
 import { ButtonWithIconConfig } from 'src/app/shared/models/buttonwithicon-config';
 import { ButtongroupComponent } from "../../../../../shared/components/organisms/buttongroup/buttongroup.component";
 import { buttonconfig } from 'src/app/shared/models/button-config';
+import { IconComponent } from "../../../../../shared/components/atoms/icon/icon.component";
 
 
 @Component({
   selector: 'app-create-form-elements',
   standalone: true,
-  imports: [CommonModule, HeaderComponent, ModalComponent, FormElementsComponent, LabelComponent, ButtonwithiconComponent, ButtongroupComponent],
+  imports: [CommonModule, HeaderComponent, ModalComponent, FormElementsComponent, LabelComponent, ButtonwithiconComponent, ButtongroupComponent, IconComponent],
   templateUrl: './create-form-elements.page.html',
   styleUrls: ['./create-form-elements.page.css']
 })
