@@ -22,11 +22,6 @@ export class MultiplechoicequestionComponent {
   @Output() optionsChange = new EventEmitter<string[]>();
   @Output() selectedChange = new EventEmitter<string[]>();
 
-  ngOnInit() {
-  if (this.options.length === 0) {
-    this.addOption();
-  }
-}
 
   btndelete:ButtonWithIconConfig={
       icon: 'xmark', classList: 'btn-success', typeButton: 'button', disabled: false, iconColor:'#E43C3F', action:'removeOption',typeIcon:"fontawesome"}
@@ -34,6 +29,14 @@ export class MultiplechoicequestionComponent {
   btnadd:ButtonWithIconConfig={
       icon: 'plus', classList: 'solid', typeButton: 'button', disabled: false, iconColor:'#ffffff', action:'AddOption',typeIcon:"fontawesome"}
 
+      
+  ngOnInit() {
+  if (this.options.length === 0) {
+    this.addOption();
+  }
+}
+
+  
   toggleSelection(index: number, checked: boolean) {
   if (checked) {
     this.selectedIndices = [...this.selectedIndices, index];
@@ -58,5 +61,18 @@ export class MultiplechoicequestionComponent {
   removeOption(index: number) {
     this.options.splice(index, 1);
     this.optionsChange.emit(this.options);
+  }
+  
+  trackByIndex(index: number, _item: any) {
+    return index;
+  }
+
+  get groupedOptions():string[][] {
+    const groupSize = 5;
+    const groups: string[][] = [];
+    for (let i = 0; i < this.options.length; i += groupSize) {
+      groups.push(this.options.slice(i, i + groupSize));
+    }
+    return groups;
   }
 }

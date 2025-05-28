@@ -15,12 +15,25 @@
 
   .btn-delete
 {
-    --btn-width:10px;
-    --btn-height:10px;
+    --btn-width:35px;
+    --btn-height:35px;
     --btn-withicon-border-radius: 3px;
-    --btn-withicon-bg: #E1F3FF;
-    --btn-icon-color: #15428B;
+    --btn-bg-hover:#e7cccc85;
+    --btn-bg-hoverA:#ebb3b3c7;
 }
+}
+.opciones-container {
+  display: flex;
+  gap: 1.5rem;
+  flex-wrap: wrap;
+}
+
+.opciones-columna {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  flex: 1;
+  min-width: 150px;
 }
 
 .opcion-otra {
@@ -38,10 +51,12 @@
   .btnadd
   {
      margin-left: auto;
-    --btn-width:20px;
-    --btn-height:20px;
-    --btn-withicon-border-radius: 3px;
-    --btn-withicon-bg: #E1F3FF;
-
+    --btn-width:35px;
+    --btn-height:35px;
+    --btn-withicon-border-radius: 5px;
+    --stroke-width: 1px;
+    --stroke-icon:#0e0e0e;
+     --btn-bg-hover:#68a6f8a4;
+      --btn-bg-hoverA:#609ae7d7;
   }
 }
