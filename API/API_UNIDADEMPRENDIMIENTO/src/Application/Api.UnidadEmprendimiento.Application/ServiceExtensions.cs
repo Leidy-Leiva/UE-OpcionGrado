@@ -6,6 +6,7 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using System.Reflection;
 using Api.UnidadEmprendimiento.Application.Interfaces;
+using Microsoft.Extensions.Http;
 
 namespace Api.UnidadEmprendimiento.Application
 {
@@ -19,6 +20,12 @@ namespace Api.UnidadEmprendimiento.Application
             services.AddTransient<IDateTime, DateTimeService>();
             services.AddTransient<ITipoElementoService, TipoElementoService>();
             services.AddTransient<ITipoFormularioService, TipoFormularioService>();
+
+                   services.AddHttpClient<IAuthService, AuthService>(client =>
+     {
+         client.BaseAddress = new Uri(configuration["AuthApi:BaseUrl"]);
+     });
+
 
         }
     }
