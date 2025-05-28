@@ -6,7 +6,7 @@ import { Observable } from 'rxjs';
   providedIn: 'root'
 })
 export class ElementtypeService {
-  private apiUrl = 'http://localhost:5239/Api/V1/TipoElemento/GetAllTipoElementoFormulario';
+  private apiUrl = 'https://localhost:7139/Api/V1/TipoElemento/GetAllTipoElementoFormulario';
 
   constructor(private http: HttpClient) {}
 
