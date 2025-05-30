@@ -14,8 +14,8 @@ import { FormsModule } from '@angular/forms';
   styleUrls: ['./panelinfo.component.css']
 })
 export class PanelinfoComponent {
-  image = ''; // Imagen de prueba
-  
+   @Input() image: string = '';
+   @Input() infoFields: { label: string, value: string | number }[] = [];
   programOptions = [
     { value: 'prog1', label: 'Programa 1' },
     { value: 'prog2', label: 'Programa 2' },
@@ -23,15 +23,15 @@ export class PanelinfoComponent {
   ];
   selectedProgram = 'prog1'; // Valor seleccionado por defecto
 
-  infoFields = [
-    { label: 'Nombre', value: 'Juan Pérez' },
-    { label: 'Edad', value: '30 años' },
-    { label: 'Primedio:', value:'' }
-  ];
+  
+  // infoFields = [
+  //   { label: 'Edad', value: '30 años' },
+  //   { label: 'Primedio:', value:'' }
+  // ];
 
-  // @Input() image: string = '';
+  
   // @Input() programOptions: { value: string, label: string }[] = [];
   // @Input() selectedProgram: string = '';
-  // @Input() infoFields: { label: string, value: string | number }[] = [];
+
 
 }

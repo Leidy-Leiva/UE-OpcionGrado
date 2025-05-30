@@ -38,8 +38,9 @@
           </div>
         </app-header>
         
-        <app-panelinfo
-        class="panel-info" >
+        <app-panelinfo class="panel-info" 
+        [image]="panelImage"
+        [infoFields]="panelInfoFields">
         </app-panelinfo>  
 
         <app-header [hidden]="isCollapsed" class="header-info">
