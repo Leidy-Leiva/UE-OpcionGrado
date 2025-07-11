@@ -34,12 +34,12 @@ height: 28px;
   --icon-font-size: 1rem;
   --btn-withicon-gap: 5px;
   --btn-withicon-border-radius: 3px;
-  --btn-withicon-bg: #E1F3FF;
+  --btn-bg-color: #E1F3FF;
   --btn-icon-color: #15428B;
   --btn-withicon-padding: 0px;
   --btn-withicon-transition: all 0.3s ease-in-out;
   --btn-border: 0.1px solid #71A0DD;
-  --btn-bg-hover:#CCD8E720;
+  --btn-bg-hover:#c9e9ff;
   --stroke-width: 0px;
 }
 .titleI

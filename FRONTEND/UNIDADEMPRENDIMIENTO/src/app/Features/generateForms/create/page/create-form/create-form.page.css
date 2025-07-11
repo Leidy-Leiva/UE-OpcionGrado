@@ -1,0 +1,49 @@
+.contenido {
+  width: 100%;
+  height: 100%;
+}
+.body {
+  width: 100%;
+}
+
+.body-center {
+  width: 100%;
+}
+
+.headerCreateForm {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  width: 100%;
+  --header-padding: 0px;
+  --header-bg: #428bca;
+}
+
+.headerCreateForm .btnV {
+  width: auto;
+  height: auto;
+  --btn-heigth: 35px;
+  --btn-width: 35px;
+  --btn-bg-hover: none;
+  --icon-font-size: 1rem;
+}
+
+.headerCreateForm .btnG {
+  max-width: 50px;
+  --btn-border-radius: 10px;
+  text-align: center;
+  --btn-color-text: #fffdfd;
+  padding: 0.75rem 1rem;
+  font-weight: 500;
+  font-size: 1rem;
+  cursor: pointer;
+  border: none;
+  --btn-heigth: 2rem;
+  --btn-width: 5rem;
+}
+.ml-auto {
+  margin-left: auto;
+}
+.typeForm {
+  background-color: rgb(250, 250, 250);
+}

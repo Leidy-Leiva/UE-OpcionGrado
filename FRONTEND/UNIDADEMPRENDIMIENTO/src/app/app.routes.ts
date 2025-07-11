@@ -1,6 +1,5 @@
 import { Routes } from '@angular/router';
 import { LayoutComponent } from './templates/layout/layout.component';
-import { GENERATE_ELEMENTS_FORM_ROUTES } from './Features/generateElements/generateElements.routes';
 
 export const routes: Routes = [
     {
@@ -9,7 +8,13 @@ export const routes: Routes = [
         children:[
             {
                 path: 'generate-elements-form',
-                children: GENERATE_ELEMENTS_FORM_ROUTES
+                loadChildren: () =>
+                    import('./Features/generateElements/generateElements.routes').then((m) => m.default)
+            },
+            {
+                path: 'generate-form',
+                loadChildren:()=>
+                    import ('./Features/generateForms/generateForms.routes').then((m)=>m.default)
             }
         ]
     }

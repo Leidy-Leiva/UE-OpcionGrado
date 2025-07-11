@@ -1,0 +1,13 @@
+<div class="contenidoGeneral">
+    <div class="contenidoI">
+          <ng-container #wrappersContainer></ng-container>
+    </div>
+    <div class="contenidoD">
+        <div class="buttons">
+            <app-buttonwithicongroup class="btn"
+            [buttons]="buttonOptionForm"
+            (btnClick)="Action($event)">
+            </app-buttonwithicongroup>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,29 @@
+.inline-editor {
+      width: 100%;
+      min-height: 2.5em;
+      padding:var(--paddding,4px 0) ;
+      border: none;
+      font-family: Arial, sans-serif;
+      font-size: var(--font-size, 22px);
+      font-weight: var(--font-weight, bold);
+      color:var(--colorT,#000) ;
+      display: var(--display,block);
+      outline: none;
+    }
+
+    .inline-editor:empty:before {
+      content: attr(data-placeholder);
+      color: #888;
+      font-size: var(--placeholder-size, 20px);
+      font-family: Arial, sans-serif;
+      border-bottom: 1px solid #050505;
+      left: 0;
+      top: 4px;
+      pointer-events: none;
+  
+    }
+
+    :host([variant="subtitulo"]) .inline-editor {
+      --font-size: 10px;
+      --font-weight: normal;
+    }

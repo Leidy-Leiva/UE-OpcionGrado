@@ -1,4 +1,6 @@
+<div class="contenidoGeneral">
 <mat-card class="universal-card">
+  <ng-content select="[card-banner]"></ng-content>
     <mat-card-header>
        <!-- Sección para el avatar -->
       <div mat-card-avatar>
@@ -27,3 +29,5 @@
       <ng-content select="[card-actions]"></ng-content>
     </mat-card-actions>
   </mat-card>
+
+</div>

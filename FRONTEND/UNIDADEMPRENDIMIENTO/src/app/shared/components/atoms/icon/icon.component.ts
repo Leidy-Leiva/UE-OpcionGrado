@@ -9,8 +9,9 @@ import { CommonModule } from '@angular/common';
   styleUrls: ['./icon.component.css']
 })
 export class IconComponent {
-  @Input() name:string='';
+  @Input() icon:string='';
   @Input() typeIcon:'material' | 'fontawesome' | 'bootstrap' = 'material'; 
-  @Input() classList:string='';
+  @Input() iconStyle?: string;
+  @Input() classList?:string;
   @Input() iconColor?: string;  // Permite personalizar el color del icono
 }

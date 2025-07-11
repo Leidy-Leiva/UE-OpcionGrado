@@ -2,15 +2,15 @@
 <span *ngIf="typeIcon === 'material'" 
       class="material-icons icon-base"
       [style.color]="iconColor">
-  {{ name }}
+  {{ icon }}
 </span>
 
 <!-- Ícono de Font Awesome -->
 <i *ngIf="typeIcon === 'fontawesome'" 
-   class="fa fa-{{name}} icon-base"
+   class="fa-{{ iconStyle || 'solid' }} fa-{{ icon }} icon-base"
    [style.color]="iconColor"></i>
 
 <!-- Ícono de Bootstrap Icons -->
 <i *ngIf="typeIcon === 'bootstrap'" 
-   class="bi bi-{{name}} icon-base"
+    class="bi-{{ iconStyle || 'fill' }} bi-{{ icon }} icon-base"
    [style.color]="iconColor"></i>

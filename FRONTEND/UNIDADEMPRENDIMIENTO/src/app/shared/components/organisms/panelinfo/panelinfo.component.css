@@ -17,7 +17,7 @@
     border: 2px dashed #ff0000;
     padding: 0px; /* Reducir el espacio interno */
     margin-top: -5px; /* Subir el contenido */
-
+    --dropdown-bg:none;
 
   }
 

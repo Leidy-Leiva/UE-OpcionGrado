@@ -1,5 +1,5 @@
 .icon-base {
   font-size: var(--icon-font-size, 1.5rem);
   color: var(--icon-color, inherit);
-  -webkit-text-stroke: var(--stroke-width, 0.5px) var(--stroke-icon, #000);
+  -webkit-text-stroke: var(--stroke-width) var(--stroke-icon);
 }

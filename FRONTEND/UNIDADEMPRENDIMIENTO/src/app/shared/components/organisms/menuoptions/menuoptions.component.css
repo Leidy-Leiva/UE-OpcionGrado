@@ -35,6 +35,8 @@
   transition: background-color 0.2s ease, transform 0.2s ease;
 }
 
+
+
 /* Media query para hacerlo responsive */
 @media (max-width: 600px) {
 

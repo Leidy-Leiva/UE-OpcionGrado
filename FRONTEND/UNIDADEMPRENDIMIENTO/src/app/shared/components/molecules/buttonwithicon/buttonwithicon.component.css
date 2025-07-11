@@ -1,29 +1,4 @@
-/* Aseguramos que el botón muestre sus elementos de forma flexible */
-:host app-button{
-  display: flex;
-  align-items: center;
-  gap: var(--btn-withicon-gap,1rem);
-  padding: var(--btn-withicon-padding, var(--btn-padding, 5px 10px));
-  border-radius: var(--btn-withicon-border-radius);
-  background-color: var(--btn-withicon-bg);
-  transform: var(--btn-transform);
-  transition: var(--btn-hover-transition,background 0.2s ease-in-out, filter 0.2s ease-in-out);
-  border: var(--btn-border);
-  width: var(--btn-width);
-  height: var(--btn-height);
+:host {
+  display: inline-flex;
 }
 
-/* Efecto cuando el cursor pasa sobre el botón */
-:host app-button:hover {
-  filter: brightness(1.1); /* Hace el color más intenso */
-}
-/* Estilos opcionales para el texto interno */
-.title-btn {
-  font-size: var(--font-size-btn,16px);
-  color: var(--btn-withicon-text-color);
-}
-
-/*Estilos para el icono interno*/
-.btn-icon {
-  font-size: var(--icon-font-size, 1.5rem);
-}

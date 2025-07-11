@@ -1,0 +1,29 @@
+.contenedorWrapper {
+  background-color: var(--bg);
+  padding: var(--padding, 1rem);
+  border: var(--border, 1px solid #fcf5f5);
+  border-radius: var(--borderR, 8px);
+  box-shadow: var(--boxShadow, 0px 4px 6px rgba(0, 0, 0, 0.1));
+  margin-bottom: var(--marginB);
+  overflow: hidden;
+}
+
+.contenido {
+  background-color: var(--bg, #ffffff);
+}
+.button {
+  display: var(--display, flex);
+  justify-content: var(--justify-content, flex-end);
+  margin-top: var(--margin-top, 0rem);
+
+  .btnDelete {
+    --btn-width: 35px;
+    --btn-height: 35px;
+    --btn-withicon-border-radius: 3px;
+    --btn-bg-hover: #ea7575;
+    --btn-bg-hoverA: #ea7575;
+    --icon-font-size: 1.5rem;
+    --stroke-width: 0.5px;
+    --stroke-icon: #000000;
+  }
+}

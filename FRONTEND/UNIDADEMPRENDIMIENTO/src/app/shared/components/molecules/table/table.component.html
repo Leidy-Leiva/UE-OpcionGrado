@@ -1,42 +1,53 @@
 <div class="table-container mat-elevation-z8">
-  <!-- Añadimos la clase custom-table al table -->
-  <table mat-table [dataSource]="data"
-         matSort
-         (matSortChange)="sortChange.emit($event)"
-         class="custom-table">
+  <table
+    mat-table
+    [dataSource]="data"
+    matSort
+    (matSortChange)="sortChange.emit($event)"
+    class="custom-table">
 
     <!-- Columnas dinámicas -->
     <ng-container *ngFor="let col of columns" [matColumnDef]="col.key.toString()">
+
       <th mat-header-cell *matHeaderCellDef [style.width]="col.width">
-        <app-label [content]="col.label"></app-label>
+        {{ col.label }}
       </th>
+
       <td mat-cell *matCellDef="let row">
-        <app-label
-          [content]="col.formatter ? col.formatter(row[col.key]) : row[col.key]">
-        </app-label>
+        <!-- Componente embebido -->
+        <ng-container *ngIf="col.component; else defaultCell">
+          <ng-container
+            *ngComponentOutlet="col.component; injector: createInjector(col, row)"
+          ></ng-container>
+        </ng-container>
+
+        <!-- Celda por defecto -->
+        <ng-template #defaultCell>
+          {{ col.formatter ? col.formatter(row[col.key]) : row[col.key] }}
+        </ng-template>
       </td>
+
     </ng-container>
 
-    <!-- Acciones por fila -->
     <ng-container matColumnDef="actions">
-      <th mat-header-cell *matHeaderCellDef>Acciones</th>
+      <th mat-header-cell *matHeaderCellDef></th>
       <td mat-cell *matCellDef="let row">
-        <!-- Asegúrate de usar action-buttons para el contenedor -->
-        <app-buttonwithicongroup
-          class="action-buttons"
-          [buttons]="buttontable"
-          (btnClick)="onAction(row, $event)">
-        </app-buttonwithicongroup>
+        <ng-container *ngIf="actionsTemplate">
+          <ng-container
+            *ngTemplateOutlet="actionsTemplate; context: { $implicit: row }"
+          ></ng-container>
+        </ng-container>
       </td>
     </ng-container>
 
     <tr mat-header-row *matHeaderRowDef="displayedKeys"></tr>
-    <tr mat-row        *matRowDef="let row; columns: displayedKeys"></tr>
+    <tr mat-row *matRowDef="let row; columns: displayedKeys"></tr>
   </table>
 
-  <mat-paginator class="paginator"
+  <mat-paginator
+    class="paginator"
     [length]="total"
     [pageSize]="pageSize"
-    (page)="pageChange.emit($event)">
-  </mat-paginator>
+    (page)="pageChange.emit($event)"
+  ></mat-paginator>
 </div>

@@ -1,9 +1,8 @@
 .layout {
   height: 100vh;
   margin: 0;
-  padding: 0;
   box-sizing: border-box;
-  width: auto;
+  width: 100%;
 }
 
 .main-header 
@@ -18,13 +17,13 @@
   --icon-font-size: 0.7rem;
   --btn-withicon-gap: 0px;
   --btn-withicon-border-radius: 3px;
-  --btn-withicon-bg: #E1F3FF;
+  --btn-bg-color: #E1F3FF;
   --btn-icon-color: #15428B;
   --btn-withicon-padding: 0px;
   --icon-title-transform: scale(2);
   --btn-withicon-transition: all 0.3s ease-in-out;
   --btn-border: 0.1px solid #71A0DD;
-  --btn-bg-hover:#CCD8E720;
+  --btn-bg-hover:#c9e9ff;
   --stroke-width: 0px;
 
 }
@@ -47,10 +46,10 @@
   align-items: center;
   --header-bg: #CCD8E7;
   padding: 0% 1%;
-  --btn-withicon-bg: #C3D9F3;
+  --btn-bg-color: #C3D9F3;
   height: 28px;
-
-
+  --btn-bg-hover:#c9e9ff;
+  width: auto;
 }
 
 .button-header-secondary
@@ -58,7 +57,7 @@
   --icon-font-size: 1rem;
   --btn-withicon-padding: 0px;
   --btn-withicon-border-radius: 0.5px;
-  --btn-bg-hover:#CCD8E780;
+  --btn-bg-hover:#c9e9ff;
    --stroke-width: 0.2px;
   --stroke-icon : #000;
 }
@@ -212,7 +211,7 @@ app-header.panel-header {
 ============================ */
 .layout__content {
   grid-area: content;
-  padding: 1rem;
+  padding: 0 rem;
   overflow-x: auto;
   transition: all 0.3s ease-in-out;
 }

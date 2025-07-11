@@ -1,0 +1,11 @@
+.contenedorGeneral {
+  width: 100%;
+  gap: 10px;
+  background-color: aqua;
+}
+
+.title
+{
+  padding: 1rem;
+  background-color: blue;
+}

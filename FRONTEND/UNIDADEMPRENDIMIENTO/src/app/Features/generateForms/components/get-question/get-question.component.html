@@ -1,0 +1,47 @@
+<div class="contenidoGeneral">
+  <app-modal [isVisible]="isModalOpen">
+    <div modal-header class="header-modal">
+      <app-header class="header-create">
+        <div header-title class="titleI">
+          <app-icon name="question-octagon" class="icon-header" typeIcon="bootstrap"></app-icon>
+          <app-label content="Banco de preguntas" class="label-header"></app-label>
+        </div>
+        <div header-buttons class="ml-auto">
+          <app-buttonwithicon class="btnc" [buttonConfig]="btnclose" (btnClick)="handleAction($event)">
+          </app-buttonwithicon>
+        </div>
+      </app-header>
+    </div>
+
+    <div modal-content>
+      <app-table class="table-info" 
+      [columns]="columns" 
+      [data]="preguntas"
+      [total]="total"
+      [pageSize]="pageSize"
+      (sortChange)="onSort($event)"
+      (pageChange)="onPage($event)" 
+      [actionsTemplate]="actionsWithButtons">
+
+        <ng-template #actionsWithButtons let-row>
+          <app-check-box>
+          </app-check-box>
+        </ng-template>
+      </app-table>
+
+      <ng-template #actionsTpl let-row>
+        <app-check-box>
+        </app-check-box>
+      </ng-template>
+    </div>
+
+
+
+    <div modal-action class="actions">
+      <app-buttongroup class="btn"
+       [buttons]="buttons" 
+       (btnClick)="handleAction($event)">
+      </app-buttongroup>
+    </div>
+  </app-modal>
+</div>

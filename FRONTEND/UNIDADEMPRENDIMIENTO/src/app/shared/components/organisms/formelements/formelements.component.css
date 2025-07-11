@@ -1,17 +1,17 @@
 .contenedor {
-  padding: var(--contenedor-padding, 0.5rem); /* Espacio interno */
+  padding: var(--contenedor-padding, 0.5rem); 
   display: flex;
   flex-direction: column;
-  gap: var(--contenedor-gap, 0.5rem); /* Espacio entre .general y .opciones */
+  gap: var(--contenedor-gap, 0.5rem); 
   width: 100%;
   box-sizing: border-box;
 }
 
 .general {
   display: flex;
-  flex-direction: row; /* Elementos en fila */
-  gap: var(--general-gap, 1rem); /* Espacio entre dropdown y input */
-  flex-wrap: wrap; /* Que no se rompa en pantallas pequeñas */
+  flex-direction: row; 
+  gap: var(--general-gap,20px); 
+  flex-wrap: wrap; 
   align-items: flex-start;
   width: 100%;
   box-sizing: border-box;
@@ -19,19 +19,16 @@
 
 .dropdown,
 .Pregunta {
-  flex: 1; /* Ocupan el mismo espacio */
-  min-width: var(--general-min-width, 250px); /* Para responsividad */
+  flex: 1; 
+  min-width: var(--general-min-width, 250px); 
   
 }
-.dropdown
-{
-  --dropdown-color:#0a0a0a;
-}
+
 
 .opciones {
   display: flex;
-  flex-direction: column; /* Contenido en columna */
-  gap: var(--opciones-gap, 0.3rem); /* Espacio entre opciones internas */
+  flex-direction: column; 
+  gap: var(--opciones-gap, 0.3rem); 
   width: 100%;
   box-sizing:var(--box-sizing, border-box);
 }

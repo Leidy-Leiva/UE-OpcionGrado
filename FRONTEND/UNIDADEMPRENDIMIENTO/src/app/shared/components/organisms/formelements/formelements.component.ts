@@ -27,13 +27,13 @@ export class FormElementsComponent implements OnInit {
 
 
    ngOnInit() {
-    this.loadQuestionOptions();  //Llamar al metodo para obtener los datos de la API
+    this.loadQuestionOptions(); 
   }
 
  private loadQuestionOptions(){
   this.questionService.getTipoElementos().subscribe({
     next:(data: any[]) => {
-      console.log('Datos crudos de la API:', data); // <-- Aquí
+      console.log('Datos crudos de la API:', data); 
       this.questionOptions = data.map(item => ({
         value: item.tpeF_NOMBRE,
         label: item.tpeF_NOMBRE
@@ -57,9 +57,9 @@ export class FormElementsComponent implements OnInit {
   }
 
   async loadQuestionComponent(type: string) {
-    this.dynamicComponentContainer.clear(); // 🧹 Limpia el contenedor actual (si hay algo)
+    this.dynamicComponentContainer.clear(); 
 
-    const loader = QuestionElementMapper[type]; // 🔍 Busca en el mapper el importador
+    const loader = QuestionElementMapper[type]; 
 
     if (!loader) {
       console.warn(`Tipo de componente no soportado: ${type}`);
@@ -67,11 +67,11 @@ export class FormElementsComponent implements OnInit {
     }
 
     try {
-      const component = await loader(); // ⏳ Espera a que cargue dinámicamente el componente
-      this.currentComponentRef = this.dynamicComponentContainer.createComponent(component); // 🧱 Crea e inserta el componente en el contenedor
+      const component = await loader(); 
+      this.currentComponentRef = this.dynamicComponentContainer.createComponent(component);
 
     } catch (error) {
-      console.error('Error al cargar componente:', error); // 🚨 Captura errores si algo falla
+      console.error('Error al cargar componente:', error); 
     }
   }
 }

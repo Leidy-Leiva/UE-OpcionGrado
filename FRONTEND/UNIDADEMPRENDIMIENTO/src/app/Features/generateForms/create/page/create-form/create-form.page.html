@@ -1,0 +1,33 @@
+<div class="contenido">
+    <app-header class="headerCreateForm">
+        <div header-title class="typeForm">
+             <!-- <app-dropdown class="dropdown" 
+            [options]="typeForm" [selectedValue]="selectedType"
+            (valueChange)="onSelectionChange($event)">
+            </app-dropdown>  -->
+        </div>
+        <div header-buttons class="ml-auto">
+            <app-buttonwithicon class="btnV" [buttonConfig]="buttonvisualize" (btnClick)="onVisualize()">
+            </app-buttonwithicon>
+
+            <app-button class="btnG" [buttonConfig]="buttonSave" (btnClick)="save()">
+                {{ buttonSave.title }}
+            </app-button>
+        </div>
+
+    </app-header>
+
+    <div class="body">
+        <app-form class="form"  [title]="form.titulo" [description]="form.descripcion">
+        </app-form>
+    </div>
+    <div class="body-center">
+        <app-formbuilder [typeForm]="['Formulario']"
+        (btnClick)="handleFormAction($event)">
+        </app-formbuilder>
+
+        <ng-container #modalContainer></ng-container>
+    </div>
+
+
+</div>
