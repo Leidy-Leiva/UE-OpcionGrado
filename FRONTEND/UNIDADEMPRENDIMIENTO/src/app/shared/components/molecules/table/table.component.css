@@ -1,80 +1,60 @@
 :host {
   display: block;
   overflow-x: auto;
-
-  /* ——— VARIABLES POR DEFECTO ——— */
-  --table-bg: #ffffff;
-  --table-header-bg: #f9f9f9;
-  --table-row-alt-bg: #f5f5f5;
-  --table-row-hover-bg: #e0f7fa;
-  --table-border-color: #e0e0e0;
-  --table-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
-  --table-text-color: #333333;
-  --table-font-size: 14px;
-  --table-header-font-weight: 600;
-  --table-padding: 12px;
-  --paginator-bg: #ffffff;
-  --paginator-color: #000000;
 }
 
 /* Contenedor responsivo */
 .table-container {
   width: 100%;
   overflow-x: auto;
-  padding: 8px;
+  padding: 1rem;
   box-sizing: border-box;
 }
 
 /* Tabla base */
 .custom-table {
   width: 100%;
-  border-collapse: collapse;
+  border-collapse: separate;
+  border-spacing: 0;
   font-family: inherit;
-  border-radius: 0px;
-  overflow: hidden;
-  box-shadow: var(--table-shadow);
-  background-color: var(--table-bg);
-  color: var(--table-text-color);
-  font-size: var(--table-font-size);
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  background-color: #fff;
+  color: #212529;
+  font-size: 14px;
   min-width: 400px;
   table-layout: auto;
-
-  /* 👇 Elimina bordes por defecto de mat-table */
-  ::ng-deep .mat-header-row,
-  ::ng-deep .mat-row {
-    display: table-row;
-  }
-  ::ng-deep .mat-cell,
-  ::ng-deep .mat-header-cell {
-    display: table-cell;
-    padding: 0; /* lo manejamos abajo */
-  }
 }
 
 /* Encabezados */
 .custom-table th {
-  background-color: var(--table-header-bg);
-  font-weight: var(--table-header-font-weight);
-  padding: var(--table-padding);
-  text-align: center ;
-  border-bottom: 2px solid var(--table-border-color);
+  background-color: #f1f3f5;
+  font-weight: 700;
+  padding: 12px;
+  text-align: left;
+  border-bottom: 2px solid #dee2e6;
+  position: sticky;
+  top: 0;
+  z-index: 1;
+  color: #212529;
 }
 
 /* Filas alternas */
 .custom-table tr:nth-child(even) {
-  background-color: var(--table-row-alt-bg);
+  background-color: #fafbfc;
 }
 
 /* Hover en fila */
 .custom-table tr:hover {
-  background-color: var(--table-row-hover-bg);
+  background-color: #e6f7ff;
 }
 
 /* Celdas */
 .custom-table td {
-  padding: var(--table-padding);
-  border-bottom: 1px solid var(--table-border-color);
+  padding: 12px;
+  border-bottom: 1px solid #dee2e6;
   vertical-align: middle;
+  color: #212529;
 }
 
 /* Celda de acciones */
@@ -82,19 +62,20 @@
   text-align: right;
 }
 
-/* Grupo de botones */
-.action-buttons {
+/* Grupo de botones/checkbox dentro de la celda de acciones */
+.action-buttons,
+.buttons {
   display: flex;
-  gap: 8px;
+  gap: 0.5rem;
   justify-content: flex-end;
-  --stroke-width: 0.3px;
-  --stroke-icon : #000;
+  align-items: center;
 }
 
 /* Paginador */
 .paginator {
-  background-color: var(--paginator-bg);
-  color: var(--paginator-color);
+  margin-top: 1rem;
+  background-color: #fff;
+  color: #343a40;
 }
 
 /* Responsive */

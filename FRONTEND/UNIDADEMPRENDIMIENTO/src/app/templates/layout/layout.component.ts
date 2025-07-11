@@ -43,8 +43,8 @@ export class LayoutComponent implements OnInit {
       next: (data) => {
         this.panelImage = data.foto?? '';
         this.panelInfoFields = [
-          { label: 'Nombre Completo', value: data.nombre},
-          { label: 'Edad', value: '23' },
+          { label: '', value: data.nombre},
+          { label: '', value: '23' },
         ];
       },
       error: (err) => {
@@ -56,7 +56,6 @@ export class LayoutComponent implements OnInit {
   mainHeaderButtons: ButtonWithIconConfig[] = [
     {
       icon: 'remove',
-      classList: 'btn-success main-header__button',
       typeButton: 'button',
       disabled: false,
       iconColor: '#264390',
@@ -64,7 +63,6 @@ export class LayoutComponent implements OnInit {
     },
     {
       icon: 'crop_square',
-      classList: 'btn-success main-header__button',
       typeButton: 'button',
       disabled: false,
       iconColor: '#264390',
@@ -72,7 +70,6 @@ export class LayoutComponent implements OnInit {
     },
     {
       icon: 'close',
-      classList: 'btn-success main-header__button',
       typeButton: 'button',
       disabled: false,
       iconColor: '#264390',
@@ -84,7 +81,6 @@ export class LayoutComponent implements OnInit {
     {
       icon: 'sync',
       title: 'Recargar página',
-      classList: 'reload-btn',
       typeButton: 'button',
       disabled: false,
       iconColor: '#91CA8A',
@@ -93,7 +89,6 @@ export class LayoutComponent implements OnInit {
     {
       icon: 'help',
       title: 'Ayuda',
-      classList: 'help-btn',
       typeButton: 'button',
       disabled: false,
       iconColor: '#6995C3',
@@ -102,7 +97,6 @@ export class LayoutComponent implements OnInit {
 
   buttonPanelInfoHeader: ButtonWithIconConfig = {
     icon: 'arrow-right',
-    classList: 'btn-success',
     typeButton: 'button',
     disabled: false,
     iconColor: '#ffffff',

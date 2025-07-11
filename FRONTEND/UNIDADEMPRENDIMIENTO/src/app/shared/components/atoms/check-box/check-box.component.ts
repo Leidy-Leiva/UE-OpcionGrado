@@ -9,8 +9,6 @@ import { CommonModule } from '@angular/common';
   styleUrls: ['./check-box.component.css']
 })
 export class CheckBoxComponent {
-
-
   @Input() label!: string;
   @Input() checked = false;
   @Input() disabled = false;

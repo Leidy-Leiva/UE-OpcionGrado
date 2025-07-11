@@ -1,37 +1,35 @@
 <div class="content">
-<app-header class="header-getElements">
-    <div header-search class="seeker" >
-        <app-seeker class="search">
-        </app-seeker>
-    </div>
-    <div header-buttons class="btn">
-        <app-buttonwithicon class="btn-getElements"
-            [buttonConfig]="buttonHeaderGet"
-            (btnClick)="onCreateClick()">
-        </app-buttonwithicon>
-    </div>
-</app-header>
+    <app-header class="header-getElements">
+        <div header-search class="seeker">
+            <app-seeker class="search">
+            </app-seeker>
+        </div>
+        <div header-buttons class="btn">
+            <app-buttonwithicon class="btn-getElements" [buttonConfig]="buttonHeaderGet" (btnClick)="onCreateClick()">
+            </app-buttonwithicon>
+        </div>
+    </app-header>
+
+    <div class="table">
+        <app-table class="table-info" 
+        [columns]="columns"
+         [data]="preguntas" 
+         [total]="total" 
+         [pageSize]="pageSize"
+         (sortChange)="onSort($event)" 
+         (pageChange)="onPage($event)" 
+         (edit)="onEditClick($event)"
+         (delete)="onDeleteClick($event)"
+         [actionsTemplate]="actionsWithButtons">
+
+            <ng-template #actionsWithButtons let-row>
+                <app-buttonwithicongroup class="buttons" [buttons]='buttontable' (btnClick)="onAction($event)">
+                </app-buttonwithicongroup>
+            </ng-template>
+        </app-table>
 
 
-<div class="table">
-    <app-table class="table-info"
-    [columns]="columns"
-    [data]="preguntas"
-    [total]="total"
-    [pageSize]="pageSize"
-    (sortChange)="onSort($event)"
-    (pageChange)="onPage($event)"
-    (edit)="onEditClick($event)"
-    (delete)="onDeleteClick($event)">
-    </app-table>
-</div>
+    </div>
 </div>
 
 <ng-template #modalContainer></ng-template>
-
-
-<!-- <app-create-form-elements
-  *ngIf="isModalOpen"
-  [isModalOpen]="isModalOpen"
-  (closeModal)="onCloseModal()">
-</app-create-form-elements> -->

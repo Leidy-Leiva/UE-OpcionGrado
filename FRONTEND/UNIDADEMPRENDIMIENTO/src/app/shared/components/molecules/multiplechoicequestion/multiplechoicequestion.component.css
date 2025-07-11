@@ -17,8 +17,8 @@
     --btn-withicon-border-radius: 5px;
     --stroke-width: 1px;
     --stroke-icon:#0e0e0e;
-     --btn-bg-hover:#68a6f8a4;
-      --btn-bg-hoverA:#609ae7d7;
+    --btn-bg-hover:#68a6f8a4;
+    --btn-bg-hoverA:#609ae7d7;
   }
 }
 
@@ -43,8 +43,10 @@
   gap: 0.5rem;
   padding: 0.5rem;
   border-radius: 8px;
-  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
 
+
+
+}
   .btn-delete
 {
     --btn-width:35px;
@@ -52,5 +54,4 @@
     --btn-withicon-border-radius: 3px;
     --btn-bg-hover:#e7cccc85;
     --btn-bg-hoverA:#ebb3b3c7;
-}
 }

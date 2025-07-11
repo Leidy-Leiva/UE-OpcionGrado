@@ -5,7 +5,7 @@ import { CreateFormElements } from './create/pages/create-form-elements/create-f
 import { GetFormElements } from './get/page/get-form-elements/get-form-elements.page'; 
 import { UpdateFormElements} from './update/page/update-form-elements/update-form-elements.page';
 
-export const GENERATE_ELEMENTS_FORM_ROUTES: Routes = [
+export default [
   {
     path: 'crear',
     component: CreateFormElements
@@ -24,4 +24,4 @@ export const GENERATE_ELEMENTS_FORM_ROUTES: Routes = [
     redirectTo: 'listar',
     pathMatch: 'full'              
   }
-];
+]as Routes;

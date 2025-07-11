@@ -1,78 +1,84 @@
+.contenidoGeneral {
+  background-color: var(--bg);
+  padding: var(--padding);
+  border: var(--border);
+  border-radius: var(--borderR);
+  box-shadow: var(--boxS);
+  margin-bottom: var(--marginB, 1rem);
+}
+
 .universal-card {
-    max-width: var(--max-width-card, 400px);
-    min-width:var(--min-width-card, 200px);
-    min-height: var(--min-height-card, auto);
-    max-height: var(--max-height-card, none);
-    height: var(--card-height, auto);
-    margin: var(--card-margin, 16px);
-    background-color: var(--card-bg-color, #d62727);
-    color: var(--card-text-color, #333);
-    border-radius: var(--card-border-radius, 12px);
-    display: flex;
-    flex-direction: column;
-    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
-    overflow: hidden; /* Evita que el contenido se salga */
+  max-width: var(--max-width-card, 100%);
+  min-width: var(--min-width-card, 200px);
+  min-height: var(--min-height-card, auto);
+  max-height: var(--max-height-card, none);
+  height: var(--card-height, auto);
+  margin: var(--card-margin);
+  background-color: var(--card-bg-color);
+  color: var(--card-text-color, #333);
+  border-radius: var(--card-border-radius, 12px);
+  display: flex;
+  flex-direction: column;
+  padding: var(--padding);
+  box-shadow: var(--boxShadow,0px 4px 6px rgba(0, 0, 0, 0.1)) ;
+  overflow: hidden;
 }
 
-/* HEADER DEL CARD */
 .universal-card .mat-card-header {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    width: 100%;
-    min-height: var(--card-header-height, 50px);
-    background-color: var(--card-header-bg, #f5f5f5);
-    padding: var(--card-header-padding, 16px);
-    border-top-left-radius: var(--card-border-radius, 12px);
-    border-top-right-radius: var(--card-border-radius, 12px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  min-height: var(--card-header-height, 50px);
+  background-color: var(--card-header-bg);
+  padding: var(--card-header-padding);
+  border-top-left-radius: var(--card-border-radius, 12px);
+  border-top-right-radius: var(--card-border-radius, 12px);
 }
 
-/* Ajusta la posición del avatar dentro del header */
 .universal-card .mat-card-header div[mat-card-avatar] {
-    margin-right: 8px;
-    display: flex;
-    align-items: center;
+  margin-right: 8px;
+  display: flex;
+  align-items: center;
 }
 
-/* TÍTULO Y SUBTÍTULO */
 .universal-card .mat-card-title {
-    font-size: var(--card-title-size, 1.2rem);
-    color: var(--card-title-color, #444);
-    text-align: center;
-    margin: 0;
-    font-weight: bold;
+  font-size: var(--card-title-size, 1.2rem);
+  color: var(--card-title-color, #444);
+  text-align: center;
+  margin: 0;
+  font-weight: bold;
+  background-color: var(--bg-color);
 }
 
 .universal-card .mat-card-subtitle {
-    font-size: var(--card-subtitle-size, 1rem);
-    color: var(--card-subtitle-color, #666);
-    text-align: center;
-    margin: 4px 0 0;
+  font-size: var(--card-subtitle-size, 1rem);
+  color: var(--card-subtitle-color, #666);
+  text-align: center;
+  margin: 4px 0 0;
 }
 
 /* CONTENIDO PRINCIPAL DEL CARD */
 .universal-card .mat-card-content {
-    flex-grow: 1;
-    padding: var(--card-content-padding, 16px);
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: stretch;
-    background-color: var(--card-content-bg, #fff);
-    min-height: var(--min-height-cardC, 200px);
+  flex-grow: 1;
+  padding: var(--card-content-padding, 16px);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: stretch;
+  background-color: var(--card-content-bg, #fff);
+  min-height: var(--min-height-cardC, 200px);
 }
 
 /* ACCIONES DEL CARD */
 .universal-card .mat-card-actions {
-    display: flex;
-    justify-content: var(--card-actions-align, flex-end);
-    padding: var(--card-actions-padding, 8px 16px);
-    background-color: var(--card-actions-bg, transparent);
-    border-bottom-left-radius: var(--card-border-radius, 12px);
-    border-bottom-right-radius: var(--card-border-radius, 12px);
+  display: flex;
+  justify-content: var(--card-actions-align, flex-end);
+  padding: var(--card-actions-padding, 8px 16px);
+  background-color: var(--card-actions-bg, transparent);
+  border-bottom-left-radius: var(--card-border-radius, 12px);
+  border-bottom-right-radius: var(--card-border-radius, 12px);
 }
-.mat-card-actions [card-actions]
-{
-    justify-content:start;
-
+.mat-card-actions [card-actions] {
+  justify-content: start;
 }

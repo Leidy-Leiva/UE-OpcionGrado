@@ -16,6 +16,7 @@ import { FormsModule } from '@angular/forms';
 export class PanelinfoComponent {
    @Input() image: string = '';
    @Input() infoFields: { label: string, value: string | number }[] = [];
+   
   programOptions = [
     { value: 'prog1', label: 'Programa 1' },
     { value: 'prog2', label: 'Programa 2' },

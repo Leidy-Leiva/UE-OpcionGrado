@@ -12,7 +12,7 @@ import { InputComponent } from '../../atoms/input/input.component';
   styleUrls: ['./openquestion.component.css']
 })
 export class OpenquestionComponent {
-   @Input() placeholder: string = 'Escribe tu respuesta...';
+  placeholder: string = 'Escribe tu respuesta...';
   @Input() answer: string = '';
   @Output() answerChange = new EventEmitter<string>();
 

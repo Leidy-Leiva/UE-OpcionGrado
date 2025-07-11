@@ -13,14 +13,14 @@ export class MenuOptionsService {
 
     if (roles.includes('coordinador')) {
       buttons.push(
-        { title: 'Propuesta', classList: 'reload-btn', typeButton: 'button', disabled: false},
+        { title: 'Propuesta', classList: 'btn-Propuesta', typeButton: 'button', disabled: false},
         { title: 'Elementos de Fromulario', classList: 'settings-btn', typeButton: 'button', disabled: false, action:'Elementos' },
         { title: 'Convocatoria', classList: 'settings-btn', typeButton: 'button', disabled: false},
-        { title: 'Formulario', classList: 'settings-btn', typeButton: 'button', disabled: false},
+        { title: 'Formulario', classList: 'settings-btn', typeButton: 'button', disabled: false,action:'Formulario'},
         { title: 'Evaluación', classList: 'settings-btn', typeButton: 'button', disabled: false}
       );
       console.log('[MenuOptionsService] salió:', buttons);
-      return buttons;
+
     }
 
     if (roles.includes('user')) {

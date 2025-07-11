@@ -1,0 +1,20 @@
+<div class="contenidoForm">
+    <div class="contenidoI">
+            <app-card class="form">
+                <div card-banner class="header"></div>
+                <div card-title>
+                    <app-inline class="titulo" [contentEditable]="true" placeholder="Titulo del formulario"
+                        [value]="title" variant="titulo" (valueChange)="onTitleChange($event)">
+                    </app-inline>
+                </div>
+
+                <div card-subtitle>
+                    <app-inline class="subtitulo" [contentEditable]="true" placeholder="Descripción del formulario"
+                        [value]="description" variant="subtitulo" (valueChange)="onDescriptionChange($event)">
+                    </app-inline>
+                </div>
+            </app-card>
+    </div>
+    <ng-content></ng-content>
+
+</div>

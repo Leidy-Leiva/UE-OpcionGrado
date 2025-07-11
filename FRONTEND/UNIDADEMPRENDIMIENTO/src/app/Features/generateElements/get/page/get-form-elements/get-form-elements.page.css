@@ -7,13 +7,15 @@ margin-top: -15px;
 display: flex;
 align-items: center;          
 gap: 1rem;          
-height: 48px;           
+height: 48px;   
+width: auto;              
 --header-padding: 0 16px;         
 --header-bg:#428BCA;
 }
 
 .header-getElements .btn {
   margin-left: auto;
+   --btn-bg-hover:none;
 }
 
 .seeker
@@ -33,5 +35,19 @@ height: 48px;
   --icon-color:#ffffff;   
 }
 
+.buttons {
+  --stroke-width: 0.5px;
+  --stroke-icon: #000;
 
+  .btnDelete {
+    --btn-bg-hover: #ea7575;
+    --btn-bg-hoverA: #ea7575;
+  }
 
+  .btnEdit {
+    --btn-bg-hover: #f3f181;
+    --btn-bg-hoverA: #f3f181;
+
+  }
+
+  }

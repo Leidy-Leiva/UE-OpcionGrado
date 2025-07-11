@@ -24,10 +24,10 @@ export class MultiplechoicequestionComponent {
 
 
   btndelete:ButtonWithIconConfig={
-      icon: 'xmark', classList: 'btn-success', typeButton: 'button', disabled: false, iconColor:'#E43C3F', action:'removeOption',typeIcon:"fontawesome"}
+      icon: 'xmark', typeButton: 'button', disabled: false, iconColor:'#E43C3F',action:'removeOption',typeIcon:"fontawesome"}
 
   btnadd:ButtonWithIconConfig={
-      icon: 'plus', classList: 'solid', typeButton: 'button', disabled: false, iconColor:'#ffffff', action:'AddOption',typeIcon:"fontawesome"}
+      icon: 'plus', typeButton: 'button', disabled: false, iconColor:'#ffffff', action:'AddOption',typeIcon:"fontawesome"}
 
       
   ngOnInit() {

@@ -59,11 +59,6 @@ export class CreateFormElements {
   }
 }
 
-  handleCancelar() {
-    // Lógica para cancelar
-    console.log('Cancelar');
-  }
-
   handleGuardar() {
     // Lógica para guardar
     console.log('Guardar');

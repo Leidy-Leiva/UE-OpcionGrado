@@ -12,11 +12,11 @@
   width: var(--btn-width);
 }
 :host button:hover {
-  background-color:var(--btn-bg-hover,#2f69a8) ;
-  transform: scale(1.02);
+  background-color: var(--btn-bg-hover, #2f69a8);
+  transform: var(--btn-hover-transform, scale(1.02));
 }
 
 :host button:active {
-  background-color:var(--btn-bg-hoverA,#2f69a8) ; 
-  transform: scale(0.97);
+  background-color: var(--btn-bg-hoverA, #2f69a8);
+  transform: var(--btn-active-transform, scale(0.97));
 }
