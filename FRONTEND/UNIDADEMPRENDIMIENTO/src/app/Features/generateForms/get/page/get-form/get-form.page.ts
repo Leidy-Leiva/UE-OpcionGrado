@@ -24,7 +24,7 @@ import { ButtonwithicongroupComponent } from 'src/app/shared/components/organism
     ButtonwithicongroupComponent,
   ],
   templateUrl: './get-form.page.html',
-  styleUrls: ['./get-form.page.css'],
+  styleUrls: ['./get-form.page.scss'],
 })
 export class GetForm implements OnInit {
   @Output() edit = new EventEmitter();

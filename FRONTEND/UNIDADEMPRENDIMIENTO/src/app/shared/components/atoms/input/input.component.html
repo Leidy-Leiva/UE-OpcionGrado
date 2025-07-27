@@ -1,9 +1,7 @@
-
 <input
   [type]="typeInput"
   [placeholder]="placeholder"
-  [value]="value"
+  [(ngModel)]="value"
+  (ngModelChange)="onValueChange($event)"
   [disabled]="disabled"
-  (input)="onInput(value)"
 >
-

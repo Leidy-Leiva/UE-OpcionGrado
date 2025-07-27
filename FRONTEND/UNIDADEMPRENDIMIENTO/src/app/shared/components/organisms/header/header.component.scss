@@ -1,0 +1,15 @@
+.general {
+  @apply w-full flex items-center;
+  background-color: var(--header-bg, #428bca);
+  color: var(--header-color, white);
+  border: var(--borde, 1px solid #2c2c2c2c);
+}
+
+.content {
+   @apply w-full items-center justify-between gap-4 px-3;
+  display: var(--display, flex);
+  flex-direction: var(--direction, row);
+
+ 
+}
+

@@ -8,7 +8,7 @@ import { ButtonComponent } from '../../atoms/button/button.component';
   standalone: true,
   imports: [CommonModule,ButtonComponent],
   templateUrl: './buttongroup.component.html',
-  styleUrls: ['./buttongroup.component.css']
+  styleUrls: ['./buttongroup.component.scss']
 })
 export class ButtongroupComponent {
   @Input() buttons: buttonconfig[] = [];

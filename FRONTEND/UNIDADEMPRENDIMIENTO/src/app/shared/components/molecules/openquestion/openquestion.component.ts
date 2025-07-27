@@ -9,7 +9,7 @@ import { InputComponent } from '../../atoms/input/input.component';
   standalone: true,
   imports: [CommonModule,LabelComponent,InputComponent],
   templateUrl: './openquestion.component.html',
-  styleUrls: ['./openquestion.component.css']
+  styleUrls: ['./openquestion.component.scss']
 })
 export class OpenquestionComponent {
   placeholder: string = 'Escribe tu respuesta...';

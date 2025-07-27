@@ -6,7 +6,7 @@ import { CommonModule } from '@angular/common';
   standalone: true,
   imports: [CommonModule],
   templateUrl: './label.component.html',
-  styleUrls: ['./label.component.css']
+  styleUrls: ['./label.component.scss']
 })
 export class LabelComponent {
 @Input() content:string='';

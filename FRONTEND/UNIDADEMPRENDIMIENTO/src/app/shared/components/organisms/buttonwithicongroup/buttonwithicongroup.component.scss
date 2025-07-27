@@ -1,0 +1,13 @@
+/* button-group.component.scss */
+.buttonIcon-group {
+    @apply w-full flex p-0.5;
+    flex-direction: var(--flexD);
+    align-items: var(--alingI);
+    gap:var(--gap,8px) ;
+    flex-wrap: var(--flexW,wrap);
+    border-radius: var(--border-radius,10px);
+    background-color:var(--bg-color) ;
+   border:var(--border);
+   box-shadow:var(--boxShadow) ;
+  }
+  

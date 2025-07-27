@@ -5,13 +5,14 @@ import { MatIconModule } from '@angular/material/icon';
 @Component({
   selector: 'app-avatar',
   standalone: true,
-  imports: [CommonModule,NgStyle, NgIf,MatIconModule,],
+  imports: [CommonModule, NgIf,MatIconModule,],
   templateUrl: './avatar.component.html',
-  styleUrls: ['./avatar.component.css']
+  styleUrls: ['./avatar.component.scss']
 })
 export class AvatarComponent {
-  @Input() imageUrl: string = ''; // URL de la imagen del avatar
-  @Input() size: number = 50; // Tamaño del avatar (por defecto 50px)
-  @Input() alt: string = 'Avatar'; // Texto alternativo
-  @Input() rounded: boolean = true; // Define si es circular o cuadrado
+  @Input() imageUrl: string = ''; 
+  @Input() size?: number ; 
+  @Input() alt: string = 'Avatar'; 
+  @Input() rounded: boolean = true; 
+  @Input() extraClass = '';
 }

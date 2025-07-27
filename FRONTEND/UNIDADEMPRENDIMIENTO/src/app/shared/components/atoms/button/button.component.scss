@@ -1,0 +1,22 @@
+/* Estilos base del botón */
+:host button {
+  padding: var(--btn-padding);
+  border: var(--btn-border,none);
+  cursor: var(--btn-cursor,pointer);
+  font-size: var(--btn-font-size);
+  border-radius: var(--btn-border-radius);
+  transition: var(--btn-hover-transition,background 0.2s ease-in-out, filter 0.2s ease-in-out);
+  background-color: var(--btn-bg-color);
+  color: var(--btn-color-text, #ffffff);
+  height: var(--btn-heigth);
+  width: var(--btn-width);
+}
+:host button:hover {
+  background-color: var(--btn-bg-hover, #2f69a8);
+  transform: var(--btn-hover-transform, scale(1.02));
+}
+
+:host button:active {
+  background-color: var(--btn-bg-hoverA, #2f69a8);
+  transform: var(--btn-active-transform, scale(0.97));
+}

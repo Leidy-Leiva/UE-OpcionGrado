@@ -1,0 +1,31 @@
+.contenidoGeneral {
+  @apply w-full flex flex-row flex-wrap ;
+  margin-top: -10px;
+}
+
+.contenidoI {
+  width: 90%;
+  padding: 10px 10px;
+}
+
+.contenidoD {
+  width: 4%;
+}
+
+.buttons {
+  @apply w-full flex flex-col justify-center items-center p-1;
+  gap: 15px;
+
+}
+
+.btn {
+  --btn-width: 40px;
+  --btn-height: 40px;
+  --btn-bg-hover:#F3F3F3;
+  --btn-bg-hoverA:#F3F3F3;
+  --stroke-width: 0.5px;
+  --stroke-icon: #000000;
+  --bg-color: #fffdfd;
+  --border-radius: 4px;
+  --boxShadow:0px 4px 6px rgba(0, 0, 0, 0.1);
+}

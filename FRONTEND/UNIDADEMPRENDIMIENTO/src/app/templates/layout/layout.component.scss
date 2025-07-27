@@ -1,0 +1,134 @@
+.layout {
+  @apply flex flex-col w-full h-screen overflow-hidden;
+}
+
+//Estilos del header de la parte superior
+.main-header {
+  --header-bg:#CCD8E7;
+  --icon-font-size: 0.7rem;
+  --stroke-width: 0px;
+}
+.title
+{
+  @apply flex items-center px-1 gap-2;
+ 
+}
+.icon-header-main  {
+  --icon-font-size: 1rem;
+  --stroke-width: 0.5px;
+  --stroke-icon: #000;
+}
+.label-main-header
+{
+ --label-color: #15428b;
+}
+
+.buttons
+{
+ --btn-withicon-border-radius: 3px;
+  --btn-bg-color: #e1f3ff;
+  --btn-icon-color: #15428b;
+  --btn-withicon-transition: all 0.3s ease-in-out;
+  --btn-border: 0.1px solid #71a0dd;
+  --btn-bg-hover: #c9e9ff;
+}
+
+////////////////////////////////////////////////////////////////////////////
+//Segundo header 
+.secondary-header {
+  --header-bg:#CCD8E7;
+  --btn-color-text:#000000;
+  --btn-bg-color: #c3d9f3;
+  --btn-bg-hover: #c9e9ff;
+
+}
+.button-header-secondary {
+  --btn-withicon-padding: 0px;
+  --btn-withicon-border-radius: 0.5px;
+  --btn-bg-hover: #c9e9ff;
+  --stroke-width: 0.2px;
+  --stroke-icon: #000;
+}
+
+////////////////////////////////////////////////////////////////////////////////
+
+.layout__body {
+  @apply w-full flex-1 grid h-full min-h-0 transition-all duration-200 ;
+  grid-template-columns: 350px 1fr;
+  grid-template-areas: 
+    "panel content";
+}
+
+.layout__body.collapsed {
+  @apply grid-cols-[35px_1fr] ;
+
+}
+
+.layout__panel {
+  @apply flex flex-col overflow-hidden transition-all duration-200;
+}
+
+.layout__panel.collapsed  {
+   @apply w-[35px] ;
+   background-color: aquamarine; 
+}
+
+.panel-header {
+  @apply flex items-center justify-between w-full transition-all duration-200;
+}
+
+.controls {
+    transform: rotate(-180deg);
+    --btn-bg-hover: none;
+    --btn-bg-hoverA: none;
+
+}
+
+.titleIcon {
+  @apply flex items-center gap-2;
+   --label-color: #ffffff;
+}
+
+.layout__panel.collapsed app-header.panel-header {
+  @apply flex justify-center items-center ;
+  cursor: pointer;
+    --direction: column;
+}
+
+.layout__panel.collapsed app-header.panel-header .controls {
+ @apply  order-none self-start ;
+  margin-top: 0.8rem;
+  transform: rotate(0deg);
+  --icon-font-size:1.3rem;
+}
+
+.layout__panel.collapsed app-header.panel-header .titleIcon {
+   @apply order-1 h-screen items-center justify-center flex-col-reverse;
+   margin-bottom: auto;
+    margin-top: -5rem;
+
+  .label-header-panelinfo {
+    writing-mode: vertical-lr;
+    transform: rotate(-180deg);
+    text-align: center;
+  }
+
+  .icon-header-panelinfo {
+    transform: rotate(-90deg);
+    --icon-color: #ffffff;
+  }
+}
+
+.layout__panel.collapsed app-panelinfo,
+.layout__panel.collapsed app-menuoptions,
+.layout__panel.collapsed app-header:not(.panel-header) {
+  @apply hidden;
+}
+
+.layout__content {
+  @apply w-full overflow-y-auto ;
+  grid-area: content;
+}
+
+
+

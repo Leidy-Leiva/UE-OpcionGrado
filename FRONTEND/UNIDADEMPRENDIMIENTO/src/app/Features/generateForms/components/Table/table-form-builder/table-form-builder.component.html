@@ -1,0 +1,48 @@
+<div class="Contenedor">
+    <div class="Enunciado">
+        <app-labelwithinput class="LabelWithInput" label="Ingresa el enunciado:"
+            placeholder="Escribe aqui el enunciado..." [value]='enunciado' (valueChange)="onQuestionChange($event)">
+        </app-labelwithinput>
+    </div>
+    <div class="rowAndColumn">
+        <div class="rowsG">
+            <div class="addRows">
+                <app-label content="Filas:"></app-label>
+                <app-buttonwithicon class="btnadd" [buttonConfig]="btnadd" (btnClick)="addRow()">
+                </app-buttonwithicon>
+            </div>
+            <div *ngFor="let rowGroup of groupedRows; let groupIndex = index; trackBy: trackByGroup">
+                <div class="ibtnD" *ngFor="let row of rowGroup; let i = index; trackBy: trackByIndex">
+                    <app-input class="contenedorTexto" [value]="row.value.label"
+                        placeholder="Digite el nombre de la fila"
+                        (valueChange)="onRowLabelChange(groupIndex * 5 + i, $event)">
+                    </app-input>
+
+                    <app-buttonwithicon class="btn-delete" [buttonConfig]="btndelete"
+                        (btnClick)="removeRow(groupIndex * 5 + i)">
+                    </app-buttonwithicon>
+                </div>
+            </div>
+        </div>
+        <div class="columnsG">
+            <div class="addColumns">
+                <app-label content="Columnas:"></app-label>
+                <app-buttonwithicon class="btnadd" [buttonConfig]="btnadd" (btnClick)="addColumn()">
+                </app-buttonwithicon>
+            </div>
+
+            <div *ngFor="let colGroup of groupedColumns; let groupIndex = index; trackBy: trackByGroup">
+                <div class="ibtnD" *ngFor="let col of colGroup; let i = index; trackBy: trackByIndex">
+                    <app-input class="contenedorTexto" [value]="col.value.label"
+                        placeholder="Digite el nombre de la columna"
+                        (valueChange)="onColumnLabelChange(groupIndex * 5 + i, $event)">
+                    </app-input>
+
+                    <app-buttonwithicon class="btn-delete" [buttonConfig]="btndelete"
+                        (btnClick)="removeColumn(groupIndex * 5 + i)">
+                    </app-buttonwithicon>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

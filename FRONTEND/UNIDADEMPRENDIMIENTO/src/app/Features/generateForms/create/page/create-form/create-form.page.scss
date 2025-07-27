@@ -1,0 +1,26 @@
+
+.btnV {
+  width: auto;
+  height: auto;
+  --btn-heigth: 35px;
+  --btn-width: 35px;
+  --btn-bg-hover: none;
+  --icon-font-size: 1rem;
+}
+
+.btnG {
+  max-width: 50px;
+  --btn-border-radius: 10px;
+  text-align: center;
+  --btn-color-text: #fffdfd;
+  padding: 0.75rem 1rem;
+  font-weight: 500;
+  font-size: 1rem;
+  cursor: pointer;
+  border: none;
+  --btn-heigth: 2rem;
+  --btn-width: 5rem;
+}
+.ml-auto {
+  margin-left: auto;
+}

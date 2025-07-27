@@ -1,6 +1,6 @@
 import {
   Component,
-  ComponentRef,
+  Input,
   EventEmitter,
   Output,
   ViewChild,
@@ -9,20 +9,21 @@ import {
 import { CommonModule } from '@angular/common';
 import { ButtonwithiconComponent } from '../../molecules/buttonwithicon/buttonwithicon.component';
 import { ButtonWithIconConfig } from 'src/app/shared/models/buttonwithicon-config';
-import { Action } from 'rxjs/internal/scheduler/Action';
-import { ElementsFormMapper } from 'src/app/shared/mappers/generate-forms.mapper';
 
 @Component({
   selector: 'app-wrapper',
   standalone: true,
   imports: [CommonModule, ButtonwithiconComponent],
   templateUrl: './wrapper.component.html',
-  styleUrls: ['./wrapper.component.css'],
+  styleUrls: ['./wrapper.component.scss'],
 })
 export class WrapperComponent {
+  @Input() mode: 'create' | 'edit' | 'view' = 'view';
   @Output() delete = new EventEmitter<void>();
-  @ViewChild('componentsForm', { read: ViewContainerRef })
-  viewContainer!: ViewContainerRef;
+  @Output() edit=new EventEmitter<void>();
+
+@ViewChild('componentsForm', { read: ViewContainerRef, static: true })
+viewContainer!: ViewContainerRef;
 
   buttondelete: ButtonWithIconConfig = {
     title:'Eliminar',
@@ -38,5 +39,15 @@ export class WrapperComponent {
   onDelete() {
     this.delete.emit();
   }
+
+ onWrapperClick(event: MouseEvent) {
+  const target = event.target as HTMLElement;
+
+  if (target.closest('.btnDelete')) {
+    return;
+  }
+
+  this.edit.emit();
+}
 }
     

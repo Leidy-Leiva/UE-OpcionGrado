@@ -14,7 +14,7 @@ import { CheckBoxComponent } from "src/app/shared/components/atoms/check-box/che
   standalone: true,
   imports: [CommonModule],
   templateUrl: './create-table.component.html',
-  styleUrls: ['./create-table.component.css']
+  styleUrls: ['./create-table.component.scss']
 })
 export class CreateTableComponent {
 

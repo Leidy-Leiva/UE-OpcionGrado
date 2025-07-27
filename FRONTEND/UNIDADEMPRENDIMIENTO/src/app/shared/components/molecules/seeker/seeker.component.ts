@@ -8,7 +8,7 @@ import { ButtonWithIconConfig } from 'src/app/shared/models/buttonwithicon-confi
   standalone: true,
   imports: [CommonModule,InputComponent,ButtonwithiconComponent],
   templateUrl: './seeker.component.html',
-  styleUrls: ['./seeker.component.css'],
+  styleUrls: ['./seeker.component.scss'],
 })
  export class SeekerComponent{
   @Input() placeholder: string = 'Buscar...';

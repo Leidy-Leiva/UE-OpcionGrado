@@ -1,0 +1,32 @@
+ .btn {
+  margin-left: auto;
+   --btn-bg-hover:none;
+}
+.seeker
+{
+  display: flex;
+  align-items: center;
+  gap: 15px; /* o el valor que necesites */ 
+}
+
+.label-header-menu
+{
+  --label-color:#ffffff;
+}
+
+.buttons {
+  --stroke-width: 0.5px;
+  --stroke-icon: #000;
+
+  .btnDelete {
+    --btn-bg-hover: #ea7575;
+    --btn-bg-hoverA: #ea7575;
+  }
+
+  .btnEdit {
+    --btn-bg-hover: #f3f181;
+    --btn-bg-hoverA: #f3f181;
+
+  }
+
+  }

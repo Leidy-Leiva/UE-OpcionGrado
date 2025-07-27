@@ -1,23 +1,18 @@
-<app-card>
-    <div mat-card-header>
-        <div mat-card-avatar>
-            <app-avatar [imageUrl]="image" [size]="100" [rounded]="true"></app-avatar>
-        </div>    
+<app-card class="general">
+    <div card-banner>
+      <app-label content="Información del estudiante"></app-label>
+    </div>
+    <div card-avatar>
+      <app-avatar [imageUrl]="image" [size]="150" [rounded]="true" />
     </div>
 
     <div card-content>
-        
-        <!-- Átomo de Dropdown para seleccionar un programa -->
-        <app-dropdown 
-        *ngIf="programOptions.length > 0"
-        [options]="programOptions" 
+      <app-dropdown class="w-full" *ngIf="programOptions.length > 0" [options]="programOptions"
         [(ngModel)]="selectedProgram">
-        </app-dropdown>
+      </app-dropdown>
 
-        <app-label 
-        *ngFor="let field of infoFields"
-        [content]="field.label + ': ' + field.value">
-        </app-label> 
-       
-    </div> 
+      <app-label *ngFor="let field of infoFields" [content]="field.label + ': ' + field.value">
+      </app-label>
+    </div>
+
 </app-card>

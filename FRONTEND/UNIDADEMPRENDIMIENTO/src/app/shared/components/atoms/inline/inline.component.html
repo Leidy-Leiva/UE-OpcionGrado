@@ -1,9 +1,2 @@
-  <div
-      class="inline-editor"
-      contenteditable="true"
-      [attr.data-placeholder]="placeholder"
-      (input)="onInput($event)"
-      (focus)="onFocus()"
-      (blur)="onBlur()"
-      [textContent]="value || ''"
-    ></div>
+<div class="inline-editor" contenteditable="true" [attr.data-placeholder]="placeholder"
+  (input)="onInput($event)" (focus)="onFocus()"></div>

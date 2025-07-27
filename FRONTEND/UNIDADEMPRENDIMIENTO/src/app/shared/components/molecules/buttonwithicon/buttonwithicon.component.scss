@@ -1,0 +1,8 @@
+
+.mi-button {
+  @apply w-full p-0.5;
+  display:var(--diplay) ;
+  flex-direction:var(--flexDirection) ;
+  align-items:var(--alingItem) ;
+}
+

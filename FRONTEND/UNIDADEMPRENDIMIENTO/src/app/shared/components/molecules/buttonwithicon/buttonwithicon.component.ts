@@ -15,7 +15,7 @@ import { ButtonWithIconConfig } from 'src/app/shared/models/buttonwithicon-confi
   standalone: true,
   imports: [CommonModule, IconComponent, ButtonComponent],
   templateUrl: './buttonwithicon.component.html',
-  styleUrls: ['./buttonwithicon.component.css'],
+  styleUrls: ['./buttonwithicon.component.scss'],
 })
 export class ButtonwithiconComponent {
   @Input() buttonConfig!: ButtonWithIconConfig;

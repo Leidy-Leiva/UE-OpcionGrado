@@ -1,13 +1,15 @@
-<div class="contenido">
-    <app-header class="headerCreateForm">
-        <div header-title class="typeForm">
-             <!-- <app-dropdown class="dropdown" 
+<div class="w-full">
+    <app-header>
+        <div header-title >
+             <app-dropdown 
             [options]="typeForm" [selectedValue]="selectedType"
             (valueChange)="onSelectionChange($event)">
-            </app-dropdown>  -->
+            </app-dropdown> 
         </div>
         <div header-buttons class="ml-auto">
-            <app-buttonwithicon class="btnV" [buttonConfig]="buttonvisualize" (btnClick)="onVisualize()">
+            <app-buttonwithicon class="btnV" 
+            [buttonConfig]="buttonvisualize" 
+            (btnClick)="onVisualize()">
             </app-buttonwithicon>
 
             <app-button class="btnG" [buttonConfig]="buttonSave" (btnClick)="save()">
@@ -17,12 +19,15 @@
 
     </app-header>
 
-    <div class="body">
-        <app-form class="form"  [title]="form.titulo" [description]="form.descripcion">
+    <div class="w-full">
+        <app-form class="form"
+            [title]="form.titulo" 
+            [description]="form.descripcion">
         </app-form>
     </div>
-    <div class="body-center">
-        <app-formbuilder [typeForm]="['Formulario']"
+    <div class="w-full">
+        <app-formbuilder 
+        [typeForm]='selectedType'
         (btnClick)="handleFormAction($event)">
         </app-formbuilder>
 

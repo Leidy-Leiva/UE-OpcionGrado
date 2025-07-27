@@ -6,7 +6,7 @@ import { CommonModule } from '@angular/common';
   standalone: true,
   imports: [CommonModule],
   templateUrl: './typography.component.html',
-  styleUrls: ['./typography.component.css']
+  styleUrls: ['./typography.component.scss']
 })
 export class TypographyComponent {
 @Input() text:string='';

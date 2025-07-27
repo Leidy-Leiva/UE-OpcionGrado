@@ -1,8 +1,19 @@
-<!-- dropdown.component.html -->
-<mat-form-field appearance="outline" class="custom-dropdown">
-  <mat-select [id]="id" [value]="selectedValue" (selectionChange)="OnSelectionChange($event.value)" panelClass="custom-dropdown-panel">
-    <mat-option *ngFor="let option of options" [value]="option.value">
-      {{ option.label }}
-    </mat-option>
-  </mat-select>
-</mat-form-field>
+<div class="contenedor">
+  <div class="contenido">
+    <select class="select" 
+    [(ngModel)]="selectedValue" 
+    (ngModelChange)="onChange()">
+    
+      <option 
+      [ngValue]="null" 
+      disabled *ngIf="!selectedValue">
+        {{ placeholder }}
+      </option>
+
+      <option *ngFor="let option of options" 
+      [ngValue]="option.value">
+        {{ option.label }}
+      </option>
+    </select>
+  </div>
+</div>

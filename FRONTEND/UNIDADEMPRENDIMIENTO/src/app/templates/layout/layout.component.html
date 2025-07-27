@@ -1,10 +1,10 @@
 <div class="layout">
       <app-header class="main-header"> 
-      <div header-title  class="titleI" >
+      <div header-title class="title">
         <app-icon icon="web_asset" class="icon-header-main"></app-icon>
-        <app-label content="Gestión de Emprendimientos" class="label-header-main"></app-label>
+        <app-label content="Gestión de Emprendimientos" class="label-main-header"></app-label>
       </div>
-      <div header-buttons class="ml-auto">
+      <div header-buttons class="buttons">
         <app-buttonwithicongroup
         [buttons]="mainHeaderButtons"
         (btnClick)="handleAction($event)">
@@ -13,40 +13,39 @@
 
       </app-header>
       <app-header class="secondary-header">
-        <div header-buttons>
-          <app-buttonwithicongroup class="button-header-secondary"
+        <div header-buttons class="button-header-secondary">
+          <app-buttonwithicongroup 
             [buttons]="secondaryHeaderButtons"
             (btnClick)="handleAction($event)">
           </app-buttonwithicongroup>
         </div>
         </app-header>
   
-    <!-- Cuerpo del layout -->
+ 
     <div class="layout__body" [class.collapsed]="isCollapsed">
       <aside class="layout__panel" [class.collapsed]="isCollapsed">
         <app-header class="panel-header">
-          <div header-title  class="title" >
+          <div header-title class="titleIcon" >
             <app-icon icon="fa-solid fa-user" class="icon-header-panelinfo" typeIcon="fontawesome"></app-icon>
             <app-label content="Panel De Información" class="label-header-panelinfo"></app-label>
           </div>
           <div header-buttons class="controls">
-            <app-buttonwithicon class="btnheaderpanelinfo"
+            <app-buttonwithicon
             [buttonConfig]="buttonPanelInfoHeader"
             (btnClick)="handleAction($event)">
-    
             </app-buttonwithicon>
           </div>
         </app-header>
         
-        <app-panelinfo class="panel-info" 
+        <app-panelinfo 
         [image]="panelImage"
         [infoFields]="panelInfoFields">
         </app-panelinfo>  
 
-        <app-header [hidden]="isCollapsed" class="header-info">
-            <div header-title  class="header-menu-title" >
-              <app-icon icon="fa-regular fa-bars" class="icon-header-menu" typeIcon="fontawesome" ></app-icon>
-              <app-label content="Menú Opciones" class="label-header-menu"></app-label>
+        <app-header [hidden]="isCollapsed">
+            <div header-title  class="titleIcon" >
+              <app-icon icon="fa-regular fa-bars" typeIcon="fontawesome" ></app-icon>
+              <app-label content="Menú Opciones"></app-label>
             </div>
          </app-header>
          <app-menuoptions 
@@ -57,8 +56,6 @@
       </aside>
       <main class="layout__content">
         <router-outlet></router-outlet> 
-      
-    
       </main>
     </div>
   </div>

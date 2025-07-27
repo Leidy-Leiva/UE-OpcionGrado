@@ -6,7 +6,7 @@ import { CommonModule } from '@angular/common';
   standalone: true,
   imports: [CommonModule],
   templateUrl: './combo-box.component.html',
-  styleUrls: ['./combo-box.component.css']
+  styleUrls: ['./combo-box.component.scss']
 })
 export class ComboBoxComponent {
   isComboBoxVisible = false;

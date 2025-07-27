@@ -31,11 +31,19 @@ import { ColumnDef } from 'src/app/shared/models/ColumnDef-config';
     FormbuilderComponent,
   ],
   templateUrl: './create-form.page.html',
-  styleUrls: ['./create-form.page.css'],
+  styleUrls: ['./create-form.page.scss'],
 })
 export class CreateForm {
-  typeForm: { value: string; label: string }[] = [];
-  selectedType: string = '';
+
+  
+  typeForm: { value: string; label: string }[] = [
+    { value: 'Formulario',        label: 'Formulario' },
+    { value: 'Modelo Financiero', label: 'Modelo Financiero' }
+  ];
+
+ selectedType: string = this.typeForm[0].value;
+
+  
 
   form: createForm = {
     tipo: '',
@@ -65,7 +73,6 @@ export class CreateForm {
   save(): void {}
 
   onSelectionChange(selected: string) {
-    console.log('Tipo seleccionado', selected);
     this.selectedType = selected;
   }
   columns: ColumnDef<FormElement>[] = [
@@ -82,8 +89,6 @@ export class CreateForm {
   ];
   total = 0;
   pageSize = 10;
-
-  //Metodo Para Abrir el modal De Traer Preguntas
 
   @ViewChild('modalContainer', { read: ViewContainerRef, static: true })
   private modalHost!: ViewContainerRef;

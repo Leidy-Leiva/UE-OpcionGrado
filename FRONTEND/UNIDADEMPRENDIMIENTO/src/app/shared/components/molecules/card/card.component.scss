@@ -1,0 +1,45 @@
+.General
+{
+  @apply w-full ;
+  background-color: var(--bgG);
+  padding:var(--padding,1rem);
+}
+.custom-card {
+  @apply w-full flex flex-col gap-4;
+  background-color: var(--bgCC);
+  border-radius: var(--borderR,8px);
+  border:var(--border,2px solid rgba(0,0,0,0.1 ));
+  box-shadow: var(--boxShadow);
+  
+  
+}
+.card-banner {
+  @apply w-full font-thin;
+  background-color: var(--bgCB);
+}
+
+.card-header {
+  @apply flex flex-col items-center text-center gap-2;
+}
+
+.card-avatar {
+  @apply w-full flex justify-center items-center mb-2;
+}
+
+.card-title {
+  @apply font-bold text-lg;
+  color:var(--colorT)
+}
+
+.card-subtitle {
+  @apply text-balance;
+  color:var(--colorS);
+}
+
+.card-content {
+  @apply flex flex-col gap-2;
+}
+
+.card-actions {
+  @apply flex justify-end pt-2  border-gray-200;
+}

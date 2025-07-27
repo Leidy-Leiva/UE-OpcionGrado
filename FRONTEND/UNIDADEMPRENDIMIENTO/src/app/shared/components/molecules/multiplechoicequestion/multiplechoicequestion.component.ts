@@ -11,7 +11,7 @@ import { LabelComponent } from '../../atoms/label/label.component';
   standalone: true,
   imports: [CommonModule,CheckBoxComponent,InputComponent,ButtonwithiconComponent,LabelComponent],
   templateUrl: './multiplechoicequestion.component.html',
-  styleUrls: ['./multiplechoicequestion.component.css']
+  styleUrls: ['./multiplechoicequestion.component.scss']
 })
 export class MultiplechoicequestionComponent {
 

@@ -15,7 +15,7 @@ import { IconComponent } from 'src/app/shared/components/atoms/icon/icon.compone
   standalone: true,
   imports: [CommonModule,LabelComponent,ButtonwithiconComponent,HeaderComponent,ModalComponent,ButtongroupComponent,FormElementsComponent,IconComponent],
   templateUrl: './update-form-elements.page.html',
-  styleUrls: ['./update-form-elements.page.css']
+  styleUrls: ['./update-form-elements.page.scss']
 })
 export class UpdateFormElements {
   @Input() isModalOpen = false;

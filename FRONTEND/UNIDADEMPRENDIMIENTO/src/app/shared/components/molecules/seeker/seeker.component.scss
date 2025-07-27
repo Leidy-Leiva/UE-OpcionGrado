@@ -1,0 +1,38 @@
+.seeker-container {
+  @apply flex w-full items-center p-0.5;
+  background-color: var(--bg-container-seeker,#ffffff);
+  border-radius:9px 9px 9px 9px;
+  border:2px solid #ccc;
+}
+
+.form-control {
+  flex: 1;
+  font-size: 14px;
+  border: none;
+  border-radius: 0; /* quitamos el borde para que se vea unido */
+  --input-padding:8px 12px;
+  --input-border-radius:8px 0px 0px 8px;
+  --input-border:none;
+}
+
+.search-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: none;
+  border-radius: 0; 
+  cursor: pointer;
+  --btn-withicon-padding:0px;
+  --btn-bg-color:white;
+  border-left: 2px solid #ccc;
+  --btn-withicon-border-radius:0px 8px 8px 0px;
+   --btn-bg-hover: inherit;
+  --btn-bg-hover: none;
+  --btn-bg-hoverA:none;
+  --btn-hover-transform: none;
+  --btn-active-transform: none;
+  --btn-hover-filter: none;
+}
+
+
+ 

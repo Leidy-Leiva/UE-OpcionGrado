@@ -25,7 +25,7 @@ import { ButtonwithicongroupComponent } from 'src/app/shared/components/organism
     ButtonwithiconComponent
   ],
   templateUrl: './get-form-elements.page.html',
-  styleUrls: ['./get-form-elements.page.css'],
+  styleUrls: ['./get-form-elements.page.scss'],
 })
 export class GetFormElements implements OnInit {
   selectedElement?: FormElement;

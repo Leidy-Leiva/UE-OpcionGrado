@@ -1,33 +1,29 @@
-<div class="contenidoGeneral">
-<mat-card class="universal-card">
-  <ng-content select="[card-banner]"></ng-content>
-    <mat-card-header>
-       <!-- Sección para el avatar -->
-      <div mat-card-avatar>
-          <ng-content select="[mat-card-avatar]"></ng-content>
+<div class="General">
+  <div class="custom-card">
+    <div class="card-banner">
+      <ng-content select="[card-banner]"></ng-content>
+    </div>
+
+    <div class="card-header">
+      <div class="card-avatar">
+        <ng-content select="[card-avatar]"></ng-content>
       </div>
-    
-      <mat-card-title>
-        <!-- Proyección de contenido para el título -->
+
+      <div class="card-title">
         <ng-content select="[card-title]"></ng-content>
-      </mat-card-title>
+      </div>
 
-      <mat-card-subtitle>
-        <!-- Proyección de contenido para el subtítulo -->
+      <div class="card-subtitle">
         <ng-content select="[card-subtitle]"></ng-content>
-      </mat-card-subtitle>
+      </div>
+    </div>
 
-    </mat-card-header>
+    <div class="card-content">
+      <ng-content  select="[card-content]"></ng-content>
+    </div>
 
-    <mat-card-content>
-      <!-- Contenido principal del card -->
-       <ng-content ></ng-content>
-    </mat-card-content>
-
-    <mat-card-actions>
-      <!-- Acciones o botones al final del card -->
+    <div class="card-actions">
       <ng-content select="[card-actions]"></ng-content>
-    </mat-card-actions>
-  </mat-card>
-
+    </div>
+  </div>
 </div>

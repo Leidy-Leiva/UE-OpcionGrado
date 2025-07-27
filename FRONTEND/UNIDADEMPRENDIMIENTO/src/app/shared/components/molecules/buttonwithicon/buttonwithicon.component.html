@@ -1,13 +1,15 @@
 <app-button
+  class="mi-boton"
   [buttonConfig]="buttonConfig"
   (btnClick)="btnClick.emit(buttonConfig.action)">
-  <app-icon
+
+  <app-icon 
     icon
     [icon]="buttonConfig.icon"
     [iconColor]="buttonConfig.iconColor"
     [typeIcon]="iconType">
   </app-icon>
-  <span *ngIf="buttonConfig.showText !== false"
+    <span *ngIf="buttonConfig.showText !== false"
         class="button-text">
     {{ buttonConfig.title }}
   </span>
