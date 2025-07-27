@@ -8,7 +8,7 @@ import { CheckBoxComponent } from '../../atoms/check-box/check-box.component';
   standalone: true,
   imports: [CommonModule,LabelComponent,CheckBoxComponent],
   templateUrl: './labelwithcheckbox.component.html',
-  styleUrls: ['./labelwithcheckbox.component.css']
+  styleUrls: ['./labelwithcheckbox.component.scss']
 })
 export class LabelwithcheckboxComponent {
   @Input() label: string = 'Selecciona una opción'; 

@@ -6,7 +6,7 @@ import { CommonModule } from '@angular/common';
   standalone: true,
   imports: [CommonModule],
   templateUrl: './inline.component.html',
-  styleUrls: ['./inline.component.css']
+  styleUrls: ['./inline.component.scss']
 })
 export class InlineComponent {
  @Input() placeholder = '';
@@ -17,19 +17,12 @@ export class InlineComponent {
   onInput(event: Event) {
     const text = (event.target as HTMLElement).innerText.trim();
     this.value = text;
-    this.valueChange.emit(text);
+    this.valueChange.emit(this.value);
   }
 
-    
   onFocus() {
-    // opcional: cambia estilos al enfocar
   }
   
-  onBlur() {
-    if ((this.value || '').trim() === '') {
-      this.value = '';
-      this.valueChange.emit(this.value);
-    }
-  }
+
 
 }

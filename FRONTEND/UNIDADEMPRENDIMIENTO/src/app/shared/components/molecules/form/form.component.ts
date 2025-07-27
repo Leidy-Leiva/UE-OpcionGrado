@@ -8,7 +8,7 @@ import { InlineComponent } from '../../atoms/inline/inline.component';
   standalone: true,
   imports: [CommonModule, CardComponent,InlineComponent],
   templateUrl: './form.component.html',
-  styleUrls: ['./form.component.css']
+  styleUrls: ['./form.component.scss']
 })
 export class FormComponent {
 @Input() title:string='Formulario Sin título';

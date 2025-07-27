@@ -8,7 +8,7 @@ import { DropdownComponent } from '../../atoms/dropdown/dropdown.component';
   standalone: true,
   imports: [CommonModule,LabelComponent,DropdownComponent],
   templateUrl: './labelwithdropdown.component.html',
-  styleUrls: ['./labelwithdropdown.component.css']
+  styleUrls: ['./labelwithdropdown.component.scss']
 })
 export class LabelwithdropdownComponent {
  @Input() label: string = '';

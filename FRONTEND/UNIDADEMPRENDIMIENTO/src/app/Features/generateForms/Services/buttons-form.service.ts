@@ -7,7 +7,7 @@ import { ButtonWithIconConfig } from 'src/app/shared/models/buttonwithicon-confi
 export class ButtonsFormService {
   constructor() {}
 
-  getButtonsTypeForm(typeForm: string[]): ButtonWithIconConfig[] {
+  getButtonsTypeForm(typeForm: string): ButtonWithIconConfig[] {
     const buttons: ButtonWithIconConfig[] = [];
 
     if (typeForm.includes('Formulario')) {
@@ -75,13 +75,18 @@ export class ButtonsFormService {
     }
     if (typeForm.includes('Modelo Financiero')) {
       buttons.push({
-        icon: 'table',
-         iconStyle:'regular',
-        classList: '',
-        typeButton: 'button',
-        disabled: false,
-        iconColor: 'black',
-        action: '',
+  
+           title:'Crear Tabla',
+          icon: 'table',
+          iconStyle:'regular',
+          classList: '',
+          typeButton: 'button',
+          disabled: false,
+          iconColor: '#ffffff ',
+          typeIcon:'fontawesome',
+          action: 'Tabla',
+          showText: false     
+        
       });
     }
 

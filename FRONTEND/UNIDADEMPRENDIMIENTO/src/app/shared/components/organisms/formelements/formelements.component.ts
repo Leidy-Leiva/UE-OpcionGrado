@@ -10,7 +10,7 @@ import { QuestionElementMapper } from 'src/app/shared/mappers/question-elements.
   standalone: true,
   imports: [CommonModule,LabelwithdropdownComponent,LabelwithinputComponent],
   templateUrl: './formelements.component.html',
-  styleUrls: ['./formelements.component.css']
+  styleUrls: ['./formelements.component.scss']
 })
 export class FormElementsComponent implements OnInit {
 

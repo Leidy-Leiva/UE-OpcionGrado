@@ -11,7 +11,7 @@ import { LabelComponent } from '../../atoms/label/label.component';
   standalone: true,
   imports: [CommonModule, RadioButtonComponent, InputComponent, ButtonwithiconComponent,LabelComponent],
   templateUrl: './closedquestion.component.html',
-  styleUrls: ['./closedquestion.component.css']
+  styleUrls: ['./closedquestion.component.scss']
 })
 export class ClosedquestionComponent {
   @Input() options: string[] = [];

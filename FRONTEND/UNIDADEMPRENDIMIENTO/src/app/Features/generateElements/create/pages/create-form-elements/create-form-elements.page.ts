@@ -16,7 +16,7 @@ import { IconComponent } from "../../../../../shared/components/atoms/icon/icon.
   standalone: true,
   imports: [CommonModule, HeaderComponent, ModalComponent, FormElementsComponent, LabelComponent, ButtonwithiconComponent, ButtongroupComponent, IconComponent],
   templateUrl: './create-form-elements.page.html',
-  styleUrls: ['./create-form-elements.page.css']
+  styleUrls: ['./create-form-elements.page.scss']
 })
 export class CreateFormElements {
 

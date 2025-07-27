@@ -1,13 +1,11 @@
 
-<div class="contenedorWrapper">
+<div class="contenedorWrapper" (click)="onWrapperClick($event)">
   <div class="contenido">
-    <ng-container #componentsForm></ng-container>
+      <ng-template #componentsForm></ng-template>
   </div>
   
-  <div class="button"> 
-    <app-buttonwithicon  [buttonConfig]="buttondelete" (btnClick)="onDelete()">
+  <div class="button" *ngIf="mode !== 'view'"> 
+    <app-buttonwithicon class="btnDelete" [buttonConfig]="buttondelete" (btnClick)="onDelete()">
     </app-buttonwithicon>
-  </div>
-
-
+  </div>       
 </div>

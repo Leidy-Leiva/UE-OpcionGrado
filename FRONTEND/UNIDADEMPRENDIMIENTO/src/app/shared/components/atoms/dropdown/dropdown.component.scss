@@ -1,0 +1,11 @@
+.contenedor{
+@apply flex w-full items-center p-0.5;
+}
+.contenido{
+@apply w-full bg-white p-0.5 rounded;
+  border: var(--border, 2px solid #ccc);
+  color:var(--color,black);
+}
+.select{
+@apply w-full bg-transparent focus:outline-none;
+}

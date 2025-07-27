@@ -6,7 +6,7 @@ import { CommonModule } from '@angular/common';
   standalone: true,
   imports: [CommonModule],
   templateUrl: './radio-button.component.html',
-  styleUrls: ['./radio-button.component.css']
+  styleUrls: ['./radio-button.component.scss']
 })
 export class RadioButtonComponent {
 

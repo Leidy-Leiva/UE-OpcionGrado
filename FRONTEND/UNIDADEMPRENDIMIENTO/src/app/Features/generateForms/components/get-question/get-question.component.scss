@@ -1,0 +1,92 @@
+.contenidoGeneral
+{
+  height: auto;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  width: 100%;
+}
+.header-modal
+{
+width: 100%;
+min-width: 300px;
+max-width: 800px;
+height: 28px;
+
+  .ml-auto {
+  margin-left: auto;
+  }
+}
+.header-create{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  --header-bg:#CCD8E7;
+  padding: 0px 10px;
+  height: 28px;
+  width: auto;
+  gap:2rem;
+ 
+}
+.header-create .btnc
+{
+
+  --icon-font-size: 1rem;
+  --btn-withicon-gap: 5px;
+  --btn-withicon-border-radius: 3px;
+  --btn-bg-color: #E1F3FF;
+  --btn-icon-color: #15428B;
+  --btn-withicon-padding: 0px;
+  --btn-withicon-transition: all 0.3s ease-in-out;
+  --btn-border: 0.1px solid #71A0DD;
+  --btn-bg-hover:#c9e9ff;
+  --stroke-width: 0px;
+}
+.titleI
+{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap:3px;
+  height: 28px;
+  width: auto;
+}
+.label-header
+{
+  --label-color:#15428B;
+  --label-font-size:1rem;
+  --fontType:bold;
+}
+.icon-header
+{
+  --icon-font-size: 1.3rem;
+  --stroke-width: 0.5px;
+  --stroke-icon:#15428B;
+
+}
+
+ .btn {
+  max-width: 100%; 
+  --btn-border-radius: 10px;
+  text-align: center;
+  --btn-color-text: #ffffff;
+  padding: 0.75rem 1rem;
+  font-weight: 500;
+  font-size: 0.95rem;
+  cursor: pointer;
+  border: none;
+ --btn-heigth:2rem;
+ --btn-width:10rem;
+    
+    .btn-cancel
+  {
+    --btn-bg-color:#e97b7d;
+    --btn-bg-hover:#E43C3F;
+    --btn-bg-hoverA:#E43C3F;
+  }
+      .btn-save
+  {
+    --btn-bg-color:#428bca70;
+  }
+
+}

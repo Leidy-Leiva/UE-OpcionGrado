@@ -1,0 +1,21 @@
+.contenidoForm {
+  @apply w-full flex flex-wrap gap-2;
+}
+
+.contenidoI {
+  width: 90%;
+  padding: 10px 10px;
+}
+
+.form {
+--boxShadow:0px 4px 6px rgba(0, 0, 0, 0.1);
+--border:none;
+}
+.header {
+  width: 100%;
+  height: 30px;
+  background-color: #428bca8f;
+  border-top-left-radius: 8px;
+  border-top-right-radius: 8px;
+}
+

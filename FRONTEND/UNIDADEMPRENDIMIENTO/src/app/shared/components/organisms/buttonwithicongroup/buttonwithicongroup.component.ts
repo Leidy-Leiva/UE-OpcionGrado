@@ -8,7 +8,7 @@ import { ButtonWithIconConfig } from 'src/app/shared/models/buttonwithicon-confi
   standalone: true,
   imports: [CommonModule,ButtonwithiconComponent],
   templateUrl: './buttonwithicongroup.component.html',
-  styleUrls: ['./buttonwithicongroup.component.css']
+  styleUrls: ['./buttonwithicongroup.component.scss']
 })
 export class ButtonwithicongroupComponent {
   @Input() buttons: ButtonWithIconConfig[] = [];

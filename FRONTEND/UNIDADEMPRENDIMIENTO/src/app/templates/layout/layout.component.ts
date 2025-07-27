@@ -25,7 +25,7 @@ import { PersonalDataService } from 'src/app/core/services/personal-data.service
     ButtonwithiconComponent,
   ],
   templateUrl: './layout.component.html',
-  styleUrls: ['./layout.component.css'],
+  styleUrls: ['./layout.component.scss'],
 })
 export class LayoutComponent implements OnInit {
   @Input() pageTitle?: string;

@@ -11,6 +11,11 @@ export const ElementsFormMapper: Record<string, () => Promise<Type<any>>> = {
       
   Seccion: () =>
     import(
-      '../../Features/generateForms/components/seccion/seccion.component'
-    ).then((s) => s.SeccionComponent),
+      '../../Features/generateForms/components/Section/create-section/create-section.component').then(
+        (s) => s.SectionComponent),
+
+  Tabla: () =>
+    import(
+      '../../Features/generateForms/components/Table/table-form-builder/table-form-builder.component').then(
+        (t) => t.TableFormBuilderComponent),
 };

@@ -7,7 +7,7 @@ import { buttonconfig } from 'src/app/shared/models/button-config';
   standalone: true,
   imports: [CommonModule],
   templateUrl: './button.component.html',
-  styleUrls: ['./button.component.css']
+  styleUrls: ['./button.component.scss']
 })
 export class ButtonComponent {
   @Input() buttonConfig!: buttonconfig;  // Recibe la configuración completa del botón

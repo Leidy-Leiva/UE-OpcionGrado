@@ -1,0 +1,9 @@
+.button-group {
+  @apply w-full gap-3 p-2;
+  display: var(--btn-group-display, flex);
+  flex-direction: var(--btn-group-direction, row);
+  justify-content: var(--btn-group-justify, center); 
+  align-items: var(--btn-group-align, center);
+  flex-wrap: var(--btn-group-wrap, wrap);
+}
+

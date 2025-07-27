@@ -8,7 +8,7 @@ import { InputComponent } from '../../atoms/input/input.component';
   standalone: true,
   imports: [CommonModule,LabelComponent,InputComponent],
   templateUrl: './labelwithinput.component.html',
-  styleUrls: ['./labelwithinput.component.css']
+  styleUrls: ['./labelwithinput.component.scss']
 })
 export class LabelwithinputComponent {
   @Input() label: string = 'Ingrese un valor';

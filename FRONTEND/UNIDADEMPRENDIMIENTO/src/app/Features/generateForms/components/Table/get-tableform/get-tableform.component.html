@@ -1,0 +1,32 @@
+<div class="table-responsive">
+  <div class="head">
+    <div class="enunciado">
+      <app-label class="Tenunciado" [content]='enunciado'>
+      </app-label>
+    </div>
+    <div class="buttons">
+      <app-buttonwithicon class="btn-add" [buttonConfig]="btnadd" (click)="addRow() ">
+      </app-buttonwithicon>
+    </div>
+  </div>
+  <table class="custom-table">
+    <thead>
+      <tr>
+        <th *ngFor="let col of columns">{{ col.label }}</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let row of formGroups; let i = index" [formGroup]="row">
+        <td *ngFor="let col of columns">
+          <input class="form-control" [formControlName]="col.key" [readonly]="col.isCalculated" type="text" placeholder="ingresa texto" />
+        </td>
+        <td>
+          <app-buttonwithicon class="btn btn-danger btn-sm" [buttonConfig]="btndelete" (click)="removeRow(i)">
+          </app-buttonwithicon>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+
+  <!-- <pre class="mt-3 bg-light p-2">{{ tableData | json }}</pre> -->
+</div>

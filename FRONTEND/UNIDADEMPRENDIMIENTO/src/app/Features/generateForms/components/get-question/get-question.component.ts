@@ -32,7 +32,7 @@ import { ButtongroupComponent } from 'src/app/shared/components/organisms/button
     ButtongroupComponent,
   ],
   templateUrl: './get-question.component.html',
-  styleUrls: ['./get-question.component.css'],
+  styleUrls: ['./get-question.component.scss'],
 })
 export class GetQuestionComponent {
   @Input() isModalOpen = false;

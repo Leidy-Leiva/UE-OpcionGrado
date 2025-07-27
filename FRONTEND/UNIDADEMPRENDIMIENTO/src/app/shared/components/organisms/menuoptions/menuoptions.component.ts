@@ -10,7 +10,7 @@ import { buttonconfig } from 'src/app/shared/models/button-config';
   standalone: true,
   imports: [CommonModule,FormsModule,ButtongroupComponent],
   templateUrl: './menuoptions.component.html',
-  styleUrls: ['./menuoptions.component.css']
+  styleUrls: ['./menuoptions.component.scss']
 })
 export class MenuoptionsComponent implements OnInit {
   @Input() userRoles: string[] = [];
