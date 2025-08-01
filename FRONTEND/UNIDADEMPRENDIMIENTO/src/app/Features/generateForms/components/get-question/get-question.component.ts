@@ -8,13 +8,11 @@ import { ButtonwithiconComponent } from 'src/app/shared/components/molecules/but
 import { CheckBoxComponent } from 'src/app/shared/components/atoms/check-box/check-box.component';
 import { ButtonWithIconConfig } from 'src/app/shared/models/buttonwithicon-config';
 import { TableComponent } from 'src/app/shared/components/molecules/table/table.component';
-import { ButtonwithicongroupComponent } from 'src/app/shared/components/organisms/buttonwithicongroup/buttonwithicongroup.component';
 import { Sort } from '@angular/material/sort';
 import { PageEvent } from '@angular/material/paginator';
 import { ColumnDef } from 'src/app/shared/models/ColumnDef-config';
 import { FormElement } from 'src/app/shared/models/FormElement-config';
 import { buttonconfig } from 'src/app/shared/models/button-config';
-import { ButtonComponent } from 'src/app/shared/components/atoms/button/button.component';
 import { ButtongroupComponent } from 'src/app/shared/components/organisms/buttongroup/buttongroup.component';
 
 @Component({
@@ -37,6 +35,7 @@ import { ButtongroupComponent } from 'src/app/shared/components/organisms/button
 export class GetQuestionComponent {
   @Input() isModalOpen = false;
   @Output() closeModal = new EventEmitter<void>();
+  @Output() questionsSelected = new EventEmitter<FormElement[]>();
 
   columns: ColumnDef<FormElement>[] = [
     { key: 'tipo', label: 'Tipo de pregunta' },
@@ -45,11 +44,11 @@ export class GetQuestionComponent {
 
   // Datos y paginación
   preguntas: FormElement[] = [
-    { tipo: 'Cerrada', pregunta: '¿Está Libre?' },
-    { tipo: 'Abierta', pregunta: 'Describa su experiencia' },
-    { tipo: 'Opción Múltiple', pregunta: 'Elija su color favorito' },
-    { tipo: 'Cerrada', pregunta: '¿Aprueba el cambio?' },
-    { tipo: 'Abierta', pregunta: 'Comentarios adicionales' },
+    { tipo: 'Cerrada', pregunta: '¿Está Libre?',selected:false,options:['si','no']},
+    { tipo: 'Abierta', pregunta: 'Describa su experiencia' ,selected:false},
+    { tipo: 'Opción Múltiple', pregunta: 'Elija su color favorito',selected:false },
+    { tipo: 'Cerrada', pregunta: '¿Aprueba el cambio?',selected:false },
+    { tipo: 'Abierta', pregunta: 'Comentarios adicionales' ,selected:false},
   ]; // aquí llenas con tu servicio
   total = 0; // total de registros para paginador
   pageSize = 10; // filas por página
@@ -60,10 +59,10 @@ export class GetQuestionComponent {
       typeButton: 'button',
       classList: 'btn-cancel',
       disabled: false,
-      action: 'cancelar',
+      action: 'cancelar'
     },
     {
-      title: 'Guardar',
+      title: 'Seleccionar',
       typeButton: 'submit',
       classList: 'btn-save',
       disabled: false,
@@ -77,6 +76,7 @@ export class GetQuestionComponent {
     typeButton: 'button',
     disabled: false,
     iconColor: '#264390',
+    action: 'cancelar'
   };
 
 
@@ -87,6 +87,7 @@ export class GetQuestionComponent {
   onPage(page: PageEvent): void {
     // this.loadData(undefined, page);
   }
+
 
   handleAction(action: string) {
     switch (action) {
@@ -105,7 +106,11 @@ export class GetQuestionComponent {
   }
 
   handleGuardar() {
-    // Lógica para guardar
-    console.log('Guardar');
+    const seleccionadas = this.preguntas.filter(p => p.selected);
+  this.questionsSelected.emit(seleccionadas);
   }
+
+  toggleSelection(row: FormElement) {
+  row.selected = !row.selected;
+}
 }

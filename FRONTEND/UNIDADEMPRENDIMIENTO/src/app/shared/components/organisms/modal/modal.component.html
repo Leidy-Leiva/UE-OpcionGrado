@@ -1,16 +1,14 @@
-<div class="modal-overlay" *ngIf="isVisible">
-  <div class="modal-container">
-      <div class="modal-header">
-        <ng-content select="[modal-header]"></ng-content> 
-      </div>
+<div *ngIf="isVisible" class="fixed inset-0 z-[1000] flex items-center justify-center bg-black bg-opacity-50 p-4">
+  <div class="w-full max-w-3xl max-h-[90vh] bg-white rounded-lg shadow-lg overflow-y-auto flex flex-col">
+  
+      <ng-content select="[modal-header]"  class="w-full flex justify-between items-center bg-green-700 rounded-t-lg px-4 py-2" ></ng-content>
 
-    <div class="modal-content">
-      <ng-content></ng-content> 
+    <div class="p-6 break-words bg-transparent">
+      <ng-content></ng-content>
     </div>
 
-    <div class="modal-action">
+    <div class="flex justify-end gap-3 p-4 border-t border-gray-200 bg-transparent rounded-b-lg">
       <ng-content select="[modal-action]"></ng-content>
     </div>
-
   </div>
 </div>

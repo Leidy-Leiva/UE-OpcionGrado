@@ -2,7 +2,7 @@ import { Component,Input,Output,EventEmitter  } from '@angular/core';
 import { CommonModule} from '@angular/common';
 import { HeaderComponent } from 'src/app/shared/components/organisms/header/header.component';
 import { ModalComponent } from 'src/app/shared/components/organisms/modal/modal.component';
-import { FormElementsComponent } from "../../../../../shared/components/organisms/formelements/formelements.component";
+import { FormElementsComponent } from "../../../../../shared/components/organisms/question/create/formelements/formelements.component";
 import { LabelComponent } from 'src/app/shared/components/atoms/label/label.component';
 import { ButtonwithiconComponent } from "../../../../../shared/components/molecules/buttonwithicon/buttonwithicon.component";
 import { ButtonWithIconConfig } from 'src/app/shared/models/buttonwithicon-config';

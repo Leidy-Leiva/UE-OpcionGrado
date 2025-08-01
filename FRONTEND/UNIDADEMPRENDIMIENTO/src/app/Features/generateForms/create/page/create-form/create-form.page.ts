@@ -1,9 +1,4 @@
-import {
-  Component,
-  ComponentRef,
-  ViewChild,
-  ViewContainerRef,
-} from '@angular/core';
+import {Component,ComponentRef,EventEmitter,ViewChild,ViewContainerRef,} from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { HeaderComponent } from 'src/app/shared/components/organisms/header/header.component';
 import { ButtonwithiconComponent } from '../../../../../shared/components/molecules/buttonwithicon/buttonwithicon.component';
@@ -21,21 +16,13 @@ import { ColumnDef } from 'src/app/shared/models/ColumnDef-config';
 @Component({
   selector: 'app-create-form',
   standalone: true,
-  imports: [
-    CommonModule,
-    HeaderComponent,
-    ButtonwithiconComponent,
-    ButtonComponent,
-    FormComponent,
-    DropdownComponent,
-    FormbuilderComponent,
-  ],
+  imports: [CommonModule,HeaderComponent,ButtonwithiconComponent,ButtonComponent,FormComponent,DropdownComponent,FormbuilderComponent],
   templateUrl: './create-form.page.html',
   styleUrls: ['./create-form.page.scss'],
 })
 export class CreateForm {
 
-  
+  selectedQuestions: FormElement[] = [];
   typeForm: { value: string; label: string }[] = [
     { value: 'Formulario',        label: 'Formulario' },
     { value: 'Modelo Financiero', label: 'Modelo Financiero' }
@@ -43,7 +30,6 @@ export class CreateForm {
 
  selectedType: string = this.typeForm[0].value;
 
-  
 
   form: createForm = {
     tipo: '',
@@ -109,12 +95,19 @@ export class CreateForm {
       const instance = this.activeModalRef.instance as {
         isModalOpen?: boolean;
         element?: FormElement;
-        closeModal?: any;
+        closeModal?: EventEmitter<void>;
+        questionsSelected?: EventEmitter<FormElement[]>;
       };
 
       instance.isModalOpen = true;
 
       instance.closeModal?.subscribe(() => this.modalHost.clear());
+
+      instance.questionsSelected
+      ?.subscribe((preguntas: FormElement[]) => {
+        this.selectedQuestions = preguntas;
+        this.modalHost.clear();
+      });
     } catch (err) {
       console.error('Error al abrir modal:', err);
     }

@@ -7,7 +7,7 @@ import { ModalComponent } from 'src/app/shared/components/organisms/modal/modal.
 import { ButtongroupComponent } from 'src/app/shared/components/organisms/buttongroup/buttongroup.component';
 import { ButtonWithIconConfig } from 'src/app/shared/models/buttonwithicon-config';
 import { buttonconfig } from 'src/app/shared/models/button-config';
-import { FormElementsComponent } from 'src/app/shared/components/organisms/formelements/formelements.component';
+import { FormElementsComponent } from 'src/app/shared/components/organisms/question/create/formelements/formelements.component';
 import { IconComponent } from 'src/app/shared/components/atoms/icon/icon.component';
 
 @Component({

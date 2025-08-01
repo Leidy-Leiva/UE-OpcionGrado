@@ -1,6 +1,6 @@
 <div class="w-full">
     <app-header>
-        <div header-title >
+        <div header-search class="dropdwon">
              <app-dropdown 
             [options]="typeForm" [selectedValue]="selectedType"
             (valueChange)="onSelectionChange($event)">
@@ -28,6 +28,7 @@
     <div class="w-full">
         <app-formbuilder 
         [typeForm]='selectedType'
+        [questions]="selectedQuestions"
         (btnClick)="handleFormAction($event)">
         </app-formbuilder>
 

@@ -1,9 +1,9 @@
 import { Type } from '@angular/core';
 
 export const ElementsViewMapper: Record<string, () => Promise<Type<any>>> = {
-  // Crear_Pregunta: () =>
-  //   import('../components/organisms/formelements/formelements.component').then(
-  //     (cp) => cp.FormElementsComponent),
+   Crear_Pregunta: () =>
+    import('../components/organisms/question/view/get-form-elements/get-form-elements.component').then(
+       (p) => p.GetFormElementsComponent),
 
   // Traer_Preguntas:()=>
   //   import('../../Features/generateForms/components/get-question/get-question.component').then(

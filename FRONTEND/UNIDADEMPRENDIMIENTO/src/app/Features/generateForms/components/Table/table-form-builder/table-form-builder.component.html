@@ -13,7 +13,7 @@
             </div>
             <div *ngFor="let rowGroup of groupedRows; let groupIndex = index; trackBy: trackByGroup">
                 <div class="ibtnD" *ngFor="let row of rowGroup; let i = index; trackBy: trackByIndex">
-                    <app-input class="contenedorTexto" [value]="row.value.label"
+                    <app-input  [value]="row.value.label"
                         placeholder="Digite el nombre de la fila"
                         (valueChange)="onRowLabelChange(groupIndex * 5 + i, $event)">
                     </app-input>
@@ -33,12 +33,12 @@
 
             <div *ngFor="let colGroup of groupedColumns; let groupIndex = index; trackBy: trackByGroup">
                 <div class="ibtnD" *ngFor="let col of colGroup; let i = index; trackBy: trackByIndex">
-                    <app-input class="contenedorTexto" [value]="col.value.label"
+                    <app-input  [value]="col.value.label"
                         placeholder="Digite el nombre de la columna"
                         (valueChange)="onColumnLabelChange(groupIndex * 5 + i, $event)">
                     </app-input>
 
-                    <app-buttonwithicon class="btn-delete" [buttonConfig]="btndelete"
+                    <app-buttonwithicon class="btn-x" [buttonConfig]="btndelete"
                         (btnClick)="removeColumn(groupIndex * 5 + i)">
                     </app-buttonwithicon>
                 </div>
