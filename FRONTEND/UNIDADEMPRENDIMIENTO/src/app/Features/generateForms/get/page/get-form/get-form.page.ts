@@ -41,7 +41,7 @@ export class GetForm implements OnInit {
     },
     {
       icon: 'delete',
-      classList: 'btnDelete',
+      classList:'btnDelete',
       typeButton: 'button',
       disabled: false,
       iconColor: '#ffffff',

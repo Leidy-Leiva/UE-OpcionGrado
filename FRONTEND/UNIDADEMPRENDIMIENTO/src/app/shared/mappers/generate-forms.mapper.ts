@@ -1,8 +1,9 @@
 import { Type } from '@angular/core';
 
 export const ElementsFormMapper: Record<string, () => Promise<Type<any>>> = {
+  
   Crear_Pregunta: () =>
-    import('../components/organisms/formelements/formelements.component').then(
+    import('../components/organisms/question/create/formelements/formelements.component').then(
       (cp) => cp.FormElementsComponent),
 
   Traer_Preguntas:()=>

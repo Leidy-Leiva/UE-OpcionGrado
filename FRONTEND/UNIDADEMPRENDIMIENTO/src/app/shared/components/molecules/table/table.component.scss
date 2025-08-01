@@ -1,34 +1,19 @@
-:host {
-  display: block;
-  overflow-x: auto;
+.General
+{
+  @apply w-full overflow-x-auto p-4;
 }
-
 /* Contenedor responsivo */
 .table-container {
-  width: 100%;
-  overflow-x: auto;
-  padding: 1rem;
-  box-sizing: border-box;
+  @apply w-full text-sm text-gray-800 py-4 table-fixed;
+  background-color: #fff;
+  box-shadow: 0 2px 8px rgba(10, 9, 9, 0.089);
 }
 
-/* Tabla base */
-.custom-table {
-  width: 100%;
-  border-collapse: separate;
-  border-spacing: 0;
-  font-family: inherit;
-  border-radius: 8px;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
-  background-color: #fff;
-  color: #212529;
-  font-size: 14px;
-  min-width: 400px;
-  table-layout: auto;
-}
 
 /* Encabezados */
-.custom-table th {
-  background-color: #f1f3f5;
+.th {
+  @apply font-semibold px-4 py-2 text-left sticky top-0;
+  background-color: #ffffff;
   font-weight: 700;
   padding: 12px;
   text-align: left;
@@ -36,57 +21,22 @@
   position: sticky;
   top: 0;
   z-index: 1;
-  color: #212529;
+  color: #000000;
 }
-
-/* Filas alternas */
-.custom-table tr:nth-child(even) {
-  background-color: #fafbfc;
-}
-
-/* Hover en fila */
-.custom-table tr:hover {
-  background-color: #e6f7ff;
-}
-
 /* Celdas */
-.custom-table td {
-  padding: 12px;
+.td {
+  @apply px-4 py-2 border-b;
   border-bottom: 1px solid #dee2e6;
   vertical-align: middle;
   color: #212529;
-}
-
-/* Celda de acciones */
-.custom-table td:last-child {
-  text-align: right;
-}
-
-/* Grupo de botones/checkbox dentro de la celda de acciones */
-.action-buttons,
-.buttons {
-  display: flex;
-  gap: 0.5rem;
-  justify-content: flex-end;
-  align-items: center;
+  background-color: #FFFFFF;
 }
 
 /* Paginador */
 .paginator {
-  margin-top: 1rem;
-  background-color: #fff;
-  color: #343a40;
+  @apply mt-4;
+  color:#212529;
+  background-color:#fff;
 }
 
-/* Responsive */
-@media (max-width: 768px) {
-  .custom-table th,
-  .custom-table td {
-    padding: 8px;
-    font-size: 13px;
-  }
-  .action-buttons {
-    flex-direction: column;
-    align-items: flex-end;
-  }
-}
+

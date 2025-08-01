@@ -1,13 +1,13 @@
 
 <div class="contenidoGeneral">
-<app-modal [isVisible]="isModalOpen" class="modal">
-  <div modal-header class="header-modal">
-    <app-header class="header-create">
+<app-modal [isVisible]="isModalOpen">
+  <div modal-header >
+    <app-header class="header-modal">
      <div header-title  class="titleI" >
         <app-icon name="question-octagon" class="icon-header" typeIcon="bootstrap"></app-icon>
         <app-label content="Banco de preguntas" class="label-header"></app-label>
      </div>
-     <div header-buttons class="ml-auto">
+     <div header-buttons >
         <app-buttonwithicon  class="btnc"   
         [buttonConfig]="btnclose"
         (btnClick)="handleAction($event)">

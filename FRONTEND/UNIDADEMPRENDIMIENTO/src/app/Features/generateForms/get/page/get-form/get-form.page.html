@@ -1,32 +1,22 @@
 <div class="w-full">
-<app-header >
-    <div header-search class="seeker">
-         <app-seeker class="search">
-        </app-seeker>
-    </div>
+    <app-header>
+        <div header-search>
+            <app-seeker >
+            </app-seeker>
+        </div>
 
-    <div header-buttons class="btn">
-        <app-buttonwithicon class="btn-getForm"
-            [buttonConfig]="buttonHeaderGet"
-            (btnClick)="onCreateClick()">
-        </app-buttonwithicon>
-    </div>
-</app-header>
-
-
-<div class="table">
-        <app-table class="table-info" [columns]="columns"
-         [data]="preguntas" 
-         [total]="total" 
-         [pageSize]="pageSize"
-         (sortChange)="onSort($event)" 
-         (pageChange)="onPage($event)" 
-         (edit)="onEditClick($event)"
-         (delete)="onDeleteClick($event)"
-         [actionsTemplate]="actionsWithButtons">
+        <div header-buttons>
+            <app-buttonwithicon class="btn" [buttonConfig]="buttonHeaderGet" (btnClick)="onCreateClick()">
+            </app-buttonwithicon>
+        </div>
+    </app-header>
+    <div>
+        <app-table [columns]="columns" [data]="preguntas" [total]="total" [pageSize]="pageSize"
+            (sortChange)="onSort($event)" (pageChange)="onPage($event)" (edit)="onEditClick($event)"
+            (delete)="onDeleteClick($event)" [actionsTemplate]="actionsWithButtons">
 
             <ng-template #actionsWithButtons let-row>
-                <app-buttonwithicongroup class="buttons" 
+                <app-buttonwithicongroup class="button" 
                 [buttons]='buttontable' 
                 (btnClick)="onAction($event)">
                 </app-buttonwithicongroup>

@@ -1,16 +1,5 @@
-import {
-  Component,
-  OnInit,
-  Input,
-  Output,
-  EventEmitter,
-  ViewChild,
-  ViewContainerRef,
-  ComponentRef,
-  OnChanges,
-  SimpleChanges,
-} from '@angular/core';
-import { CommonModule } from '@angular/common';
+import {Component,Input,Output,EventEmitter,ViewChild,ViewContainerRef,ComponentRef,OnChanges,SimpleChanges,} from '@angular/core';
+import { CommonModule, provideCloudinaryLoader } from '@angular/common';
 import { ButtonwithicongroupComponent } from '../../../../shared/components/organisms/buttonwithicongroup/buttonwithicongroup.component';
 import { ButtonWithIconConfig } from 'src/app/shared/models/buttonwithicon-config';
 import { ButtonsFormService } from '../../Services/buttons-form.service';
@@ -18,9 +7,13 @@ import { WrapperComponent } from 'src/app/shared/components/organisms/wrapper/wr
 import { ElementsFormMapper } from 'src/app/shared/mappers/generate-forms.mapper';
 import { GetTableformComponent } from '../Table/get-tableform/get-tableform.component';
 import { TableFormBuilderComponent } from '../Table/table-form-builder/table-form-builder.component';
-import { ElementsViewMapper } from 'src/app/shared/mappers/elements-view.mapper';
 import { GetSectionComponent } from '../Section/get-section/get-section.component';
 import { SectionComponent } from '../Section/create-section/create-section.component';
+import { ElementsViewMapper } from 'src/app/shared/mappers/elements-view.mapper';
+import { FormElement } from 'src/app/shared/models/FormElement-config';
+import { FormElementsComponent } from 'src/app/shared/components/organisms/question/create/formelements/formelements.component';
+import { GetFormElements } from 'src/app/Features/generateElements/get/page/get-form-elements/get-form-elements.page';
+import { GetFormElementsComponent } from 'src/app/shared/components/organisms/question/view/get-form-elements/get-form-elements.component';
 
 @Component({
   selector: 'app-formbuilder',
@@ -31,6 +24,7 @@ import { SectionComponent } from '../Section/create-section/create-section.compo
 })
 export class FormbuilderComponent implements  OnChanges {
   @Input() typeForm: string = '';
+  @Input() questions: FormElement[] = []; 
   typeDefault:string="";
   definitionByType: Record<string, any> = {};
   @Output() btnClick = new EventEmitter<string>();
@@ -45,11 +39,23 @@ export class FormbuilderComponent implements  OnChanges {
 
   constructor(private buttonsFormService: ButtonsFormService) {}
 
-  ngOnChanges(changes: SimpleChanges): void {
+  async ngOnChanges(changes: SimpleChanges) {
     if (changes['typeForm'] && this.typeForm) {
       this.loadButton();
     }
+
+     if (changes['questions'] && this.questions?.length > 0) {
+    for (const pregunta of this.questions) {
+      // 1) crear wrapper
+      const wr = this.wrappersContainer.createComponent(WrapperComponent);
+      wr.instance.delete.subscribe(() => wr.destroy());
+      // 2) renderizar en modo view pasándole la pregunta
+      await this.renderMode(wr, 'Crear_Pregunta', 'view', pregunta);
+    }
+    // opcional: limpia para no duplicar
+    this.questions = [];
   }
+}
 
   private loadButton(): void {
     this.buttonOptionForm = this.buttonsFormService.getButtonsTypeForm(
@@ -83,7 +89,8 @@ export class FormbuilderComponent implements  OnChanges {
   private async renderMode(
     wrapperRef: ComponentRef<WrapperComponent>,
     type: string,
-    mode: 'create' | 'view' | 'edit'
+    mode: 'create' | 'view' | 'edit',
+    tpreguntas?:FormElement
   ) {
     console.log(`[Formbuilder] renderMode: type='${type}' mode='${mode}'`);
 
@@ -150,7 +157,32 @@ export class FormbuilderComponent implements  OnChanges {
         viewCmp.description = def.description;
       }
     } else if (type === 'Crear_Pregunta') {
-      // const createCmp = compRef.instance as
+      const createCmp = compRef.instance as FormElementsComponent;
+      const viewCmp=compRef.instance as GetFormElementsComponent;
+       if (mode === 'create') {
+        createCmp.questionCreated.subscribe((p)=>{
+          this.definitionByType['Crear_Pregunta']={
+            ...p,
+          };
+        });
+      } else {
+        const def=tpreguntas?{
+          type:tpreguntas.tipo,
+          questionText:tpreguntas.pregunta,
+          options:tpreguntas.options ?? [],
+          selected:tpreguntas.selected??(tpreguntas.tipo==='Multiple'?[]:'')
+        }
+        : this.definitionByType['Crear_Pregunta'] ?? {
+          type: 'Abierta',
+          questionText: 'Sin pregunta',
+          options: [],
+          selected: []
+        };
+        viewCmp.question = def.questionText;
+        viewCmp.typeQuestion = def.type;
+        viewCmp.options = def.options ?? [];
+        viewCmp.selected = def.selected ?? (def.type === 'Multiple' ? [] : '');
+      }
     }
   }
 }

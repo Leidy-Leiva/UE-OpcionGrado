@@ -85,7 +85,7 @@
 }
 
 .titleIcon {
-  @apply flex items-center gap-2;
+  @apply  w-full flex content-center items-center pt-2 gap-2;
    --label-color: #ffffff;
 }
 
