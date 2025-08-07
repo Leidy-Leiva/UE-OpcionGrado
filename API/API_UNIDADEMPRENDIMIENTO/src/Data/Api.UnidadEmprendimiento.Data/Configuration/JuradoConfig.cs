@@ -42,13 +42,11 @@ namespace Api.UnidadEmprendimiento.Data.Configuration
 
             builder.HasMany(j=> j.EVALUACIONDETALLES)
             .WithOne(ed=> ed.JURADO)
-            .HasForeignKey(ed=>ed.JURA_CODIGO)
-            .OnDelete(DeleteBehavior.Restrict);
+            .HasForeignKey(ed=>ed.JURA_CODIGO);
 
              builder.HasMany(j=> j.PROPUESTASJURADOS)
             .WithOne(pj=> pj.JURADO)
-            .HasForeignKey(pj=>pj.JURA_CODIGO)
-            .OnDelete(DeleteBehavior.Restrict);
+            .HasForeignKey(pj=>pj.JURA_CODIGO);
 
         }
     }

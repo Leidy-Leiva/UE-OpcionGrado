@@ -30,13 +30,11 @@ namespace Api.UnidadEmprendimiento.Data.Configuration
 
             builder.HasMany(e=> e.EVALUACIONDETALLES)
             .WithOne(ed=> ed.EVALUACION)
-            .HasForeignKey(ed=>ed.EVAL_CODIGO)
-            .OnDelete(DeleteBehavior.Restrict);
+            .HasForeignKey(ed=>ed.EVAL_CODIGO);
 
              builder.HasMany(e=> e.ITEMS)
             .WithOne(ed=> ed.EVALUACION)
-            .HasForeignKey(ed=>ed.EVAL_CODIGO)
-            .OnDelete(DeleteBehavior.Restrict);
+            .HasForeignKey(ed=>ed.EVAL_CODIGO);
 
             
 

@@ -17,6 +17,18 @@ namespace Api.UnidadEmprendimiento.Data.Configuration
 
             builder.HasKey(p=> p.PROP_CODIGO);
 
+            builder.Property(p=> p.PROP_TITULO)
+            .IsRequired()
+            .HasMaxLength(100);
+
+            builder.Property(p=> p.PROP_DESCRIPCION)
+            .IsRequired()
+            .HasMaxLength(300);
+
+            builder.Property(p=> p.PROP_PRESENTACION)
+            .IsRequired()
+            .HasMaxLength(100);
+
             builder.Property(p=> p.PROP_ESTADO)
             .IsRequired()
             .HasDefaultValue(true)
@@ -26,32 +38,15 @@ namespace Api.UnidadEmprendimiento.Data.Configuration
             builder.Property(p=> p.SALA_CODIGO)
             .IsRequired();
             
-            builder.HasMany(p=>p.RESPUESTAS)
-            .WithOne(r=>r.PROPUESTA)
-            .HasForeignKey(r=>r.PROP_CODIGO)
-            .OnDelete(DeleteBehavior.Restrict);
 
             builder.HasMany(p=> p.PROPUESTASJURADOS)
-            .WithOne(pp=> pp.PROPUESTA)
-            .HasForeignKey(pp=>pp.PROP_CODIGO)
-            .OnDelete(DeleteBehavior.Restrict);
+            .WithOne(ed=> ed.PROPUESTA)
+            .HasForeignKey(ed=>ed.PROP_CODIGO);
             
 
             builder.HasMany(p=> p.EVALUACIONDETALLES)
             .WithOne(ed=> ed.PROPUESTA)
-            .HasForeignKey(ed=>ed.PROP_CODIGO)
-            .OnDelete(DeleteBehavior.Restrict);
-
-
-            builder.HasMany(p=>p.VERSIONES)
-            .WithOne(v=>v.PROPUESTA)
-            .HasForeignKey(v=>v.PROP_CODIGO)
-            .OnDelete(DeleteBehavior.Restrict);
-
-            builder.HasMany(p=>p.USUARIOSPROPUESTAS)
-            .WithOne(up=>up.PROPUESTA)
-            .HasForeignKey(up=>up.PROP_CODIGO)
-            .OnDelete(DeleteBehavior.Restrict);
+            .HasForeignKey(ed=>ed.PROP_CODIGO);
 
             
 

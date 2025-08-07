@@ -131,17 +131,14 @@ namespace Api.UnidadEmprendimiento.Data.Migrations
 
             modelBuilder.Entity("Api.UnidadEmprendimiento.Domain.Entities.SQL_SERVER.GEST_EVALUACION.PropuestaJurado", b =>
                 {
-                    b.Property<int>("PROJ_CODIGO")
+                    b.Property<int>("PROPJ_CODIGO")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("int");
 
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("PROJ_CODIGO"));
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("PROPJ_CODIGO"));
 
                     b.Property<int>("JURA_CODIGO")
                         .HasColumnType("int");
-
-                    b.Property<DateTime>("PROJ_FECHAASIGNACION")
-                        .HasColumnType("datetime2");
 
                     b.Property<bool?>("PROPJ_ESTADO")
                         .IsRequired()
@@ -152,7 +149,10 @@ namespace Api.UnidadEmprendimiento.Data.Migrations
                     b.Property<int>("PROP_CODIGO")
                         .HasColumnType("int");
 
-                    b.HasKey("PROJ_CODIGO");
+                    b.Property<DateTime>("PRPJ_FECHAASIGNACION")
+                        .HasColumnType("datetime2");
+
+                    b.HasKey("PROPJ_CODIGO");
 
                     b.HasIndex("JURA_CODIGO");
 
@@ -161,189 +161,86 @@ namespace Api.UnidadEmprendimiento.Data.Migrations
                     b.ToTable("PROPUESTAJURADO", (string)null);
                 });
 
-            modelBuilder.Entity("Api.UnidadEmprendimiento.Domain.Entities.SQL_SERVER.GEST_FORMULARIO.BancoElementoFormulario", b =>
+            modelBuilder.Entity("Api.UnidadEmprendimiento.Domain.Entities.SQL_SERVER.GEST_FORMULARIO.Convocatoria", b =>
                 {
-                    b.Property<int>("BEFO_CODIGO")
+                    b.Property<int>("CONV_CODIGO")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("int");
 
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("BEFO_CODIGO"));
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("CONV_CODIGO"));
 
-                    b.Property<string>("BEFO_DATOSJSON")
-                        .HasColumnType("TEXT");
-
-                    b.Property<string>("BEFO_ENUNCIADO")
-                        .HasMaxLength(500)
-                        .HasColumnType("nvarchar(500)");
-
-                    b.Property<bool?>("BEFO_ESTADO")
+                    b.Property<bool?>("CONV_ESTADO")
                         .IsRequired()
                         .ValueGeneratedOnAdd()
                         .HasColumnType("bit")
                         .HasDefaultValue(true);
 
-                    b.Property<int?>("BEFO_ORDEN")
-                        .IsRequired()
-                        .HasColumnType("int");
-
-                    b.Property<int>("TEFO_CODIGO")
-                        .HasColumnType("int");
-
-                    b.HasKey("BEFO_CODIGO");
-
-                    b.HasIndex("TEFO_CODIGO");
-
-                    b.ToTable("BANCOELEMENTOFORMULARIO", (string)null);
-                });
-
-            modelBuilder.Entity("Api.UnidadEmprendimiento.Domain.Entities.SQL_SERVER.GEST_FORMULARIO.ConvocatoriaPublicada", b =>
-                {
-                    b.Property<int>("CONP_CODIGO")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int");
-
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("CONP_CODIGO"));
-
-                    b.Property<bool?>("CONP_ESTADO")
-                        .IsRequired()
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("bit")
-                        .HasDefaultValue(true);
-
-                    b.Property<DateTime>("CONP_FECHAFIN")
+                    b.Property<DateTime>("CONV_FECHAFIN")
                         .HasColumnType("datetime2");
 
-                    b.Property<DateTime>("CONP_FECHAINICIO")
+                    b.Property<DateTime>("CONV_FECHAINICIO")
                         .HasColumnType("datetime2");
 
                     b.Property<int>("PERS_CODIGO")
                         .HasColumnType("int");
 
-                    b.HasKey("CONP_CODIGO");
+                    b.HasKey("CONV_CODIGO");
 
-                    b.HasIndex("PERS_CODIGO");
-
-                    b.ToTable("CONVOCATORIAPUBLICADA", (string)null);
+                    b.ToTable("CONVOCATORIA", (string)null);
                 });
 
-            modelBuilder.Entity("Api.UnidadEmprendimiento.Domain.Entities.SQL_SERVER.GEST_FORMULARIO.ElementoFormularioBorrador", b =>
+            modelBuilder.Entity("Api.UnidadEmprendimiento.Domain.Entities.SQL_SERVER.GEST_FORMULARIO.ConvocatoriaFormulario", b =>
                 {
-                    b.Property<int>("EFOB_CODIGO")
+                    b.Property<int>("COFO_CODIGO")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("int");
 
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("EFOB_CODIGO"));
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("COFO_CODIGO"));
 
-                    b.Property<string>("EFOB_DATOSJSON")
-                        .HasColumnType("TEXT");
-
-                    b.Property<string>("EFOB_ENUNCIADO")
-                        .HasMaxLength(500)
-                        .HasColumnType("nvarchar(500)");
-
-                    b.Property<bool?>("EFOB_ESTADO")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("bit")
-                        .HasDefaultValue(true);
-
-                    b.Property<int?>("EFOB_ORDEN")
-                        .HasColumnType("int");
-
-                    b.Property<int>("TEFO_CODIGO")
-                        .HasColumnType("int");
-
-                    b.HasKey("EFOB_CODIGO");
-
-                    b.HasIndex("TEFO_CODIGO");
-
-                    b.ToTable("ELEMENTOFORMULARIOBORRADOR", (string)null);
-                });
-
-            modelBuilder.Entity("Api.UnidadEmprendimiento.Domain.Entities.SQL_SERVER.GEST_FORMULARIO.ElementoFormularioPublicado", b =>
-                {
-                    b.Property<int>("EFOP_CODIGO")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int");
-
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("EFOP_CODIGO"));
-
-                    b.Property<string>("EFOP_DATOSJSON")
-                        .HasColumnType("TEXT");
-
-                    b.Property<string>("EFOP_ENUNCIADO")
-                        .HasMaxLength(500)
-                        .HasColumnType("nvarchar(500)");
-
-                    b.Property<bool?>("EFOP_ESTADO")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("bit")
-                        .HasDefaultValue(true);
-
-                    b.Property<int?>("EFOP_ORDEN")
-                        .HasColumnType("int");
-
-                    b.Property<int>("TEFO_CODIGO")
-                        .HasColumnType("int");
-
-                    b.HasKey("EFOP_CODIGO");
-
-                    b.HasIndex("TEFO_CODIGO");
-
-                    b.ToTable("ELEMENTOFORMULARIOPUBLICADO", (string)null);
-                });
-
-            modelBuilder.Entity("Api.UnidadEmprendimiento.Domain.Entities.SQL_SERVER.GEST_FORMULARIO.EstadoFormulario", b =>
-                {
-                    b.Property<int>("ESTF_CODIGO")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int");
-
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("ESTF_CODIGO"));
-
-                    b.Property<bool?>("ESTF_ESTADO")
+                    b.Property<bool?>("COFO_ESTADO")
                         .IsRequired()
                         .ValueGeneratedOnAdd()
                         .HasColumnType("bit")
                         .HasDefaultValue(true);
 
-                    b.Property<string>("ESTF_NOMBRE")
-                        .HasMaxLength(100)
-                        .HasColumnType("nvarchar(100)");
+                    b.Property<int>("CONV_CODIGO")
+                        .HasColumnType("int");
 
-                    b.HasKey("ESTF_CODIGO");
+                    b.Property<int>("FORM_CODIGO")
+                        .HasColumnType("int");
 
-                    b.ToTable("ESTADOFORMULARIO", (string)null);
+                    b.HasKey("COFO_CODIGO");
+
+                    b.HasIndex("CONV_CODIGO");
+
+                    b.HasIndex("FORM_CODIGO");
+
+                    b.ToTable("CONVOCATORIAFORMULARIO", (string)null);
                 });
 
-            modelBuilder.Entity("Api.UnidadEmprendimiento.Domain.Entities.SQL_SERVER.GEST_FORMULARIO.FormularioPublicado", b =>
+            modelBuilder.Entity("Api.UnidadEmprendimiento.Domain.Entities.SQL_SERVER.GEST_FORMULARIO.Formulario", b =>
                 {
-                    b.Property<int>("FORP_CODIGO")
+                    b.Property<int>("FORM_CODIGO")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("int");
 
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("FORP_CODIGO"));
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("FORM_CODIGO"));
 
-                    b.Property<int>("CONP_CODIGO")
-                        .HasColumnType("int");
-
-                    b.Property<int>("ESTF_CODIGO")
-                        .HasColumnType("int");
-
-                    b.Property<string>("FORP_DESCRIPCION")
+                    b.Property<string>("FORM_DESCRIPCION")
                         .IsRequired()
                         .HasMaxLength(100)
                         .HasColumnType("nvarchar(100)");
 
-                    b.Property<bool?>("FORP_ESTADO")
+                    b.Property<bool?>("FORM_ESTADO")
                         .IsRequired()
                         .ValueGeneratedOnAdd()
                         .HasColumnType("bit")
                         .HasDefaultValue(true);
 
-                    b.Property<DateTime>("FORP_FECHACREACION")
+                    b.Property<DateTime>("FORM_FECHACREACION")
                         .HasColumnType("datetime2");
 
-                    b.Property<string>("FORP_NOMBRE")
+                    b.Property<string>("FORM_NOMBRE")
                         .IsRequired()
                         .HasMaxLength(50)
                         .HasColumnType("nvarchar(50)");
@@ -351,365 +248,119 @@ namespace Api.UnidadEmprendimiento.Data.Migrations
                     b.Property<int>("TIPF_CODIGO")
                         .HasColumnType("int");
 
-                    b.HasKey("FORP_CODIGO");
-
-                    b.HasIndex("CONP_CODIGO");
-
-                    b.HasIndex("ESTF_CODIGO");
+                    b.HasKey("FORM_CODIGO");
 
                     b.HasIndex("TIPF_CODIGO");
 
-                    b.ToTable("FORMULARIOPUBLICADO", (string)null);
+                    b.ToTable("FORMULARIO", (string)null);
                 });
 
-            modelBuilder.Entity("Api.UnidadEmprendimiento.Domain.Entities.SQL_SERVER.GEST_FORMULARIO.GEST_FORMULARIO_BORRADOR.BancoFormularioElemento", b =>
+            modelBuilder.Entity("Api.UnidadEmprendimiento.Domain.Entities.SQL_SERVER.GEST_FORMULARIO.Pregunta", b =>
                 {
-                    b.Property<int>("BFOE_CODIGO")
+                    b.Property<int>("PREG_CODIGO")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("int");
 
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("BFOE_CODIGO"));
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("PREG_CODIGO"));
 
-                    b.Property<int>("BANF_CODIGO")
-                        .HasColumnType("int");
+                    b.Property<string>("PREG_ENUNCIADO")
+                        .IsRequired()
+                        .HasMaxLength(300)
+                        .HasColumnType("nvarchar(300)");
 
-                    b.Property<int>("BEFO_CODIGO")
-                        .HasColumnType("int");
-
-                    b.Property<bool?>("BFOE_ESTADO")
+                    b.Property<bool?>("PREG_ESTADO")
                         .IsRequired()
                         .ValueGeneratedOnAdd()
                         .HasColumnType("bit")
                         .HasDefaultValue(true);
 
-                    b.HasKey("BFOE_CODIGO");
+                    b.Property<int?>("PREG_ORDEN")
+                        .IsRequired()
+                        .HasColumnType("int");
 
-                    b.HasIndex("BANF_CODIGO");
+                    b.Property<int>("SECC_CODIGO")
+                        .HasColumnType("int");
 
-                    b.HasIndex("BEFO_CODIGO");
+                    b.Property<int>("TIPR_CODIGO")
+                        .HasColumnType("int");
 
-                    b.ToTable("BANCOFORMULARIOELEMENTO", (string)null);
+                    b.HasKey("PREG_CODIGO");
+
+                    b.HasIndex("SECC_CODIGO");
+
+                    b.HasIndex("TIPR_CODIGO");
+
+                    b.ToTable("PREGUNTA", (string)null);
                 });
 
-            modelBuilder.Entity("Api.UnidadEmprendimiento.Domain.Entities.SQL_SERVER.GEST_FORMULARIO.GEST_FORMULARIO_BORRADOR.ConvocatoriaBorrador", b =>
+            modelBuilder.Entity("Api.UnidadEmprendimiento.Domain.Entities.SQL_SERVER.GEST_FORMULARIO.Respuesta", b =>
                 {
-                    b.Property<int>("CONB_CODIGO")
+                    b.Property<int>("RESP_CODIGO")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("int");
 
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("CONB_CODIGO"));
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("RESP_CODIGO"));
 
-                    b.Property<bool?>("CONB_ESTADO")
+                    b.Property<int>("PREG_CODIGO")
+                        .HasColumnType("int");
+
+                    b.Property<int>("PROP_CODIGO")
+                        .HasColumnType("int");
+
+                    b.Property<bool?>("RESP_ESTADO")
                         .IsRequired()
                         .ValueGeneratedOnAdd()
                         .HasColumnType("bit")
                         .HasDefaultValue(true);
 
-                    b.Property<DateTime>("CONB_FECHAFIN")
+                    b.Property<DateTime>("RESP_FECHARESPUESTA")
                         .HasColumnType("datetime2");
 
-                    b.Property<DateTime>("CONB_FECHAINICIO")
-                        .HasColumnType("datetime2");
+                    b.Property<string>("RESP_VALOR")
+                        .IsRequired()
+                        .HasMaxLength(150)
+                        .HasColumnType("nvarchar(150)");
 
-                    b.Property<int>("PERS_CODIGO")
-                        .HasColumnType("int");
+                    b.HasKey("RESP_CODIGO");
 
-                    b.HasKey("CONB_CODIGO");
+                    b.HasIndex("PREG_CODIGO");
 
-                    b.HasIndex("PERS_CODIGO");
+                    b.HasIndex("PROP_CODIGO");
 
-                    b.ToTable("CONVOCATORIABORRADOR", (string)null);
+                    b.ToTable("RESPUESTA", (string)null);
                 });
 
-            modelBuilder.Entity("Api.UnidadEmprendimiento.Domain.Entities.SQL_SERVER.GEST_FORMULARIO.GEST_FORMULARIO_BORRADOR.FormularioBorrador", b =>
+            modelBuilder.Entity("Api.UnidadEmprendimiento.Domain.Entities.SQL_SERVER.GEST_FORMULARIO.Seccion", b =>
                 {
-                    b.Property<int>("FORB_CODIGO")
+                    b.Property<int>("SECC_CODIGO")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("int");
 
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("FORB_CODIGO"));
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("SECC_CODIGO"));
 
-                    b.Property<int>("CONB_CODIGO")
+                    b.Property<int>("FORM_CODIGO")
                         .HasColumnType("int");
 
-                    b.Property<int>("ESTF_CODIGO")
-                        .HasColumnType("int");
-
-                    b.Property<string>("FORB_DESCRIPCION")
-                        .IsRequired()
-                        .HasMaxLength(100)
-                        .HasColumnType("nvarchar(100)");
-
-                    b.Property<bool?>("FORB_ESTADO")
+                    b.Property<bool?>("SECC_ESTADO")
                         .IsRequired()
                         .ValueGeneratedOnAdd()
                         .HasColumnType("bit")
                         .HasDefaultValue(true);
 
-                    b.Property<DateTime>("FORB_FECHACREACION")
-                        .HasColumnType("datetime2");
-
-                    b.Property<string>("FORB_NOMBRE")
+                    b.Property<string>("SECC_NOMBRE")
                         .IsRequired()
                         .HasMaxLength(50)
                         .HasColumnType("nvarchar(50)");
 
-                    b.Property<int>("TIPF_CODIGO")
-                        .HasColumnType("int");
-
-                    b.HasKey("FORB_CODIGO");
-
-                    b.HasIndex("CONB_CODIGO");
-
-                    b.HasIndex("ESTF_CODIGO");
-
-                    b.HasIndex("TIPF_CODIGO");
-
-                    b.ToTable("FORMULARIOBORRADOR", (string)null);
-                });
-
-            modelBuilder.Entity("Api.UnidadEmprendimiento.Domain.Entities.SQL_SERVER.GEST_FORMULARIO.GEST_FORMULARIO_BORRADOR.FormularioElementoBorrador", b =>
-                {
-                    b.Property<int>("FOEB_CODIGO")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int");
-
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("FOEB_CODIGO"));
-
-                    b.Property<int>("EFOB_CODIGO")
-                        .HasColumnType("int");
-
-                    b.Property<bool?>("FOEB_ESTADO")
-                        .IsRequired()
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("bit")
-                        .HasDefaultValue(true);
-
-                    b.Property<int>("FORB_CODIGO")
-                        .HasColumnType("int");
-
-                    b.HasKey("FOEB_CODIGO");
-
-                    b.HasIndex("EFOB_CODIGO");
-
-                    b.ToTable("FORMULARIOELEMENTOBORRADOR", (string)null);
-                });
-
-            modelBuilder.Entity("Api.UnidadEmprendimiento.Domain.Entities.SQL_SERVER.GEST_FORMULARIO.GEST_FORMULARIO_PUBLICADO.FormularioElementoPublicado", b =>
-                {
-                    b.Property<int>("FOEP_CODIGO")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int");
-
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("FOEP_CODIGO"));
-
-                    b.Property<int>("EFOP_CODIGO")
-                        .HasColumnType("int");
-
-                    b.Property<bool?>("FOEP_ESTADO")
-                        .IsRequired()
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("bit")
-                        .HasDefaultValue(true);
-
-                    b.Property<int>("FORP_CODIGO")
-                        .HasColumnType("int");
-
-                    b.HasKey("FOEP_CODIGO");
-
-                    b.HasIndex("EFOP_CODIGO");
-
-                    b.HasIndex("FORP_CODIGO");
-
-                    b.ToTable("FORMULARIOELEMENTOPUBLICADO", (string)null);
-                });
-
-            modelBuilder.Entity("Api.UnidadEmprendimiento.Domain.Entities.SQL_SERVER.GEST_FORMULARIO.GEST_FORMULARIO_PUBLICADO.VersionFormularioPublicado", b =>
-                {
-                    b.Property<int>("VFOP_CODIGO")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int");
-
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("VFOP_CODIGO"));
-
-                    b.Property<int>("FORP_CODIGO")
-                        .HasColumnType("int");
-
-                    b.Property<int>("VERS_CODIGO")
-                        .HasColumnType("int");
-
-                    b.Property<bool?>("VFOP_ESTADO")
-                        .IsRequired()
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("bit")
-                        .HasDefaultValue(true);
-
-                    b.Property<DateTime>("VFOP_FECHA")
-                        .HasColumnType("datetime2");
-
-                    b.HasKey("VFOP_CODIGO");
-
-                    b.HasIndex("FORP_CODIGO");
-
-                    b.HasIndex("VERS_CODIGO");
-
-                    b.ToTable("VERSIONFORMULARIOPUBLICADO", (string)null);
-                });
-
-            modelBuilder.Entity("Api.UnidadEmprendimiento.Domain.Entities.SQL_SERVER.GEST_FORMULARIO.GES_BANCO_FORMULARIO.BancoFormulario", b =>
-                {
-                    b.Property<int>("BANF_CODIGO")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int");
-
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("BANF_CODIGO"));
-
-                    b.Property<string>("BANF_DESCRIPCION")
-                        .IsRequired()
-                        .HasMaxLength(100)
-                        .HasColumnType("nvarchar(100)");
-
-                    b.Property<bool?>("BANF_ESTADO")
-                        .IsRequired()
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("bit")
-                        .HasDefaultValue(true);
-
-                    b.Property<DateTime>("BANF_FECHACREACION")
-                        .HasColumnType("datetime2");
-
-                    b.Property<string>("BANF_NOMBRE")
-                        .IsRequired()
-                        .HasMaxLength(50)
-                        .HasColumnType("nvarchar(50)");
-
-                    b.Property<int>("ESTF_CODIGO")
-                        .HasColumnType("int");
-
-                    b.Property<int>("TIPF_CODIGO")
-                        .HasColumnType("int");
-
-                    b.HasKey("BANF_CODIGO");
-
-                    b.HasIndex("ESTF_CODIGO");
-
-                    b.HasIndex("TIPF_CODIGO");
-
-                    b.ToTable("BANCOFORMULARIO", (string)null);
-                });
-
-            modelBuilder.Entity("Api.UnidadEmprendimiento.Domain.Entities.SQL_SERVER.GEST_FORMULARIO.GES_BANCO_FORMULARIO.BancoOpcResElemento", b =>
-                {
-                    b.Property<int>("BORE_CODIGO")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int");
-
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("BORE_CODIGO"));
-
-                    b.Property<int>("BEFO_CODIGO")
-                        .HasColumnType("int");
-
-                    b.Property<bool?>("BORE_ESTADO")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("bit")
-                        .HasDefaultValue(true);
-
-                    b.Property<int?>("BORE_ORDEN")
-                        .HasColumnType("int");
-
-                    b.Property<string>("BORE_VALOR")
-                        .HasMaxLength(500)
-                        .HasColumnType("nvarchar(500)");
-
-                    b.HasKey("BORE_CODIGO");
-
-                    b.HasIndex("BEFO_CODIGO");
-
-                    b.ToTable("BANCOOPCRESELEMENTO", (string)null);
-                });
-
-            modelBuilder.Entity("Api.UnidadEmprendimiento.Domain.Entities.SQL_SERVER.GEST_FORMULARIO.OpcRespuestaBorrador", b =>
-                {
-                    b.Property<int>("OPRB_CODIGO")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int");
-
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("OPRB_CODIGO"));
-
-                    b.Property<int>("EFOB_CODIGO")
-                        .HasColumnType("int");
-
-                    b.Property<bool?>("OPRB_ESTADO")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("bit")
-                        .HasDefaultValue(true);
-
-                    b.Property<int?>("OPRB_ORDEN")
+                    b.Property<int?>("SECC_ORDEN")
                         .IsRequired()
                         .HasColumnType("int");
 
-                    b.Property<string>("OPRB_VALOR")
-                        .HasMaxLength(500)
-                        .HasColumnType("nvarchar(500)");
+                    b.HasKey("SECC_CODIGO");
 
-                    b.HasKey("OPRB_CODIGO");
+                    b.HasIndex("FORM_CODIGO");
 
-                    b.HasIndex("EFOB_CODIGO");
-
-                    b.ToTable("OPCIONRESPUESTABORRADOR", (string)null);
-                });
-
-            modelBuilder.Entity("Api.UnidadEmprendimiento.Domain.Entities.SQL_SERVER.GEST_FORMULARIO.OpcRespuestaPublicado", b =>
-                {
-                    b.Property<int>("OPRP_CODIGO")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int");
-
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("OPRP_CODIGO"));
-
-                    b.Property<int>("EFOP_CODIGO")
-                        .HasColumnType("int");
-
-                    b.Property<bool?>("OPRP_ESTADO")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("bit")
-                        .HasDefaultValue(true);
-
-                    b.Property<int>("OPRP_ORDEN")
-                        .HasColumnType("int");
-
-                    b.Property<string>("OPRP_VALOR")
-                        .HasMaxLength(500)
-                        .HasColumnType("nvarchar(500)");
-
-                    b.HasKey("OPRP_CODIGO");
-
-                    b.HasIndex("EFOP_CODIGO");
-
-                    b.ToTable("OPCIONRESPUESTAPUBLICADO", (string)null);
-                });
-
-            modelBuilder.Entity("Api.UnidadEmprendimiento.Domain.Entities.SQL_SERVER.GEST_FORMULARIO.TipoElementoFormulario", b =>
-                {
-                    b.Property<int>("TPEF_CODIGO")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int");
-
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("TPEF_CODIGO"));
-
-                    b.Property<bool?>("TPEF_ESTADO")
-                        .IsRequired()
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("bit")
-                        .HasDefaultValue(true);
-
-                    b.Property<string>("TPEF_NOMBRE")
-                        .HasMaxLength(100)
-                        .HasColumnType("nvarchar(100)");
-
-                    b.HasKey("TPEF_CODIGO");
-
-                    b.ToTable("TIPOELEMENTOFORMULARIO", (string)null);
+                    b.ToTable("SECCION", (string)null);
                 });
 
             modelBuilder.Entity("Api.UnidadEmprendimiento.Domain.Entities.SQL_SERVER.GEST_FORMULARIO.TipoFormulario", b =>
@@ -734,6 +385,30 @@ namespace Api.UnidadEmprendimiento.Data.Migrations
                     b.HasKey("TIPF_CODIGO");
 
                     b.ToTable("TIPOFORMULARIO", (string)null);
+                });
+
+            modelBuilder.Entity("Api.UnidadEmprendimiento.Domain.Entities.SQL_SERVER.GEST_FORMULARIO.TipoPregunta", b =>
+                {
+                    b.Property<int>("TIPR_CODIGO")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("TIPR_CODIGO"));
+
+                    b.Property<bool?>("TIPR_ESTADO")
+                        .IsRequired()
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("bit")
+                        .HasDefaultValue(true);
+
+                    b.Property<string>("TIPR_NOMBRE")
+                        .IsRequired()
+                        .HasMaxLength(50)
+                        .HasColumnType("nvarchar(50)");
+
+                    b.HasKey("TIPR_CODIGO");
+
+                    b.ToTable("TIPOPREGUNTA", (string)null);
                 });
 
             modelBuilder.Entity("Api.UnidadEmprendimiento.Domain.Entities.SQL_SERVER.GEST_PROPUESTA.EstadoPropuesta", b =>
@@ -768,7 +443,7 @@ namespace Api.UnidadEmprendimiento.Data.Migrations
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("PROP_CODIGO"));
 
-                    b.Property<int>("CONP_CODIGO")
+                    b.Property<int>("CONV_CODIGO")
                         .HasColumnType("int");
 
                     b.Property<int>("ESTP_CODIGO")
@@ -777,150 +452,37 @@ namespace Api.UnidadEmprendimiento.Data.Migrations
                     b.Property<decimal>("PROP_CALIFICACION")
                         .HasColumnType("decimal(18,2)");
 
+                    b.Property<string>("PROP_DESCRIPCION")
+                        .IsRequired()
+                        .HasMaxLength(300)
+                        .HasColumnType("nvarchar(300)");
+
                     b.Property<bool?>("PROP_ESTADO")
                         .IsRequired()
                         .ValueGeneratedOnAdd()
                         .HasColumnType("bit")
                         .HasDefaultValue(true);
 
+                    b.Property<string>("PROP_PRESENTACION")
+                        .IsRequired()
+                        .HasMaxLength(100)
+                        .HasColumnType("nvarchar(100)");
+
+                    b.Property<string>("PROP_TITULO")
+                        .IsRequired()
+                        .HasMaxLength(100)
+                        .HasColumnType("nvarchar(100)");
+
                     b.Property<int>("SALA_CODIGO")
                         .HasColumnType("int");
 
                     b.HasKey("PROP_CODIGO");
 
-                    b.HasIndex("CONP_CODIGO");
+                    b.HasIndex("CONV_CODIGO");
 
                     b.HasIndex("ESTP_CODIGO");
 
                     b.ToTable("PROPUESTA", (string)null);
-                });
-
-            modelBuilder.Entity("Api.UnidadEmprendimiento.Domain.Entities.SQL_SERVER.GEST_PROPUESTA.PropuestaComentario", b =>
-                {
-                    b.Property<int>("PROC_CODIGO")
-                        .HasColumnType("int");
-
-                    b.Property<string>("PROC_COMENTARIO")
-                        .HasMaxLength(500)
-                        .HasColumnType("nvarchar(500)");
-
-                    b.Property<DateTime>("PROC_FECHACREACION")
-                        .HasColumnType("datetime2");
-
-                    b.Property<int>("VFOP_CODIGO")
-                        .HasColumnType("int");
-
-                    b.HasKey("PROC_CODIGO");
-
-                    b.ToTable("PROPUESTA_COMENTARIO", (string)null);
-                });
-
-            modelBuilder.Entity("Api.UnidadEmprendimiento.Domain.Entities.SQL_SERVER.GEST_PROPUESTA.Respuesta", b =>
-                {
-                    b.Property<int>("RESP_CODIGO")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int");
-
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("RESP_CODIGO"));
-
-                    b.Property<int>("EFOP_CODIGO")
-                        .HasColumnType("int");
-
-                    b.Property<int>("PROP_CODIGO")
-                        .HasColumnType("int");
-
-                    b.Property<bool?>("RESP_ESTADO")
-                        .IsRequired()
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("bit")
-                        .HasDefaultValue(true);
-
-                    b.Property<DateTime>("RESP_FECHARESPUESTA")
-                        .HasColumnType("datetime2");
-
-                    b.Property<string>("RESP_VALOR")
-                        .IsRequired()
-                        .HasMaxLength(150)
-                        .HasColumnType("nvarchar(150)");
-
-                    b.HasKey("RESP_CODIGO");
-
-                    b.HasIndex("EFOP_CODIGO");
-
-                    b.HasIndex("PROP_CODIGO");
-
-                    b.ToTable("RESPUESTA", (string)null);
-                });
-
-            modelBuilder.Entity("Api.UnidadEmprendimiento.Domain.Entities.SQL_SERVER.GEST_PROPUESTA.UsuarioPropuesta", b =>
-                {
-                    b.Property<int>("USUP_CODIGO")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int");
-
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("USUP_CODIGO"));
-
-                    b.Property<int>("PERS_CODIGO")
-                        .HasColumnType("int");
-
-                    b.Property<int>("PROP_CODIGO")
-                        .HasColumnType("int");
-
-                    b.Property<bool?>("USUP_ESTADO")
-                        .IsRequired()
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("bit")
-                        .HasDefaultValue(true);
-
-                    b.Property<DateTime?>("USUP_FECHAASOCIACION")
-                        .HasColumnType("datetime2");
-
-                    b.HasKey("USUP_CODIGO");
-
-                    b.HasIndex("PERS_CODIGO");
-
-                    b.HasIndex("PROP_CODIGO");
-
-                    b.ToTable("USUARIOPROPUESTA", (string)null);
-                });
-
-            modelBuilder.Entity("Api.UnidadEmprendimiento.Domain.Entities.SQL_SERVER.GEST_PROPUESTA.VersionP", b =>
-                {
-                    b.Property<int>("VERS_CODIGO")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int");
-
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("VERS_CODIGO"));
-
-                    b.Property<int>("PERS_CODIGO")
-                        .HasColumnType("int");
-
-                    b.Property<int>("PROP_CODIGO")
-                        .HasColumnType("int");
-
-                    b.Property<string>("VERS_COMENTARIO")
-                        .HasMaxLength(500)
-                        .HasColumnType("nvarchar(500)");
-
-                    b.Property<bool?>("VERS_ESTADO")
-                        .IsRequired()
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("bit")
-                        .HasDefaultValue(true);
-
-                    b.Property<DateTime>("VERS_FECHAMOFICIACION")
-                        .HasColumnType("datetime2");
-
-                    b.Property<int>("VERS_NUMERO")
-                        .HasColumnType("int");
-
-                    b.HasKey("VERS_CODIGO");
-
-                    b.HasIndex("PERS_CODIGO");
-
-                    b.HasIndex("PROP_CODIGO");
-
-                    b.ToTable("VERSION", (string)null);
                 });
 
             modelBuilder.Entity("Api.UnidadEmprendimiento.Domain.Entities.SQL_SERVER.GEST_USUARIO.Jurado", b =>
@@ -977,7 +539,7 @@ namespace Api.UnidadEmprendimiento.Data.Migrations
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("USUA_CODIGO"));
 
-                    b.Property<int>("PERS_CODIGO")
+                    b.Property<int>("PERS_PEGEID")
                         .HasColumnType("int");
 
                     b.Property<string>("USUA_CONTRASENIA")
@@ -1024,19 +586,19 @@ namespace Api.UnidadEmprendimiento.Data.Migrations
                     b.HasOne("Api.UnidadEmprendimiento.Domain.Entities.SQL_SERVER.GEST_EVALUACION.Evaluacion", "EVALUACION")
                         .WithMany("EVALUACIONDETALLES")
                         .HasForeignKey("EVAL_CODIGO")
-                        .OnDelete(DeleteBehavior.Restrict)
+                        .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
                     b.HasOne("Api.UnidadEmprendimiento.Domain.Entities.SQL_SERVER.GEST_USUARIO.Jurado", "JURADO")
                         .WithMany("EVALUACIONDETALLES")
                         .HasForeignKey("JURA_CODIGO")
-                        .OnDelete(DeleteBehavior.Restrict)
+                        .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
                     b.HasOne("Api.UnidadEmprendimiento.Domain.Entities.SQL_SERVER.GEST_PROPUESTA.Propuesta", "PROPUESTA")
                         .WithMany("EVALUACIONDETALLES")
                         .HasForeignKey("PROP_CODIGO")
-                        .OnDelete(DeleteBehavior.Restrict)
+                        .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
                     b.Navigation("EVALUACION");
@@ -1051,7 +613,7 @@ namespace Api.UnidadEmprendimiento.Data.Migrations
                     b.HasOne("Api.UnidadEmprendimiento.Domain.Entities.SQL_SERVER.GEST_EVALUACION.Evaluacion", "EVALUACION")
                         .WithMany("ITEMS")
                         .HasForeignKey("EVAL_CODIGO")
-                        .OnDelete(DeleteBehavior.Restrict)
+                        .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
                     b.Navigation("EVALUACION");
@@ -1062,13 +624,13 @@ namespace Api.UnidadEmprendimiento.Data.Migrations
                     b.HasOne("Api.UnidadEmprendimiento.Domain.Entities.SQL_SERVER.GEST_USUARIO.Jurado", "JURADO")
                         .WithMany("PROPUESTASJURADOS")
                         .HasForeignKey("JURA_CODIGO")
-                        .OnDelete(DeleteBehavior.Restrict)
+                        .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
                     b.HasOne("Api.UnidadEmprendimiento.Domain.Entities.SQL_SERVER.GEST_PROPUESTA.Propuesta", "PROPUESTA")
                         .WithMany("PROPUESTASJURADOS")
                         .HasForeignKey("PROP_CODIGO")
-                        .OnDelete(DeleteBehavior.Restrict)
+                        .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
                     b.Navigation("JURADO");
@@ -1076,328 +638,102 @@ namespace Api.UnidadEmprendimiento.Data.Migrations
                     b.Navigation("PROPUESTA");
                 });
 
-            modelBuilder.Entity("Api.UnidadEmprendimiento.Domain.Entities.SQL_SERVER.GEST_FORMULARIO.BancoElementoFormulario", b =>
+            modelBuilder.Entity("Api.UnidadEmprendimiento.Domain.Entities.SQL_SERVER.GEST_FORMULARIO.ConvocatoriaFormulario", b =>
                 {
-                    b.HasOne("Api.UnidadEmprendimiento.Domain.Entities.SQL_SERVER.GEST_FORMULARIO.TipoElementoFormulario", "TIPOELEMENTOF")
-                        .WithMany("BELEMENTOSF")
-                        .HasForeignKey("TEFO_CODIGO")
-                        .OnDelete(DeleteBehavior.Restrict)
-                        .IsRequired();
-
-                    b.Navigation("TIPOELEMENTOF");
-                });
-
-            modelBuilder.Entity("Api.UnidadEmprendimiento.Domain.Entities.SQL_SERVER.GEST_FORMULARIO.ConvocatoriaPublicada", b =>
-                {
-                    b.HasOne("Api.UnidadEmprendimiento.Domain.Entities.SQL_SERVER.GEST_USUARIO.Usuario", "USUARIO")
-                        .WithMany("CONVOCATORIASPUBLICADAS")
-                        .HasForeignKey("PERS_CODIGO")
-                        .OnDelete(DeleteBehavior.Restrict)
-                        .IsRequired();
-
-                    b.Navigation("USUARIO");
-                });
-
-            modelBuilder.Entity("Api.UnidadEmprendimiento.Domain.Entities.SQL_SERVER.GEST_FORMULARIO.ElementoFormularioBorrador", b =>
-                {
-                    b.HasOne("Api.UnidadEmprendimiento.Domain.Entities.SQL_SERVER.GEST_FORMULARIO.TipoElementoFormulario", "TIPOELEMENTOF")
-                        .WithMany("ELEMENTOSFB")
-                        .HasForeignKey("TEFO_CODIGO")
-                        .OnDelete(DeleteBehavior.Restrict)
-                        .IsRequired();
-
-                    b.Navigation("TIPOELEMENTOF");
-                });
-
-            modelBuilder.Entity("Api.UnidadEmprendimiento.Domain.Entities.SQL_SERVER.GEST_FORMULARIO.ElementoFormularioPublicado", b =>
-                {
-                    b.HasOne("Api.UnidadEmprendimiento.Domain.Entities.SQL_SERVER.GEST_FORMULARIO.TipoElementoFormulario", "TIPOELEMENTOF")
-                        .WithMany("ELEMENTOSFP")
-                        .HasForeignKey("TEFO_CODIGO")
-                        .OnDelete(DeleteBehavior.Restrict)
-                        .IsRequired();
-
-                    b.Navigation("TIPOELEMENTOF");
-                });
-
-            modelBuilder.Entity("Api.UnidadEmprendimiento.Domain.Entities.SQL_SERVER.GEST_FORMULARIO.FormularioPublicado", b =>
-                {
-                    b.HasOne("Api.UnidadEmprendimiento.Domain.Entities.SQL_SERVER.GEST_FORMULARIO.ConvocatoriaPublicada", "CONVOCATORIAPUBLICADA")
-                        .WithMany("FORMULARIOSPUBLICADOS")
-                        .HasForeignKey("CONP_CODIGO")
-                        .OnDelete(DeleteBehavior.Restrict)
-                        .IsRequired();
-
-                    b.HasOne("Api.UnidadEmprendimiento.Domain.Entities.SQL_SERVER.GEST_FORMULARIO.EstadoFormulario", "ESTADOFORMULARIO")
-                        .WithMany("FORMULARIOSPUBLICADOS")
-                        .HasForeignKey("ESTF_CODIGO")
-                        .OnDelete(DeleteBehavior.Restrict)
-                        .IsRequired();
-
-                    b.HasOne("Api.UnidadEmprendimiento.Domain.Entities.SQL_SERVER.GEST_FORMULARIO.TipoFormulario", "TIPOFORMULARIO")
-                        .WithMany("FORMULARIOSP")
-                        .HasForeignKey("TIPF_CODIGO")
+                    b.HasOne("Api.UnidadEmprendimiento.Domain.Entities.SQL_SERVER.GEST_FORMULARIO.Convocatoria", "CONVOCATORIA")
+                        .WithMany("CONVOCATORIASFORMULARIOS")
+                        .HasForeignKey("CONV_CODIGO")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
-                    b.Navigation("CONVOCATORIAPUBLICADA");
-
-                    b.Navigation("ESTADOFORMULARIO");
-
-                    b.Navigation("TIPOFORMULARIO");
-                });
-
-            modelBuilder.Entity("Api.UnidadEmprendimiento.Domain.Entities.SQL_SERVER.GEST_FORMULARIO.GEST_FORMULARIO_BORRADOR.BancoFormularioElemento", b =>
-                {
-                    b.HasOne("Api.UnidadEmprendimiento.Domain.Entities.SQL_SERVER.GEST_FORMULARIO.GES_BANCO_FORMULARIO.BancoFormulario", "FORMULARIO")
-                        .WithMany("BFORMULARIOSE")
-                        .HasForeignKey("BANF_CODIGO")
-                        .OnDelete(DeleteBehavior.Restrict)
+                    b.HasOne("Api.UnidadEmprendimiento.Domain.Entities.SQL_SERVER.GEST_FORMULARIO.Formulario", "FORMULARIO")
+                        .WithMany("CONVOCATORIASFORMULARIOS")
+                        .HasForeignKey("FORM_CODIGO")
+                        .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
-                    b.HasOne("Api.UnidadEmprendimiento.Domain.Entities.SQL_SERVER.GEST_FORMULARIO.BancoElementoFormulario", "ELEMENTOFORMULARIO")
-                        .WithMany("BFORMULARIOSE")
-                        .HasForeignKey("BEFO_CODIGO")
-                        .OnDelete(DeleteBehavior.Restrict)
-                        .IsRequired();
-
-                    b.Navigation("ELEMENTOFORMULARIO");
+                    b.Navigation("CONVOCATORIA");
 
                     b.Navigation("FORMULARIO");
                 });
 
-            modelBuilder.Entity("Api.UnidadEmprendimiento.Domain.Entities.SQL_SERVER.GEST_FORMULARIO.GEST_FORMULARIO_BORRADOR.ConvocatoriaBorrador", b =>
+            modelBuilder.Entity("Api.UnidadEmprendimiento.Domain.Entities.SQL_SERVER.GEST_FORMULARIO.Formulario", b =>
                 {
-                    b.HasOne("Api.UnidadEmprendimiento.Domain.Entities.SQL_SERVER.GEST_USUARIO.Usuario", "USUARIO")
-                        .WithMany("CONVOCATORIASBORRADOR")
-                        .HasForeignKey("PERS_CODIGO")
-                        .OnDelete(DeleteBehavior.Restrict)
-                        .IsRequired();
-
-                    b.Navigation("USUARIO");
-                });
-
-            modelBuilder.Entity("Api.UnidadEmprendimiento.Domain.Entities.SQL_SERVER.GEST_FORMULARIO.GEST_FORMULARIO_BORRADOR.FormularioBorrador", b =>
-                {
-                    b.HasOne("Api.UnidadEmprendimiento.Domain.Entities.SQL_SERVER.GEST_FORMULARIO.GEST_FORMULARIO_BORRADOR.ConvocatoriaBorrador", "CONVOCATORIABORRADOR")
-                        .WithMany("FORMULARIOSBORRADOR")
-                        .HasForeignKey("CONB_CODIGO")
-                        .OnDelete(DeleteBehavior.Restrict)
-                        .IsRequired();
-
-                    b.HasOne("Api.UnidadEmprendimiento.Domain.Entities.SQL_SERVER.GEST_FORMULARIO.EstadoFormulario", "ESTADOFORMULARIO")
-                        .WithMany("FORMULARIOSBORRADOR")
-                        .HasForeignKey("ESTF_CODIGO")
-                        .OnDelete(DeleteBehavior.Restrict)
-                        .IsRequired();
-
                     b.HasOne("Api.UnidadEmprendimiento.Domain.Entities.SQL_SERVER.GEST_FORMULARIO.TipoFormulario", "TIPOFORMULARIO")
-                        .WithMany("FORMULARIOSB")
+                        .WithMany("FORMULARIOS")
                         .HasForeignKey("TIPF_CODIGO")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
-                    b.Navigation("CONVOCATORIABORRADOR");
-
-                    b.Navigation("ESTADOFORMULARIO");
-
                     b.Navigation("TIPOFORMULARIO");
                 });
 
-            modelBuilder.Entity("Api.UnidadEmprendimiento.Domain.Entities.SQL_SERVER.GEST_FORMULARIO.GEST_FORMULARIO_BORRADOR.FormularioElementoBorrador", b =>
+            modelBuilder.Entity("Api.UnidadEmprendimiento.Domain.Entities.SQL_SERVER.GEST_FORMULARIO.Pregunta", b =>
                 {
-                    b.HasOne("Api.UnidadEmprendimiento.Domain.Entities.SQL_SERVER.GEST_FORMULARIO.ElementoFormularioBorrador", "ELEMENTOBORRADOR")
-                        .WithMany("FORMULARIOEB")
-                        .HasForeignKey("EFOB_CODIGO")
-                        .OnDelete(DeleteBehavior.Restrict)
-                        .IsRequired();
-
-                    b.HasOne("Api.UnidadEmprendimiento.Domain.Entities.SQL_SERVER.GEST_FORMULARIO.GEST_FORMULARIO_BORRADOR.FormularioBorrador", "FORMULARIOBORRADOR")
-                        .WithMany("FORMULARIOSEB")
-                        .HasForeignKey("EFOB_CODIGO")
-                        .OnDelete(DeleteBehavior.Restrict)
-                        .IsRequired();
-
-                    b.Navigation("ELEMENTOBORRADOR");
-
-                    b.Navigation("FORMULARIOBORRADOR");
-                });
-
-            modelBuilder.Entity("Api.UnidadEmprendimiento.Domain.Entities.SQL_SERVER.GEST_FORMULARIO.GEST_FORMULARIO_PUBLICADO.FormularioElementoPublicado", b =>
-                {
-                    b.HasOne("Api.UnidadEmprendimiento.Domain.Entities.SQL_SERVER.GEST_FORMULARIO.ElementoFormularioPublicado", "ELEMENTOFP")
-                        .WithMany("FORMULARIOSEP")
-                        .HasForeignKey("EFOP_CODIGO")
-                        .OnDelete(DeleteBehavior.Restrict)
-                        .IsRequired();
-
-                    b.HasOne("Api.UnidadEmprendimiento.Domain.Entities.SQL_SERVER.GEST_FORMULARIO.FormularioPublicado", "FORMULARIOP")
-                        .WithMany("FORMULARIOSEP")
-                        .HasForeignKey("FORP_CODIGO")
-                        .OnDelete(DeleteBehavior.Restrict)
-                        .IsRequired();
-
-                    b.Navigation("ELEMENTOFP");
-
-                    b.Navigation("FORMULARIOP");
-                });
-
-            modelBuilder.Entity("Api.UnidadEmprendimiento.Domain.Entities.SQL_SERVER.GEST_FORMULARIO.GEST_FORMULARIO_PUBLICADO.VersionFormularioPublicado", b =>
-                {
-                    b.HasOne("Api.UnidadEmprendimiento.Domain.Entities.SQL_SERVER.GEST_FORMULARIO.FormularioPublicado", "FORMULARIOPUBLICADO")
-                        .WithMany("VERSIONESFP")
-                        .HasForeignKey("FORP_CODIGO")
-                        .OnDelete(DeleteBehavior.Restrict)
-                        .IsRequired();
-
-                    b.HasOne("Api.UnidadEmprendimiento.Domain.Entities.SQL_SERVER.GEST_PROPUESTA.VersionP", "VERSION")
-                        .WithMany("VERSIONESFP")
-                        .HasForeignKey("VERS_CODIGO")
-                        .OnDelete(DeleteBehavior.Restrict)
-                        .IsRequired();
-
-                    b.Navigation("FORMULARIOPUBLICADO");
-
-                    b.Navigation("VERSION");
-                });
-
-            modelBuilder.Entity("Api.UnidadEmprendimiento.Domain.Entities.SQL_SERVER.GEST_FORMULARIO.GES_BANCO_FORMULARIO.BancoFormulario", b =>
-                {
-                    b.HasOne("Api.UnidadEmprendimiento.Domain.Entities.SQL_SERVER.GEST_FORMULARIO.EstadoFormulario", "ESTADOFORMULARIO")
-                        .WithMany("BANCOFORMULARIOS")
-                        .HasForeignKey("ESTF_CODIGO")
-                        .OnDelete(DeleteBehavior.Restrict)
-                        .IsRequired();
-
-                    b.HasOne("Api.UnidadEmprendimiento.Domain.Entities.SQL_SERVER.GEST_FORMULARIO.TipoFormulario", "TIPOFORMULARIO")
-                        .WithMany("BANCOFORMULARIOS")
-                        .HasForeignKey("TIPF_CODIGO")
+                    b.HasOne("Api.UnidadEmprendimiento.Domain.Entities.SQL_SERVER.GEST_FORMULARIO.Seccion", "SECCION")
+                        .WithMany("PREGUNTAS")
+                        .HasForeignKey("SECC_CODIGO")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
-                    b.Navigation("ESTADOFORMULARIO");
-
-                    b.Navigation("TIPOFORMULARIO");
-                });
-
-            modelBuilder.Entity("Api.UnidadEmprendimiento.Domain.Entities.SQL_SERVER.GEST_FORMULARIO.GES_BANCO_FORMULARIO.BancoOpcResElemento", b =>
-                {
-                    b.HasOne("Api.UnidadEmprendimiento.Domain.Entities.SQL_SERVER.GEST_FORMULARIO.BancoElementoFormulario", "BELEMENTOF")
-                        .WithMany("BANCOOPCRESELEMENTOS")
-                        .HasForeignKey("BEFO_CODIGO")
-                        .OnDelete(DeleteBehavior.Restrict)
+                    b.HasOne("Api.UnidadEmprendimiento.Domain.Entities.SQL_SERVER.GEST_FORMULARIO.TipoPregunta", "TIPOPREGUNTA")
+                        .WithMany("PREGUNTAS")
+                        .HasForeignKey("TIPR_CODIGO")
+                        .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
-                    b.Navigation("BELEMENTOF");
+                    b.Navigation("SECCION");
+
+                    b.Navigation("TIPOPREGUNTA");
                 });
 
-            modelBuilder.Entity("Api.UnidadEmprendimiento.Domain.Entities.SQL_SERVER.GEST_FORMULARIO.OpcRespuestaBorrador", b =>
+            modelBuilder.Entity("Api.UnidadEmprendimiento.Domain.Entities.SQL_SERVER.GEST_FORMULARIO.Respuesta", b =>
                 {
-                    b.HasOne("Api.UnidadEmprendimiento.Domain.Entities.SQL_SERVER.GEST_FORMULARIO.ElementoFormularioBorrador", "ELEMENTOFB")
-                        .WithMany("OPCRESPUESTASBORRADOR")
-                        .HasForeignKey("EFOB_CODIGO")
-                        .OnDelete(DeleteBehavior.Restrict)
+                    b.HasOne("Api.UnidadEmprendimiento.Domain.Entities.SQL_SERVER.GEST_FORMULARIO.Pregunta", "PREGUNTA")
+                        .WithMany("RESPUESTAS")
+                        .HasForeignKey("PREG_CODIGO")
+                        .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
-                    b.Navigation("ELEMENTOFB");
+                    b.HasOne("Api.UnidadEmprendimiento.Domain.Entities.SQL_SERVER.GEST_PROPUESTA.Propuesta", "PROPUESTA")
+                        .WithMany("RESPUESTAS")
+                        .HasForeignKey("PROP_CODIGO")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("PREGUNTA");
+
+                    b.Navigation("PROPUESTA");
                 });
 
-            modelBuilder.Entity("Api.UnidadEmprendimiento.Domain.Entities.SQL_SERVER.GEST_FORMULARIO.OpcRespuestaPublicado", b =>
+            modelBuilder.Entity("Api.UnidadEmprendimiento.Domain.Entities.SQL_SERVER.GEST_FORMULARIO.Seccion", b =>
                 {
-                    b.HasOne("Api.UnidadEmprendimiento.Domain.Entities.SQL_SERVER.GEST_FORMULARIO.ElementoFormularioPublicado", "ELEMENTOFP")
-                        .WithMany("OPCRESPUESTASPUBLICADOS")
-                        .HasForeignKey("EFOP_CODIGO")
-                        .OnDelete(DeleteBehavior.Restrict)
+                    b.HasOne("Api.UnidadEmprendimiento.Domain.Entities.SQL_SERVER.GEST_FORMULARIO.Formulario", "FORMULARIO")
+                        .WithMany("SECCIONES")
+                        .HasForeignKey("FORM_CODIGO")
+                        .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
-                    b.Navigation("ELEMENTOFP");
+                    b.Navigation("FORMULARIO");
                 });
 
             modelBuilder.Entity("Api.UnidadEmprendimiento.Domain.Entities.SQL_SERVER.GEST_PROPUESTA.Propuesta", b =>
                 {
-                    b.HasOne("Api.UnidadEmprendimiento.Domain.Entities.SQL_SERVER.GEST_FORMULARIO.ConvocatoriaPublicada", "CONVOCATORIAP")
+                    b.HasOne("Api.UnidadEmprendimiento.Domain.Entities.SQL_SERVER.GEST_FORMULARIO.Convocatoria", "CONVOCATORIA")
                         .WithMany("PROPUESTAS")
-                        .HasForeignKey("CONP_CODIGO")
-                        .OnDelete(DeleteBehavior.Restrict)
+                        .HasForeignKey("CONV_CODIGO")
+                        .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
                     b.HasOne("Api.UnidadEmprendimiento.Domain.Entities.SQL_SERVER.GEST_PROPUESTA.EstadoPropuesta", "ESTADOPROPUESTA")
                         .WithMany("PROPUESTAS")
                         .HasForeignKey("ESTP_CODIGO")
-                        .OnDelete(DeleteBehavior.Restrict)
+                        .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
-                    b.Navigation("CONVOCATORIAP");
+                    b.Navigation("CONVOCATORIA");
 
                     b.Navigation("ESTADOPROPUESTA");
-                });
-
-            modelBuilder.Entity("Api.UnidadEmprendimiento.Domain.Entities.SQL_SERVER.GEST_PROPUESTA.PropuestaComentario", b =>
-                {
-                    b.HasOne("Api.UnidadEmprendimiento.Domain.Entities.SQL_SERVER.GEST_FORMULARIO.GEST_FORMULARIO_PUBLICADO.VersionFormularioPublicado", "VERSIONFP")
-                        .WithMany("PROPUESTASCOMENTARIOS")
-                        .HasForeignKey("PROC_CODIGO")
-                        .OnDelete(DeleteBehavior.Restrict)
-                        .IsRequired();
-
-                    b.Navigation("VERSIONFP");
-                });
-
-            modelBuilder.Entity("Api.UnidadEmprendimiento.Domain.Entities.SQL_SERVER.GEST_PROPUESTA.Respuesta", b =>
-                {
-                    b.HasOne("Api.UnidadEmprendimiento.Domain.Entities.SQL_SERVER.GEST_FORMULARIO.ElementoFormularioPublicado", "ELEMENTOFP")
-                        .WithMany("RESPUESTAS")
-                        .HasForeignKey("EFOP_CODIGO")
-                        .OnDelete(DeleteBehavior.Restrict)
-                        .IsRequired();
-
-                    b.HasOne("Api.UnidadEmprendimiento.Domain.Entities.SQL_SERVER.GEST_PROPUESTA.Propuesta", "PROPUESTA")
-                        .WithMany("RESPUESTAS")
-                        .HasForeignKey("PROP_CODIGO")
-                        .OnDelete(DeleteBehavior.Restrict)
-                        .IsRequired();
-
-                    b.Navigation("ELEMENTOFP");
-
-                    b.Navigation("PROPUESTA");
-                });
-
-            modelBuilder.Entity("Api.UnidadEmprendimiento.Domain.Entities.SQL_SERVER.GEST_PROPUESTA.UsuarioPropuesta", b =>
-                {
-                    b.HasOne("Api.UnidadEmprendimiento.Domain.Entities.SQL_SERVER.GEST_USUARIO.Usuario", "USUARIO")
-                        .WithMany("USUARIOSPROPUESTAS")
-                        .HasForeignKey("PERS_CODIGO")
-                        .OnDelete(DeleteBehavior.Restrict)
-                        .IsRequired();
-
-                    b.HasOne("Api.UnidadEmprendimiento.Domain.Entities.SQL_SERVER.GEST_PROPUESTA.Propuesta", "PROPUESTA")
-                        .WithMany("USUARIOSPROPUESTAS")
-                        .HasForeignKey("PROP_CODIGO")
-                        .OnDelete(DeleteBehavior.Restrict)
-                        .IsRequired();
-
-                    b.Navigation("PROPUESTA");
-
-                    b.Navigation("USUARIO");
-                });
-
-            modelBuilder.Entity("Api.UnidadEmprendimiento.Domain.Entities.SQL_SERVER.GEST_PROPUESTA.VersionP", b =>
-                {
-                    b.HasOne("Api.UnidadEmprendimiento.Domain.Entities.SQL_SERVER.GEST_USUARIO.Usuario", "USUARIO")
-                        .WithMany("VERSIONES")
-                        .HasForeignKey("PERS_CODIGO")
-                        .OnDelete(DeleteBehavior.Restrict)
-                        .IsRequired();
-
-                    b.HasOne("Api.UnidadEmprendimiento.Domain.Entities.SQL_SERVER.GEST_PROPUESTA.Propuesta", "PROPUESTA")
-                        .WithMany("VERSIONES")
-                        .HasForeignKey("PROP_CODIGO")
-                        .OnDelete(DeleteBehavior.Restrict)
-                        .IsRequired();
-
-                    b.Navigation("PROPUESTA");
-
-                    b.Navigation("USUARIO");
                 });
 
             modelBuilder.Entity("Api.UnidadEmprendimiento.Domain.Entities.SQL_SERVER.GEST_EVALUACION.Evaluacion", b =>
@@ -1407,88 +743,38 @@ namespace Api.UnidadEmprendimiento.Data.Migrations
                     b.Navigation("ITEMS");
                 });
 
-            modelBuilder.Entity("Api.UnidadEmprendimiento.Domain.Entities.SQL_SERVER.GEST_FORMULARIO.BancoElementoFormulario", b =>
+            modelBuilder.Entity("Api.UnidadEmprendimiento.Domain.Entities.SQL_SERVER.GEST_FORMULARIO.Convocatoria", b =>
                 {
-                    b.Navigation("BANCOOPCRESELEMENTOS");
-
-                    b.Navigation("BFORMULARIOSE");
-                });
-
-            modelBuilder.Entity("Api.UnidadEmprendimiento.Domain.Entities.SQL_SERVER.GEST_FORMULARIO.ConvocatoriaPublicada", b =>
-                {
-                    b.Navigation("FORMULARIOSPUBLICADOS");
+                    b.Navigation("CONVOCATORIASFORMULARIOS");
 
                     b.Navigation("PROPUESTAS");
                 });
 
-            modelBuilder.Entity("Api.UnidadEmprendimiento.Domain.Entities.SQL_SERVER.GEST_FORMULARIO.ElementoFormularioBorrador", b =>
+            modelBuilder.Entity("Api.UnidadEmprendimiento.Domain.Entities.SQL_SERVER.GEST_FORMULARIO.Formulario", b =>
                 {
-                    b.Navigation("FORMULARIOEB");
+                    b.Navigation("CONVOCATORIASFORMULARIOS");
 
-                    b.Navigation("OPCRESPUESTASBORRADOR");
+                    b.Navigation("SECCIONES");
                 });
 
-            modelBuilder.Entity("Api.UnidadEmprendimiento.Domain.Entities.SQL_SERVER.GEST_FORMULARIO.ElementoFormularioPublicado", b =>
+            modelBuilder.Entity("Api.UnidadEmprendimiento.Domain.Entities.SQL_SERVER.GEST_FORMULARIO.Pregunta", b =>
                 {
-                    b.Navigation("FORMULARIOSEP");
-
-                    b.Navigation("OPCRESPUESTASPUBLICADOS");
-
                     b.Navigation("RESPUESTAS");
                 });
 
-            modelBuilder.Entity("Api.UnidadEmprendimiento.Domain.Entities.SQL_SERVER.GEST_FORMULARIO.EstadoFormulario", b =>
+            modelBuilder.Entity("Api.UnidadEmprendimiento.Domain.Entities.SQL_SERVER.GEST_FORMULARIO.Seccion", b =>
                 {
-                    b.Navigation("BANCOFORMULARIOS");
-
-                    b.Navigation("FORMULARIOSBORRADOR");
-
-                    b.Navigation("FORMULARIOSPUBLICADOS");
-                });
-
-            modelBuilder.Entity("Api.UnidadEmprendimiento.Domain.Entities.SQL_SERVER.GEST_FORMULARIO.FormularioPublicado", b =>
-                {
-                    b.Navigation("FORMULARIOSEP");
-
-                    b.Navigation("VERSIONESFP");
-                });
-
-            modelBuilder.Entity("Api.UnidadEmprendimiento.Domain.Entities.SQL_SERVER.GEST_FORMULARIO.GEST_FORMULARIO_BORRADOR.ConvocatoriaBorrador", b =>
-                {
-                    b.Navigation("FORMULARIOSBORRADOR");
-                });
-
-            modelBuilder.Entity("Api.UnidadEmprendimiento.Domain.Entities.SQL_SERVER.GEST_FORMULARIO.GEST_FORMULARIO_BORRADOR.FormularioBorrador", b =>
-                {
-                    b.Navigation("FORMULARIOSEB");
-                });
-
-            modelBuilder.Entity("Api.UnidadEmprendimiento.Domain.Entities.SQL_SERVER.GEST_FORMULARIO.GEST_FORMULARIO_PUBLICADO.VersionFormularioPublicado", b =>
-                {
-                    b.Navigation("PROPUESTASCOMENTARIOS");
-                });
-
-            modelBuilder.Entity("Api.UnidadEmprendimiento.Domain.Entities.SQL_SERVER.GEST_FORMULARIO.GES_BANCO_FORMULARIO.BancoFormulario", b =>
-                {
-                    b.Navigation("BFORMULARIOSE");
-                });
-
-            modelBuilder.Entity("Api.UnidadEmprendimiento.Domain.Entities.SQL_SERVER.GEST_FORMULARIO.TipoElementoFormulario", b =>
-                {
-                    b.Navigation("BELEMENTOSF");
-
-                    b.Navigation("ELEMENTOSFB");
-
-                    b.Navigation("ELEMENTOSFP");
+                    b.Navigation("PREGUNTAS");
                 });
 
             modelBuilder.Entity("Api.UnidadEmprendimiento.Domain.Entities.SQL_SERVER.GEST_FORMULARIO.TipoFormulario", b =>
                 {
-                    b.Navigation("BANCOFORMULARIOS");
+                    b.Navigation("FORMULARIOS");
+                });
 
-                    b.Navigation("FORMULARIOSB");
-
-                    b.Navigation("FORMULARIOSP");
+            modelBuilder.Entity("Api.UnidadEmprendimiento.Domain.Entities.SQL_SERVER.GEST_FORMULARIO.TipoPregunta", b =>
+                {
+                    b.Navigation("PREGUNTAS");
                 });
 
             modelBuilder.Entity("Api.UnidadEmprendimiento.Domain.Entities.SQL_SERVER.GEST_PROPUESTA.EstadoPropuesta", b =>
@@ -1503,15 +789,6 @@ namespace Api.UnidadEmprendimiento.Data.Migrations
                     b.Navigation("PROPUESTASJURADOS");
 
                     b.Navigation("RESPUESTAS");
-
-                    b.Navigation("USUARIOSPROPUESTAS");
-
-                    b.Navigation("VERSIONES");
-                });
-
-            modelBuilder.Entity("Api.UnidadEmprendimiento.Domain.Entities.SQL_SERVER.GEST_PROPUESTA.VersionP", b =>
-                {
-                    b.Navigation("VERSIONESFP");
                 });
 
             modelBuilder.Entity("Api.UnidadEmprendimiento.Domain.Entities.SQL_SERVER.GEST_USUARIO.Jurado", b =>
@@ -1519,17 +796,6 @@ namespace Api.UnidadEmprendimiento.Data.Migrations
                     b.Navigation("EVALUACIONDETALLES");
 
                     b.Navigation("PROPUESTASJURADOS");
-                });
-
-            modelBuilder.Entity("Api.UnidadEmprendimiento.Domain.Entities.SQL_SERVER.GEST_USUARIO.Usuario", b =>
-                {
-                    b.Navigation("CONVOCATORIASBORRADOR");
-
-                    b.Navigation("CONVOCATORIASPUBLICADAS");
-
-                    b.Navigation("USUARIOSPROPUESTAS");
-
-                    b.Navigation("VERSIONES");
                 });
 #pragma warning restore 612, 618
         }

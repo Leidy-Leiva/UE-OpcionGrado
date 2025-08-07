@@ -13,26 +13,25 @@ namespace Api.UnidadEmprendimiento.Data
     {
         public static void AddPersistenceData(this IServiceCollection services, IConfiguration configuration)
         {
-            var connectionString = Environment.GetEnvironmentVariable("ConnectionDB")
-           ?? configuration.GetConnectionString("Connection");
-
-            services.AddDbContext<ApplicationDbContext>(options =>
-               options.UseSqlServer(
-                   connectionString,
-                   sqlOptions =>
-                   {
-                       sqlOptions.EnableRetryOnFailure();
-                   }
-       ));
+             var connectionString = Environment.GetEnvironmentVariable("ConnectionDB") 
+            ?? configuration.GetConnectionString("Connection");
+            
+                 services.AddDbContext<ApplicationDbContext>(options =>
+                    options.UseSqlServer(
+                        connectionString,
+                        sqlOptions =>
+                        {
+                            sqlOptions.EnableRetryOnFailure();
+                        }
+            ));
         }
 
-
-
+        
+                
         public static void AddRepositoryServices(this IServiceCollection services)
         {
-            services.AddTransient<ITipoElementoRepository, TipoElementoRepository>();
+            services.AddTransient<ITipoPreguntaRepository, TipoPreguntaRepository>();
             services.AddTransient<ITipoFormularioRepository, TipoFormularioRepository>();
-            // services.AddTransient<IUsuarioRepository, UsuarioRepository>();
 
         }
 
