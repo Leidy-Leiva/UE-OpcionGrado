@@ -1,0 +1,9 @@
+<div class="contenedorPA">
+<app-label content="Respuesta abierta:"></app-label>
+<app-input
+  [placeholder]="placeholder"
+  [value]="answer"
+  [disabled]=true
+  (valueChange)="onChange($event)">
+</app-input>
+</div>

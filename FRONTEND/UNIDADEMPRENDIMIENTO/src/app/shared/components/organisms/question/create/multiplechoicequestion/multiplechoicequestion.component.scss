@@ -1,0 +1,21 @@
+.Contenedor {
+  @apply w-full flex flex-col;
+  gap: 1rem;
+}
+
+.AddOption {
+  @apply flex items-center justify-between;
+}
+
+.opciones-container {
+  @apply flex gap-6 flex-wrap;
+}
+
+.opciones-columna {
+  @apply flex gap-2 flex-col flex-1;
+}
+
+.opcion-checkbox {
+  @apply flex flex-row items-center gap-2 p-0.5;
+  border-radius: 8px;
+}

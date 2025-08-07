@@ -1,0 +1,26 @@
+.contenedorGeneral {
+  width: 100%;
+  gap: 10px;
+}
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: auto;
+  width: auto;
+  gap: 2rem;
+}
+
+.title {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: auto;
+--label-font-size:25px;
+--label-color:rgb(255, 26, 26);
+}
+.description {
+  padding: 10px;
+--label-font-size:30px;
+--label-color:rgb(255, 26, 26);
+}

@@ -1,0 +1,13 @@
+<div class="Contenedor">
+<div class="opciones-container">
+  <div class="opciones-columna" *ngFor="let group of groupedOption; let colIndex = index; trackBy: trackByIndex">
+    <div class="opcion-radiobutton" *ngFor="let opcion of group; let i = index; trackBy: trackByIndex">
+      <app-radio-button [name]="nameGroup" [value]="opcion" [checked]="selected === opcion"
+        (selectionChange)="selectOption($event)">
+      </app-radio-button>
+      <app-label [content]="opcion"></app-label>
+
+    </div>
+  </div>
+</div>
+</div>

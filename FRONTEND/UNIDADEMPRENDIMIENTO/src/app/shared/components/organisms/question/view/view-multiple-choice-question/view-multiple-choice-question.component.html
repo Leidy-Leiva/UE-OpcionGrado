@@ -1,0 +1,16 @@
+<div class="Contenedor">
+ <div class="opciones-container">
+   <div class="opciones-columna"  *ngFor="let group of groupedOptions; let colIndex = index; trackBy: trackByIndex">
+   <div class="opcion-checkbox" *ngFor="let opcion of group; let i = index; trackBy: trackByIndex">
+    <app-check-box
+    [label]="opcion"
+    [checked]="selected.includes(opcion)"
+    (toggleChange)="toggleSelection(colIndex * groupSize + i, $event)">
+  </app-check-box>
+    </div>
+  </div>
+  </div>
+</div>
+
+
+

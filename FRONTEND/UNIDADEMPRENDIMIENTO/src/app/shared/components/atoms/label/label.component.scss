@@ -1,0 +1,9 @@
+.label-arial {
+  font-size: var(--label-font-size, 1rem);
+  color: var(--label-color, black);
+  font-family: var(--label-font-family, sans-serif);
+  line-height: 1.5;
+  display: inline-block;
+  margin-bottom: 0.5rem;
+  font-weight:var(--fontType);
+}

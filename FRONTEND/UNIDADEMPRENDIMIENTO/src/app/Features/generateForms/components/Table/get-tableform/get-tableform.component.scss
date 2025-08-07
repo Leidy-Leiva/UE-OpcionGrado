@@ -1,0 +1,95 @@
+.custom-table {
+  width: 100%;
+  border-collapse: separate;
+  border-spacing: 0;
+  font-family: inherit;
+  border-radius: 8px;
+  background-color: #fff;
+  color: #212529;
+  font-size: 14px;
+  min-width: 400px;
+  table-layout: auto;
+  gap: 5px;
+}
+.head
+{
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  gap: 10px;
+  background-color: blueviolet;
+  height: auto;
+}
+
+.enunciado{
+ width: 90%;
+ padding: 0 10px 0 10px;
+}
+
+.buttons
+{
+  width: 4%;
+  .btn-add{
+    margin-left: auto;
+    --btn-width:35px;
+    --btn-height:35px;
+    --btn-withicon-border-radius: 5px;
+    --stroke-width: 1px;
+    --stroke-icon:#0e0e0e;
+    --btn-bg-hover:#68a6f8a4;
+    --btn-bg-hoverA:#609ae7d7;
+  }
+}
+
+
+.custom-table th {
+  background-color: #f1f3f5;
+  text-align: left;
+  border-bottom: 2px solid #dee2e6;
+  position: sticky;
+  top: 0;
+  z-index: 1;
+  color: #212529;
+  height: 25px;
+}
+
+/* Filas alternas */
+.custom-table tr:nth-child(even) {
+  background-color: #fafbfc;
+}
+
+/* Hover en fila */
+.custom-table tr:hover {
+  background-color: #e6f7ff;
+}
+
+/* Celdas */
+.custom-table td {
+  border-bottom: 1px solid #dee2e6;
+  vertical-align: middle;
+  color: #212529;
+  height: 25px;
+}
+
+/* Celda de acciones */
+.custom-table td:last-child {
+  text-align: right;
+
+}
+.form-control{
+  width: var(--inputwidth, 80%);
+  max-width: var(--input-max-width, 80%);
+  height: var(--inputheight,auto); 
+  padding: var(--input-padding, 10px 15px);
+  font-size: var(--input-font-size, 14px);
+  border: var(--input-border, 2px solid #ccc);
+  border-radius: var(--input-border-radius, 8px);
+  transition: all 0.3s ease-in-out;
+  outline: none;
+  background-color: var(--input-bg, white);
+  color: var(--input-text-color, #333);
+  box-shadow: var(--input-shadow, 0 2px 5px rgba(0, 0, 0, 0.1));
+  box-sizing: border-box;
+  color:var(--color,#000000)
+}

@@ -1,0 +1,51 @@
+<div class="pregunta-cerrada">
+  <div class="addoption">
+      <app-label content="Opciones Respuesta Unica:"></app-label>
+      <app-buttonwithicon 
+      class="btnadd"
+      [buttonConfig]="btnadd"
+      (btnClick)="addOption()">
+    </app-buttonwithicon>
+  </div>
+
+  <div class="opciones-container">
+    <div class="opciones-columna"  *ngFor="let group of groupedOption; let colIndex = index; trackBy: trackByIndex">
+      <div  class="opcion-radiobutton" *ngFor="let opcion of group; let i = index; trackBy: trackByIndex">
+          <app-radio-button
+            [name]="nameGroup"
+            [value]="opcion"
+            [checked]="selected === opcion"
+            [disabled]=true
+            (selectionChange)="selectOption($event)">
+          </app-radio-button>
+
+          <app-input
+            [value]="opcion"
+            [placeholder]="'Digite la respuesta...'"
+            (valueChange)="updateOption(colIndex * groupSize + i, $event)">
+          </app-input>
+
+          <app-buttonwithicon 
+            class="btn-x"
+            [buttonConfig]="buttondelete"
+            (btnClick)="removeOption(colIndex * groupSize + i)">
+          </app-buttonwithicon>
+
+      </div>
+            <div *ngIf="permitirOtro" class="opcion-otra">
+              <app-radio-button
+                [name]="nameGroup"
+                [value]="'Otra'"
+                [checked]="selected === 'Otra'"
+                (selectionChange)="selectOption('Otra')">
+              </app-radio-button>
+
+              <app-input
+                [placeholder]="'Especifique...'"
+                [disabled]="selected !== 'Otra'">
+              </app-input>
+            </div>
+      </div>
+  </div>
+</div>
+  

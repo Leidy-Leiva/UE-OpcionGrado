@@ -1,0 +1,8 @@
+<div class="buttonIcon-group">
+    <app-buttonwithicon
+      *ngFor="let btn of processedButtons"
+      [buttonConfig]="btn"
+      (btnClick)="btnClick.emit(btn.action)">
+    </app-buttonwithicon>
+</div>
+  

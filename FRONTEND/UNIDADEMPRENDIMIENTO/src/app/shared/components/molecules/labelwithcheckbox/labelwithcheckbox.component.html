@@ -1,0 +1,10 @@
+<div class="label-checkbox-container">
+    <app-label [content]="label" [for]="checkboxId"></app-label>
+    <app-check-box 
+      [id]="checkboxId"
+      [checked]="checked"
+      [disabled]="disabled"
+      (toggleChange)="onToggleChange($event)">
+    </app-check-box>
+  </div>
+  

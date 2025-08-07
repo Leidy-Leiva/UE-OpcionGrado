@@ -1,0 +1,29 @@
+<div class="General">
+  <div class="custom-card">
+    <div class="card-banner">
+      <ng-content select="[card-banner]"></ng-content>
+    </div>
+
+    <div class="card-header">
+      <div class="card-avatar">
+        <ng-content select="[card-avatar]"></ng-content>
+      </div>
+
+      <div class="card-title">
+        <ng-content select="[card-title]"></ng-content>
+      </div>
+
+      <div class="card-subtitle">
+        <ng-content select="[card-subtitle]"></ng-content>
+      </div>
+    </div>
+
+    <div class="card-content">
+      <ng-content  select="[card-content]"></ng-content>
+    </div>
+
+    <div class="card-actions">
+      <ng-content select="[card-actions]"></ng-content>
+    </div>
+  </div>
+</div>

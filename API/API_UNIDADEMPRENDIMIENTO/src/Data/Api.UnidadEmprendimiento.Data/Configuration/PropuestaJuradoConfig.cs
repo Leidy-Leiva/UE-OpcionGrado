@@ -15,9 +15,9 @@ namespace Api.UnidadEmprendimiento.Data.Configuration
         {
             builder.ToTable("PROPUESTAJURADO");
 
-            builder.HasKey(pj=> pj.PROPJ_CODIGO);
+            builder.HasKey(pj=> pj.PROJ_CODIGO);
 
-            builder.Property(pj=> pj.PRPJ_FECHAASIGNACION)
+            builder.Property(pj=> pj.PROJ_FECHAASIGNACION)
             .IsRequired();
 
             builder.Property(pj=> pj.PROPJ_ESTADO)

@@ -1,0 +1,11 @@
+<div class="button-group">
+    <app-button
+    *ngFor="let btn of buttons"
+    [buttonConfig]="btn"
+    (btnClick)="btnClick.emit(btn.action)">
+    {{btn.title}}
+    </app-button>
+</div>
+
+
+  

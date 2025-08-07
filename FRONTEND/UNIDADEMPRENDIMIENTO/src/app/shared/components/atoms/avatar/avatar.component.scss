@@ -1,0 +1,21 @@
+
+.avatar {
+  @apply w-full flex items-center justify-center overflow-hidden bg-gray-100;
+  /* Variables CSS para color de fondo u otras props que quieras cambiar */
+  background-color: var(--avatar-bg, theme('colors.gray.100'));
+  display: var(--flex, flex)
+}
+
+/* Imagen interna */
+.avatar img {
+  @apply w-full object-cover;
+  object-fit: var(--avatar-object, cover);
+}
+
+/* Icono por defecto */
+.avatar-icon {
+  @apply text-xl ; /* tamaño base */
+  /* Usa variable CSS para color o tamaño extra */
+  font-size: var(--avatar-icon-size, 1.5rem);
+  color: var(--avatar-icon-color, theme('colors.gray.500'));
+}

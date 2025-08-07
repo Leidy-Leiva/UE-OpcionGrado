@@ -1,0 +1,36 @@
+.radio {
+  display: flex;
+  align-items: center;  
+  gap: 1px;  
+  justify-content: flex-start; 
+  margin-top: 20px;
+}
+
+.radio input {
+  width: 18px;
+  height: 18px;
+  margin: 20px; 
+  border: 2px solid #333; /* Color del borde */
+}
+
+
+.radio label {
+  font-size: 16px; 
+  line-height: 18px; 
+  display: flex;
+  align-items: center; 
+}
+
+.radio-success input {
+  accent-color: green; /* Estilo para radios exitosos */
+}
+
+.radio-danger input {
+  accent-color: red; /* Estilo para radios de peligro */
+}
+
+
+.radio-disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}

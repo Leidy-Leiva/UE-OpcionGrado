@@ -1,0 +1,23 @@
+.contenedor{
+@apply w-full;
+}
+
+.Enunciado
+{
+@apply w-full grid grid-cols-2 grid-rows-2 gap-2;
+}
+
+.title{
+@apply w-full  items-center justify-center;
+}
+.description
+{
+@apply  items-center justify-center;
+}
+.meses{
+@apply  items-center justify-center;
+}
+.btnADD{
+@apply flex justify-end;
+}
+

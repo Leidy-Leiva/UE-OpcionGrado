@@ -1,0 +1,8 @@
+<div class="contenedorGeneral">
+    <app-inline class="titulo" [value]='title' placeholder="Sección" variant="titulo"
+        (valueChange)="onTitleChange($event)">
+    </app-inline>
+    <app-inline class="Descripcion" placeholder="Descripcion de la sección" 
+        variant="subtitulo" [value]='description' (valueChange)="onDescriptionChange($event)">
+    </app-inline>
+</div>

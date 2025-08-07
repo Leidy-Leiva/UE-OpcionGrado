@@ -1,0 +1,10 @@
+<div class="label-dropdown-wrapper">
+  <app-label [for]="id" [content]="label"></app-label>
+
+  <app-dropdown class="dropdown"
+    [id]="id"
+    [options]="options"
+    [selectedValue]="selectedValue"
+    (valueChange)="valueChange.emit($event)">
+  </app-dropdown>
+</div>

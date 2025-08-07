@@ -15,6 +15,16 @@ builder.Services.AddControllers().AddJsonOptions(opt =>
     opt.JsonSerializerOptions.ReferenceHandler = ReferenceHandler.IgnoreCycles;
 });
 
+//Agregar el servicio de CORS
+builder.Services.AddCors(options=>{
+    options.AddPolicy("PoliticaCors",policy=>
+    {
+        policy.WithOrigins("http://localhost:4200")
+            .AllowAnyHeader()
+            .AllowAnyMethod();
+    });
+});
+
 var app = builder.Build();
 
 // Configuración del entorno
@@ -25,6 +35,8 @@ if (app.Environment.IsDevelopment())
 }
 
 app.UseHttpsRedirection();
+
+app.UseCors("PoliticaCors");
 // Endpoint de ejemplo
 var summaries = new[]
 {

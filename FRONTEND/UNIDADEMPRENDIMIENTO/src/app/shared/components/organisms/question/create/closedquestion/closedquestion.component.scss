@@ -1,0 +1,42 @@
+.pregunta-cerrada {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.opcion-radiobutton {
+   display: flex;
+  align-items: center;
+  flex-direction: row;
+  gap: 0.5rem;
+  padding: 0.5rem;
+  border-radius: 8px;
+
+}
+.opciones-container {
+  display: flex;
+  gap: 1.5rem;
+  flex-wrap: wrap;
+}
+
+.opciones-columna {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  flex: 1;
+  min-width: 150px;
+}
+
+.opcion-otra {
+  margin-top: 1rem;
+  display: flex;
+  gap: 0.5rem;
+}
+
+.addoption
+{
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+}
