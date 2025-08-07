@@ -1,4 +1,4 @@
-import { Component, ComponentRef, EventEmitter, inject, OnInit,Output,ViewChild, ViewContainerRef } from '@angular/core';
+import { Component, ComponentRef, EventEmitter, inject, Input, OnChanges, OnInit,Output,SimpleChanges,ViewChild, ViewContainerRef } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { LabelwithinputComponent } from '../../../../molecules/labelwithinput/labelwithinput.component';
 import { ElementtypeService } from 'src/app/core/services/element-type.service';
@@ -13,9 +13,15 @@ import { LabelComponent } from "src/app/shared/components/atoms/label/label.comp
   templateUrl: './formelements.component.html',
   styleUrls: ['./formelements.component.scss']
 })
-export class FormElementsComponent implements OnInit {
+export class FormElementsComponent implements OnInit , OnChanges{
+ @Input() initialData?: {
+    tipo: string;
+    pregunta: string;
+    options?: string[];
+  };
 
  private questionService= inject (ElementtypeService);
+
   questionOptions: { value: string; label: string }[] = [];
   selectedType: string = '';
   questionText: string = '';
@@ -48,7 +54,22 @@ export class FormElementsComponent implements OnInit {
     error:(err)=>console.error("Error cargando las opciones de elemento formulario:", err)
   });
 }
-
+  ngOnChanges(changes: SimpleChanges) {
+    if (changes['initialData'] && this.initialData) {
+      this.selectedType   = this.initialData.tipo;
+      this.questionText   = this.initialData.pregunta;
+      // carga el selector adecuado
+      this.loadQuestionComponent(this.selectedType).then(() => {
+        // si tenía opciones, asígnalas
+        const inst: any = this.currentComponentRef!.instance;
+        if (this.initialData!.options && inst.options !== undefined) {
+          inst.options = [...this.initialData!.options];
+        }
+        // emite el estado inicial
+        this.emitQuestionData();
+      });
+    }
+  }
 
   onSelectionChange(selected: string) {
     console.log("Tipo seleccionado:", selected);

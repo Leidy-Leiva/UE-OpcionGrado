@@ -1,5 +1,15 @@
-import {Component,Input,Output,EventEmitter,ViewChild,ViewContainerRef,ComponentRef,OnChanges,SimpleChanges,} from '@angular/core';
-import { CommonModule, provideCloudinaryLoader } from '@angular/common';
+import {
+  Component,
+  Input,
+  Output,
+  EventEmitter,
+  ViewChild,
+  ViewContainerRef,
+  ComponentRef,
+  OnChanges,
+  SimpleChanges,
+} from '@angular/core';
+import { CommonModule } from '@angular/common';
 import { ButtonwithicongroupComponent } from '../../../../shared/components/organisms/buttonwithicongroup/buttonwithicongroup.component';
 import { ButtonWithIconConfig } from 'src/app/shared/models/buttonwithicon-config';
 import { ButtonsFormService } from '../../Services/buttons-form.service';
@@ -12,8 +22,9 @@ import { SectionComponent } from '../Section/create-section/create-section.compo
 import { ElementsViewMapper } from 'src/app/shared/mappers/elements-view.mapper';
 import { FormElement } from 'src/app/shared/models/FormElement-config';
 import { FormElementsComponent } from 'src/app/shared/components/organisms/question/create/formelements/formelements.component';
-import { GetFormElements } from 'src/app/Features/generateElements/get/page/get-form-elements/get-form-elements.page';
 import { GetFormElementsComponent } from 'src/app/shared/components/organisms/question/view/get-form-elements/get-form-elements.component';
+import { CreateScheduleComponent } from '../Schedule/create-schedule/create-schedule.component';
+import { GetScheduleComponent } from '../Schedule/get-schedule/get-schedule.component';
 
 @Component({
   selector: 'app-formbuilder',
@@ -22,12 +33,13 @@ import { GetFormElementsComponent } from 'src/app/shared/components/organisms/qu
   templateUrl: './formbuilder.component.html',
   styleUrls: ['./formbuilder.component.scss'],
 })
-export class FormbuilderComponent implements  OnChanges {
+export class FormbuilderComponent implements OnChanges {
   @Input() typeForm: string = '';
-  @Input() questions: FormElement[] = []; 
-  typeDefault:string="";
-  definitionByType: Record<string, any> = {};
+  @Input() questions: FormElement[] = [];
   @Output() btnClick = new EventEmitter<string>();
+
+  typeDefault: string = '';
+  definitionByType: Record<string, any> = {};
 
   private lastWrapperRef: ComponentRef<WrapperComponent> | null = null;
   private lastType: string | null = null;
@@ -41,21 +53,46 @@ export class FormbuilderComponent implements  OnChanges {
 
   async ngOnChanges(changes: SimpleChanges) {
     if (changes['typeForm'] && this.typeForm) {
+      this.wrappersContainer.clear();
       this.loadButton();
     }
 
-     if (changes['questions'] && this.questions?.length > 0) {
-    for (const pregunta of this.questions) {
-      // 1) crear wrapper
-      const wr = this.wrappersContainer.createComponent(WrapperComponent);
-      wr.instance.delete.subscribe(() => wr.destroy());
-      // 2) renderizar en modo view pasándole la pregunta
-      await this.renderMode(wr, 'Crear_Pregunta', 'view', pregunta);
+    if (changes['questions'] && this.questions?.length > 0) {
+      console.log('🏷️ Formbuilder recibió preguntas:', this.questions);
+      for (const pregunta of this.questions) {
+        const wr = this.wrappersContainer.createComponent(WrapperComponent);
+        await this.renderMode(wr, 'Crear_Pregunta', 'view', pregunta);
+        wr.instance.delete.subscribe(() => wr.destroy());
+
+        wr.instance.edit.subscribe(() =>
+          this.onWrapperEdit(wr, 'Crear_Pregunta', pregunta)
+        );
+      }
+      this.questions = [];
     }
-    // opcional: limpia para no duplicar
-    this.questions = [];
   }
-}
+
+  private async onWrapperEdit(
+    clickedRef: ComponentRef<WrapperComponent>,
+    type: string,
+    tpreguntas?: FormElement
+  ) {
+    if (this.lastWrapperRef && this.lastWrapperRef !== clickedRef) {
+      await this.renderMode(this.lastWrapperRef, this.lastType!, 'view');
+    }
+
+    const newMode: 'view' | 'edit' =
+      clickedRef.instance.mode === 'view' ? 'edit' : 'view';
+    await this.renderMode(clickedRef, type, newMode, tpreguntas);
+
+    if (newMode === 'edit') {
+      this.lastWrapperRef = clickedRef;
+      this.lastType = type;
+    } else {
+      this.lastWrapperRef = null;
+      this.lastType = null;
+    }
+  }
 
   private loadButton(): void {
     this.buttonOptionForm = this.buttonsFormService.getButtonsTypeForm(
@@ -67,7 +104,6 @@ export class FormbuilderComponent implements  OnChanges {
     this.btnClick.emit(type);
 
     if (this.lastWrapperRef && this.lastType) {
-      await new Promise((resolve) => setTimeout(resolve, 100));
       await this.renderMode(this.lastWrapperRef, this.lastType, 'view');
     }
 
@@ -90,14 +126,14 @@ export class FormbuilderComponent implements  OnChanges {
     wrapperRef: ComponentRef<WrapperComponent>,
     type: string,
     mode: 'create' | 'view' | 'edit',
-    tpreguntas?:FormElement
+    tpreguntas?: FormElement
   ) {
     console.log(`[Formbuilder] renderMode: type='${type}' mode='${mode}'`);
 
     wrapperRef.instance.mode = mode;
     wrapperRef.instance.viewContainer.clear();
 
-    const mapper = mode === 'create' ? ElementsFormMapper : ElementsViewMapper;
+    const mapper = mode === 'view' ? ElementsViewMapper : ElementsFormMapper;
     const loader = mapper[type];
     if (!loader) return;
     const compType = await loader();
@@ -158,30 +194,68 @@ export class FormbuilderComponent implements  OnChanges {
       }
     } else if (type === 'Crear_Pregunta') {
       const createCmp = compRef.instance as FormElementsComponent;
-      const viewCmp=compRef.instance as GetFormElementsComponent;
-       if (mode === 'create') {
-        createCmp.questionCreated.subscribe((p)=>{
-          this.definitionByType['Crear_Pregunta']={
+      const viewCmp = compRef.instance as GetFormElementsComponent;
+      if (mode === 'create') {
+        createCmp.questionCreated.subscribe((p) => {
+          this.definitionByType['Crear_Pregunta'] = {
             ...p,
           };
         });
       } else {
-        const def=tpreguntas?{
-          type:tpreguntas.tipo,
-          questionText:tpreguntas.pregunta,
-          options:tpreguntas.options ?? [],
-          selected:tpreguntas.selected??(tpreguntas.tipo==='Multiple'?[]:'')
-        }
-        : this.definitionByType['Crear_Pregunta'] ?? {
-          type: 'Abierta',
-          questionText: 'Sin pregunta',
-          options: [],
-          selected: []
-        };
+        const def = tpreguntas
+          ? {
+              type: tpreguntas.tipo,
+              questionText: tpreguntas.pregunta,
+              options: tpreguntas.options ?? [],
+              selected:
+                tpreguntas.selected ??
+                (tpreguntas.tipo === 'Multiple' ? [] : ''),
+            }
+          : this.definitionByType['Crear_Pregunta'] ?? {
+              type: 'Abierta',
+              questionText: 'Sin pregunta',
+              options: [],
+              selected: [],
+            };
         viewCmp.question = def.questionText;
         viewCmp.typeQuestion = def.type;
         viewCmp.options = def.options ?? [];
         viewCmp.selected = def.selected ?? (def.type === 'Multiple' ? [] : '');
+      }
+    } else if (type === 'Cronograma') {
+      const createCmp = compRef.instance as CreateScheduleComponent;
+      const viewCmp = compRef.instance as GetScheduleComponent;
+
+      if (mode === 'create') {
+        createCmp.scheduleChange.subscribe((c) => {
+          this.definitionByType['Cronograma'] = {
+            ...c,
+          };
+        });
+      } else {
+        const def = this.definitionByType['Cronograma'] ?? {
+          title: 'Sin título',
+          enunciado: 'Sin enunciado',
+          startMonth: 1,
+          endMonth: 12,
+          rows: [],
+        };
+
+        console.log(
+          '[FormbuilderComponent] Asignando definition a viewCmp:',
+          def
+        );
+
+        viewCmp.definition = def;
+
+        viewCmp.ngOnChanges({
+          definition: {
+            previousValue: null,
+            currentValue: def,
+            firstChange: true,
+            isFirstChange: () => true,
+          },
+        });
       }
     }
   }

@@ -1,13 +1,84 @@
-<div class="Contenedor">
+<form [formGroup]="form" class="contenedor">
     <div class="Enunciado">
-         <app-labelwithinput class="LabelWithInput" label="Ingresa el enunciado:"
-            placeholder="Escribe aqui el enunciado..." [value]='title' (valueChange)="onTitleChange($event)">
-        </app-labelwithinput>
-        <app-labelwithinput class="LabelWithInput" label="Ingresa el enunciado:"
-            placeholder="Escribe aqui el enunciado..." [value]='enunciado' (valueChange)="onQuestionChange($event)">
-        </app-labelwithinput>
-    </div>
-    
-    
-</div>
+        <div class="title">
+            <app-labelwithinput label="Ingresa el titulo:" placeholder="Escribe aqui el enunciado..." [value]='title'
+                (valueChange)="onTitleChange($event)">
+            </app-labelwithinput>
+        </div>
 
+        <div class="description">
+            <app-labelwithinput label="Ingresa el enunciado:" placeholder="Escribe aqui el enunciado..."
+                [value]='enunciado' (valueChange)="onQuestionChange($event)">
+            </app-labelwithinput>
+        </div>
+
+        <div class="meses">
+            <label class="font-semibold">Meses: </label>
+            <span>De</span>
+            <input type="number" formControlName="startMonth" min="1" max="12" class="w-16 border rounded p-1"
+                [disabled]="false" />
+            <span>a</span>
+            <input type="number" formControlName="endMonth" min="1" max="12" class="w-16 border rounded p-1" />
+            
+            <div *ngIf="form.errors?.['rangeInvalid']" class="text-red-600 text-sm">
+                El mes de inicio debe ser menor o igual que el mes de fin.
+            </div>
+
+        </div>
+        <div class="btnADD">
+            <app-buttonwithicon class="btnadd" [buttonConfig]='btnadd' (btnClick)='addRows()'>
+            </app-buttonwithicon>
+        </div>
+    </div>
+
+    <div class="overflow-x-auto">
+        <table class="w-full table-auto border-collapse">
+            <thead>
+                <tr>
+                    <th class="border px-2 py-1 bg-gray-100">
+                        {{ form.get('firstColumnLabel')!.value }}
+                    </th>
+                    <th *ngFor="let m of monthHeaders" class="border px-2 py-1 bg-gray-100 text-center"
+                        [attr.colspan]="4">
+                        {{ m.name }}
+                    </th>
+                    <th class="border px-2 py-1 bg-gray-100">&nbsp;</th>
+                </tr>
+
+                <tr>
+                    <th class="border px-2 py-1 bg-gray-50"></th>
+                    <ng-container *ngFor="let m of monthHeaders">
+                        <th *ngFor="let w of m.weeks" class="border px-1 py-1 bg-gray-100 text-center text-xs">
+                            {{ w }}
+                        </th>
+                    </ng-container>
+                    <th class="border px-2 py-1 bg-gray-50"></th>
+                </tr>
+            </thead>
+            <tbody formArrayName="rows">
+                <tr *ngFor="let row of rows.controls; let i = index" [formGroupName]="i">
+                    <td class="border px-2 py-1">
+                        <input type="text" formControlName="label" placeholder="Nombre de actividad"
+                            class="w-full border rounded p-1" />
+                    </td>
+                    <ng-container formArrayName="values">
+                        <ng-container *ngFor="let monthCtrl of getValues(i).controls; let mi = index">
+                            <ng-container [formGroupName]="mi">
+                                <td *ngFor="let weekCtrl of asFormArray(monthCtrl).controls; let wi = index"
+                                    class="border px-1 py-1 text-center">
+                                    <app-check-box [control]="castToFormControl(weekCtrl)"></app-check-box>
+                                </td>
+                            </ng-container>
+                        </ng-container>
+                    </ng-container>
+
+                    <td class="border px-2 py-1 text-center">
+                        <app-buttonwithicon class="btn-x" [buttonConfig]="btndelete" (btnClick)="removeRow(i)">
+                        </app-buttonwithicon>
+
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</form>

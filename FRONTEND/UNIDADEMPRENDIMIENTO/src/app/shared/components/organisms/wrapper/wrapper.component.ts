@@ -19,35 +19,41 @@ import { ButtonWithIconConfig } from 'src/app/shared/models/buttonwithicon-confi
 })
 export class WrapperComponent {
   @Input() mode: 'create' | 'edit' | 'view' = 'view';
-  @Output() delete = new EventEmitter<void>();
-  @Output() edit=new EventEmitter<void>();
 
-@ViewChild('componentsForm', { read: ViewContainerRef, static: true })
-viewContainer!: ViewContainerRef;
+  @Output() delete = new EventEmitter<void>();
+  @Output() edit = new EventEmitter<void>();
+
+  @ViewChild('componentsForm', { read: ViewContainerRef, static: true })
+  viewContainer!: ViewContainerRef;
 
   buttondelete: ButtonWithIconConfig = {
-    title:'Eliminar',
+    title: 'Eliminar',
     icon: 'delete',
     classList: 'btnDelete',
     typeButton: 'button',
     disabled: false,
     iconColor: '#ffffff',
-    showText:false,
-    action: 'delete'
+    showText: false,
+    action: 'delete',
   };
 
   onDelete() {
     this.delete.emit();
   }
 
- onWrapperClick(event: MouseEvent) {
-  const target = event.target as HTMLElement;
-
-  if (target.closest('.btnDelete')) {
-    return;
+  clear() {
+  this.viewContainer.clear();
   }
 
-  this.edit.emit();
+  onWrapperClick(event: MouseEvent) {
+    const target = event.target as HTMLElement;
+
+    if (target.closest('.btnDelete')) {
+      return;
+    }
+
+    if (event.target === event.currentTarget) {
+      this.edit.emit();
+    }
+  }
 }
-}
-    

@@ -113,6 +113,8 @@ export class GetFormElements implements OnInit {
   }
 
   ngOnInit(): void {
+  
+    this.total = this.preguntas.length;
     this.loadData();
   }
 

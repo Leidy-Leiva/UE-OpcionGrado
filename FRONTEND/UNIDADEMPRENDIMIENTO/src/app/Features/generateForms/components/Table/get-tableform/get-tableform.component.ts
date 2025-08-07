@@ -38,7 +38,6 @@ export class GetTableformComponent implements OnInit {
     typeButton: 'button',
     disabled: false,
     iconColor: '#E43C3F',
-    action: 'removeOption',
     typeIcon: 'fontawesome',
   };
 

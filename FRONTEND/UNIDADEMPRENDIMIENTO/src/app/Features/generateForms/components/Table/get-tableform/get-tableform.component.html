@@ -5,7 +5,7 @@
       </app-label>
     </div>
     <div class="buttons">
-      <app-buttonwithicon class="btn-add" [buttonConfig]="btnadd" (click)="addRow() ">
+      <app-buttonwithicon class="btnadd" [buttonConfig]="btnadd" (click)="addRow() ">
       </app-buttonwithicon>
     </div>
   </div>
@@ -21,7 +21,7 @@
           <input class="form-control" [formControlName]="col.key" [readonly]="col.isCalculated" type="text" placeholder="ingresa texto" />
         </td>
         <td>
-          <app-buttonwithicon class="btn btn-danger btn-sm" [buttonConfig]="btndelete" (click)="removeRow(i)">
+          <app-buttonwithicon class="btn-x" [buttonConfig]="btndelete" (click)="removeRow(i)">
           </app-buttonwithicon>
         </td>
       </tr>

@@ -1,27 +1,5 @@
-/* label-with-input.component.scss */
 
 .label-input-container {
-  display: flex;
-  flex-direction: column;
-  gap: var(--label-input-gap, 0.5rem);
-  width: var(--label-input-width, 100%);
-  max-width: var(--label-input-max-width, 100%);
-  box-sizing: border-box;
-  align-items: var(--label-input-align, stretch);
-  padding: var(--label-input-padding, 0); /* Por si se quiere espaciar */
+  @apply w-full p-0.5;
 }
 
-.label {
-  font-size: var(--label-font-size, 1rem);
-  color: var(--label-color, black);
-  font-family: var(--label-font-family, sans-serif);
-  margin-bottom: var(--label-margin-bottom, 0);
-}
-
-.input {
-  width: var(--input-width, 100%);
-  max-width: var(--input-max-width, 100%);
-  height: var(--input-height, auto);
-  box-sizing: border-box;
-  border:var(--borderinput);
-}

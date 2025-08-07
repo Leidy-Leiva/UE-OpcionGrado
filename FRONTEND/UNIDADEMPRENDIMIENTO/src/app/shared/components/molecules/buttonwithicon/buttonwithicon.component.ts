@@ -24,4 +24,5 @@ export class ButtonwithiconComponent {
   get iconType(): 'material' | 'fontawesome' | 'bootstrap' {
     return this.buttonConfig.typeIcon ?? 'material';
   }
+
 }

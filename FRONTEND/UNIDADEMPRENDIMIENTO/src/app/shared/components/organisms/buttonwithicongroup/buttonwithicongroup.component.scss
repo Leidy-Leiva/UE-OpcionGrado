@@ -1,6 +1,6 @@
 /* button-group.component.scss */
 .buttonIcon-group {
-    @apply w-full flex p-0.5;
+    @apply flex p-0.5 w-auto;
     flex-direction: var(--flexD);
     align-items: var(--alingI);
     gap:var(--gap,8px) ;

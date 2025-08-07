@@ -1,1 +1,60 @@
-<p>get-schedule works!</p>
+<div *ngIf="form" [formGroup]="form" class="contenido">
+
+        <div class="T">
+            <app-label [content]="title" class="title"></app-label>
+        </div>
+        <div class="D">
+             <app-label [content]="enunciado" class="description"></app-label>
+        </div>
+
+        <div class="btnADD">
+            <app-buttonwithicon class="btnadd" [buttonConfig]="btnadd" (btnClick)="addRows()"></app-buttonwithicon>
+        </div>
+
+    <div class="overflow-x-auto body">
+        <table class="w-full table-auto border-collapse">
+            <thead>
+                <tr>
+                    <th class="border px-2 py-1 bg-gray-100">
+                        Actividad
+                    </th>
+                    <th *ngFor="let m of monthHeaders()" class="border px-2 py-1 bg-gray-100 text-center"
+                        [attr.colspan]="4">
+                        Mes {{ m }}
+                    </th>
+                    <th class="border px-2 py-1 bg-gray-100">&nbsp;</th>
+                </tr>
+                <tr>
+                    <th class="border px-2 py-1 bg-gray-50"></th>
+                    <ng-container *ngFor="let m of monthHeaders()">
+                        <th *ngFor="let w of [1,2,3,4]" class="border px-1 py-1 bg-gray-100 text-center text-xs">{{ w }}
+                        </th>
+                    </ng-container>
+                    <th class="border px-2 py-1 bg-gray-50"></th>
+                </tr>
+            </thead>
+            <tbody formArrayName="rows">
+                <tr *ngFor="let row of rows.controls; let i = index" [formGroupName]="i">
+                    <td class="border px-2 py-1">
+                        <input type="text" formControlName="label" placeholder="Nombre de actividad"
+                            class="w-full border rounded p-1" />
+                    </td>
+                    <ng-container formArrayName="values">
+                        <ng-container *ngFor="let monthCtrl of getValues(i).controls; let mi = index">
+                            <ng-container [formGroupName]="mi">
+                                <td *ngFor="let weekCtrl of asFormArray(monthCtrl).controls; let wi = index"
+                                    class="border px-1 py-1 text-center">
+                                    <app-check-box [control]="castToFormControl(weekCtrl)"></app-check-box>
+                                </td>
+                            </ng-container>
+                        </ng-container>
+                    </ng-container>
+                    <td class="border px-2 py-1 text-center">
+                        <app-buttonwithicon class="btn-x" [buttonConfig]="btndelete"
+                            (btnClick)="removeRow(i)"></app-buttonwithicon>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>

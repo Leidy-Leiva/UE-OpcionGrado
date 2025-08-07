@@ -5,10 +5,6 @@ export const ElementsViewMapper: Record<string, () => Promise<Type<any>>> = {
     import('../components/organisms/question/view/get-form-elements/get-form-elements.component').then(
        (p) => p.GetFormElementsComponent),
 
-  // Traer_Preguntas:()=>
-  //   import('../../Features/generateForms/components/get-question/get-question.component').then(
-  //     (gq)=>gq.GetQuestionComponent),
-      
    Seccion: () =>
     import(
        '../../Features/generateForms/components/Section/get-section/get-section.component').then(
@@ -18,4 +14,10 @@ export const ElementsViewMapper: Record<string, () => Promise<Type<any>>> = {
     import(
       '../../Features/generateForms/components/Table/get-tableform/get-tableform.component').then(
         (t) => t.GetTableformComponent),
+
+
+  Cronograma:()=>
+    import(
+      '../../Features/generateForms/components/Schedule/get-schedule/get-schedule.component').then(
+        (c)=>c.GetScheduleComponent)
 };

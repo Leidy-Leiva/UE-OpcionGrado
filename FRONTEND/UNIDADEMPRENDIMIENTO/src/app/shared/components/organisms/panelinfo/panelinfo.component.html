@@ -11,8 +11,14 @@
         [(ngModel)]="selectedProgram">
       </app-dropdown>
 
-      <app-label *ngFor="let field of infoFields" [content]="field.label + ': ' + field.value">
+      <app-label *ngFor="let field of infoFields" [content]="field.label  + field.value">
       </app-label>
     </div>
 
 </app-card>
+
+
+    
+
+
+
