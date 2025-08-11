@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Api.UnidadEmprendimiento.Application.DTO_s.GEST_FORM.Respuesta
 {
-    public class PutRespuestaDTO
+    public class PutBORElementoDTO
     {
     }
 }

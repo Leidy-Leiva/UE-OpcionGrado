@@ -19,9 +19,9 @@ namespace Api.UnidadEmprendimiento.Application.Services
 
         public async Task<PostTipoElementoDTO> Registrar(PostTipoElementoDTO modelDTO)
         {
-              Console.WriteLine($"Antes de mapear: {modelDTO.TPEF_NOMBRE}"); // Debug
+              Console.WriteLine($"Antes de mapear: {modelDTO.TPEF_NOMBRE}"); 
             var tipoelemento = _mapper.Map<TipoElementoFormulario>(modelDTO);
-                Console.WriteLine($"Después de mapear: {tipoelemento.TPEF_NOMBRE}"); // Debug
+                Console.WriteLine($"Después de mapear: {tipoelemento.TPEF_NOMBRE}"); 
 
             await _teforepository.PostTipoElemento(tipoelemento);
             return modelDTO;
