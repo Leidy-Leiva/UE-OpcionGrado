@@ -19,6 +19,7 @@ namespace Api.UnidadEmprendimiento.Application
             services.AddTransient<IDateTime, DateTimeService>();
             services.AddTransient<ITipoElementoService, TipoElementoService>();
             services.AddTransient<ITipoFormularioService, TipoFormularioService>();
+            services.AddTransient<BancoElementoFormularioService,BancoElementoFormularioService>();
 
             services.AddHttpClient<IAuthService, AuthService>(client =>
 {
