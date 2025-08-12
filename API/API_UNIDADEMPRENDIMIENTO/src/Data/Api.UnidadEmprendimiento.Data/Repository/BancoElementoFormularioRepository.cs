@@ -9,6 +9,12 @@ namespace Api.UnidadEmprendimiento.Data.Repository
     public class BancoElementoFormularioRepository : IBancoElementoFormularioRepository
     {
         private readonly ApplicationDbContext _context;
+
+        public BancoElementoFormularioRepository(ApplicationDbContext context)
+        {
+            _context = context;
+        }
+
         public Task<bool> DeleteBancoElemento(int id)
         {
             throw new NotImplementedException();
@@ -18,7 +24,9 @@ namespace Api.UnidadEmprendimiento.Data.Repository
         {
             try
             {
-                var beformulario = await _context.BancoElementoFormularios.ToListAsync();
+                var beformulario = await _context.BancoElementoFormularios
+                    .Include(be => be.BANCOOPCRESELEMENTOS)
+                    .ToListAsync();
                 return beformulario;
             }
             catch (Exception e)

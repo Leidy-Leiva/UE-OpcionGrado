@@ -1,4 +1,4 @@
-namespace Api.UnidadEmprendimiento.Application.DTO_s.GEST_FORM.Respuesta
+namespace Api.UnidadEmprendimiento.Application.DTO_s.GEST_FORM.BancoOpcResElemento
 {
     public class GetBORElementoDTO
     {

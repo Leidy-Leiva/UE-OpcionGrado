@@ -19,11 +19,11 @@ namespace Api.UnidadEmprendimiento.Application
             services.AddTransient<IDateTime, DateTimeService>();
             services.AddTransient<ITipoElementoService, TipoElementoService>();
             services.AddTransient<ITipoFormularioService, TipoFormularioService>();
-            services.AddTransient<BancoElementoFormularioService,BancoElementoFormularioService>();
+            services.AddTransient<IBancoElementoFormularioService, BancoElementoFormularioService>();
 
             services.AddHttpClient<IAuthService, AuthService>(client =>
 {
-  client.BaseAddress = new Uri(configuration["AuthApi:BaseUrl"]);
+    client.BaseAddress = new Uri(configuration["AuthApi:BaseUrl"]);
 });
 
         }

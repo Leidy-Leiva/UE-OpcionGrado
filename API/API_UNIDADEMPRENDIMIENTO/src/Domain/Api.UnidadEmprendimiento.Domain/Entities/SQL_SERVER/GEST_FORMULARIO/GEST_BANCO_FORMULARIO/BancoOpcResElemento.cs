@@ -10,6 +10,6 @@ namespace Api.UnidadEmprendimiento.Domain.Entities.SQL_SERVER.GEST_FORMULARIO.GE
         public bool? BORE_ESTADO {get; set;}
         public int? BORE_ORDEN {get;set;}
         public int BEFO_CODIGO {get; set;}
-        public BancoElementoFormulario BELEMENTOF {get; set;}=null!;
+        public BancoElementoFormulario? BELEMENTOF {get; set;}=null!;
     }
 }

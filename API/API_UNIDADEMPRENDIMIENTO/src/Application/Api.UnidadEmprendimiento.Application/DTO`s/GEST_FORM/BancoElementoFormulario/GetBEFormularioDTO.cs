@@ -1,11 +1,9 @@
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using Api.UnidadEmprendimiento.Application.DTO_s.GEST_FORM.Respuesta;
 
-namespace Api.UnidadEmprendimiento.Application.DTO_s.GEST_FORM.Pregunta
+using Api.UnidadEmprendimiento.Application.DTO_s.GEST_FORM.BancoOpcResElemento;
+
+
+
+namespace Api.UnidadEmprendimiento.Application.DTO_s.GEST_FORM.BancoElementoFormulario
 {
     public class GetBEFormularioDTO
     {

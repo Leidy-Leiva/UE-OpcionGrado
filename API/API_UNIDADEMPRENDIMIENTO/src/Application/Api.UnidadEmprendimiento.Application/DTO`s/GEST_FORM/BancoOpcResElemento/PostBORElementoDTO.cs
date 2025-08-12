@@ -1,14 +1,11 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿
 
-namespace Api.UnidadEmprendimiento.Application.DTO_s.GEST_FORM.Respuesta
+namespace Api.UnidadEmprendimiento.Application.DTO_s.GEST_FORM.BancoOpcResElemento
 {
-    public class PostBORRElementoDTO
+    public class PostBORElementoDTO
     {
         public string? BORE_VALOR { get; set; }
-        public int? BORE_ORDEN {get;set;}
+        public int? BORE_ORDEN { get; set; }
+
     }
 }

@@ -1,4 +1,5 @@
-using Api.UnidadEmprendimiento.Application.DTO_s.GEST_FORM.Pregunta;
+using Api.UnidadEmprendimiento.Application.DTO_s.GEST_FORM.BancoElementoFormulario;
+
 
 namespace Api.UnidadEmprendimiento.Application.Interfaces
 {
