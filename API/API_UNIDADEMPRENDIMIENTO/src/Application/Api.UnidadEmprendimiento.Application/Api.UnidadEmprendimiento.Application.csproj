@@ -18,6 +18,7 @@
     <Folder Include="DTO`s\GEST_EVAL\" />
     <Folder Include="DTO`s\GEST_PROP\" />
     <Folder Include="DTO`s\GEST_USUA\" />
+    <Folder Include="DTO`s\GEST_FORM\" />
   </ItemGroup>
   <PropertyGroup>
     <TargetFramework>net8.0</TargetFramework>

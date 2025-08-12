@@ -1,4 +1,5 @@
-using Api.UnidadEmprendimiento.Application.DTO_s.GEST_FORM.Pregunta;
+
+using Api.UnidadEmprendimiento.Application.DTO_s.GEST_FORM.BancoElementoFormulario;
 using Api.UnidadEmprendimiento.Application.Interfaces;
 using Api.UnidadEmprendimiento.Domain.Entities.SQL_SERVER.GEST_FORMULARIO;
 using Api.UnidadEmprendimiento.Domain.Interfaces;
@@ -16,6 +17,12 @@ namespace Api.UnidadEmprendimiento.Application.Services
             _befrepository = befrepository;
             _mapper = mapper;
         }
+
+        public async Task<List<GetBEFormularioDTO>> MostrarPreguntas()
+        {
+            var beformulario = await _befrepository.GetAllBancoElemento();
+            return _mapper.Map<List<GetBEFormularioDTO>>(beformulario);
+        }
         public async Task<PostBEFormularioDTO> Registrar(PostBEFormularioDTO modelDTO)
         {
 
@@ -25,16 +32,13 @@ namespace Api.UnidadEmprendimiento.Application.Services
 
             return modelDTO;
         }
-        public Task<bool> Actualizar(PutBEFormularioDTO modelDTO)
+        public async Task<bool> Actualizar(PutBEFormularioDTO modelDTO)
         {
-            throw new NotImplementedException();
+            var beformulario = _mapper.Map<BancoElementoFormulario>(modelDTO);
+            return await _befrepository.PutBancoElemento(beformulario);
         }
 
-        public async Task<List<GetBEFormularioDTO>> MostrarPreguntas()
-        {
-            var beformulario = await _befrepository.GetAllBancoElemento();
-            return _mapper.Map<List<GetBEFormularioDTO>>(beformulario);
-        }
+
 
 
     }

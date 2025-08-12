@@ -32,6 +32,7 @@ namespace Api.UnidadEmprendimiento.Data
         {
             services.AddTransient<ITipoElementoRepository, TipoElementoRepository>();
             services.AddTransient<ITipoFormularioRepository, TipoFormularioRepository>();
+            services.AddTransient<IBancoElementoFormularioRepository, BancoElementoFormularioRepository>();
             // services.AddTransient<IUsuarioRepository, UsuarioRepository>();
 
         }

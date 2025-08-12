@@ -7,7 +7,7 @@ namespace Api.UnidadEmprendimiento.Domain.Entities.SQL_SERVER.GEST_FORMULARIO
     {
         public int BEFO_CODIGO {get; set; }
         public string? BEFO_ENUNCIADO {get; set; }
-        public int? BEFO_ORDEN {get; set;}
+        public int BEFO_ORDEN {get; set;}
         public bool? BEFO_ESTADO {get; set;}
         public int TEFO_CODIGO {get; set;}
         public string? BEFO_DATOSJSON { get; set; }   
