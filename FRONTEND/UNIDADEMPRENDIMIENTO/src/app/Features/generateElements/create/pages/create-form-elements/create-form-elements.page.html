@@ -17,7 +17,10 @@
   </div>
 
   <div modal-content>
-      <app-form-elements></app-form-elements>
+      <app-form-elements
+      (questionCreated)="onQuestionCreated($event)">
+
+      </app-form-elements>
   </div>
 
   <div modal-action class="actions">

@@ -1,6 +1,8 @@
 using System.Text.Json.Serialization;
 using Api.UnidadEmprendimiento.Application;
+using Api.UnidadEmprendimiento.Application.Validators;
 using Api.UnidadEmprendimiento.Data;
+using FluentValidation;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -14,6 +16,9 @@ builder.Services.AddControllers().AddJsonOptions(opt =>
 {
     opt.JsonSerializerOptions.ReferenceHandler = ReferenceHandler.IgnoreCycles;
 });
+
+builder.Services.AddValidatorsFromAssemblyContaining<PostBEFormularioDTOValidator>();
+
 
 //Agregar el servicio de CORS
 builder.Services.AddCors(options=>{

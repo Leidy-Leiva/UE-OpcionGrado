@@ -43,7 +43,7 @@ export class MultiplechoicequestionComponent {
   } else {
     this.selectedIndices = this.selectedIndices.filter(i => i !== index);
   }
-  // Opcional: actualizas `selected` con los textos
+
   this.selected = this.selectedIndices.map(i => this.options[i]);
   this.selectedChange.emit(this.selected);
 }
@@ -51,6 +51,7 @@ export class MultiplechoicequestionComponent {
   addOption() {
     this.options.push('');
     this.optionsChange.emit(this.options);
+    console.log("Estas son las opciones",this.options)
   }
 
   updateOption(index: number, value: string) {

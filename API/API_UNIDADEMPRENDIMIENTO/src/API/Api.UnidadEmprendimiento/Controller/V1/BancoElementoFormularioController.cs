@@ -24,10 +24,24 @@ namespace Api.UnidadEmprendimiento.Controller.V1
         }
 
         [HttpPost("PostBancoElemento")]
-        public async Task<IActionResult> Create(PostBEFormularioDTO dto)
+        public async Task<IActionResult> Create([FromBody] PostBEFormularioDTO dto)
         {
-            var result = await _befservice.Registrar(dto);
-            return Ok(result);
+            if (!ModelState.IsValid)
+                return BadRequest(new { errors = ModelState });
+
+            try
+            {
+                var result = await _befservice.Registrar(dto);
+                return Created("", result);
+            }
+            catch (InvalidOperationException ex)
+            {
+                return BadRequest(new { message = ex.Message });
+            }
+            catch (Exception ex)
+            {
+                return StatusCode(500, new { message = "Error interno" });
+            }
         }
 
         [HttpPut]

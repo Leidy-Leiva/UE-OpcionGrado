@@ -9,6 +9,7 @@ namespace Api.UnidadEmprendimiento.Domain.Interfaces
         Task<bool> PostBancoElemento(BancoElementoFormulario model);
         Task<bool> PutBancoElemento(BancoElementoFormulario model);
         Task<bool> DeleteBancoElemento(int id);
+        Task<int> GetNextOrdenForType(int tefoCodigo);
 
     }
 }
