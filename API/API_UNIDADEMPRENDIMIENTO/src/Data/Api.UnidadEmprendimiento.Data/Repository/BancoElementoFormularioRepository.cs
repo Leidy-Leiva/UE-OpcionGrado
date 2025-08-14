@@ -26,6 +26,7 @@ namespace Api.UnidadEmprendimiento.Data.Repository
             {
                 var beformulario = await _context.BancoElementoFormularios
                     .Include(be => be.BANCOOPCRESELEMENTOS)
+                    .Include(be => be.TIPOELEMENTOF)
                     .ToListAsync();
                 return beformulario;
             }
@@ -57,6 +58,14 @@ namespace Api.UnidadEmprendimiento.Data.Repository
         {
             _context.Update(model);
             return await _context.SaveChangesAsync() > 0;
+        }
+
+        public async Task<int> GetNextOrdenForType(int tefoCodigo)
+        {
+            var maxOrden = await _context.BancoElementoFormularios
+                .Where(b => b.TEFO_CODIGO == tefoCodigo)
+                .MaxAsync(b => (int?)b.BEFO_ORDEN) ?? 0;
+            return maxOrden + 1;
         }
     }
 }

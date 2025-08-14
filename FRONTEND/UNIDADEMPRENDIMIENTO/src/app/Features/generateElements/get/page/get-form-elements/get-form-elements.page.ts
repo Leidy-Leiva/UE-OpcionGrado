@@ -1,4 +1,11 @@
-import {Component,ComponentRef,OnInit,ViewChild, ViewContainerRef,Output,EventEmitter
+import {
+  Component,
+  ComponentRef,
+  OnInit,
+  ViewChild,
+  ViewContainerRef,
+  Output,
+  EventEmitter,
 } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { HeaderComponent } from 'src/app/shared/components/organisms/header/header.component';
@@ -12,6 +19,9 @@ import { FormElement } from 'src/app/shared/models/FormElement-config';
 import { ModalComponentMapper } from 'src/app/shared/mappers/generate-elements.mapper';
 import { Sort } from '@angular/material/sort';
 import { ButtonwithicongroupComponent } from 'src/app/shared/components/organisms/buttonwithicongroup/buttonwithicongroup.component';
+import { BancoElementoService } from 'src/app/core/services/banco-elemento.service';
+import { GetBEFormularioDTO } from 'src/app/core/models/ELEMENTSFORM/GetBEFormularioDTO';
+import { TipoElemento } from 'src/app/core/models/ELEMENTSFORM/TipoElemento';
 
 @Component({
   selector: 'app-get-form-elements',
@@ -22,7 +32,7 @@ import { ButtonwithicongroupComponent } from 'src/app/shared/components/organism
     SeekerComponent,
     ButtonwithicongroupComponent,
     TableComponent,
-    ButtonwithiconComponent
+    ButtonwithiconComponent,
   ],
   templateUrl: './get-form-elements.page.html',
   styleUrls: ['./get-form-elements.page.scss'],
@@ -35,27 +45,35 @@ export class GetFormElements implements OnInit {
 
   @Output() edit = new EventEmitter();
   @Output() delete = new EventEmitter();
-  // Configuración de columnas para este componente
 
-  buttontable:ButtonWithIconConfig[]=[
-    {icon: 'edit', classList: 'btnEdit', typeButton: 'button', disabled: false, iconColor:'#ffffff', action: 'edit' },
-    {icon: 'delete', classList: 'btnDelete', typeButton: 'button', disabled: false, iconColor:'#ffffff', action: 'delete' },
-  ]
+  constructor(private bancoElementoService: BancoElementoService) {}
 
+  buttontable: ButtonWithIconConfig[] = [
+    {
+      icon: 'edit',
+      classList: 'btnEdit',
+      typeButton: 'button',
+      disabled: false,
+      iconColor: '#ffffff',
+      action: 'edit',
+    },
+    {
+      icon: 'delete',
+      classList: 'btnDelete',
+      typeButton: 'button',
+      disabled: false,
+      iconColor: '#ffffff',
+      action: 'delete',
+    },
+  ];
 
   columns: ColumnDef<FormElement>[] = [
     { key: 'tipo', label: 'Tipo de pregunta' },
-    { key: 'pregunta', label: 'Pregunta' },
+    { key: 'pregunta', label: 'Enunciado' },
   ];
 
   // Datos y paginación
-  preguntas: FormElement[] = [
-    { tipo: 'Cerrada', pregunta: '¿Está Libre?' },
-    { tipo: 'Abierta', pregunta: 'Describa su experiencia' },
-    { tipo: 'Opción Múltiple', pregunta: 'Elija su color favorito' },
-    { tipo: 'Cerrada', pregunta: '¿Aprueba el cambio?' },
-    { tipo: 'Abierta', pregunta: 'Comentarios adicionales' },
-  ]; // aquí llenas con tu servicio
+  preguntas: FormElement[] = []; // aquí llenas con tu servicio
   total = 0; // total de registros para paginador
   pageSize = 10; // filas por página
 
@@ -68,8 +86,6 @@ export class GetFormElements implements OnInit {
     action: 'crear',
     typeIcon: 'fontawesome',
   };
-
-  constructor() {}
 
   async handleAction(action: string, payload?: any): Promise<void> {
     this.modalHost.clear();
@@ -113,39 +129,34 @@ export class GetFormElements implements OnInit {
   }
 
   ngOnInit(): void {
-  
     this.total = this.preguntas.length;
     this.loadData();
   }
 
-  loadData(sort?: Sort, page?: PageEvent): void {
-    //   const params = {
-    //     page: page?.pageIndex ?? 0,
-    //     size: page?.pageSize ?? this.pageSize,
-    //     sort: sort?.active ?? '',
-    //     dir: sort?.direction ?? ''
-    //   };
-    //   this.elementService.getAll(params)
-    //     .subscribe(res => {
-    //       this.preguntas = res.items;
-    //       this.total = res.total;
-    //     });
+  loadData(): void {
+    this.bancoElementoService.getAll().subscribe({
+      next: (res: GetBEFormularioDTO[]) => {
+        console.log('Datos crudos del backend:', res);
+        this.preguntas = res.map((item) => ({
+          tipo: TipoElemento[+item.tefO_CODIGO], // convierte string a number y busca el enum
+          pregunta: item.befO_ENUNCIADO,
+        }));
+        this.total = this.preguntas.length;
+      },
+      error: (err) => console.error('Error al obtener datos:', err),
+    });
   }
 
-  onSort(sort: Sort): void {
-    this.loadData(sort, undefined);
-  }
+  onSort(sort: Sort): void {}
 
-  onPage(page: PageEvent): void {
-    this.loadData(undefined, page);
-  }
+  onPage(page: PageEvent): void {}
 
-    onAction(action: string): void {
+  onAction(action: string): void {
     if (action === 'edit') {
       this.edit.emit();
     }
     if (action === 'delete') {
       this.delete.emit();
     }
-}
+  }
 }

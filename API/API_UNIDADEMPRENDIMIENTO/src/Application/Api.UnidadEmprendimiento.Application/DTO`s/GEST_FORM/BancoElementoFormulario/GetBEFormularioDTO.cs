@@ -9,6 +9,7 @@ namespace Api.UnidadEmprendimiento.Application.DTO_s.GEST_FORM.BancoElementoForm
     {
         public string? BEFO_ENUNCIADO { get; set; }
         public string TEFO_CODIGO { get; set; }
+          public string TEFO_NOMBRE { get; set; }
         public List<GetBORElementoDTO> BANCOOPCRESELEMENTOS { get; set; }
     }
 }

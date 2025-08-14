@@ -26,6 +26,7 @@ namespace Api.UnidadEmprendimiento.Application
     client.BaseAddress = new Uri(configuration["AuthApi:BaseUrl"]);
 });
 
+          
         }
     }
 
